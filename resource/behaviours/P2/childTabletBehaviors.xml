@@ -1,0 +1,13 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    {
+    "showClickablePicture" : {
+        "id":"img" ,
+        "text" : " ",
+        "imageFile":"zeno_face",
+        "clickableAreas" : [
+            {"id":"a1","value":"100;164;43;209;eyebrows"},
+            {"id":"a2","value":"100;212;20;200;eyes"},
+            {"id":"a3","value":"140;275;50;135;mouth"}]
+        }
+    }
+</mwe:sendJsonMessage>

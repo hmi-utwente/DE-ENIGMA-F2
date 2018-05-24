@@ -1,0 +1,13 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    {
+    "showClickablePicture" : {
+    "id":"img" ,
+    "text" : " ",
+    "imageFile":"clickable_features_angry",
+    "clickableAreas" : [
+    {"id":"a1","value":"390;565;240;1225;moveEyebrowsAngry"},
+    {"id":"a2","value":"455;945;200;1125;moveEyesAngry"},
+    {"id":"a3","value":"760;1350;375;500;moveMouthAngry"}]
+    }
+    }
+</mwe:sendJsonMessage>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>DenverEmotion_angry.xml</Name>
+		<Number>1.1</Number>
+	</Version>
+	<Channels>
+		<Channel id="300" name="Brows_Up">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>5.0</Time><Position>0.4991652754590985</Position></ControlPoint>
+						<ControlPoint><Time>265.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>2741.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>3131.0</Time><Position>0.4958263772954925</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="320" name="LtSmile">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>4.0</Time><Position>0.4958263772954925</Position></ControlPoint>
+						<ControlPoint><Time>265.0</Time><Position>0.055118110236220486</Position></ControlPoint>
+						<ControlPoint><Time>2648.0</Time><Position>0.06010016694490816</Position></ControlPoint>
+						<ControlPoint><Time>3131.0</Time><Position>0.4974958263772955</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="321" name="RtSmile">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.508</Position></ControlPoint>
+						<ControlPoint><Time>265.0</Time><Position>0.12755905511811028</Position></ControlPoint>
+						<ControlPoint><Time>2674.0</Time><Position>0.12854757929883143</Position></ControlPoint>
+						<ControlPoint><Time>3125.0</Time><Position>0.4991652754590985</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="322" name="Jaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.1585976627712855</Position></ControlPoint>
+						<ControlPoint><Time>151.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>2767.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>3111.0</Time><Position>0.1552587646076795</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="301" name="Blink_Open">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>26.0</Time><Position>0.8697829716193656</Position></ControlPoint>
+						<ControlPoint><Time>384.0</Time><Position>0.994991652754591</Position></ControlPoint>
+						<ControlPoint><Time>2813.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>3144.0</Time><Position>0.8731218697829717</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

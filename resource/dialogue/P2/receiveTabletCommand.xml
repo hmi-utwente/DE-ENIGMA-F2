@@ -1,0 +1,86 @@
+<behaviourtemplates>
+
+	<is name="tablet">
+		{	
+			"initialised" : false,
+			"adult" : {
+				"buttonPress" : {
+					"buttonID" : "none"
+				} 
+			},
+			"child" : {
+				"clickableAreaPressed" : {
+					"areaID" : "none"
+				}
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		]]>
+    </javascript>
+      
+      <template id="initTabletListeners" name="initTabletListeners">
+      	<preconditions>
+      		<condition>is.tablet.initialised === false</condition>
+      	</preconditions>
+      	<initeffects>
+      		<method name="isConnected">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware">
+					<constructors>
+						<value class="String" constant="ChildTablet.properties" />
+					</constructors>
+				</object>
+				<arguments></arguments>
+			</method>
+      		<method name="isConnected">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware">
+					<constructors>
+						<value class="String" constant="AdultTablet.properties" />
+					</constructors>
+				</object>
+				<arguments></arguments>
+			</method>
+      	</initeffects>
+      	<effects>
+      		<assign is="is.tablet.initialised">true</assign>
+      	</effects>
+      </template>
+      
+	<template id="ReceiveAdultTabletCommand" name="ReceiveAdultTabletCommand">
+		<preconditions mode="and">
+			<method name="hasMessage">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</preconditions>
+		<effects>
+			<method is="is.tablet.adult" is_type="JSONString" name="getMessage">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</effects>
+		
+	</template>
+	
+      
+	<template id="ReceiveChildTabletCommand" name="ReceiveChildTabletCommand">
+		<preconditions mode="and">
+			<method name="hasMessage">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</preconditions>
+		<effects>
+			<method is="is.tablet.child" is_type="JSONString" name="getMessage">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</effects>
+		
+	</template>
+
+
+</behaviourtemplates>

@@ -1,0 +1,15 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Greetings Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"none", "value":"blankSpace"},
+			
+            {"id":"hello","value":"Hi, my name is Zeno"},
+            {"id":"dance","value":"Dance"},
+            {"id":"newGame","value":"Now new game with zeno"},
+            {"id":"timeForFaces","value":"Time for faces with Zeno"},
+            {"id":"goodbye","value":"Well done, faces are finished"}
+        ]}}
+</mwe:sendJsonMessage>

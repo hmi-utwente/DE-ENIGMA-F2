@@ -1,0 +1,15 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Step 1 Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"dance","value":"Dance"},
+            {"id":"wp1Happy","value":"WP1 Happy"},
+            {"id":"wp1Sad","value":"WP1 Sad"},
+            {"id":"wp1Angry","value":"WP1 Angry"},
+            {"id":"wp1Scared","value":"WP1 Scared"}
+        ]}}
+</mwe:sendJsonMessage>

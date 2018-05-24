@@ -1,0 +1,168 @@
+<behaviourtemplates>
+
+	<is name="childProcessor">
+		{	
+			"state" : "none",
+			"step2" : {
+				"repeats" : 0,
+				"maxRepeats" : 2
+			},
+			"step3" : {
+				"askedFeature" : "",
+				"askedTimestamp" : 0,
+				"askedRepeats" : 0,
+				"maxRepeats" : 2
+			},
+			"step4" : {
+				"exploreEmotion" : "",
+				"repeats" : 0,
+				"maxRepeats" : 2
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+			function askEqualsAnswer(ask, answer) {
+				return ask.startsWith("ask") && answer.startsWith("answer") && ask.slice(3).toLowerCase() === answer.slice(6).toLowerCase();
+			}
+			
+			function answerIncorrectOrTimeout() {
+				return (is.tablet.child.clickableAreaPressed.areaID !== "none" && !askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.clickableAreaPressed.areaID)) || (is.behaviourplanner.time - is.childProcessor.step3.askedTimestamp > 20000);
+			}
+			
+			function getRandomEmotion(){
+				
+			}
+		
+		]]>
+    </javascript>
+      
+    <!-- STEP 2 -->
+    <template id="ProcessStep21" name="ProcessStep21">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step21"</condition>
+    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.step2.repeats">is.childProcessor.step2.repeats + 1</assign>
+    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    	</effects>
+    </template>
+    
+    <template id="LoadStep22" name="LoadStep22">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "step21"</condition>
+    		<condition>is.childProcessor.step2.repeats >= is.childProcessor.step2.maxRepeats</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"step22"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessStep22" name="ProcessStep22">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step22"</condition>
+    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    	</effects>
+    </template>
+    
+    <!-- STEP 3 -->
+    <template id="ProcessStep3Correct" name="ProcessStep3Correct">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step3"</condition>
+    		<condition>askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.clickableAreaPressed.areaID)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.step3.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
+    		<assign is="is.childProcessor.step3.askedFeature">""</assign>
+    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessStep3Repeat" name="ProcessStep3Repeat">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step3"</condition>
+    		<condition>is.childProcessor.step3.askedFeature !== ""</condition>
+    		<condition>answerIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.step3.askedRepeats < is.childProcessor.step3.maxRepeats]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.step3.askedRepeats">is.childProcessor.step3.askedRepeats + 1</assign>
+    		<assign is="is.childProcessor.step3.askedTimestamp">is.behaviourplanner.time</assign>
+    		<assign is="is.zeno.request">is.childProcessor.step3.askedFeature</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessStep3TooManyAttempts" name="ProcessStep3TooManyAttempts">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step3"</condition>
+    		<condition>is.childProcessor.step3.askedFeature !== ""</condition>
+    		<condition>answerIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.step3.askedRepeats >= is.childProcessor.step3.maxRepeats]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.step3.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
+    		<assign is="is.childProcessor.step3.askedFeature">""</assign>
+    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    	</effects>
+    </template>
+    
+    <!-- STEP 4a -->
+    <template id="ProcessStep41" name="ProcessStep41">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step41"</condition>
+    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.step4.repeats">is.childProcessor.step4.repeats + 1</assign>
+    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    	</effects>
+    </template>
+    
+    <template id="LoadStep42" name="LoadStep42">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "step41"</condition>
+    		<condition>is.childProcessor.step4.repeats >= is.childProcessor.step4.maxRepeats</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"step42"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessStep42" name="ProcessStep42">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.child.showingMenu === "step42"</condition>
+    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    	</effects>
+    </template>
+    
+    <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
+    <template id="ChildCommandCleanup" name="ChildCommandCleanup">
+    	<preconditions mode="and">
+    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    	</effects>
+    </template>
+    
+</behaviourtemplates>

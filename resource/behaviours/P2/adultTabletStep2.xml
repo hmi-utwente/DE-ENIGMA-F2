@@ -1,0 +1,17 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Step 2 Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"touchMyPicture","value":"Touch my picture"},
+            {"id":"skip","value":"Skip"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"gameFinished","value":"This game is finished"},
+            {"id":"newGame","value":"Now new game with zeno"}
+        ]}}
+</mwe:sendJsonMessage>
