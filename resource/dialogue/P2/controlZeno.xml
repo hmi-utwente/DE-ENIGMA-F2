@@ -304,7 +304,7 @@
 			<condition>is.zeno.request === "moveMouthHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_happiness_back_to_neutral", 1, "P2_HappyMyMouthIsUpIMSmiling", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_happiness_back_to_neutral", 1, "P2_HappyMyMouthIsUpIAmSmiling", 0)</assign>
 		</effects>
 	</template>
 	
