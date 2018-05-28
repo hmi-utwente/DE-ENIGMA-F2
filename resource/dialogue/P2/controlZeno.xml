@@ -345,6 +345,80 @@
 		</effects>
 	</template>
 	
+	<!-- SAD -->
+	<template id="moveFaceSad" name="moveFaceSad">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveFaceSad"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_sadness", 4.5, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveEyebrowsSad" name="moveEyebrowsSad">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveEyebrowsSad"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_sadness", 6, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveEyesSad" name="moveEyesSad">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveEyesSad"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_sadness", 6, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveMouthSad" name="moveMouthSad">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveMouthSad"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_sadness", 1, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<!-- SCARED -->
+	<template id="moveFaceScared" name="moveFaceScared">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveFaceScared"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_fear", 4.5, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveEyebrowsScared" name="moveEyebrowsScared">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveEyebrowsScared"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_fear", 6, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveEyesScared" name="moveEyesScared">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveEyesScared"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_fear", 6, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="moveMouthScared" name="moveMouthScared">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "moveMouthScared"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_fear", 1, "Emotion_anger", 0)</assign>
+		</effects>
+	</template>
+	
 	<!-- COLOURED SQUISHIES -->
 	<template id="findBlue" name="findBlue">
 		<preconditions mode="and">
