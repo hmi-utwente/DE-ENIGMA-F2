@@ -3,11 +3,15 @@
         "text":"Main Menu" ,
         "buttons" : [
             {"id":"showmenu_Greetings","value":"Greetings"},
-            {"id":"showmenu_Mirroring","value":"Mirroring"},
             {"id":"showmenu_Step1","value":"Step 1"},
             {"id":"showmenu_Step2","value":"Step 2"},
             {"id":"showmenu_Step3","value":"Step 3"},
             {"id":"showmenu_Step4","value":"Step 4"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_Step35","value":"Step 3.5"},
+            {"id":"showmenu_Step4b","value":"Step 4b"},
             {"id":"showmenu_Squishy","value":"Start faces squishies game"},
             {"id":"showmenu_ColouredSquishy","value":"Start coloured squishies game"}
         ]}}

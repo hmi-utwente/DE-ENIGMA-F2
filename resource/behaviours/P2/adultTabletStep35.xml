@@ -1,0 +1,24 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Step 3.5 Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"makeAFace","value":"Make a face with the pieces"},
+            {"id":"wellDoneYouMadeAFace","value":"Well done you made a face"},
+            {"id":"mouthOnTheBottom","value":"Mouth on the bottom [...] eyebrows on top"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"eyebrowsAreUp","value":"Eyebrows are up"},
+            {"id":"eyebrowsAreDown","value":"Eyebrows are down"},
+            {"id":"eyesAreOpen","value":"Eyes are open"},
+            {"id":"eyesAreClosed","value":"Eyes are closed"},
+            {"id":"mouthIsUp","value":"Mouth is up"},
+            {"id":"mouthIsDown","value":"Mouth is down"},
+            {"id":"mouthIsOpen","value":"Mouth is open"},
+            {"id":"mouthIsClosed","value":"Mouth is closed"}
+        ]}}
+</mwe:sendJsonMessage>

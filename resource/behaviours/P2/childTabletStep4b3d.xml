@@ -1,0 +1,10 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    { "showImageButtonGrid" : {
+        "text":"Happy" ,
+        "imageButtons" : [
+            {"id":"incorrect_sad","value":"Angry", "img":"discr_zeno_sad"},
+            {"id":"incorrect_scared","value":"Angry", "img":"discr_zeno_scared"},
+            {"id":"correct_happy","value":"Happy", "img":"discr_zeno_happy"},
+            {"id":"incorrect_angry","value":"Angry", "img":"discr_zeno_angry"}
+        ]}}
+</mwe:sendJsonMessage>

@@ -29,12 +29,17 @@
 			}
 			
 			function answerIncorrectOrTimeout() {
-				return (is.tablet.child.clickableAreaPressed.areaID !== "none" && !askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.clickableAreaPressed.areaID)) || (is.behaviourplanner.time - is.childProcessor.step3.askedTimestamp > 20000);
+				return (is.tablet.child.command !== "none" && !askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.command)) || (is.behaviourplanner.time - is.childProcessor.step3.askedTimestamp > 20000);
 			}
 			
-			function getRandomEmotion(){
-				
+			function isCorrectFace(face){
+				return face.startsWith("correct_");
 			}
+			
+			function isIncorrectFace(face){
+				return face.startsWith("incorrect_");
+			}
+			
 		
 		]]>
     </javascript>
@@ -44,11 +49,11 @@
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.child.showingMenu === "step21"</condition>
-    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.childProcessor.step2.repeats">is.childProcessor.step2.repeats + 1</assign>
-    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
     	</effects>
     </template>
     
@@ -66,10 +71,10 @@
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.child.showingMenu === "step22"</condition>
-    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
     	</effects>
     </template>
     
@@ -78,14 +83,14 @@
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.child.showingMenu === "step3"</condition>
-    		<condition>askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.clickableAreaPressed.areaID)</condition>
+    		<condition>askEqualsAnswer(is.childProcessor.step3.askedFeature, is.tablet.child.command)</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.childProcessor.step3.askedTimestamp">0</assign>
     		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
     		<assign is="is.childProcessor.step3.askedFeature">""</assign>
-    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
-    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     
@@ -117,7 +122,7 @@
     		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
     		<assign is="is.childProcessor.step3.askedFeature">""</assign>
     		<assign is="is.zeno.request">"letsTryAgain"</assign>
-    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     
@@ -126,11 +131,11 @@
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.child.showingMenu === "step41"</condition>
-    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.childProcessor.step4.repeats">is.childProcessor.step4.repeats + 1</assign>
-    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
     	</effects>
     </template>
     
@@ -148,20 +153,45 @@
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.child.showingMenu === "step42"</condition>
-    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">is.tablet.child.clickableAreaPressed.areaID</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    	</effects>
+    </template>
+    
+    <!-- quick and dirty processing of the step 4b faces discrimination.. basically just send a simple response when correct or incorrect -->
+    <template id="ProcessStep4bCorrect" name="ProcessStep4bCorrect">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition>isCorrectFace(is.tablet.child.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"wellDoneYouFoundMyHappyFace"</assign>
+    		<assign is="is.child.menuRequest">"step4bCorrect"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessStep4bIncorrect" name="ProcessStep4bIncorrect">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition>isIncorrectFace(is.tablet.child.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
     
     <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
     <template id="ChildCommandCleanup" name="ChildCommandCleanup">
     	<preconditions mode="and">
-    		<condition>is.tablet.child.clickableAreaPressed.areaID !== "none"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.tablet.child.clickableAreaPressed.areaID">"none"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     

@@ -1,0 +1,12 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Step 4b Menu - Make a selection" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_Step4bHappy","value":"Open happy WOZ menu"},
+            {"id":"showmenu_Step4bSad","value":"Open sad WOZ menu"}
+        ]}}
+</mwe:sendJsonMessage>

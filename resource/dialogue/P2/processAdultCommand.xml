@@ -30,18 +30,18 @@
    	<!-- This one takes care of switching menus on the adult tablet -->
     <template id="AdultMenu" name="AdultMenu">
     	<preconditions mode="and">
-    		<condition>isMenuRequest(is.tablet.adult.buttonPress.buttonID)</condition>
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.buttonPress.buttonID)</assign>
+    		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.command)</assign>
     	</effects>
     </template>
     
     <!-- The following few templates request specific screens on the child's tablet -->
     <template id="MainMenu" name="MainMenu">
     	<preconditions mode="and">
-    		<condition>isMenuRequest(is.tablet.adult.buttonPress.buttonID)</condition>
-    		<condition>stripMenuRequest(is.tablet.adult.buttonPress.buttonID) === "main"</condition>
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    		<condition>stripMenuRequest(is.tablet.adult.command) === "main"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
@@ -50,8 +50,8 @@
     
     <template id="Step2Menu" name="Step2Menu">
     	<preconditions mode="and">
-    		<condition>isMenuRequest(is.tablet.adult.buttonPress.buttonID)</condition>
-    		<condition>stripMenuRequest(is.tablet.adult.buttonPress.buttonID) === "step2"</condition>
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    		<condition>stripMenuRequest(is.tablet.adult.command) === "step2"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.childProcessor.step2.repeats">0</assign>
@@ -61,8 +61,8 @@
     
     <template id="Step3Menu" name="Step3Menu">
     	<preconditions mode="and">
-    		<condition>isMenuRequest(is.tablet.adult.buttonPress.buttonID)</condition>
-    		<condition>stripMenuRequest(is.tablet.adult.buttonPress.buttonID) === "step3"</condition>
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    		<condition>stripMenuRequest(is.tablet.adult.command) === "step3"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"step3"</assign>
@@ -71,13 +71,13 @@
     
     <template id="Step3AskFeature" name="Step3AskFeature">
     	<preconditions mode="or">
-    		<condition>is.tablet.adult.buttonPress.buttonID === "askEyebrows"</condition>
-    		<condition>is.tablet.adult.buttonPress.buttonID === "askEyes"</condition>
-    		<condition>is.tablet.adult.buttonPress.buttonID === "askMouth"</condition>
+    		<condition>is.tablet.adult.command === "askEyebrows"</condition>
+    		<condition>is.tablet.adult.command === "askEyes"</condition>
+    		<condition>is.tablet.adult.command === "askMouth"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">is.tablet.adult.buttonPress.buttonID</assign>
-    		<assign is="is.childProcessor.step3.askedFeature">is.tablet.adult.buttonPress.buttonID</assign>
+    		<assign is="is.zeno.request">is.tablet.adult.command</assign>
+    		<assign is="is.childProcessor.step3.askedFeature">is.tablet.adult.command</assign>
     		<assign is="is.childProcessor.step3.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
     	</effects>
@@ -85,21 +85,57 @@
     
     <template id="Step4ExploreEmotion" name="Step4ExploreEmotion">
     	<preconditions mode="or">
-    		<condition>is.tablet.adult.buttonPress.buttonID === "exploreHappy"</condition>
-    		<condition>is.tablet.adult.buttonPress.buttonID === "exploreAngry"</condition>
-    		<condition>is.tablet.adult.buttonPress.buttonID === "exploreSad"</condition>
-    		<condition>is.tablet.adult.buttonPress.buttonID === "exploreScared"</condition>
+    		<condition>is.tablet.adult.command === "exploreHappy"</condition>
+    		<condition>is.tablet.adult.command === "exploreAngry"</condition>
+    		<condition>is.tablet.adult.command === "exploreSad"</condition>
+    		<condition>is.tablet.adult.command === "exploreScared"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.childProcessor.step4.exploreEmotion">stripExploreEmotion(is.tablet.adult.buttonPress.buttonID)</assign>
+    		<assign is="is.childProcessor.step4.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.childProcessor.step4.repeats">0</assign>
     		<assign is="is.child.menuRequest">"step41"</assign>
     	</effects>
     </template>
     
+    <template id="Step4bFindMyHappyFace1d" name="Step4bFindMyHappyFace1d">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "findMyHappyFace1d"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"step4b1d"</assign>
+    		<assign is="is.zeno.request">"findMyHappyFace"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="Step4bFindMyHappyFace3d" name="Step4bFindMyHappyFace3d">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "findMyHappyFace3d"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"step4b3d"</assign>
+    		<assign is="is.zeno.request">"findMyHappyFace"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="Step4bWOZ" name="Step4bWOZ">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "findTheHappyFace"</condition>
+    		<condition>is.tablet.adult.command === "findAllHappyFaces"</condition>
+    		<condition>is.tablet.adult.command === "findMySadFace"</condition>
+    		<condition>is.tablet.adult.command === "findTheSadFace"</condition>
+    		<condition>is.tablet.adult.command === "findAllSadFaces"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    	</effects>
+    </template>
+    
+    
     <template id="SkipSubstep" name="SkipSubstep">
     	<preconditions mode="and">
-    		<condition>is.tablet.adult.buttonPress.buttonID === "skip"</condition>
+    		<condition>is.tablet.adult.command === "skip"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.childProcessor.step2.repeats">is.childProcessor.step2.maxRepeats</assign>
@@ -110,21 +146,21 @@
     <!-- if it's not a menu command, just pass it on to the zeno controller! -->
     <template id="OtherCommand" name="OtherCommand">
     	<preconditions mode="and">
-    		<condition>is.tablet.adult.buttonPress.buttonID !== "none"</condition>
-    		<condition>!isMenuRequest(is.tablet.adult.buttonPress.buttonID)</condition>
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">is.tablet.adult.buttonPress.buttonID</assign>
+    		<assign is="is.zeno.request">is.tablet.adult.command</assign>
     	</effects>
     </template>
     
     <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
     <template id="AdultCommandCleanup" name="AdultCommandCleanup">
     	<preconditions mode="and">
-    		<condition>is.tablet.adult.buttonPress.buttonID !== "none"</condition>
+    		<condition>is.tablet.adult.command !== "none"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.tablet.adult.buttonPress.buttonID">"none"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
     
