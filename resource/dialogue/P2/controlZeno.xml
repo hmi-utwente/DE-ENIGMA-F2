@@ -109,7 +109,7 @@
 			<condition>is.zeno.request === "timeForFaces"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_TimeForFacesWithZeno", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_TimeForFacesWithZeno", 0)</assign>
 		</effects>
 	</template>
     
@@ -118,7 +118,7 @@
 			<condition>is.zeno.request === "goodbye"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(13, "Gesture_cheer", 4, "P2_WellDoneFacesAreFinishedByeBye", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "Gesture_cheer", 4, "P2_WellDoneFacesAreFinishedByeBye", 0)</assign>
 		</effects>
 	</template>
     
@@ -184,7 +184,7 @@
 			<condition>is.zeno.request === "moveEyebrows"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(6, "moveEyebrows", 2.5, "P2_TheseAreMyEyebrows", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "moveEyebrows", 2.5, "P2_TheseAreMyEyebrows", 0)</assign>
 		</effects>
 	</template>
 	
@@ -193,7 +193,7 @@
 			<condition>is.zeno.request === "moveEyes"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "moveEyes", 2.5, "P2_TheseAreMyEyes", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "moveEyes", 2.5, "P2_TheseAreMyEyes", 0)</assign>
 		</effects>
 	</template>
 	
@@ -202,7 +202,7 @@
 			<condition>is.zeno.request === "moveMouth"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "moveMouth", 2.5, "P2_ThisIsMyMouth", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "moveMouth", 2.5, "P2_ThisIsMyMouth", 0)</assign>
 		</effects>
 	</template>
 	
@@ -212,7 +212,7 @@
 			<condition>is.zeno.request === "askEyebrows"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindMyEyebrows", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_FindMyEyebrows", 0)</assign>
 		</effects>
 	</template>
 	
@@ -239,7 +239,7 @@
 			<condition>is.zeno.request === "answerEyebrows"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "moveEyebrows", 5, "P2_WellDoneYouFoundMyEyebrows", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "moveEyebrows", 3.5, "P2_WellDoneYouFoundMyEyebrows", 0)</assign>
 		</effects>
 	</template>
 	
@@ -248,7 +248,7 @@
 			<condition>is.zeno.request === "answerEyes"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "moveEyes", 5, "P2_WellDoneYouFoundMyEyes", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "moveEyes", 3.5, "P2_WellDoneYouFoundMyEyes", 0)</assign>
 		</effects>
 	</template>
 	
@@ -257,18 +257,101 @@
 			<condition>is.zeno.request === "answerMouth"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "moveMouth", 5, "P2_WellDoneYouFoundMyMouth", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "moveMouth", 3.5, "P2_WellDoneYouFoundMyMouth", 0)</assign>
 		</effects>
 	</template>
 	
-	<template id="letsTryAgain" name="letsTryAgain">
+    <!-- STEP3.5 -->
+	<template id="wellDoneYouMadeAFace" name="wellDoneYouMadeAFace">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "letsTryAgain"</condition>
+			<condition>is.zeno.request === "wellDoneYouMadeAFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_LetsTryAgain", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_WellDoneYouMadeAFace", 0)</assign>
 		</effects>
 	</template>
+	
+	<template id="mouthOnTheBottom" name="mouthOnTheBottom">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "mouthOnTheBottom"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(6, "", 0, "P2_MouthOnTheBottomEyesInTheMiddleEyebrowsOnTop", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="eyebrowsAreUp" name="eyebrowsAreUp">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "eyebrowsAreUp"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_EyebrowsAreUp", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="eyebrowsAreDown" name="eyebrowsAreDown">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "eyebrowsAreDown"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_EyebrowsAreDown", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="eyesAreOpen" name="eyesAreOpen">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "eyesAreOpen"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_EyesAreOpen", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="eyesAreClosed" name="eyesAreClosed">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "eyesAreClosed"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_EyesAreClosed", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="mouthIsUp" name="mouthIsUp">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "mouthIsUp"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_MouthIsUp", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="mouthIsDown" name="mouthIsDown">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "mouthIsDown"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_MouthIsDown", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="mouthIsOpen" name="mouthIsOpen">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "mouthIsOpen"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_MouthIsOpen", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="mouthIsClosed" name="mouthIsClosed">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "mouthIsClosed"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_MouthIsClosed", 0)</assign>
+		</effects>
+	</template>
+	
 	
 	<!-- STEP4a -->
 	<!-- HAPPY -->
@@ -277,7 +360,7 @@
 			<condition>is.zeno.request === "moveFaceHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_happiness_back_to_neutral", 4.5, "P2_HappyThisIsMyHappyFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_happiness", 4.5, "P2_HappyThisIsMyHappyFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -286,7 +369,7 @@
 			<condition>is.zeno.request === "moveEyebrowsHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_happiness_back_to_neutral", 6, "P2_HappyMyEyebrowsDoNotMove", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness", 4.5, "P2_HappyMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -295,7 +378,7 @@
 			<condition>is.zeno.request === "moveEyesHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_happiness_back_to_neutral", 6, "P2_HappyMyEyesDoNotMove", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness", 4.5, "P2_HappyMyEyesDoNotMove", 0)</assign>
 		</effects>
 	</template>
 	
@@ -304,7 +387,7 @@
 			<condition>is.zeno.request === "moveMouthHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_happiness_back_to_neutral", 1, "P2_HappyMyMouthIsUpIAmSmiling", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_happiness", 6, "P2_HappyMyMouthIsUpIAmSmiling", 0)</assign>
 		</effects>
 	</template>
 	
@@ -314,7 +397,7 @@
 			<condition>is.zeno.request === "moveFaceAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_anger", 4.5, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_anger", 4.5, "P2_AngryThisIsMyAngryFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -323,7 +406,7 @@
 			<condition>is.zeno.request === "moveEyebrowsAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_anger", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_anger", 6, "P2_AngryMyEyebrowsAreDownIAmFrowning", 0)</assign>
 		</effects>
 	</template>
 	
@@ -332,7 +415,7 @@
 			<condition>is.zeno.request === "moveEyesAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_anger", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger", 4.5, "P2_AngryMyEyesAreNarrow", 0)</assign>
 		</effects>
 	</template>
 	
@@ -341,7 +424,7 @@
 			<condition>is.zeno.request === "moveMouthAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_anger", 1, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger", 4.5, "P2_AngryMyMouthIsDown", 0)</assign>
 		</effects>
 	</template>
 	
@@ -351,7 +434,7 @@
 			<condition>is.zeno.request === "moveFaceSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_sadness", 4.5, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_sadness", 4.5, "P2_SadThisIsMySadFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -360,7 +443,7 @@
 			<condition>is.zeno.request === "moveEyebrowsSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_sadness", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness", 4.5, "P2_SadMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -369,7 +452,7 @@
 			<condition>is.zeno.request === "moveEyesSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_sadness", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_sadness", 6, "P2_SadMyEyesAreClosedIAmCrying", 0)</assign>
 		</effects>
 	</template>
 	
@@ -378,7 +461,7 @@
 			<condition>is.zeno.request === "moveMouthSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_sadness", 1, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness", 4.5, "P2_SadMyMouthIsDown", 0)</assign>
 		</effects>
 	</template>
 	
@@ -388,7 +471,7 @@
 			<condition>is.zeno.request === "moveFaceScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10, "DenverEmotion_fear", 4.5, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "P2_ScaredThisIsMyScaredFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -397,7 +480,7 @@
 			<condition>is.zeno.request === "moveEyebrowsScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_fear", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "P2_ScaredMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -406,7 +489,7 @@
 			<condition>is.zeno.request === "moveEyesScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "DenverEmotion_fear", 6, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "P2_ScaredMyEyesAreOpen", 0)</assign>
 		</effects>
 	</template>
 	
@@ -415,7 +498,117 @@
 			<condition>is.zeno.request === "moveMouthScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(14, "DenverEmotion_fear", 1, "Emotion_anger", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(10.5, "Emotion_fear", 6, "P2_ScaredMyMouthIsOpenIAmGasping", 0)</assign>
+		</effects>
+	</template>
+	
+	<!-- STEP4b RESPONSES -->
+	<template id="findMyHappyFace" name="findMyHappyFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findMyHappyFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindMyHappyFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundMyHappyFace" name="wellDoneYouFoundMyHappyFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundMyHappyFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "P2_WellDoneYouFoundMyHappyFace", 1)</assign>
+		</effects>
+	</template>
+	
+	<template id="findTheHappyFace" name="findTheHappyFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findTheHappyFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindTheHappyFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundTheHappyFace" name="wellDoneYouFoundTheHappyFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundTheHappyFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_WellDoneYouFoundTheHappyFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="findAllHappyFaces" name="findAllHappyFaces">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findAllHappyFaces"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindAllHappyFaces", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundAllTheHappyFaces" name="wellDoneYouFoundAllTheHappyFaces">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundAllTheHappyFaces"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_WellDoneYouFoundAllTheHappyFaces", 0)</assign>
+		</effects>
+	</template>
+	
+	<!-- SAD discriminator step -->
+	<template id="findMySadFace" name="findMySadFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findMySadFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindMySadFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundMySadFace" name="wellDoneYouFoundMySadFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundMySadFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "P2_WellDoneYouFoundMySadFace", 1)</assign>
+		</effects>
+	</template>
+	
+	<template id="findTheSadFace" name="findTheSadFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findTheSadFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindTheSadFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundTheSadFace" name="wellDoneYouFoundTheSadFace">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundTheSadFace"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_WellDoneYouFoundTheSadFace", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="findAllSadFaces" name="findAllSadFaces">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "findAllSadFaces"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindAllSadFaces", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wellDoneYouFoundAllTheSadFaces" name="wellDoneYouFoundAllTheSadFaces">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wellDoneYouFoundAllTheSadFaces"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "P2_WellDoneYouFoundAllTheSadFaces", 0)</assign>
 		</effects>
 	</template>
 	
@@ -440,7 +633,7 @@
 	
 	<template id="findRed" name="findRed">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "findBlue"</condition>
+			<condition>is.zeno.request === "findRed"</condition>
 		</preconditions>
 		<effects>
 			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_FindTheRedBlock", 0)</assign>
@@ -462,7 +655,7 @@
 			<condition>is.zeno.request === "makeAFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "pointRightArmInFront", 3, "P2_MakeAFaceWithThePieces", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(6, "pointRightArmInFront", 3, "P2_MakeAFaceWithThePieces", 0)</assign>
 		</effects>
 	</template>
 	
@@ -471,7 +664,7 @@
 			<condition>is.zeno.request === "foundEyebrows"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 5, "P2_WellDoneYouFoundMyEyebrows", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 3.5, "P2_WellDoneYouFoundMyEyebrows", 0)</assign>
 		</effects>
 	</template>
 	
@@ -480,7 +673,7 @@
 			<condition>is.zeno.request === "foundEyes"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 5, "P2_WellDoneYouFoundMyEyes", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 3.5, "P2_WellDoneYouFoundMyEyes", 0)</assign>
 		</effects>
 	</template>
 	
@@ -489,7 +682,7 @@
 			<condition>is.zeno.request === "foundMouth"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 5, "P2_WellDoneYouFoundMyMouth", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 3.5, "P2_WellDoneYouFoundMyMouth", 0)</assign>
 		</effects>
 	</template>
 	
@@ -503,12 +696,21 @@
 		</effects>
 	</template>
 	
+	<template id="letsTryAgain" name="letsTryAgain">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "letsTryAgain"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "P2_LetsTryAgain", 0)</assign>
+		</effects>
+	</template>
+	
 	<template id="touchMyPicture" name="touchMyPicture">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "touchMyPicture"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(6, "pointRightArmInFront", 0, "P2_TouchMyPicture", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "pointRightArmInFront", 0, "P2_TouchMyPicture", 4)</assign>
 		</effects>
 	</template>
 	
@@ -517,7 +719,7 @@
 			<condition>is.zeno.request === "gameFinished"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 4.5, "P2_WellDoneThisGameIsFinished", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 4, "P2_WellDoneThisGameIsFinished", 0)</assign>
 		</effects>
 	</template>
 	
