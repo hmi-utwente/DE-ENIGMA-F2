@@ -5,40 +5,6 @@
 		<Number>1.1</Number>
 	</Version>
 	<Channels>
-		<Channel id="200" name="Head_Yaw">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>500.0</Time><Position>0.5007861315174575</Position></ControlPoint>
-						<ControlPoint><Time>1337.0</Time><Position>0.42265193370165743</Position></ControlPoint>
-						<ControlPoint><Time>2498.0</Time><Position>0.574585635359116</Position></ControlPoint>
-						<ControlPoint><Time>2992.0</Time><Position>0.4991652754590985</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
-		<Channel id="202" name="Head_Pitch">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>18.0</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>621.0</Time><Position>0.22928176795580113</Position></ControlPoint>
-						<ControlPoint><Time>1519.0</Time><Position>0.09116022099447518</Position></ControlPoint>
-						<ControlPoint><Time>2455.0</Time><Position>0.14088397790055252</Position></ControlPoint>
-						<ControlPoint><Time>3365.0</Time><Position>0.5</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
 		<Channel id="300" name="Forehead">
 			<MotionPaths>
 				<MotionPath name="path">
