@@ -10,6 +10,11 @@
             {"id":"wp1Happy","value":"WP1 Happy"},
             {"id":"wp1Sad","value":"WP1 Sad"},
             {"id":"wp1Angry","value":"WP1 Angry"},
-            {"id":"wp1Scared","value":"WP1 Scared"}
+            {"id":"wp1Scared","value":"WP1 Scared"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_Distraction","value":"End of step: Press here"}
+			
         ]}}
 </mwe:sendJsonMessage>

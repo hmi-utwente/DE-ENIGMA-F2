@@ -121,6 +121,62 @@
 			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "Gesture_cheer", 4, "P2_WellDoneFacesAreFinishedByeBye", 0)</assign>
 		</effects>
 	</template>
+	
+    <!-- TOUCHING ZENO -->
+    <template id="raiseArms" name="raiseArms">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "raiseArms"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2.5, "RaiseArms", 0, "", 0)</assign>
+		</effects>
+	</template>
+	
+    <template id="lowerArms" name="lowerArms">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "lowerArms"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2.5, "Emotion_neutral", 0, "", 0)</assign>
+		</effects>
+	</template>
+	
+    <!-- CHILD IS DISTRACTED -->
+    <template id="distraction_noAction" name="distraction_noAction">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "distraction_noAction"</condition>
+		</preconditions>
+		<effects>
+			<!-- Do nothing -->
+		</effects>
+	</template>
+	
+    <template id="distraction_voice" name="distraction_voice">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "distraction_voice"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "P2_ListenAndLookTwice", 0)</assign>
+		</effects>
+	</template>
+	
+    <template id="distraction_movement" name="distraction_movement">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "distraction_movement"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "monkeyDance_short", 0, "", 0)</assign>
+		</effects>
+	</template>
+	
+    <template id="distraction_voiceAndMovement" name="distraction_voiceAndMovement">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "distraction_voiceAndMovement"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "monkeyDance_short", 2, "P2_ListenAndLook", 0)</assign>
+		</effects>
+	</template>
     
     <!-- MIRRORING -->
     <template id="sameFace" name="sameFace">

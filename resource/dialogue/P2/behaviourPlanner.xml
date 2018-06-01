@@ -22,7 +22,6 @@ Format of a request:
         {
             "initialised":false,
 			"time" : "0",
-			
             "settings": {
                 "bmlPipePropertiesFilename":"AsapBMLPipe.properties",
                 "behaviourDir":"behaviours/P2"
@@ -75,9 +74,9 @@ Format of a request:
 
 
     <!-- only once: connect to the behaviour planner (call empty constructor, set settings) -->
-	<template id="bp000" name="initializeBehaviourPlanner"> 
+	<template id="initializeBehaviourPlanner" name="initializeBehaviourPlanner"> 
 	    <preconditions>
-	    	<condition><![CDATA[!is.behaviourplanner.initialised]]></condition>
+	    	<condition>!is.behaviourplanner.initialised</condition>
             
 	    </preconditions>
 	    <initeffects>
@@ -99,7 +98,7 @@ Format of a request:
     Note that the request data needs to adhere to the format documented in the top of this file. 
     Here we should in fact *check* that (in the precondition), and we need to have an error template that says "there is a request but its content does not conform". 
     So that is a TODO because we do not yet check that. -->
-    <template id="bp001" name="PlanBehaviour">
+    <template id="PlanBehaviour" name="PlanBehaviour">
       <preconditions>
      	<condition><![CDATA[is.behaviourplanner.initialised]]></condition>
         <condition><![CDATA[ existsNextBehaviourRequest() ]]></condition>
@@ -125,5 +124,5 @@ Format of a request:
           <assign is="is.behaviourplanner.time">Date.now()</assign>
       </effects>
     </template>
-
+    
 </behaviourtemplates>

@@ -72,6 +72,22 @@ public class BehaviourPlanner extends FlipperMiddleware {
 		}
 	}
 	
+	/**
+	 * This is the "killswitch" in the event that a child is stressed.. This stops all running behaviours and audio, and resets the child tablet screen to blank
+	 */
+	public void killAllBehaviour() {
+		String bml = "<bml id=\"killAllBehaviour\" xmlns=\"http://www.bml-initiative.org/bml/bml-1.0\" xmlns:sze=\"http://hmi.ewi.utwente.nl/zenoengine\" xmlns:bmlt=\"http://hmi.ewi.utwente.nl/bmlt\" xmlns:mwe=\"http://hmi.ewi.utwente.nl/middlewareengine\" composition=\"REPLACE\">"
+						+ "<sze:stopAnimation id=\"stopAnimation\" start=\"0\"/>"
+						+ "<mwe:sendJsonMessage id=\"childTablet\" start=\"0\" middlewareloaderclass=\"nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader\" middlewareloaderproperties=\"iTopic:/topic/dummy,oTopic:/topic/child_tablet.command\">\r\n" + 
+						"	{ \"showAssignment\" : { \"id\":\"imgblank\" ,\r\n" + 
+						"	\"text\" : \" \",\r\n" + 
+						"	\"imageFile\":\"\",\r\n" + 
+						"	\"buttonText\":\"\"}}\r\n" + 
+						"</mwe:sendJsonMessage>"
+					+ "</bml>";
+		sendBML(bml);
+	}
+	
 	public static void main(String[] args) {
 		BehaviourPlanner bp = new BehaviourPlanner("AsapBMLPipe.properties");
 		bp.planAndSendBehaviour("{\"target\" : \"child_tablet\", \"template\": \"childTabletStep3\", \"placeholders\" : [{\"id\":\"testing\"}, {\"something\":\"else\"}]}");

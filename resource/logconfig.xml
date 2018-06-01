@@ -15,6 +15,6 @@
   <logger name="hmi.flipper2" level="INFO"/>
   <logger name="nl.utwente" level="INFO"/>
   <logger name="asap.realizer" level="INFO"/>
-  <logger name="flipper" level="DEBUG"/>
+  <logger name="flipper" level="INFO"/>
   
 </configuration>

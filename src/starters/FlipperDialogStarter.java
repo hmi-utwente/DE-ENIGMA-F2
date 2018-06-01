@@ -16,7 +16,6 @@ import hmi.flipper2.launcher.FlipperLauncherThread;
 import nl.utwente.hmi.middleware.Middleware;
 import nl.utwente.hmi.middleware.helpers.JSONHelper;
 import nl.utwente.hmi.middleware.loader.GenericMiddlewareLoader;
-import nl.utwente.hmi.mwdialogue.informationstate.helper.RecordHelper;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;

@@ -2,7 +2,11 @@
     { "showButtons" : {
         "text":"Main Menu" ,
         "buttons" : [
-            {"id":"showmenu_Greetings","value":"Greetings"},
+            {"id":"showmenu_Greetings","value":"Introduction / Greetings"},
+            {"id":"showmenu_TouchActivity","value":"Touch activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
             {"id":"showmenu_Step1","value":"Step 1"},
             {"id":"showmenu_Step2","value":"Step 2"},
             {"id":"showmenu_Step3","value":"Step 3"},

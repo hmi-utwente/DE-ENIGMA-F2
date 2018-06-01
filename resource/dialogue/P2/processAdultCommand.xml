@@ -23,17 +23,72 @@
 			return exploreEmotion.slice(7).toLowerCase();
 		}
 		
+		function isDistractionEvent(command){
+			return command.startsWith("distraction_");
+		}
+		
 		]]>
     </javascript>
-      
-      
-   	<!-- This one takes care of switching menus on the adult tablet -->
+    
+    <!-- SUPER IMPORTANT!! If a child is stressed, we must immediately kill all running behaviour and show blank screen on child tablet -->
+    <template id="ProcessStressEvent" name="ProcessStressEvent">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "stressEvent"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRequest">"main"</assign>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<behaviour name="killAllBehaviour">
+				<object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>
+				<arguments/>
+			</behaviour>
+    	</effects>
+    </template>
+              
+   	<!-- This one takes care of switching menus based on the adult tablet's button presses -->
     <template id="AdultMenu" name="AdultMenu">
     	<preconditions mode="and">
     		<condition>isMenuRequest(is.tablet.adult.command)</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.command)</assign>
+    	</effects>
+    </template>
+    
+    <!-- This is our main manipulation in the controlled study. 
+    We wait for the child to become distracted, then we have 4 different ways 
+    of regaining their attention, as described in the experiment protocol. -->
+    <template id="DistractionMenu" name="DistractionMenu">
+    	<preconditions mode="and">
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    		<condition>stripMenuRequest(is.tablet.adult.command) === "distraction"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    	</effects>
+    </template>
+    
+    <!-- (ZENO SHOULDNT BE BUSY AT THIS POINT!!!! BUT YOU NEVER KNOW) 
+    If zeno is busy when this distraction event is called  then we drop it and have the therapist try again when zeno is idle again -->
+    <template id="DistractionEventZenoBusy" name="DistractionEventZenoBusy">
+    	<preconditions mode="and">
+    		<condition>isDistractionEvent(is.tablet.adult.command)</condition>
+    		<condition>is.zeno.busy</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessDistractionEvent" name="ProcessDistractionEvent">
+    	<preconditions mode="and">
+    		<condition>isDistractionEvent(is.tablet.adult.command)</condition>
+    		<condition>!is.zeno.busy</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.adult.menuRequest">"main"</assign>
     	</effects>
     </template>
     
@@ -131,7 +186,6 @@
     		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
-    
     
     <template id="SkipSubstep" name="SkipSubstep">
     	<preconditions mode="and">

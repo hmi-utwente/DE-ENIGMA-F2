@@ -18,6 +18,14 @@
         </parametermap>
         <ZenoUnit type="AnimationZU"/>
     </ZenoUnitSpec>
+    
+    <ZenoUnitSpec type="stopAnimation" namespace="http://hmi.ewi.utwente.nl/zenoengine">
+        <constraints>
+        </constraints>
+        <parametermap>
+        </parametermap>
+        <ZenoUnit type="StopAnimationZU"/>
+    </ZenoUnitSpec>
 
         <ZenoUnitSpec type="lookAt" namespace="http://hmi.ewi.utwente.nl/zenoengine">
         <constraints>

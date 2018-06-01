@@ -25,13 +25,11 @@ import nl.utwente.hmi.middleware.MiddlewareListener;
 import nl.utwente.hmi.middleware.helpers.JSONHelper;
 import nl.utwente.hmi.middleware.loader.GenericMiddlewareLoader;
 import nl.utwente.hmi.middleware.worker.AbstractWorker;
-import nl.utwente.hmi.mwdialogue.informationstate.helper.RecordHelper;
 
 
 public class FlipperISVisualiser extends AbstractWorker implements ActionListener, MiddlewareListener {
   private static Logger logger = LoggerFactory.getLogger(FlipperISVisualiser.class.getName());
 
-	private RecordHelper rh;
 	private Middleware middleware;
 
 	private List<String> filters;

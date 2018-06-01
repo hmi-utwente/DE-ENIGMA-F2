@@ -63,7 +63,6 @@
         <Route behaviourclass="saiba.bml.core.GazeBehaviour" engineid="zenoengine"/>
         <Route behaviourclass="saiba.bml.core.PointingBehaviour" engineid="zenoengine"/>
         <Route behaviourclass="saiba.bml.core.HeadBehaviour" engineid="zenoengine"/>
-        <Route behaviourclass="asap.middlewareengine.bml.SendMessageBehavior" engineid="middlewareengine"/>
 	</BMLRouting>
 
 </AsapVirtualHuman>

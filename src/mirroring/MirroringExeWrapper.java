@@ -1,10 +1,8 @@
 package mirroring;
 
-import nl.utwente.hmi.mwdialogue.function.FunctionClass;
-
 import java.io.IOException;
 
-public class MirroringExeWrapper implements FunctionClass {
+public class MirroringExeWrapper {
     private Process mirrorExe;
     
     public MirroringExeWrapper() {
