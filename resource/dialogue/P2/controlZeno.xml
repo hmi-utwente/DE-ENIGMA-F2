@@ -123,6 +123,15 @@
 	</template>
 	
     <!-- TOUCHING ZENO -->
+    <template id="music" name="music">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "music"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(15, "", 0, "nurseryDance", 0)</assign>
+		</effects>
+	</template>
+	
     <template id="raiseArms" name="raiseArms">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "raiseArms"</condition>

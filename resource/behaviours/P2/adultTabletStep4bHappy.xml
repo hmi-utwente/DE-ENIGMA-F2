@@ -7,9 +7,8 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"findMyHappyFace1d","value":"Find my happy face (1 distractor)"},
-            {"id":"findMyHappyFace3d","value":"Find my happy face (3 distractors)"},
-            {"id":"wellDoneYouFoundMyHappyFace","value":"Well done you found my happy face"},
+            {"id":"findMyHappyFace1d","value":"TABLET - Find my happy face (1 distractor)"},
+            {"id":"findMyHappyFace3d","value":"TABLET - Find my happy face (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
             
