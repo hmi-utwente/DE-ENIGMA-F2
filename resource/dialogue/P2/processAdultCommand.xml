@@ -125,10 +125,13 @@
     </template>
     
     <template id="Step3AskFeature" name="Step3AskFeature">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "askEyebrows"</condition>
-    		<condition>is.tablet.adult.command === "askEyes"</condition>
-    		<condition>is.tablet.adult.command === "askMouth"</condition>
+    	<preconditions mode="and">
+			<condition>is.adult.showingMenu === "step3"</condition>
+    		<condition><![CDATA[
+	    		is.tablet.adult.command === "askEyebrows"
+	    		|| is.tablet.adult.command === "askEyes"
+	    		|| is.tablet.adult.command === "askMouth"
+    		]]></condition>
     	</preconditions>
     	<effects>
     		<assign is="is.zeno.request">is.tablet.adult.command</assign>
