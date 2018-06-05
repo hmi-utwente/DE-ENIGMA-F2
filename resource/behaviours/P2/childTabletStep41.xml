@@ -5,7 +5,7 @@
 	    "text" : " ",
 	    "imageFile":"clickable_face_$emotionPicture$",
 	    "clickableAreas" : [
-	    {"id":"a1","value":"310;235;1600;1370;moveFace$emotionID$"}]
+	    {"id":"a1","value":"117;89;675;586;moveFace$emotionID$"}]
 	    }
     }
 </mwe:sendJsonMessage>
