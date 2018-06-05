@@ -12,13 +12,8 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"eyebrowsAreUp","value":"Eyebrows are up"},
-            {"id":"eyebrowsAreDown","value":"Eyebrows are down"},
-            {"id":"eyesAreOpen","value":"Eyes are open"},
-            {"id":"eyesAreClosed","value":"Eyes are closed"},
-            {"id":"mouthIsUp","value":"Mouth is up"},
-            {"id":"mouthIsDown","value":"Mouth is down"},
-            {"id":"mouthIsOpen","value":"Mouth is open"},
-            {"id":"mouthIsClosed","value":"Mouth is closed"}
+            {"id":"askEyebrows","value":"Ask Eyebrows"},
+            {"id":"askEyes","value":"Ask Eyes"},
+            {"id":"askMouth","value":"Ask Mouth"}
         ]}}
 </mwe:sendJsonMessage>
