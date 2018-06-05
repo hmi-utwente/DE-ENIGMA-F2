@@ -811,7 +811,7 @@
 			<condition>is.zeno.request === "wellDone"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "monkeyDance_short", 2, "P2_WellDone", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "P2_WellDone", 0)</assign>
 		</effects>
 	</template>
 	
