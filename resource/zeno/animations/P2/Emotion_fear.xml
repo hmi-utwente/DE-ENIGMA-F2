@@ -80,30 +80,6 @@
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="311" name="Eye_Yaw">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>311.1109333333333</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>395.73333333333335</Time><Position>0.2817679558011049</Position></ControlPoint>
-						<ControlPoint><Time>622.224</Time><Position>0.27615684859828965</Position></ControlPoint>
-						<ControlPoint><Time>701.8666666666667</Time><Position>0.7872928176795579</Position></ControlPoint>
-						<ControlPoint><Time>962.1333333333333</Time><Position>0.7872928176795579</Position></ControlPoint>
-						<ControlPoint><Time>1564.2666666666667</Time><Position>0.781767955801105</Position></ControlPoint>
-						<ControlPoint><Time>1604.2666666666667</Time><Position>0.2541436464088398</Position></ControlPoint>
-						<ControlPoint><Time>2195.733333333333</Time><Position>0.25138121546961323</Position></ControlPoint>
-						<ControlPoint><Time>2235.733333333333</Time><Position>0.8038674033149171</Position></ControlPoint>
-						<ControlPoint><Time>2441.6</Time><Position>0.8066298342541436</Position></ControlPoint>
-						<ControlPoint><Time>3469.3333333333335</Time><Position>0.8093922651933702</Position></ControlPoint>
-						<ControlPoint><Time>3877.0</Time><Position>0.5025041736227045</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
 	</Channels>
 	<AddOns />
 	<ChannelsParameters />
