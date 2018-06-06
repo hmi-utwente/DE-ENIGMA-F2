@@ -134,10 +134,23 @@
     		]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.child.menuRequest">"step3"</assign>
     		<assign is="is.zeno.request">is.tablet.adult.command</assign>
     		<assign is="is.childProcessor.step3.askedFeature">is.tablet.adult.command</assign>
     		<assign is="is.childProcessor.step3.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.step3.askedRepeats">0</assign>
+    	</effects>
+    </template>
+    
+    <!-- quick hack, sometimes the step3 image doesnt display on the child tablet..
+     so try to send it again when the adult presses a button-->
+    <template id="Step3TouchPicture" name="Step3TouchPicture">
+    	<preconditions mode="and">
+			<condition>is.adult.showingMenu === "step3"</condition>
+    		<condition>is.tablet.adult.command === "touchMyPicture"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"step3"</assign>
     	</effects>
     </template>
     
