@@ -73,10 +73,10 @@ public class MechioZenoRobotControllerStarter {
 		GenericMiddlewareLoader.setGlobalPropertiesFile(mwPropFile);
         
 		Properties ps = new Properties();
-		ps.put("iTopic", "/topic/ASAPZenoEngineAction");
-		ps.put("oTopic", "/topic/ASAPZenoEngineFeedback");
+		ps.put("subscriber", "/asap_zeno_engine_action");
+		ps.put("publisher", "/asap_zeno_engine_feedback");
 		
-        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader", ps);
+        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader", ps);
         Middleware m = gml.load();
 
         LOGGER.debug("Finding Zeno controller \"{}\" at {}",prop.getProperty("robot_id"),prop.getProperty("mechio_ip"));

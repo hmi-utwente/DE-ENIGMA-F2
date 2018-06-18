@@ -324,6 +324,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("java.class.path"));
 		UTStarterStopper frm = new UTStarterStopper("Start and stop UT modules");
 		frm.setSize(400, 200);
 		frm.setVisible(true);

@@ -115,12 +115,12 @@ public class FlipperISVisualiser extends AbstractWorker implements ActionListene
 		filters = new ArrayList<String>();
 		
 		Properties ps = new Properties();
-		ps.put("iTopic", "/topic/isDump");
-		ps.put("oTopic", "/topic/dummyOut");
+		ps.put("subscriber", "/is_dump");
+		ps.put("publisher", "/dummy_out");
 		
 		new Thread(this).start();
 		
-        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader", ps);
+        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader", ps);
         middleware = gml.load();
 
         middleware.addListener(this);
