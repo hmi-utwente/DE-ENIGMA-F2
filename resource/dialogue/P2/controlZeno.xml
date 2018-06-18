@@ -88,12 +88,23 @@
     <template id="storeRequest" name="storeRequest">
     	<preconditions mode="and">
     		<condition>is.zeno.request !== ""</condition>
+    		<condition>is.zeno.request !== "repeatLast"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.zeno.prevRequest">is.zeno.request</assign>
     	</effects>
     </template>
     
+    <!-- REPEAT - special action request, basically just repeats the previous request -->
+    <template id="repeatLast" name="repeatLast">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "repeatLast"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.request">is.zeno.prevRequest</assign>
+		</effects>
+	</template>
+	
     <!-- GREETINGS -->
     <template id="hello" name="hello">
 		<preconditions mode="and">
