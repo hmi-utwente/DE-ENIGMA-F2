@@ -16,11 +16,6 @@
           </MiddlewareOptions>
 	  </PipeLoader>
 	</Loader>
-      
-  	<Loader id="guiembodiment" loader="asap.realizerembodiments.JFrameEmbodiment">
-        <BmlUI demoscriptresources="behaviours/P2/"/>
-        <FeedbackUI/>
-    </Loader>
 
 
     <Loader id="middlewareembodiment" loader="asap.middlewareengine.embodiment.MiddlewareEmbodiment" requiredloaders="">
@@ -40,7 +35,7 @@
         <MiddlewareBinding basedir="" resources="tablets/bindings/" filename="behaviorbinding.xml"/>
     </Loader>
 
-    <Loader id="zenoembodiment" loader="asap.zeno.embodiment.ZenoEmbodiment" requiredloaders="guiembodiment">
+    <Loader id="zenoembodiment" loader="asap.zeno.embodiment.ZenoEmbodiment" requiredloaders="">
 		  <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
             <MiddlewareProperty name="iTopic" value="/topic/ASAPZenoEngineFeedback"/>
             <MiddlewareProperty name="oTopic" value="/topic/ASAPZenoEngineAction"/>
