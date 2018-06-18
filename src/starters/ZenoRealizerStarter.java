@@ -28,11 +28,8 @@ import java.util.ArrayList;
  */
 public class ZenoRealizerStarter{
 
-    protected JFrame mainJFrame = null;
-	
-    public ZenoRealizerStarter(JFrame j, String spec) throws IOException{
+    public ZenoRealizerStarter(String spec) throws IOException{
         Console.setEnabled(false);
-        mainJFrame = j;
 
         BMLTInfo.init();
         BMLInfo.addCustomFloatAttribute(FaceLexemeBehaviour.class, "http://asap-project.org/convanim", "repetition");
@@ -43,15 +40,12 @@ public class ZenoRealizerStarter{
         AudioEnvironment aue = new AudioEnvironment("LJWGL_JOAL");
         ClockDrivenCopyEnvironment ce = new ClockDrivenCopyEnvironment(1000 / 50);
 
-        final JComponentEnvironment jce = setupJComponentEnvironment();
-
         aue.init();
         ce.init();
 
         ArrayList<Environment> environments = new ArrayList<Environment>();
         environments.add(ee);
         environments.add(aue);
-        environments.add(jce);
         environments.add(ce);
 
 		// if no physics, use the following:
@@ -63,30 +57,8 @@ public class ZenoRealizerStarter{
         System.out.println("loading spec "+spec);
         AsapVirtualHuman zeno = ee.loadVirtualHuman("", spec, "AsapRealizer -- HMI DE Emigma Demo");
 
-        j.addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(WindowEvent winEvt)
-            {
-                System.exit(0);
-            }
-        });
-
-        mainJFrame.setSize(1000, 600);
-
-        mainJFrame.setVisible(true);
     }
 
-    private JComponentEnvironment setupJComponentEnvironment(){
-        final JComponentEnvironment jce = new JComponentEnvironment();
-                mainJFrame.setLayout(new BorderLayout());
-
-                JPanel jPanel = new JPanel();
-                jPanel.setPreferredSize(new Dimension(400, 40));
-                jPanel.setLayout(new GridLayout(1, 1));
-                jce.registerComponent("textpanel", jPanel);
-                mainJFrame.add(jPanel, BorderLayout.SOUTH);
-        return jce;
-    }
 
     public static void main(String[] args) throws IOException{
     	String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: agentspec, middlewareprops";
@@ -112,6 +84,6 @@ public class ZenoRealizerStarter{
     	
 		GenericMiddlewareLoader.setGlobalPropertiesFile(propFile);
 		
-        ZenoRealizerStarter demo = new ZenoRealizerStarter(new JFrame("AsapRealizer - Zeno"), spec);
+        ZenoRealizerStarter demo = new ZenoRealizerStarter(spec);
     }
 }
