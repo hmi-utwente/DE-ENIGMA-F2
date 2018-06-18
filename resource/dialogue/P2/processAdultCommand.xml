@@ -30,19 +30,39 @@
 		]]>
     </javascript>
     
-    <!-- SUPER IMPORTANT!! If a child is stressed, we must immediately kill all running behaviour and show blank screen on child tablet -->
-    <template id="ProcessStressEvent" name="ProcessStressEvent">
+    <!-- Some WOZ buttons to emulate certain sensor information -->
+    <template id="WOZStressEvent" name="WOZStressEvent">
     	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "stressEvent"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.adult.menuRequest">"main"</assign>
-    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.sensorInputProcessor.reasoningEvent.processed">false</assign>
+    		<assign is="is.sensorInputProcessor.reasoningEvent.event">"stressEvent"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
-    		<behaviour name="killAllBehaviour">
-				<object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>
-				<arguments/>
-			</behaviour>
+    	</effects>
+    </template>
+    
+    <template id="WOZGetUpEvent" name="WOZGetUpEvent">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "standingEvent"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.bodyEvent.processed">false</assign>
+    		<assign is="is.sensorInputProcessor.bodyEvent.pose">1</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="WOZLaughterEvent" name="WOZLaughterEvent">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "laughterEvent"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.acousticEvent.processed">false</assign>
+    		<assign is="is.sensorInputProcessor.acousticEvent.name">"laughter"</assign>
+    		<assign is="is.sensorInputProcessor.acousticEvent.value">1.0</assign>
+    		<assign is="is.sensorInputProcessor.acousticEvent.confidence">1.0</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
               
