@@ -11,7 +11,6 @@ Make sure a ROS Bridge Server is running on this IP, and both the ROS PC and the
 1. git clone https://github.com/ArticulatedSocialAgentsPlatform/hmibuild.git
 1. git clone https://github.com/hmi-utwente/DE-ENIGMA-F2.git
 1. cd DE-ENIGMA-F2
-1. git checkout ros
 1. git lfs pull
 
 ## To download dependencies
