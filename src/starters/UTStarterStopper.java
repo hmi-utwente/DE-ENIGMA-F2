@@ -223,7 +223,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		List<String> args = new ArrayList<String>();
 		args.add(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java");
 		args.add("-cp");
-		args.add("\"build/classes:" + System.getProperty("java.class.path") + "\"");
+		args.add("\"build/classes" + File.pathSeparator + System.getProperty("java.class.path") + "\"");
 		args.add("-Dlogback.configurationFile=logconfig.xml");
 		args.add("-Djava.library.path=lib");
 		args.add(main);
