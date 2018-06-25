@@ -1,26 +1,67 @@
-doclib
-node_modules
-lib
-dist
-build
-dist
-deps
-privateprops
+### Generic ###
+lib/
+out/
+build/
+log/
+privateprops/
+doclib/
+node_modules/
+dist/
+deps/
+report/
+
+
+### Intellij ###
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/modules.xml
+*.iml
+*.eml
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 .classpath
 .project
-.pydevproject
-.settings
-*.pyc
-*.*~
-manifest.mf
+.DS_Store
+findbugs.html
+*.launch
+
+### Java ###
+*.class
+
+### Project Specific ###
+resource/mechio.properties
+resource/flipper.properties
 docs/Asap
 docs/html
 java/hmibuild
-report
-*.swp
+
+
+### Other ###
+.pydevproject
+*.pyc
+*.*~
+manifest.mf
 *.log
-.DS_Store
-findbugs.html
-log
-*.launch
 junit*.properties
