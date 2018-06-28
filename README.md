@@ -9,8 +9,6 @@ Install GIT (https://git-scm.com/downloads) and GIT-LFS (https://github.com/git-
 
 Install Apache ANT (https://ant.apache.org/bindownload.cgi)
 
-Install an Apollo server (https://activemq.apache.org/apollo/). On Windows, I recommend to install it as a service so that it starts in the background automatically.
-
 The tablet apps attempt to connect to a hardcoded IP address: 192.168.0.22.
 Make sure a ROS Bridge Server is running on this IP, and both the ROS PC and the tablets are connected to the same WIFI network. 
 
@@ -22,7 +20,7 @@ Make sure a ROS Bridge Server is running on this IP, and both the ROS PC and the
 1. git checkout ros
 1. git lfs pull
 
-Please download and install the "Apollo" version of the adult and child tablet apps. The apps can be downloaded from here: https://drive.google.com/drive/folders/1Nd1P6NPuA0G7qcIwc_o6ZeZXVLHUn6ac?usp=sharing
+Please download and install the "ROS" version of the adult and child tablet apps. The apps can be downloaded from here: https://drive.google.com/drive/folders/1Nd1P6NPuA0G7qcIwc_o6ZeZXVLHUn6ac?usp=sharing
 
 ## To download and compile dependencies for your specific platform
 1. ant resolve
