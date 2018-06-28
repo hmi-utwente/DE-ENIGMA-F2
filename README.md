@@ -3,6 +3,14 @@ De-Enigma project using Flipper2.
 In this branch we have configured all modules to use the ROS middleware
 
 ## Requirements
+Install Java JDK 8 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+
+Install GIT (https://git-scm.com/downloads) and GIT-LFS (https://github.com/git-lfs/git-lfs/wiki/Installation)
+
+Install Apache ANT (https://ant.apache.org/bindownload.cgi)
+
+Install an Apollo server (https://activemq.apache.org/apollo/). On Windows, I recommend to install it as a service so that it starts in the background automatically.
+
 The tablet apps attempt to connect to a hardcoded IP address: 192.168.0.22.
 Make sure a ROS Bridge Server is running on this IP, and both the ROS PC and the tablets are connected to the same WIFI network. 
 
@@ -14,7 +22,9 @@ Make sure a ROS Bridge Server is running on this IP, and both the ROS PC and the
 1. git checkout ros
 1. git lfs pull
 
-## To download dependencies
+Please download and install the "Apollo" version of the adult and child tablet apps. The apps can be downloaded from here: https://drive.google.com/drive/folders/1Nd1P6NPuA0G7qcIwc_o6ZeZXVLHUn6ac?usp=sharing
+
+## To download and compile dependencies for your specific platform
 1. ant resolve
 1. ant compile
 
@@ -34,6 +44,7 @@ Edit files /DE-ENIGMA-F2/resource/behaviours/P2/animationAudioBehaviour.xml and 
 1. Start ROSCore: roscore
 1. Start ROS Bridge Server: roslaunch rosbridge_server rosbridge_websocket.launch
 1. Start the UTwente launcher: ant run -Drun.main.class=starters.UTStarterStopper
+1. To launch the modules automatically when the GUI appears, start the UTwente launcher with the --autorun parameter: ant run -Drun.main.class=starters.UTStarterStopper -Drun.argline="--autorun"
 1. A GUI pops up with two buttons:
 	* Press the "Start all modules" button to start Mechio, ASAP and Flipper
 	* Press the "Stop all modules" button to stop them again
