@@ -50,6 +50,7 @@ Edit files /DE-ENIGMA-F2/resource/behaviours/P2/animationAudioBehaviour.xml and 
 ### On other platforms
 1. Start an Apollo server (platform dependent, see Apollo documentation)
 1. Start the UTwente launcher: ant run -Drun.main.class=starters.UTStarterStopper
+1. To launch the modules automatically when the GUI appears, start the UTwente launcher with the --autorun parameter: ant run -Drun.main.class=starters.UTStarterStopper -Drun.argline="--autorun"
 1. A GUI pops up with two buttons:
 	* Press the "Start all modules" button to start Mechio, ASAP and Flipper
 	* Press the "Stop all modules" button to stop them again
