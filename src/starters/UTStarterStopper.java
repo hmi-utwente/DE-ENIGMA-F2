@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -88,6 +89,19 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 				}
 			}
 		});
+		
+		//and a hook for catching CTRL-C
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+	        public void run() {
+				Thread stopperThread = stopAll();
+				try {
+					stopperThread.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+	        }
+	    });
 	}
 
 	/**
@@ -135,6 +149,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	private void showMessage(String message) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
+				System.out.println(message);
 				msg.setText("<html>" + message + "</html>");
 				msg.repaint();
 				getContentPane().repaint();
@@ -147,11 +162,12 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	 * Starts all UT software modules, each in it's own independent process
 	 * Stores the process handles for later use
 	 */
-	private Thread startAll() {
+	public Thread startAll() {
 		Thread starterThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				lock.lock();
+				System.out.println("Starting all modules...");
 				try {
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
@@ -235,11 +251,12 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	/**
 	 * Stops any currently running UT processes
 	 */
-	private Thread stopAll() {
+	public Thread stopAll() {
 		Thread stopperThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				lock.lock();
+				System.out.println("Stopping all modules....");
 				try {
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
@@ -327,6 +344,12 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		UTStarterStopper frm = new UTStarterStopper("Start and stop UT modules");
 		frm.setSize(400, 200);
 		frm.setVisible(true);
+		
+		for(String arg : args){
+			if("--autorun".equals(arg)){
+				frm.startAll();
+			}
+		}
 	}
 
 }
