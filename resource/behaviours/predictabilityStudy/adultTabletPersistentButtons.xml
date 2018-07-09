@@ -1,0 +1,12 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showPersistentButtons" : {
+        "buttons" : [
+            {"id":"personEntersEvent","value":"WOZ: PersonEnters"},
+            {"id":"userInattentive","value":"WOZ: userInattentive"},
+            {"id":"userDeaf","value":"WOZ: userDeaf"},
+            {"id":"nextUserEnters","value":"WOZ: nextUserEnters"},
+            {"id":"userDoesDance","value":"WOZ: userDoesDance"},
+            {"id":"userExcited","value":"WOZ: userExcited"},
+            {"id":"userBored","value":"WOZ: userBored"}
+    ]}}
+</mwe:sendJsonMessage>

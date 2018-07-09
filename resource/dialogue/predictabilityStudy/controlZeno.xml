@@ -1,0 +1,361 @@
+<behaviourtemplates>
+
+	<is name="zeno">
+		{	
+			"busy" : false,
+			"mirroring" : false,
+			"request" : "",
+			"behaviour" : "",
+			"prevRequest" : ""
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+			
+			function createZenoBehaviour(duration, anim, animDelay, audio, audioDelay){
+				if(anim !== "" && audio !== ""){
+					filename = "animationAudioBehaviour";
+				} else if(anim !== "" && audio === ""){
+					filename = "animationBehaviour";
+				} else if(anim === "" && audio !== ""){
+					filename = "audioBehaviour";
+				}
+				
+				behaviour = new Object();
+				behaviour.startTime = 0;
+				behaviour.duration = duration;
+				behaviour.template = filename;
+				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay},{"speak1":audio},{"speak1_delay":audioDelay}];
+				return behaviour;
+			}
+			
+		]]>
+    </javascript>
+
+    <!-- Must always be near the top of the file, so we can ignore stuff while zeno is already busy -->
+    <template id="ignoreWhileBusy" name="ignoreWhileBusy">
+    	<preconditions mode="and">
+    		<condition>is.zeno.busy</condition>
+    		<condition>is.zeno.request !== ""</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">""</assign>
+    	</effects>
+    </template>
+    
+    <template id="storeRequest" name="storeRequest">
+    	<preconditions mode="and">
+    		<condition>is.zeno.request !== ""</condition>
+    		<condition>is.zeno.request !== "repeatLast"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.prevRequest">is.zeno.request</assign>
+    	</effects>
+    </template>
+    
+    <!-- REPEAT - special action request, basically just repeats the previous request -->
+    <template id="repeatLast" name="repeatLast">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "repeatLast"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.request">is.zeno.prevRequest</assign>
+		</effects>
+	</template>
+
+
+
+
+
+
+
+    <!-- INTRODUCTION -->
+    <template id="introduction" name="introduction">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "introduction"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_welcome", 4, "pS_HiMyNameIsZeno", 0)</assign>
+		</effects>
+	</template>
+	
+    <template id="sessionGoal" name="sessionGoal">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "sessionGoal"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "pS_PlayAMemoryGame", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="gameExplanation" name="gameExplanation">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "gameExplanation"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "pS_SeveralSounds", 0)</assign>
+		</effects>
+	</template>
+
+
+
+
+	<!-- GAME -->
+	<template id="itemStart" name="itemStart">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "itemStart"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_LetsGo", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="itemIntro" name="itemIntro">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "itemIntro"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_LetsDoAnother", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="question" name="question">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "question"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_NowYouDoIt", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="resolution" name="resolution">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "resolution"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_cheer", 0, "pS_ThatIsCorrect", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="zenoTurn" name="zenoTurn">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "zenoTurn"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_NowItsMyTurn", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="zenoAnswer" name="zenoAnswer">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "zenoAnswer"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BiepBoepBiep", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="zenoQuestion" name="zenoQuestion">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "zenoQuestion"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_WasThatCorrect", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="zenoResolution" name="zenoResolution">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "zenoResolution"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "pS_Yay", 0)</assign>
+		</effects>
+	</template>
+
+
+
+
+	<!-- GAME ITEMS -->
+	<template id="gameItem1" name="gameItem1">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "gameItem1"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BiepBiepBoep", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="gameItem2" name="gameItem2">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "gameItem2"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BaapBiep", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="gameItem3" name="gameItem3">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "gameItem3"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BiepBoepBiep", 0)</assign>
+		</effects>
+	</template>
+
+
+
+
+
+	<!-- RESPONSIVE EVENTS -->
+
+	<template id="personEnters" name="personEnters">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "personEnters"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "pS_PleaseGoAway", 1)</assign>
+		</effects>
+	</template>
+
+	<template id="personEntersResolution" name="personEntersResolution">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "personEntersResolution"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "pS_SorryLetsContinue", 1)</assign>
+		</effects>
+	</template>
+
+	<template id="userInattentive" name="userInattentive">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userInattentive"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "pS_UhhHello", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="userDeaf" name="userDeaf">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userDeaf"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "ps_ISaid", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="nextUserEnters" name="nextUserEnters">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "nextUserEnters"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "ps_IllBeWithYou", 1)</assign>
+		</effects>
+	</template>
+
+	<template id="nextUserEntersResolution" name="nextUserEntersResolution">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "nextUserEntersResolution"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "ps_SorryLetsContinue", 1)</assign>
+		</effects>
+	</template>
+
+	<template id="userDoesDance" name="userDoesDance">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userDoesDance"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "monkeyDance", 1, "ps_LetsDance", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="userExcited" name="userExcited">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userExcited"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "Emotion_happiness", 0, "ps_ThisIsFun", 1)</assign>
+		</effects>
+	</template>
+
+	<template id="userBored" name="userBored">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userBored"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "ps_DoYouWantToContinuePlaying", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="userBoredResolution" name="userBoredResolution">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "userBored"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "ps_Okay", 0)</assign>
+		</effects>
+	</template>
+
+
+	<!-- END -->
+	<template id="announceEnd" name="announceEnd">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "announceEnd"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "pS_WeAreDonePlaying", 0)</assign>
+		</effects>
+	</template>
+
+	<template id="goodbye" name="goodbye">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "goodbye"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_farewell", 1, "pS_ByeBye", 0)</assign>
+		</effects>
+	</template>
+
+
+
+
+
+      
+	<!-- Following templates are responsible for starting behaviours, and then going back to idle when duration finishes -->
+	<template id="startBehaviour" name="startBehaviour">
+		<preconditions mode="and">
+			<condition>is.zeno.behaviour !== ""</condition>
+			<condition>is.zeno.behaviour.startTime === 0</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.busy">true</assign>
+			<assign is="is.zeno.behaviour.startTime">is.behaviourplanner.time</assign>
+			<assign is="is.zeno.bmlId">addBehaviourRequest(is.zeno.behaviour)</assign>
+		</effects>
+	</template>
+	<template id="backToIdle" name="backToIdle">
+		<preconditions mode="and">
+			<condition>is.zeno.behaviour !== ""</condition>
+			<condition><![CDATA[is.behaviourplanner.time > is.zeno.behaviour.startTime + is.zeno.behaviour.duration*1000]]></condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.busy">false</assign>
+			<assign is="is.zeno.behaviour">""</assign>
+		</effects>
+	</template>
+	
+	<!-- Always near the end, to remove the current request -->
+    <template id="cleanupRequest" name="cleanupRequest">
+    	<preconditions mode="and">
+    		<condition>is.zeno.request !== ""</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">""</assign>
+    	</effects>
+    </template>
+</behaviourtemplates>

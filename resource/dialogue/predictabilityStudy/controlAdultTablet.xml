@@ -1,0 +1,57 @@
+<behaviourtemplates>
+
+	<is name="adult">
+		{	
+			"menuRequest" : "",
+			"showingMenu" : "",
+			"showingPersistentMenu" : "persistentButtons",
+			"lastShownTime" : 0
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		
+		
+		]]>
+    </javascript>
+      
+	<template id="InitAdultMenu" name="InitAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu === ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRequest">"main"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+      
+	<template id="ShowAdultMenu" name="ShowAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.menuRequest))</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="RefreshAdultMenu" name="RefreshAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu !== ""</condition>
+			<condition>is.behaviourplanner.time - is.adult.lastShownTime > 5000</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+	
+	
+
+</behaviourtemplates>
