@@ -24,7 +24,7 @@ Format of a request:
 			"time" : "0",
             "settings": {
                 "bmlPipePropertiesFilename":"AsapBMLPipe.properties",
-                "behaviourDir":"behaviours/P2"
+                "behaviourDir":"behaviours/predictabilityStudy"
             }
         }
     </is>

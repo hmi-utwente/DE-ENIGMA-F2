@@ -10,14 +10,6 @@
 					} 
 				},
 				"command" : "none"
-			},
-			"child" : {
-				"rawInput" : {
-					"clickableAreaPressed" : {
-						"areaID" : "none"
-					}
-				},
-				"command" : "none"
 			}
 		}
 	</is>

@@ -5,16 +5,18 @@
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
 			{"id":"", "value":"blankSpace"},
-			
-            {"id":"dance","value":"Dance"},
-            {"id":"wp1Happy","value":"WP1 Happy"},
-            {"id":"wp1Sad","value":"WP1 Sad"},
-            {"id":"wp1Angry","value":"WP1 Angry"},
-            {"id":"wp1Scared","value":"WP1 Scared"},
-            
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"showmenu_Distraction","value":"End of step: Press here"}
-			
+
+            {"id":"LetsGo","value":"Lets Go"},
+            {"id":"LetsDoAnother","value":"Lets Do Another"},
+            {"id":"question","value":"Question"},
+
+            {"id":"gameItem1","value":"Item 1"},
+            {"id":"gameItem2","value":"Item 2"},
+            {"id":"resolution","value":"Resolution"},
+
+            {"id":"zenoTurn","value":"zenoTurn"},
+            {"id":"zenoAnswer","value":"zenoAnswer"},
+            {"id":"zenoQuestion","value":"zenoQuestion"},
+            {"id":"zenoResolution","value":"zenoResolution"},
         ]}}
 </mwe:sendJsonMessage>
