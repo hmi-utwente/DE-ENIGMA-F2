@@ -76,7 +76,7 @@
 			<condition>is.zeno.request === "introduction"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "Gesture_welcome2", 2, "Hi, my name is Zeno", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Gesture_welcome2", 3, "pS_HiMyNameIsZeno", 0)</assign>
 		</effects>
 	</template>
 	
@@ -85,7 +85,7 @@
 			<condition>is.zeno.request === "sessionGoal"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Today, we are going to play a memory game!", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "pS_PlayAMemoryGame", 0)</assign>
 		</effects>
 	</template>
 
@@ -94,7 +94,7 @@
 			<condition>is.zeno.request === "gameExplanation"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "I play several sounds. You then, have to repeat those sounds", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "pS_SeveralSounds", 0)</assign>
 		</effects>
 	</template>
 
@@ -107,7 +107,7 @@
 			<condition>is.zeno.request === "itemStart"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Lets go", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_LetsGo", 0)</assign>
 		</effects>
 	</template>
 
@@ -116,7 +116,7 @@
 			<condition>is.zeno.request === "itemIntro"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Lets do another", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_LetsDoAnother", 0)</assign>
 		</effects>
 	</template>
 
@@ -125,7 +125,7 @@
 			<condition>is.zeno.request === "question"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Now you do the same", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_NowYouDoIt", 0)</assign>
 		</effects>
 	</template>
 
@@ -134,7 +134,7 @@
 			<condition>is.zeno.request === "resolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "Gesture_cheer", 1, "That is correct", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(6, "Gesture_cheer", 2, "pS_ThatIsCorrect", 0)</assign>
 		</effects>
 	</template>
 
@@ -143,7 +143,7 @@
 			<condition>is.zeno.request === "zenoTurn"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Now its my turn", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_NowItsMyTurn", 0)</assign>
 		</effects>
 	</template>
 
@@ -152,7 +152,7 @@
 			<condition>is.zeno.request === "zenoAnswer"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Biep. bop. biep.", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BiepBoepBiep", 0)</assign>
 		</effects>
 	</template>
 
@@ -161,7 +161,7 @@
 			<condition>is.zeno.request === "zenoQuestion"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Is that correct?", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "pS_WasThatCorrect", 0)</assign>
 		</effects>
 	</template>
 
@@ -170,7 +170,7 @@
 			<condition>is.zeno.request === "zenoResolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "Yeay", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "pS_Yay", 0)</assign>
 		</effects>
 	</template>
 
@@ -183,7 +183,7 @@
 			<condition>is.zeno.request === "gameItem1"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Biep. biep. bop.", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BiepBiepBoep", 0)</assign>
 		</effects>
 	</template>
 
@@ -192,7 +192,7 @@
 			<condition>is.zeno.request === "gameItem2"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Baap. biep.", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_BaapBiep", 0)</assign>
 		</effects>
 	</template>
 
@@ -204,7 +204,7 @@
 			<condition>is.zeno.request === "personEnters"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "Please go away, we are busy here", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "pS_PleaseGoAway", 1)</assign>
 		</effects>
 	</template>
 
@@ -213,7 +213,7 @@
 			<condition>is.zeno.request === "personEntersResolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "Sorry, lets continue", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "pS_SorryLetsContinue", 1)</assign>
 		</effects>
 	</template>
 
@@ -222,7 +222,7 @@
 			<condition>is.zeno.request === "userInattentive"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Uhmmmm. Hello?", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "pS_UhhHello", 0)</assign>
 		</effects>
 	</template>
 
@@ -231,7 +231,7 @@
 			<condition>is.zeno.request === "userDeaf"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "I said", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "ps_ISaid", 0)</assign>
 		</effects>
 	</template>
 
@@ -240,7 +240,7 @@
 			<condition>is.zeno.request === "nextUserEnters"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "I will be with you in a few minutes", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "ps_IllBeWithYou", 1)</assign>
 		</effects>
 	</template>
 
@@ -249,7 +249,7 @@
 			<condition>is.zeno.request === "nextUserEntersResolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "Sorry, lets continue", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "ps_SorryLetsContinue", 1)</assign>
 		</effects>
 	</template>
 
@@ -258,7 +258,7 @@
 			<condition>is.zeno.request === "userDoesDance"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "monkeyDance", 1, "Lets dance", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(5, "monkeyDance", 1, "ps_LetsDance", 0)</assign>
 		</effects>
 	</template>
 
@@ -267,7 +267,7 @@
 			<condition>is.zeno.request === "userExcited"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "Emotion_happiness", 0, "This is fun huh", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "Emotion_happiness", 0, "ps_ThisIsFun", 1)</assign>
 		</effects>
 	</template>
 
@@ -276,7 +276,7 @@
 			<condition>is.zeno.request === "userBored"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Do you want to continue playing this game?", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "ps_DoYouWantToContinuePlaying", 0)</assign>
 		</effects>
 	</template>
 
@@ -285,7 +285,7 @@
 			<condition>is.zeno.request === "userBoredResolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "Okay", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "ps_Okay", 1)</assign>
 		</effects>
 	</template>
 
@@ -296,7 +296,7 @@
 			<condition>is.zeno.request === "announceEnd"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "We are done playing today", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "pS_WeAreDonePlaying", 0)</assign>
 		</effects>
 	</template>
 
@@ -305,7 +305,7 @@
 			<condition>is.zeno.request === "goodbye"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_farewell", 1, "Bye bye", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_farewell", 1, "pS_ByeBye", 0)</assign>
 		</effects>
 	</template>
 

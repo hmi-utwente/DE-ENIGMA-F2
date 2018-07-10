@@ -9,8 +9,6 @@
             {"id":"showmenu_Game","value":"Game"},
             {"id":"", "value":"blankSpace"},
 
-            {"id":"showmenu_Ending","value":"Ending"},
-
-
+            {"id":"showmenu_Ending","value":"Ending"}
     ]}}
 </mwe:sendJsonMessage>

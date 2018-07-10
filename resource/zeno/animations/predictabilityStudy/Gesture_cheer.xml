@@ -62,28 +62,6 @@
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="301" name="Eyelids">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>111.0</Time><Position>0.8731218697829717</Position></ControlPoint>
-						<ControlPoint><Time>416.66700000000003</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>1083.33</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>1458.33</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>3125.0</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>3208.33</Time><Position>0.0</Position></ControlPoint>
-						<ControlPoint><Time>3250.0</Time><Position>0.0</Position></ControlPoint>
-						<ControlPoint><Time>3291.67</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>4250.0</Time><Position>0.7084937261773026</Position></ControlPoint>
-						<ControlPoint><Time>4993.0</Time><Position>0.8714524207011686</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
 		<Channel id="500" name="RtShoulder_Yaw">
 			<MotionPaths>
 				<MotionPath name="path">
@@ -152,12 +130,12 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>76.0</Time><Position>0.25041736227045075</Position></ControlPoint>
+						<ControlPoint><Time>76.0</Time><Position>0.18</Position></ControlPoint>
 						<ControlPoint><Time>1272.0</Time><Position>0.9332220367278798</Position></ControlPoint>
 						<ControlPoint><Time>1693.0</Time><Position>0.9378068739770867</Position></ControlPoint>
 						<ControlPoint><Time>3531.0</Time><Position>0.9509001636661211</Position></ControlPoint>
 						<ControlPoint><Time>3910.0</Time><Position>0.8936170212765957</Position></ControlPoint>
-						<ControlPoint><Time>5055.0</Time><Position>0.25208681135225375</Position></ControlPoint>
+						<ControlPoint><Time>5055.0</Time><Position>0.18</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

@@ -6,7 +6,7 @@
             
 			{"id":"none", "value":"blankSpace"},
 			
-            {"id":"hello","value":"Hello"},
+            {"id":"introduction","value":"Introduction"},
             {"id":"sessionGoal","value":"Session Goal"},
             {"id":"gameExplanation","value":"Explain Game"}
         ]}}

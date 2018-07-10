@@ -22,7 +22,7 @@
 		function stripExploreEmotion(exploreEmotion){
 			return exploreEmotion.slice(7).toLowerCase();
 		}
-		
+
 		function isDistractionEvent(command){
 			return command.startsWith("distraction_");
 		}

@@ -1,12 +1,18 @@
 <mwe:sendJsonMessage id="d" start="0">
     { "showPersistentButtons" : {
         "buttons" : [
-            {"id":"personEntersEvent","value":"WOZ: PersonEnters"},
-            {"id":"userInattentive","value":"WOZ: userInattentive"},
-            {"id":"userDeaf","value":"WOZ: userDeaf"},
-            {"id":"nextUserEnters","value":"WOZ: nextUserEnters"},
-            {"id":"userDoesDance","value":"WOZ: userDoesDance"},
-            {"id":"userExcited","value":"WOZ: userExcited"},
-            {"id":"userBored","value":"WOZ: userBored"}
+            {"id":"personEnters","value":"Person Enters"},
+            {"id":"personEntersResolution","value":"Resolve Person Enters"},
+
+            {"id":"userInattentive","value":"User Inattentive"},
+            {"id":"userDeaf","value":"User Deaf"},
+            {"id":"nextUserEnters","value":"Next User Enters"},
+            {"id":"nextUserEntersResolution","value":"Resolve User Enters"},
+
+            {"id":"userDoesDance","value":"User Does Dance"},
+            {"id":"userExcited","value":"User Excited"},
+            {"id":"userBored","value":"User Bored"},
+            {"id":"userBoredResolution","value":"Resolve User Bored"},
+            {"id":"reset","value":"Reset"}
     ]}}
 </mwe:sendJsonMessage>

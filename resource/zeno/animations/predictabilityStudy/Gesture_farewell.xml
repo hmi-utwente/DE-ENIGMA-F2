@@ -70,25 +70,6 @@
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="322" name="Mouth">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
-						<ControlPoint><Time>2500.0</Time><Position>0.16</Position></ControlPoint>
-						<ControlPoint><Time>2700.0</Time><Position>0.6</Position></ControlPoint>
-						<ControlPoint><Time>2900.0</Time><Position>0.3</Position></ControlPoint>
-						<ControlPoint><Time>3100.0</Time><Position>0.6</Position></ControlPoint>
-						<ControlPoint><Time>3350.0</Time><Position>0.16</Position></ControlPoint>
-						<ControlPoint><Time>6000.0</Time><Position>0.16</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
 		<Channel id="500" name="RtShoulder_Yaw">
 			<MotionPaths>
 				<MotionPath name="path">
@@ -97,7 +78,7 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.27</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.19</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>1000.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>2000.0</Time><Position>0.9</Position></ControlPoint>
@@ -105,7 +86,7 @@
 						<ControlPoint><Time>4000.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>4500.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>5400.0</Time><Position>0.3</Position></ControlPoint>
-						<ControlPoint><Time>6000.0</Time><Position>0.27</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.19</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -177,32 +158,6 @@
 						<ControlPoint><Time>1900.0</Time><Position>0.0</Position></ControlPoint>
 						<ControlPoint><Time>5000.0</Time><Position>0.0</Position></ControlPoint>
 						<ControlPoint><Time>5700.0</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>6000.0</Time><Position>0.5</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
-		<Channel id="400" name="LtShoulder_Yaw">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>6000.0</Time><Position>0.19</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
-		<Channel id="420" name="LtWrist_Yaw">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
 						<ControlPoint><Time>6000.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
