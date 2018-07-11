@@ -35,24 +35,6 @@
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="300" name="Forehead">
-			<MotionPaths>
-				<MotionPath name="path">
-					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
-						<Number>1.0</Number>
-					</Version>
-					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.375</Position></ControlPoint>
-						<ControlPoint><Time>150.0</Time><Position>0.65</Position></ControlPoint>
-						<ControlPoint><Time>1000.0</Time><Position>0.65</Position></ControlPoint>
-						<ControlPoint><Time>2200.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>5500.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>6000.0</Time><Position>0.375</Position></ControlPoint>
-					</ControlPoints>
-				</MotionPath>
-			</MotionPaths>
-		</Channel>
 		<Channel id="320" name="Smile">
 			<MotionPaths>
 				<MotionPath name="path">
@@ -64,7 +46,7 @@
 						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
 						<ControlPoint><Time>200.0</Time><Position>1.0</Position></ControlPoint>
 						<ControlPoint><Time>5400.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>5750.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>5600.0</Time><Position>0.7</Position></ControlPoint>
 						<ControlPoint><Time>6000.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
@@ -78,7 +60,7 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.27</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.19</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>1000.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>2000.0</Time><Position>0.9</Position></ControlPoint>
@@ -86,7 +68,7 @@
 						<ControlPoint><Time>4000.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>4500.0</Time><Position>0.9</Position></ControlPoint>
 						<ControlPoint><Time>5400.0</Time><Position>0.3</Position></ControlPoint>
-						<ControlPoint><Time>6000.0</Time><Position>0.27</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.19</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

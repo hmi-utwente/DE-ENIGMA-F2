@@ -127,31 +127,19 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.4991379310344826</Position></ControlPoint>
-						<ControlPoint><Time>285.33299999999997</Time><Position>0.4991379310344826</Position></ControlPoint>
-						<ControlPoint><Time>618.667</Time><Position>0.7573341994377493</Position></ControlPoint>
-						<ControlPoint><Time>1327.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>1952.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>2660.33</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>3327.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>3993.67</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>4702.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>5368.67</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>6077.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>6702.0</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>7743.67</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>8410.33</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>9118.67</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>9785.33</Time><Position>0.6165861143877209</Position></ControlPoint>
-						<ControlPoint><Time>10493.7</Time><Position>0.7338028227917264</Position></ControlPoint>
-						<ControlPoint><Time>11035.3</Time><Position>0.481214808526649</Position></ControlPoint>
-						<ControlPoint><Time>11827.0</Time><Position>0.4991379310344826</Position></ControlPoint>
-						<ControlPoint><Time>12452.0</Time><Position>0.4991379310344826</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>285.33299999999997</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>618.667</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>1327.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>10493.7</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>11035.3</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>11827.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>12452.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="320" name="LtSmile01">
+		<Channel id="320" name="Smile">
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
@@ -160,22 +148,8 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>240.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>1375.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>2000.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>2708.33</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>3375.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>4041.67</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>4750.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>5416.67</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>6125.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>6750.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>7791.67</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>8458.33</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>9166.67</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>9833.33</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>11414.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>11837.0</Time><Position>0.8827586206896552</Position></ControlPoint>
+						<ControlPoint><Time>240.0</Time><Position>0.8</Position></ControlPoint>
+						<ControlPoint><Time>11837.0</Time><Position>0.8</Position></ControlPoint>
 						<ControlPoint><Time>12519.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
@@ -189,26 +163,9 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>41.6667</Time><Position>0.16</Position></ControlPoint>
-						<ControlPoint><Time>333.33299999999997</Time><Position>0.5</Position></ControlPoint>
-						<ControlPoint><Time>666.667</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>1375.0</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>2000.0</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>2708.33</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>3375.0</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>3708.33</Time><Position>0.34854204460393773</Position></ControlPoint>
-						<ControlPoint><Time>4041.67</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>4750.0</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>5416.67</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>5875.0</Time><Position>0.38966093372929633</Position></ControlPoint>
-						<ControlPoint><Time>6125.0</Time><Position>0.4382950237744884</Position></ControlPoint>
-						<ControlPoint><Time>6750.0</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>7791.67</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>8458.33</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>9166.67</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>9833.33</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>10541.7</Time><Position>0.6521543855960438</Position></ControlPoint>
-						<ControlPoint><Time>11000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
+						<ControlPoint><Time>333.33299999999997</Time><Position>0.4</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.4</Position></ControlPoint>
 						<ControlPoint><Time>12500.0</Time><Position>0.16</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>

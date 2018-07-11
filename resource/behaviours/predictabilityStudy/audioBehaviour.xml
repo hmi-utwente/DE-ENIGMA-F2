@@ -1,2 +1,2 @@
 <!--bmlt:audiofile id="speak1" fileName="audio/predictabilityStudy/$speak1$.wav" start="$speak1_delay$"/-->
-<sze:speak id="speak1" text="$speak1$" start="$speak1$"/>
+<sze:speak id="speak1" text="$speak1$" start="$speak1_delay$"/>

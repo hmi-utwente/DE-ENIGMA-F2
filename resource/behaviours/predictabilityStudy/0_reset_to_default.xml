@@ -1,4 +1,4 @@
 <bml id="$bmlid$" xmlns="http://www.bml-initiative.org/bml/bml-1.0" xmlns:sze="http://hmi.ewi.utwente.nl/zenoengine">
 
-<sze:animation id="anim1" animation="Default" start="0"/>
+<sze:animation id="anim1" animation="Emotion_neutral" start="0"/>
 </bml> 

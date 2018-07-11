@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Animation>
 	<Version type="Animation">
-		<Name>DenverEmotion_happy.xml</Name>
+		<Name>Gesture_explainingMotion.xml</Name>
 		<Number>1.2</Number>
 	</Version>
 	<Channels>
-		<Channel id="300" name="Brows_Up">
+		<Channel id="501" name="Right Lower">
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
@@ -14,14 +14,14 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>500.0</Time><Position>0.42</Position></ControlPoint>
-						<ControlPoint><Time>2500.0</Time><Position>0.42</Position></ControlPoint>
-						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>200.0</Time><Position>0.60</Position></ControlPoint>
+						<ControlPoint><Time>1800.0</Time><Position>0.60</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="320" name="LtSmile">
+		<Channel id="510" name="Right Elbow">
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
@@ -30,14 +30,14 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>500.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>2500.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>200.0</Time><Position>0.60</Position></ControlPoint>
+						<ControlPoint><Time>1800.0</Time><Position>0.60</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-		<Channel id="301" name="Blink_Open">
+		<Channel id="521" name="Right Grasp">
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
@@ -45,10 +45,10 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
-						<ControlPoint><Time>500.0</Time><Position>0.95</Position></ControlPoint>
-						<ControlPoint><Time>2500.0</Time><Position>0.95</Position></ControlPoint>
-						<ControlPoint><Time>3000.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>200.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>1800.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
