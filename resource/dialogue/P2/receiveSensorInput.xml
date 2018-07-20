@@ -14,12 +14,15 @@
 			"face" : {
 				"rawInput" : {
 					"timestamp" : "",
+					"timestamp_frac" : "",
 					"valid_face" : "",
+					"is_redetected" : "",
 					"roll" : "",
 					"pitch" : "",
 					"yaw" : "",
 					"landmarks" : "",
-					"expression" : ""
+					"landmarks_eyes" : "",
+					"frame_number": ""
 				}
 			},
 			"body" : {
@@ -28,7 +31,10 @@
 					"id" : "",
 					"depth" : "",
 					"withinAOI" : "",
-					"globalPhysicalActivity" : "",
+					"upperBodyPhysicalActivity" : "",
+					"wholePhysicalActivity" : "",
+					"velocity": "",
+					"orientation": "",
 					"pose" : "",
 					"valence" : "",
 					"arousal" : ""
