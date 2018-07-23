@@ -61,7 +61,9 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	 */
 	UTStarterStopper(String title) {
 		super(title);
-
+		
+		this.setVisible(false);
+		
 		this.setContentPane(buildGUI());
 		this.pack();
 
@@ -343,13 +345,23 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		UTStarterStopper frm = new UTStarterStopper("Start and stop UT modules");
 		frm.setSize(400, 200);
-		frm.setVisible(true);
+		boolean isHeadless = false;
 		
 		for(String arg : args){
+			//hides the main GUI window if we wish to run this app headless 
+			//note that there is no way to start/stop the modules, since there will be no GUI button to press :)
+			//probably best to use this together with the --autorun option below
+			if("--headless".equals(arg)){
+				isHeadless = true;
+			}
+			
+			//automatically run all modules when starting the app
 			if("--autorun".equals(arg)){
 				frm.startAll();
 			}
 		}
+		
+		frm.setVisible(!isHeadless);
 	}
 
 }
