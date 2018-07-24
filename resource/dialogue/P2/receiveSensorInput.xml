@@ -5,39 +5,45 @@
 			"initialised" : false,
 			"acoustic" : {
 				"rawInput" : {
-					"name" : "",
-					"timestamp" : "",
-					"value" : "",
-					"confidence" : ""
+					"acoustic" : {
+						"name" : "",
+						"timestamp" : "",
+						"value" : "",
+						"confidence" : ""
+					}
 				}
 			},
 			"face" : {
 				"rawInput" : {
-					"timestamp" : "",
-					"timestamp_frac" : "",
-					"valid_face" : "",
-					"is_redetected" : "",
-					"roll" : "",
-					"pitch" : "",
-					"yaw" : "",
-					"landmarks" : "",
-					"landmarks_eyes" : "",
-					"frame_number": ""
+					"face" : {
+						"timestamp" : "",
+						"timestamp_frac" : "",
+						"valid_face" : "",
+						"is_redetected" : "",
+						"roll" : "",
+						"pitch" : "",
+						"yaw" : "",
+						"landmarks" : "",
+						"landmarks_eyes" : "",
+						"frame_number": ""
+					}
 				}
 			},
 			"body" : {
 				"rawInput" : {
-					"timestamp" : "",
-					"id" : "",
-					"depth" : "",
-					"withinAOI" : "",
-					"upperBodyPhysicalActivity" : "",
-					"wholePhysicalActivity" : "",
-					"velocity": "",
-					"orientation": "",
-					"pose" : "",
-					"valence" : "",
-					"arousal" : ""
+					"body" : {
+						"timestamp" : "",
+						"id" : "",
+						"depth" : "",
+						"withinAOI" : "",
+						"upperBodyPhysicalActivity" : "",
+						"wholePhysicalActivity" : "",
+						"velocity": "",
+						"orientation": "",
+						"pose" : "",
+						"valence" : "",
+						"arousal" : ""
+					}
 				}
 			},
 			"reasoning" : {
@@ -55,10 +61,10 @@
 		
 		//pass only the laughing events
 		function parseAcousticSensordata(data){
-			if(data.hasOwnProperty("name") && data.name === "laughter"
-				&& data.hasOwnProperty("confidence") && data.hasOwnProperty("value")){
-				data.processed = false;
-				return data;
+			if(data.hasOwnProperty("acoustic") && data.acoustic.hasOwnProperty("name") && data.acoustic.name === "laughter"
+				&& data.acoustic.hasOwnProperty("confidence") && data.acoustic.hasOwnProperty("value")){
+				data.acoustic.processed = false;
+				return data.acoustic;
 			}
 			return "none";
 		}
@@ -71,7 +77,7 @@
 		
 		//pass only the standing pose
 		function parseBodySensordata(data){
-			if(data.hasOwnProperty("pose") && data.pose === 1){
+			if(data.hasOwnProperty("body") && data.body.hasOwnProperty("pose") && data.body.pose === 1){
 				ev = new Object();
 				ev.pose = "standing";
 				ev.processed = false;
