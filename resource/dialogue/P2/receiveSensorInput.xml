@@ -75,13 +75,11 @@
 			return "none";
 		}
 		
-		//pass only the standing pose
+		//pass the pose
 		function parseBodySensordata(data){
-			if(data.hasOwnProperty("body") && data.body.hasOwnProperty("pose") && data.body.pose === 1){
-				ev = new Object();
-				ev.pose = 1;
-				ev.processed = false;
-				return ev;
+			if(data.hasOwnProperty("body") && data.body.hasOwnProperty("pose")){
+				data.body.processed = false;
+				return data.body;
 			}
 			return "none";
 		}
