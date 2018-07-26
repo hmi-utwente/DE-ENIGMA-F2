@@ -1,3 +1,0 @@
-<sze:animation id="animate1" animation="predictabilityStudy/$animate1$" start="$animate1_delay$"/>
-<!--bmlt:audiofile id="speak1" fileName="audio/predictabilityStudy/$speak1$.wav" start="$speak1_delay$"/-->
-<sze:speak id="speak1" text="$speak1$" start="$speak1_delay$"/>
