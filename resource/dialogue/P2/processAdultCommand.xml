@@ -48,7 +48,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.sensorInputProcessor.bodyEvent.processed">false</assign>
-    		<assign is="is.sensorInputProcessor.bodyEvent.pose">1</assign>
+    		<assign is="is.sensorInputProcessor.bodyEvent.pose">128</assign><!-- this number emulates that there is a person standing, as encoded by the byte "10000000" -->
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
