@@ -1,0 +1,65 @@
+<behaviourtemplates>
+
+	<is name="adultProcessor">
+		{	
+			"state" : "none"
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		//are we dealing with a menu request? i.e. it starts with "showmenu_"
+		function isMenuRequest(command){
+			return command.startsWith("showmenu_");
+		}
+		
+		//strips the first part of the command "showmenu_" and returns the actual menu being requested in lowercase
+		function stripMenuRequest(command){
+			return command.slice(9).toLowerCase();
+		}
+		
+		function stripExploreEmotion(exploreEmotion){
+			return exploreEmotion.slice(7).toLowerCase();
+		}
+
+		function isDistractionEvent(command){
+			return command.startsWith("distraction_");
+		}
+		
+		]]>
+    </javascript>
+    
+
+   	<!-- This one takes care of switching menus based on the adult tablet's button presses -->
+    <template id="AdultMenu" name="AdultMenu">
+    	<preconditions mode="and">
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.command)</assign>
+    	</effects>
+    </template>
+
+    <!-- if it's not a menu command, just pass it on to the zeno controller! -->
+    <template id="OtherCommand" name="OtherCommand">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.adult.command</assign>
+    	</effects>
+    </template>
+    
+    <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
+    <template id="AdultCommandCleanup" name="AdultCommandCleanup">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+</behaviourtemplates>

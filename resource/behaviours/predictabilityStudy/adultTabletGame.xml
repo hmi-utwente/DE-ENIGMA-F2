@@ -1,0 +1,23 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Game Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+
+            {"id":"itemStart","value":"Lets Go"},
+            {"id":"itemIntro","value":"Lets Do Another"},
+            {"id":"gameItem1","value":"Item 1"},
+            {"id":"gameItem2","value":"Item 2"},
+            {"id":"question","value":"Now You Do It"},
+            {"id":"resolution","value":"That Is Correct"},
+
+            {"id":"", "value":"blankSpace"},
+
+            {"id":"zenoTurn","value":"Now Its My Turn"},
+            {"id":"zenoAnswer","value":"Zeno Answers"},
+            {"id":"zenoQuestion","value":"Is that Correct"},
+            {"id":"zenoResolution","value":"Yay"}
+        ]}}
+</mwe:sendJsonMessage>

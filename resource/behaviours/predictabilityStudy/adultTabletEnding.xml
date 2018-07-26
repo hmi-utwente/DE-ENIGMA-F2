@@ -1,0 +1,12 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Greetings Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"none", "value":"blankSpace"},
+			
+            {"id":"announceEnd","value":"Announce Session End"},
+            {"id":"goodbye","value":"Goodbye"}
+        ]}}
+</mwe:sendJsonMessage>
