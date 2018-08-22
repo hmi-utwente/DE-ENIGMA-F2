@@ -6,18 +6,21 @@
             
 			{"id":"", "value":"blankSpace"},
 
-            {"id":"itemStart","value":"Lets Go"},
-            {"id":"itemIntro","value":"Lets Do Another"},
-            {"id":"gameItem1","value":"Item 1"},
-            {"id":"gameItem2","value":"Item 2"},
-            {"id":"question","value":"Now You Do It"},
-            {"id":"resolution","value":"That Is Correct"},
+            {"id":"introduction","value":"Introduction"},
+            {"id":"story1","value":"Story 1"},
+            {"id":"userInattentive","value":"User Inattentive"},
+            {"id":"question1","value":"Question 1"},
+            {"id":"answer1","value":"Answer 1"},
+            {"id":"story2","value":"Story 2"},
+            {"id":"personEnters","value":"Person Enters"},
+            {"id":"personEntersResolution","value":"Resolve Person Enters"},
+            {"id":"question2","value":"Question 2"},
+            {"id":"answer2","value":"Answer 2"},
+            {"id":"story3","value":"Story3"},
 
             {"id":"", "value":"blankSpace"},
 
-            {"id":"zenoTurn","value":"Now Its My Turn"},
-            {"id":"zenoAnswer","value":"Zeno Answers"},
-            {"id":"zenoQuestion","value":"Is that Correct"},
-            {"id":"zenoResolution","value":"Yay"}
-        ]}}
+            {"id":"announceEnd","value":"End Story"},
+            {"id":"goodbye","value":"Goodbye"}
+    ]}}
 </mwe:sendJsonMessage>

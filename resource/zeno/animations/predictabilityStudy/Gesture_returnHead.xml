@@ -13,8 +13,8 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>000.0</Time><Position>0.43</Position></ControlPoint>
-						<ControlPoint><Time>500.0</Time><Position>0.46</Position></ControlPoint>
+						<ControlPoint><Time>000.0</Time><Position>0.57</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.54</Position></ControlPoint>
 						<ControlPoint><Time>1000.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
@@ -28,10 +28,9 @@
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
-						<ControlPoint><Time>0.0</Time><Position>0.95</Position></ControlPoint>
-						<ControlPoint><Time>200.0</Time><Position>0.85</Position></ControlPoint>
-						<ControlPoint><Time>400.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>600.0</Time><Position>0.62</Position></ControlPoint>
+						<ControlPoint><Time>0.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>200.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>400.0</Time><Position>0.45</Position></ControlPoint>
 						<ControlPoint><Time>900.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>

@@ -9,10 +9,6 @@
             {"id":"nextUserEnters","value":"Next User Enters"},
             {"id":"nextUserEntersResolution","value":"Resolve User Enters"},
 
-            {"id":"userDoesDance","value":"User Does Dance"},
-            {"id":"userExcited","value":"User Excited"},
-            {"id":"userBored","value":"User Bored"},
-            {"id":"userBoredResolution","value":"Resolve User Bored"},
             {"id":"reset","value":"Reset"}
     ]}}
 </mwe:sendJsonMessage>

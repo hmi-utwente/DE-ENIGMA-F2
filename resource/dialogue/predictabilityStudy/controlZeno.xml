@@ -76,123 +76,72 @@
 			<condition>is.zeno.request === "introduction"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "Gesture_welcome2", 2, "Hi, my name is Zeno", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "Gesture_welcome2", 2, "Hi, my name is Zeno. . . . . . . Shall we start?", 0)</assign>
 		</effects>
 	</template>
-	
-    <template id="sessionGoal" name="sessionGoal">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "sessionGoal"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_explainingMotion", 0, "Today, we are going to play a memory game!", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="gameExplanation" name="gameExplanation">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "gameExplanation"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "I play several sounds. You then, have to repeat those sounds", 0)</assign>
-		</effects>
-	</template>
-
-
-
 
 	<!-- GAME -->
-	<template id="itemStart" name="itemStart">
+	<template id="story1" name="story1">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "itemStart"</condition>
+			<condition>is.zeno.request === "story1"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Lets go", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "You stand in front of a small door.", 0)</assign>
 		</effects>
 	</template>
 
-	<template id="itemIntro" name="itemIntro">
+	<template id="question1" name="question1">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "itemIntro"</condition>
+			<condition>is.zeno.request === "question1"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Lets do another", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "How tall are you?", 0)</assign>
 		</effects>
 	</template>
 
-	<template id="question" name="question">
+	<template id="answer1" name="answer1">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "question"</condition>
+			<condition>is.zeno.request === "answer1"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "Now you do the same", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "You have to crouch, but you can enter through the door. . You enter into a kitchen.", 0)</assign>
 		</effects>
 	</template>
 
-	<template id="resolution" name="resolution">
+	<template id="story2" name="story2">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "resolution"</condition>
+			<condition>is.zeno.request === "story2"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(7, "Gesture_cheer", 0, "That is correct", 6)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "There is a distinct smell in this room. . What is your favorite food?", 0)</assign>
 		</effects>
 	</template>
 
-	<template id="zenoTurn" name="zenoTurn">
+	<template id="question2" name="question2">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "zenoTurn"</condition>
+			<condition>is.zeno.request === "question2"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Now it is my turn. You make a sound! ", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="zenoAnswer" name="zenoAnswer">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "zenoAnswer"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Biep. bop. biep.", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="zenoQuestion" name="zenoQuestion">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "zenoQuestion"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Emotion_slightSurprise", 0, "Is that correct?", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="zenoResolution" name="zenoResolution">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "zenoResolution"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "Oo yeeah", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "What is your favorite food?", 0)</assign>
 		</effects>
 	</template>
 
 
-
-
-	<!-- GAME ITEMS -->
-	<template id="gameItem1" name="gameItem1">
+	<template id="answer2" name="answer2">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "gameItem1"</condition>
+			<condition>is.zeno.request === "answer2"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Biep. biep. bop.", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "The smell reminds you of what a pepperoni pizza smells like.", 0)</assign>
 		</effects>
 	</template>
 
-	<template id="gameItem2" name="gameItem2">
+	<template id="story3" name="story3">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "gameItem2"</condition>
+			<condition>is.zeno.request === "story3"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Baap. biep.", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "When you look around, you see a pizza lying on the table. Are you hungry?", 0)</assign>
 		</effects>
 	</template>
 
@@ -204,7 +153,7 @@
 			<condition>is.zeno.request === "personEnters"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "Please go away, we are busy here", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "Please go away, we are busy here. . Thank you.", 1)</assign>
 		</effects>
 	</template>
 
@@ -213,7 +162,7 @@
 			<condition>is.zeno.request === "personEntersResolution"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "Sorry, lets continue", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "Lets continue", 1)</assign>
 		</effects>
 	</template>
 
@@ -222,79 +171,7 @@
 			<condition>is.zeno.request === "userInattentive"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Emotion_slightSurprise", 0, "Uhm. Hello?", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="userDeaf" name="userDeaf">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "userDeaf"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "I said", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="nextUserEnters" name="nextUserEnters">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "nextUserEnters"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_turnHead", 0, "I will be with you in a few minutes", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="nextUserEntersResolution" name="nextUserEntersResolution">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "nextUserEntersResolution"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "Gesture_returnHead", 0, "Sorry, lets continue", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="userDoesDance" name="userDoesDance">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "userDoesDance"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(13, "monkeyDance", 1, "Lets dance", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="userExcited" name="userExcited">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "userExcited"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "DenverEmotion_happiness", 0, "This is fun, is it not?", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="userBored" name="userBored">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "userBored"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "Do you want to continue playing this game?", 0)</assign>
-		</effects>
-	</template>
-
-	<template id="userBoredResolution" name="userBoredResolution">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "userBoredResolution"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "DenverEmotion_happiness", 0, "Okay", 1)</assign>
-		</effects>
-	</template>
-
-	<template id="userBored" name="userBored">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "reset"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "Emotion_neutral", 0, "", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "Please put that away. Thank you.", 1)</assign>
 		</effects>
 	</template>
 
@@ -305,7 +182,7 @@
 			<condition>is.zeno.request === "announceEnd"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "We are done playing today", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "You eat the pizza lying on the table. It is a great pizza. . This is the end of the story for today. ", 0)</assign>
 		</effects>
 	</template>
 
