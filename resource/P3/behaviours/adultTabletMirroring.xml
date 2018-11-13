@@ -1,0 +1,18 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Mirroring Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"sameFace","value":"I can make the same face as you"},
+            {"id":"startMirroring","value":"Start Mirroring "},
+            {"id":"stopMirroring","value":"Stop Mirroring"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"gameFinished","value":"This game is finished"},
+            {"id":"newGame","value":"Now new game with zeno"}
+        ]}}
+</mwe:sendJsonMessage>

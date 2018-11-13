@@ -1,0 +1,16 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Touch activity \n\nIf child participant number is EVEN: ask child if they would like to touch Zeno. If they say yes, do 'gentle touching' exercise. \n\nIf child participant number is ODD: ask child if they want to talk to Zeno. If child says yes, do the 'sing with Zeno' exercise. \n\nAlways after this step: do 'high five with Zeno' with ALL children." ,
+        "buttons" : [
+            {"id":"music","value":"Sing with Zeno"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"raiseArms","value":"Raise arms for high five"},
+            {"id":"lowerArms","value":"Lower arms"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_Main","value":"BACK to main menu"}
+        ]}}
+</mwe:sendJsonMessage>

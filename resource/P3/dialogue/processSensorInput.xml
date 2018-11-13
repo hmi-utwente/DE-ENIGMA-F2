@@ -1,0 +1,109 @@
+<behaviourtemplates>
+
+	<is name="sensorInputProcessor">
+		{	
+			"state" : "none",
+			"config" : {
+				"threshold" : {
+					"laughterValue" : 0.5,
+					"laughterConfidence" : 0.5
+				}
+			},
+			"acousticEvent" : {
+					"name" : "",
+					"timestamp" : "",
+					"value" : "",
+					"confidence" : "",
+					"processed" : false
+			},
+			"faceEvent" : {
+					"timestamp" : "",
+					"valid_face" : "",
+					"roll" : "",
+					"pitch" : "",
+					"yaw" : "",
+					"landmarks" : "",
+					"expression" : "",
+					"processed" : false
+			},
+			"bodyEvent" : {
+					"timestamp" : "",
+					"id" : "",
+					"depth" : "",
+					"withinAOI" : "",
+					"globalPhysicalActivity" : "",
+					"pose" : "",
+					"valence" : "",
+					"arousal" : "",
+					"processed" : false
+			},
+			"reasoningEvent" : {
+				"event" : "",
+				"processed" : false
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+			function isUserStanding(pose){
+				var bin = dec2bin(pose, 8);
+				return bin[0] === "1";
+			}
+			
+			//Takes a number from the decimal system (e.g. the number "22") 
+			//and transforms it into a binary representation of a specified length of bits, adding zero-padding where required (e.g. "22" becomes "00010110")
+			function dec2bin(dec, length){
+				var out = "";
+				
+				while(length--){
+					out += (dec >> length ) & 1;
+				}
+				
+				return out;  
+			}
+		]]>
+    </javascript>
+    
+    <!-- SUPER IMPORTANT!! If a child is stressed, we must immediately kill all running behaviour and show blank screen on child tablet -->
+    <template id="ProcessStressEvent" name="ProcessStressEvent">
+    	<preconditions mode="and">
+    		<condition>is.sensorInputProcessor.reasoningEvent.processed === false</condition>
+    		<condition>is.sensorInputProcessor.reasoningEvent.event === "stressEvent"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.reasoningEvent.processed">true</assign>
+    		<assign is="is.adult.menuRequest">"main"</assign>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<behaviour name="killAllBehaviour">
+				<object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>
+				<arguments/>
+			</behaviour>
+    	</effects>
+    </template>
+              
+    <template id="ProcessStandingEvent" name="ProcessStandingEvent">
+    	<preconditions mode="and">
+    		<condition>is.sensorInputProcessor.bodyEvent.processed === false</condition>
+    		<condition>isUserStanding(is.sensorInputProcessor.bodyEvent.pose)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.bodyEvent.processed">true</assign>
+    		<assign is="is.zeno.request">"dance"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ProcessLaughterEvent" name="ProcessLaughterEvent">
+    	<preconditions mode="and">
+    		<condition>is.sensorInputProcessor.acousticEvent.processed === false</condition>
+    		<condition>is.sensorInputProcessor.acousticEvent.name === "laughter"</condition>
+    		<condition>is.sensorInputProcessor.acousticEvent.value >= is.sensorInputProcessor.config.threshold.laughterValue</condition>
+    		<condition>is.sensorInputProcessor.acousticEvent.confidence >= is.sensorInputProcessor.config.threshold.laughterConfidence</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.acousticEvent.processed">true</assign>
+    		<assign is="is.zeno.request">"repeatLast"</assign>
+    	</effects>
+    </template>
+    
+</behaviourtemplates>

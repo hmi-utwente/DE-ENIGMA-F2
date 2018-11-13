@@ -38,7 +38,7 @@ public class FlipperMiddleware implements MiddlewareListener {
             ex.printStackTrace();
         }
 		
-		GenericMiddlewareLoader.setGlobalPropertiesFile("defaultmiddleware.properties");
+		GenericMiddlewareLoader.setGlobalPropertiesFile("P3/config/defaultmiddleware.properties");
 		
         GenericMiddlewareLoader gml = new GenericMiddlewareLoader(ps.getProperty("middleware"), ps);
         middleware = gml.load();

@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>P1_danceNursery.xml</Name>
+		<Number>1.1</Number>
+	</Version>
+	<Channels>
+		<Channel id="100" name="Waist_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>1000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.50</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="200" name="Neck Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>1000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.65</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.35</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.50</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="300" name="Forehead">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.94</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>5500.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>10500.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="320" name="LtSmile01">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="322" name="Mouth">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.4</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.4</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.4</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.4</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.16</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="500" name="RtShoulder_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.19</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.55</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.63</Position></ControlPoint>
+						<ControlPoint><Time>1250.0</Time><Position>0.63</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>4500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>5500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>6500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>7500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>8500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>9500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>10500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>11500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>12500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>13500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>14500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.19</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="501" name="RtShoulder_Roll">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>14500.0</Time><Position>0.38</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.45</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="520" name="RtWrist_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.29</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.29</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>4500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>5500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>6500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>7500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>8500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>9500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>10500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>11500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>12500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>13500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>14500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.55</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="521" name="RtGrasp">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.39</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.45</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="400" name="LtShoulder_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.19</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.55</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.63</Position></ControlPoint>
+						<ControlPoint><Time>1250.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>4500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>5500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>6500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>7500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>8500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>9500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>10500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>11500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>12500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>13500.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>14500.0</Time><Position>0.7</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.19</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="401" name="LtShoulder_Roll">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.32</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.45</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="420" name="LtWrist_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.29</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.29</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>4500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>5500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>6500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>7500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>8500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>9500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>10500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>11500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>12500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>13500.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>14500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.45</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+				</ControlPoints>
+			</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="421" name="LtGrasp">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.39</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>6000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>7000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>8000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>9000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>10000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>11000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>12000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>13000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>14000.0</Time><Position>0.14</Position></ControlPoint>
+						<ControlPoint><Time>14800.0</Time><Position>0.45</Position></ControlPoint>
+						<ControlPoint><Time>15000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

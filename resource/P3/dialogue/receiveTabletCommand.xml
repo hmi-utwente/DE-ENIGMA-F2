@@ -1,0 +1,103 @@
+<behaviourtemplates>
+
+	<is name="tablet">
+		{	
+			"initialised" : false,
+			"adult" : {
+				"rawInput" : {
+					"buttonPress" : {
+						"buttonID" : "none"
+					} 
+				},
+				"command" : "none"
+			},
+			"child" : {
+				"rawInput" : {
+					"clickableAreaPressed" : {
+						"areaID" : "none"
+					}
+				},
+				"command" : "none"
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		function parseCommand(command){
+			if(command.hasOwnProperty("buttonPress") && command.buttonPress.hasOwnProperty("buttonID")){
+				return command.buttonPress.buttonID;
+			} else if(command.hasOwnProperty("clickableAreaPressed") && command.clickableAreaPressed.hasOwnProperty("areaID")){
+				return command.clickableAreaPressed.areaID;
+			}
+			return "none";
+		}
+		
+		]]>
+    </javascript>
+      
+      <template id="initTabletListeners" name="initTabletListeners">
+      	<preconditions>
+      		<condition>is.tablet.initialised === false</condition>
+      	</preconditions>
+      	<effects>
+      	<method name="isConnected">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware">
+					<constructors>
+						<value class="String" constant="P3/config/ChildTablet.properties" />
+					</constructors>
+				</object>
+				<arguments></arguments>
+			</method>
+      		<method name="isConnected">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware">
+					<constructors>
+						<value class="String" constant="P3/config/AdultTablet.properties" />
+					</constructors>
+				</object>
+				<arguments></arguments>
+			</method>
+      		<assign is="is.tablet.initialised">true</assign>
+      	</effects>
+      </template>
+      
+	<template id="ReceiveAdultTabletCommand" name="ReceiveAdultTabletCommand">
+		<preconditions mode="and">
+      		<condition>is.tablet.initialised === true</condition>
+			<method name="hasMessage">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</preconditions>
+		<effects>
+			<method is="is.tablet.adult.rawInput" is_type="JSONString" name="getMessage">
+				<object persistent="tablet.adult" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+			<assign is="is.tablet.adult.command">parseCommand(is.tablet.adult.rawInput)</assign>
+		</effects>
+		
+	</template>
+	
+      
+	<template id="ReceiveChildTabletCommand" name="ReceiveChildTabletCommand">
+		<preconditions mode="and">
+      		<condition>is.tablet.initialised === true</condition>
+			<method name="hasMessage">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</preconditions>
+		<effects>
+			<method is="is.tablet.child.rawInput" is_type="JSONString" name="getMessage">
+				<object persistent="tablet.child" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+			<assign is="is.tablet.child.command">parseCommand(is.tablet.child.rawInput)</assign>
+		</effects>
+		
+	</template>
+
+
+</behaviourtemplates>

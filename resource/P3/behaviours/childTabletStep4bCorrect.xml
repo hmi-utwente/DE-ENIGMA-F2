@@ -1,0 +1,9 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    { "showAssignment" : {
+        "id":"correct_happy" ,
+        "text" : "Happy",
+        "imageFile" : "discr_zeno_happy",
+        "buttonText" : "",
+        "showHelp" : "false"
+        }}
+</mwe:sendJsonMessage>

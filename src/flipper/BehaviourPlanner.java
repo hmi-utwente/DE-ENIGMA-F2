@@ -89,7 +89,7 @@ public class BehaviourPlanner extends FlipperMiddleware {
 	}
 	
 	public static void main(String[] args) {
-		BehaviourPlanner bp = new BehaviourPlanner("AsapBMLPipe.properties");
+		BehaviourPlanner bp = new BehaviourPlanner("P3/config/AsapBMLPipe.properties");
 		bp.planAndSendBehaviour("{\"target\" : \"child_tablet\", \"template\": \"childTabletStep3\", \"placeholders\" : [{\"id\":\"testing\"}, {\"something\":\"else\"}]}");
 	}
 	

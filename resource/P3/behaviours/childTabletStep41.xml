@@ -1,0 +1,11 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    {
+	    "showClickablePicture" : {
+	    "id":"img" ,
+	    "text" : " ",
+	    "imageFile":"clickable_face_$emotionPicture$",
+	    "clickableAreas" : [
+	    {"id":"a1","value":"117;89;675;586;moveFace$emotionID$"}]
+	    }
+    }
+</mwe:sendJsonMessage>

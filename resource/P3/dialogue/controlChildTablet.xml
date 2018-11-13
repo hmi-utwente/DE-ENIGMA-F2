@@ -1,0 +1,81 @@
+<behaviourtemplates>
+
+	<is name="child">
+		{	
+			"menuRequest" : "",
+			"showingMenu" : "",
+			"state" : ""
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		var distractors = ["angry", "sad", "scared"];
+	
+		function createStep4Behaviour(emotion, step){
+			behaviour = createShowMenuBehaviour("child", step);
+			behaviour.placeholders = [{"emotionPicture":emotion.toLowerCase()},{"emotionID":emotion.charAt(0).toUpperCase() + emotion.slice(1).toLowerCase()}];
+			return behaviour;
+		}
+		
+		function createStep4bBehaviour(){
+			behaviour = createShowMenuBehaviour("child", "step4b1d");
+			behaviour.placeholders = [{"distractor":distractors[Math.floor(Math.random() * distractors.length)]}];
+			return behaviour;
+		}
+		
+		]]>
+    </javascript>
+      
+	<template id="InitChildMenu" name="InitChildMenu">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === ""</condition>
+			<condition>is.child.showingMenu === ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.menuRequest">"blank"</assign>
+		</effects>
+		
+	</template>
+      
+    <template id="ShowChildMenuStep4" name="ShowChildMenuStep4">
+		<preconditions mode="or">
+			<condition>is.child.menuRequest === "step41"</condition>
+			<condition>is.child.menuRequest === "step42"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.bmlid">addBehaviourRequest(createStep4Behaviour(is.childProcessor.step4.exploreEmotion, is.child.menuRequest))</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+		
+	</template>
+      
+        
+    <template id="ShowChildMenuStep4b1d" name="ShowChildMenuStep4b1d">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "step4b1d"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.bmlid">addBehaviourRequest(createStep4bBehaviour())</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+		
+	</template>
+      
+	<template id="ShowChildMenu" name="ShowChildMenu">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.bmlid">addBehaviourRequest(createShowMenuBehaviour("child", is.child.menuRequest))</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+		
+	</template>
+	
+
+</behaviourtemplates>

@@ -34,7 +34,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	public FlipperDialogStarter(Properties ps) {
 		super(ps);
 		this.om = new ObjectMapper();
-		String mwPropFile = "defaultmiddleware.properties";
+		String mwPropFile = "P3/config/defaultmiddleware.properties";
 		GenericMiddlewareLoader.setGlobalPropertiesFile(mwPropFile);
 		
 	}
@@ -64,7 +64,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	
 	public static void main(String[] args) {
 		String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: config";
-		String flipperPropFile = "flipper.properties";
+		String flipperPropFile = "P3/config/flipper.properties";
 
 		if(args.length % 2 != 0) {
 			LOGGER.info(help);
