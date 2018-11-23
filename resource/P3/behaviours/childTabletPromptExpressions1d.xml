@@ -1,0 +1,12 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    { "showImageButtonGrid" : {
+        "text":"$correct$" ,
+        "imageButtons" : [
+            {"id":"$correct$","value":"$correct$", "img":"discr_zeno_$correct$"},
+            {"id":"$distractor$","value":"$distractor$", "img":"discr_zeno_$distractor$"}
+        ]}}
+</mwe:sendJsonMessage>
+<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#ffd67f"}}
+</mwe:sendJsonMessage>

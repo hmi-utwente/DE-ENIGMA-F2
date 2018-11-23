@@ -5,6 +5,6 @@
 	"buttonText":""}}
 </mwe:sendJsonMessage>
 <mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
-	{ "setBackgroundColor" : { "id":"white" ,
-	"color" : "#FFFFFF"}}
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#ffd67f"}}
 </mwe:sendJsonMessage>

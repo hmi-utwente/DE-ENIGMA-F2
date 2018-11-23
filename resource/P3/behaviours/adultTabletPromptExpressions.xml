@@ -1,0 +1,35 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Face expression discrimination",
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"start_PromptExpressions","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"findMyHappyFace1d","value":"Find my happy face (1 distractor)"},
+            {"id":"findMyHappyFace3d","value":"Find my happy face (3 distractors)"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"findMySadFace1d","value":"Find my sad face (1 distractor)"},
+            {"id":"findMySadFace3d","value":"Find my sad face (3 distractors)"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"findMyAngryFace1d","value":"Find my angry face (1 distractor)"},
+            {"id":"findMyAngryFace3d","value":"Find my angry face (3 distractors)"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"findMyScaredFace1d","value":"Find my scared face (1 distractor)"},
+            {"id":"findMyScaredFace3d","value":"Find my scared face (3 distractors)"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_PromptExpressions","value":"End activity"}
+        ]}}
+</mwe:sendJsonMessage>

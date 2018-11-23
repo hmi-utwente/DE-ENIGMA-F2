@@ -63,9 +63,10 @@ public class BehaviourPlanner extends FlipperMiddleware {
 			if(template.isTextual()) {
 				String fileContent = readFile(templateDir + "/" + template.asText() + TEMPLATE_EXTENSION);
 				String bmlContent = fillPlaceholders(fileContent, placeholders);
-				sendBML("<bml id=\"" + bmlId + "\"  xmlns=\"http://www.bml-initiative.org/bml/bml-1.0\" xmlns:sze=\"http://hmi.ewi.utwente.nl/zenoengine\" xmlns:bmlt=\"http://hmi.ewi.utwente.nl/bmlt\" xmlns:mwe=\"http://hmi.ewi.utwente.nl/middlewareengine\">" + bmlContent + "</bml>");
+				sendBML("<bml id=\"" + bmlId + "\" xmlns=\"http://www.bml-initiative.org/bml/bml-1.0\" xmlns:sze=\"http://hmi.ewi.utwente.nl/zenoengine\" xmlns:bmlt=\"http://hmi.ewi.utwente.nl/bmlt\" xmlns:mwe=\"http://hmi.ewi.utwente.nl/middlewareengine\">" + bmlContent + "</bml>");
 			}
 			
+			System.gc();
 		} catch (IOException e) {
 			logger.error("Unable to load BML template file for the following request: {}", requestJson);
 			e.printStackTrace();

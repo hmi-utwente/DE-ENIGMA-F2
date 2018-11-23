@@ -2,7 +2,7 @@
 
 	<is name="sensorInputProcessor">
 		{	
-			"state" : "none",
+			"state" : "",
 			"config" : {
 				"threshold" : {
 					"laughterValue" : 0.5,

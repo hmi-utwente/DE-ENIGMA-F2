@@ -1,12 +1,17 @@
 <mwe:sendJsonMessage id="d" start="0">
     { "showButtons" : {
-        "text":"Step 1 Menu" ,
+        "text":"Activity: Dancing and faces" ,
         "buttons" : [
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
 			{"id":"", "value":"blankSpace"},
 			
+            {"id":"start_DancingAndFaces","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
             {"id":"dance","value":"Dance"},
+            {"id":"music","value":"Music"},
             {"id":"wp1Happy","value":"WP1 Happy"},
             {"id":"wp1Sad","value":"WP1 Sad"},
             {"id":"wp1Angry","value":"WP1 Angry"},
@@ -14,7 +19,7 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"showmenu_Distraction","value":"End of step: Press here"}
+            {"id":"end_DancingAndFaces","value":"End activity"}
 			
         ]}}
 </mwe:sendJsonMessage>

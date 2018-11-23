@@ -1,19 +1,21 @@
 <mwe:sendJsonMessage id="d" start="0">
     { "showButtons" : {
-        "text":"Step 3.5 Menu" ,
+        "text":"Activity: Feature discrimination" ,
         "buttons" : [
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"makeAFace","value":"Make a face with the pieces"},
-            {"id":"wellDoneYouMadeAFace","value":"Well done you made a face"},
-            {"id":"mouthOnTheBottom","value":"Mouth on the bottom [...] eyebrows on top"},
+            {"id":"start_PromptFeatures","value":"Start activity"},
             
 			{"id":"", "value":"blankSpace"},
 			
             {"id":"askEyebrows","value":"Ask Eyebrows"},
             {"id":"askEyes","value":"Ask Eyes"},
-            {"id":"askMouth","value":"Ask Mouth"}
+            {"id":"askMouth","value":"Ask Mouth"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_PromptFeatures","value":"End activity"}
         ]}}
 </mwe:sendJsonMessage>

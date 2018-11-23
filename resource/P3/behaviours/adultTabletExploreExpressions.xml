@@ -1,13 +1,15 @@
 <mwe:sendJsonMessage id="d" start="0">
     { "showButtons" : {
-        "text":"Step 4 Menu" ,
+        "text":"Activity: Explore face expressions" ,
         "buttons" : [
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"touchMyPicture","value":"Touch my picture"},
-            {"id":"skip","value":"Skip"},
+            {"id":"start_ExploreExpressions","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
             {"id":"exploreHappy","value":"Explore happy"},
             {"id":"exploreSad","value":"Explore sad"},
             {"id":"exploreAngry","value":"Explore angry"},
@@ -15,11 +17,6 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"gameFinished","value":"This game is finished"},
-            {"id":"newGame","value":"Now new game with zeno"},
-            
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"showmenu_Distraction","value":"End of step: Press here"}
+            {"id":"end_ExploreExpressions","value":"End activity"}
         ]}}
 </mwe:sendJsonMessage>

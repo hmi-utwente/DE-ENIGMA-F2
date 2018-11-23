@@ -5,6 +5,7 @@
 			"menuRequest" : "",
 			"showingMenu" : "",
 			"showingPersistentMenu" : "persistentButtons",
+			"prevZenoBusy" : false,
 			"lastShownTime" : 0
 		}
 	</is>
@@ -51,6 +52,29 @@
 			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
 		</effects>
 	</template>
+	
+	<template id="ZenoBusyAdultStatus" name="ZenoBusyAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoBusy"))</assign>
+		</effects>
+	</template>
+	
+	<template id="ZenoIdleAdultStatus" name="ZenoIdleAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>!is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoIdle"))</assign>
+		</effects>
+	</template>
+	
 	
 	
 

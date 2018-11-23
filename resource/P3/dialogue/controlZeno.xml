@@ -208,7 +208,7 @@
 		</effects>
 	</template>
 	
-    <!-- STEP1 -->
+    <!-- DancingAndFaces -->
 	<template id="wp1Happy" name="wp1Happy">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "wp1Happy"</condition>
@@ -245,7 +245,7 @@
 		</effects>
 	</template>
 	
-    <!-- STEP2 -->
+    <!-- ExploreFeatures -->
 	<template id="moveFaceNeutral" name="moveFaceNeutral">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "moveFaceNeutral"</condition>
@@ -282,7 +282,7 @@
 		</effects>
 	</template>
 	
-    <!-- STEP3 -->
+    <!-- PromptFeatures -->
 	<template id="askEyebrows" name="askEyebrows">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "askEyebrows"</condition>
@@ -429,7 +429,7 @@
 	</template>
 	
 	
-	<!-- STEP4a -->
+	<!-- ExploreExpressions -->
 	<!-- HAPPY -->
 	<template id="moveFaceHappy" name="moveFaceHappy">
 		<preconditions mode="and">
@@ -578,7 +578,7 @@
 		</effects>
 	</template>
 	
-	<!-- STEP4b RESPONSES -->
+	<!-- PromptExpressions -->
 	<template id="findMyHappyFace" name="findMyHappyFace">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "findMyHappyFace"</condition>
