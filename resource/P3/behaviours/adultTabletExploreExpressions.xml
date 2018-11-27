@@ -6,6 +6,7 @@
             
 			{"id":"", "value":"blankSpace"},
 			
+            {"id":"newGame","value":"Now new game with Zeno"},
             {"id":"start_ExploreExpressions","value":"Start activity"},
             
 			{"id":"", "value":"blankSpace"},

@@ -6,14 +6,6 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"start_Goodbye","value":"Start activity"},
-            
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"dance","value":"Dance"},
-            
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"end_Goodbye","value":"End activity"}
+            {"id":"goodbye","value":"Bye bye"}
         ]}}
 </mwe:sendJsonMessage>

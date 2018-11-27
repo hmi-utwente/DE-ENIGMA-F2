@@ -91,30 +91,6 @@
     	</effects>
     </template>
     
-    <!-- DANCING AND FACES -->
-    <template id="start_DancingAndFaces" name="start_DancingAndFaces">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "start_DancingAndFaces"</condition>
-    	</preconditions>
-    	<effects>
-    		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"newGame"</assign>
-    		<assign is="is.tablet.adult.command">"none"</assign>
-    	</effects>
-    </template>
-    
-     <template id="end_DancingAndFaces" name="end_DancingAndFaces">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "end_DancingAndFaces"</condition>
-    	</preconditions>
-    	<effects>
-    		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"gameFinished"</assign>
-    		<assign is="is.tablet.adult.command">"none"</assign>
-    		<assign is="is.adult.menuRequest">"Main"</assign>
-    	</effects>
-    </template>
-    
     <!-- EXPLORE FEATURES -->
     <template id="start_ExploreFeatures" name="start_ExploreFeatures">
     	<preconditions mode="or">
@@ -123,7 +99,6 @@
     	<effects>
     		<assign is="is.child.menuRequest">"ExploreFeatures"</assign>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
-    		<assign is="is.zeno.request">"newGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -148,7 +123,6 @@
     	<effects>
     		<assign is="is.child.menuRequest">"PromptFeatures"</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
-    		<assign is="is.zeno.request">"newGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -192,7 +166,6 @@
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">""</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
-    		<assign is="is.zeno.request">"newGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -232,7 +205,6 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"Prompt"</assign>
-    		<assign is="is.zeno.request">"newGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -367,19 +339,9 @@
     </template>
     
     <!-- GOODBYE -->
-     <template id="start_Goodbye" name="start_Goodbye">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "start_Goodbye"</condition>
-    	</preconditions>
-    	<effects>
-    		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.tablet.adult.command">"none"</assign>
-    	</effects>
-    </template>
-    
      <template id="end_Goodbye" name="end_Goodbye">
     	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "end_Goodbye"</condition>
+    		<condition>is.tablet.adult.command === "goodbye"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>

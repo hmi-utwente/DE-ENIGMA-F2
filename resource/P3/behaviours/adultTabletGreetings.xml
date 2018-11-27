@@ -6,14 +6,21 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"start_Greetings","value":"Start activity"},
+            {"id":"start_Greetings","value":"Greeting"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"dance","value":"Dance"},
+            {"id":"headShake","value":"Move head"},
+            {"id":"torso","value":"Move torso"},
+            {"id":"dance","value":"Monkey dance"},
+            {"id":"music","value":"Twinkle twinkle"},
+            {"id":"wp1Happy","value":"WP1 Happy"},
+            {"id":"wp1Sad","value":"WP1 Sad"},
+            {"id":"wp1Angry","value":"WP1 Angry"},
+            {"id":"wp1Scared","value":"WP1 Scared"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"end_Greetings","value":"End activity"}
+            {"id":"end_Greetings","value":"Time for faces with Zeno"}
         ]}}
 </mwe:sendJsonMessage>

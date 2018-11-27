@@ -6,7 +6,6 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"showmenu_DancingAndFaces","value":"Dancing and faces"},
             {"id":"showmenu_ExploreFeatures","value":"Explore face features"},
             {"id":"showmenu_PromptFeatures","value":"Face feature discrimination"},
             {"id":"showmenu_ExploreExpressions","value":"Explore face expressions"},
