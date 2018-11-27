@@ -22,6 +22,7 @@ Format of a request:
         {
             "initialised":false,
 			"time" : "0",
+			"behaviourMode" : "variant",
             "settings": {
                 "bmlPipePropertiesFilename":"P3/config/AsapBMLPipe.properties",
                 "behaviourDir":"P3/behaviours"

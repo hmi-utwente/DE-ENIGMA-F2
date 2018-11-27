@@ -6,6 +6,11 @@
 			"mirroring" : false,
 			"request" : "",
 			"behaviour" : "",
+			"variants" : {
+				"praise" : "",
+				"thankYou" : "",
+				"wow" : ""
+			},
 			"prevRequest" : ""
 		}
 	</is>
@@ -28,6 +33,32 @@
 				behaviour.template = filename;
 				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay},{"speak1":audio},{"speak1_delay":audioDelay}];
 				return behaviour;
+			}
+			
+			function getPraiseVariant(){
+				return getVariant(["V1","V2","V3","V4","V5"], is.zeno.variants.praise);
+			}
+			
+			function getThankYouVariant(){
+				return getVariant(["V1","V2","V3"], is.zeno.variants.thankYou);
+			}
+			
+			function getWowVariant(){
+				return getVariant(["V1","V2","V3"], is.zeno.variants.wow);
+			}
+			
+			//generic function for retrieving a random variant from a given set, without repeating the previous variant.
+			//or, in the invariant condition, always return the first variant 
+			function getVariant(variants, previousVariant){
+				if(is.behaviourplanner.behaviourMode === "invariant"){
+					//default, no variation mode
+					return variants[0];
+				} else {
+					//remove the variant we saw previously
+					variants.splice(variants.indexOf(previousVariant), 1);
+					
+					return variants[Math.floor(Math.random() * variants.length)];
+				}
 			}
 			
 		]]>
@@ -288,7 +319,7 @@
 			<condition>is.zeno.request === "askEyebrows"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "FindMyEyebrows", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "FindEyebrows", 0)</assign>
 		</effects>
 	</template>
 	
@@ -297,7 +328,7 @@
 			<condition>is.zeno.request === "askEyes"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMyEyes", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindEyes", 0)</assign>
 		</effects>
 	</template>
 	
@@ -306,7 +337,7 @@
 			<condition>is.zeno.request === "askMouth"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMyMouth", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMouth", 0)</assign>
 		</effects>
 	</template>
 	
@@ -584,7 +615,7 @@
 			<condition>is.zeno.request === "findMyHappyFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMyHappyFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "FindHappy", 0)</assign>
 		</effects>
 	</template>
 	
@@ -593,45 +624,10 @@
 			<condition>is.zeno.request === "wellDoneYouFoundMyHappyFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "WellDoneYouFoundMyHappyFace", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "YouFoundMyHappyFace", 1)</assign>
 		</effects>
 	</template>
 	
-	<template id="findTheHappyFace" name="findTheHappyFace">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "findTheHappyFace"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindTheHappyFace", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="wellDoneYouFoundTheHappyFace" name="wellDoneYouFoundTheHappyFace">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "wellDoneYouFoundTheHappyFace"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "WellDoneYouFoundTheHappyFace", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="findAllHappyFaces" name="findAllHappyFaces">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "findAllHappyFaces"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindAllHappyFaces", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="wellDoneYouFoundAllTheHappyFaces" name="wellDoneYouFoundAllTheHappyFaces">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "wellDoneYouFoundAllTheHappyFaces"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "WellDoneYouFoundAllTheHappyFaces", 0)</assign>
-		</effects>
-	</template>
 	
 	<!-- SAD discriminator step -->
 	<template id="findMySadFace" name="findMySadFace">
@@ -639,7 +635,7 @@
 			<condition>is.zeno.request === "findMySadFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMySadFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "FindSad", 0)</assign>
 		</effects>
 	</template>
 	
@@ -648,45 +644,50 @@
 			<condition>is.zeno.request === "wellDoneYouFoundMySadFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "", 0, "WellDoneYouFoundMySadFace", 1)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "YouFoundMySadFace", 1)</assign>
 		</effects>
 	</template>
 	
-	<template id="findTheSadFace" name="findTheSadFace">
+	
+	<!-- Angry discriminator step -->
+	<template id="findMyAngryFace" name="findMyAngryFace">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "findTheSadFace"</condition>
+			<condition>is.zeno.request === "findMyAngryFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindTheSadFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "FindAngry", 0)</assign>
 		</effects>
 	</template>
 	
-	<template id="wellDoneYouFoundTheSadFace" name="wellDoneYouFoundTheSadFace">
+	<template id="wellDoneYouFoundMyAngryFace" name="wellDoneYouFoundMyAngryFace">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "wellDoneYouFoundTheSadFace"</condition>
+			<condition>is.zeno.request === "wellDoneYouFoundMyAngryFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "WellDoneYouFoundTheSadFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "YouFoundMyAngryFace", 1)</assign>
 		</effects>
 	</template>
 	
-	<template id="findAllSadFaces" name="findAllSadFaces">
+	
+	<!-- Scared discriminator step -->
+	<template id="findMyScaredFace" name="findMyScaredFace">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "findAllSadFaces"</condition>
+			<condition>is.zeno.request === "findMyScaredFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindAllSadFaces", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "", 0, "FindScared", 0)</assign>
 		</effects>
 	</template>
 	
-	<template id="wellDoneYouFoundAllTheSadFaces" name="wellDoneYouFoundAllTheSadFaces">
+	<template id="wellDoneYouFoundMyScaredFace" name="wellDoneYouFoundMyScaredFace">
 		<preconditions mode="and">
-			<condition>is.zeno.request === "wellDoneYouFoundAllTheSadFaces"</condition>
+			<condition>is.zeno.request === "wellDoneYouFoundMyScaredFace"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "WellDoneYouFoundAllTheSadFaces", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "YouFoundMyScaredFace", 1)</assign>
 		</effects>
 	</template>
+	
 	
 	<!-- COLOURED SQUISHIES -->
 	<template id="findBlue" name="findBlue">
@@ -823,6 +824,36 @@
 		</preconditions>
 		<effects>
 			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "WellDone", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="praise" name="praise">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "praise"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.variants.praise">getPraiseVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "GoodJob"+is.zeno.variants.praise, 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="thankYou" name="thankYou">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "thankYou"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.variants.thankYou">getThankYouVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "ThankYou"+is.zeno.variants.thankYou, 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="wow" name="wow">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "wow"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.variants.wow">getWowVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Wow"+is.zeno.variants.wow, 0)</assign>
 		</effects>
 	</template>
 	
