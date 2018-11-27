@@ -10,8 +10,8 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"headShake","value":"Move head"},
-            {"id":"torso","value":"Move torso"},
+            {"id":"attention","value":"Move head + hello"},
+            {"id":"turnWaist","value":"Move torso"},
             {"id":"dance","value":"Monkey dance"},
             {"id":"music","value":"Twinkle twinkle"},
             {"id":"wp1Happy","value":"WP1 Happy"},

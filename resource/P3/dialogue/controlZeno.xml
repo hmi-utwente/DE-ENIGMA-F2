@@ -7,6 +7,11 @@
 			"request" : "",
 			"behaviour" : "",
 			"variants" : {
+				"hello" : "",
+				"timeForFaces" : "",
+				"newGame" : "",
+				"gameFinished" : "",
+				"goodbye" : "",
 				"praise" : "",
 				"thankYou" : "",
 				"wow" : ""
@@ -33,6 +38,28 @@
 				behaviour.template = filename;
 				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay},{"speak1":audio},{"speak1_delay":audioDelay}];
 				return behaviour;
+			}
+			
+			
+			
+			function getHelloVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.hello);
+			}
+			
+			function getTimeForFacesVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.timeForFaces);
+			}
+			
+			function getNewGameVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.newGame);
+			}
+			
+			function getGameFinishedVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.gameFinished);
+			}
+			
+			function getGoodbyeVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.goodbye);
 			}
 			
 			function getPraiseVariant(){
@@ -142,7 +169,8 @@
 			<condition>is.zeno.request === "hello"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_welcome", 4, "HiMyNameIsZeno", 0)</assign>
+			<assign is="is.zeno.variants.hello">getHelloVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_welcome", 4, "HiMyNameIsZeno"+is.zeno.variants.hello, 0)</assign>
 		</effects>
 	</template>
 	
@@ -151,7 +179,26 @@
 			<condition>is.zeno.request === "timeForFaces"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "TimeForFacesWithZeno", 0)</assign>
+			<assign is="is.zeno.variants.timeForFaces">getTimeForFacesVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "TimeForFacesWithZeno"+is.zeno.variants.timeForFaces, 0)</assign>
+		</effects>
+	</template>
+	
+    <template id="attention" name="attention">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "attention"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_attention", 0, "Gesture_attention", 1)</assign>
+		</effects>
+	</template>
+	
+    <template id="turnWaist" name="turnWaist">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "turnWaist"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_turnWaist", 0, "", 0)</assign>
 		</effects>
 	</template>
     
@@ -160,7 +207,8 @@
 			<condition>is.zeno.request === "goodbye"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "Gesture_cheer", 4, "WellDoneFacesAreFinishedByeBye", 0)</assign>
+			<assign is="is.zeno.variants.goodbye">getGoodbyeVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(11, "Gesture_cheer", 4, "WellDoneFacesAreFinishedByeBye"+is.zeno.variants.goodbye, 0)</assign>
 		</effects>
 	</template>
 	
@@ -796,7 +844,8 @@
 			<condition>is.zeno.request === "gameFinished"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 4, "WellDoneThisGameIsFinished", 0)</assign>
+			<assign is="is.zeno.variants.gameFinished">getGameFinishedVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_cheer", 5, "ThisGameIsFinished"+is.zeno.variants.gameFinished, 0)</assign>
 		</effects>
 	</template>
 	
@@ -824,6 +873,33 @@
 		</preconditions>
 		<effects>
 			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "WellDone", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="ok" name="ok">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "ok"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Ok", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="yes" name="yes">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "yes"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Yes", 0)</assign>
+		</effects>
+	</template>
+	
+	<template id="no" name="no">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "no"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "No", 0)</assign>
 		</effects>
 	</template>
 	
@@ -862,7 +938,8 @@
 			<condition>is.zeno.request === "newGame"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "NowNewGameWithZeno", 0)</assign>
+			<assign is="is.zeno.variants.newGame">getNewGameVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "NowNewGameWithZeno"+is.zeno.variants.newGame, 0)</assign>
 		</effects>
 	</template>
       
