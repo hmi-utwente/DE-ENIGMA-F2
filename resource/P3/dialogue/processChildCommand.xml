@@ -170,6 +170,7 @@
     	<effects>
     		<assign is="is.zeno.request">"letsTryAgain"</assign>
     		<assign is="is.child.menuRequest">"NoImage"</assign>
+    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
     	</effects>
     </template>
     

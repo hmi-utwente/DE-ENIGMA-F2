@@ -100,7 +100,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"ExploreFeatures"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -141,7 +141,7 @@
     		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
     		<assign is="is.child.menuRequest">"PromptFeatures"</assign>
     		<assign is="is.zeno.request">is.tablet.adult.command</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -181,7 +181,7 @@
 			<assign is="is.child.expressionVariant">is.zeno.variants.happyFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
-    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -195,7 +195,7 @@
 			<assign is="is.child.expressionVariant">is.zeno.variants.angryFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
-    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -209,7 +209,7 @@
 			<assign is="is.child.expressionVariant">is.zeno.variants.sadFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
-    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -223,7 +223,7 @@
 			<assign is="is.child.expressionVariant">is.zeno.variants.scaredFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
-    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -259,7 +259,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"happy"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyHappyFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -272,7 +272,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"happy"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyHappyFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -285,7 +285,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"sad"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMySadFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -298,7 +298,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"sad"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMySadFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -311,7 +311,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"angry"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyAngryFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -324,7 +324,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"angry"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyAngryFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -337,7 +337,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"scared"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyScaredFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -350,7 +350,7 @@
     	<effects>
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"scared"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">"findMyScaredFace"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>

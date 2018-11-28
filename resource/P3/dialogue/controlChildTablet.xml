@@ -185,22 +185,53 @@
 		</effects>
 	</template>
 	
-	<!-- Requests for enabling or disabling the current menu screen on the child tablet. 
-	This transition may either be permanent, or temporary. 
-	If temporary, if will transition back after a certain duration, and after the robot is no longer busy -->
-	<template id="requestEnableMenuPermanent" name="requestEnableMenuPermanent">
+    <template id="requestMenu_NoImage" name="requestMenu_NoImage">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "NoImage"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<!-- Requests for enabling the current menu screen on the child tablet. 
+	This transition may either take place NOW, or LATER. 
+	If later, it will enable after a certain duration, and after the robot is no longer busy -->
+	<template id="requestEnableMenuNow" name="requestEnableMenuNow">
 		<preconditions mode="and">
 			<condition>is.child.enabledMenu !== ""</condition>
-			<condition>is.child.enableMenuRequest === "permanent"</condition>
+			<condition>is.child.enableMenuRequest === "now"</condition>
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
 			<assign is="is.child.enableMenuRequest">""</assign>
-			<assign is="is.child.menuState">"enabled"</assign>
 			<assign is="is.child.waitingForMenuStateTransition">false</assign>
+			<assign is="is.child.menuState">"enabled"</assign>
 		</effects>
 	</template>
 	
+	<template id="requestEnableMenuLater" name="requestEnableMenuLater">
+		<preconditions mode="and">
+			<condition>is.child.enabledMenu !== ""</condition>
+			<condition>is.child.enableMenuRequest === "later"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enableMenuRequest">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">true</assign>
+			<assign is="is.child.nextMenuStateTransition">"enabled"</assign>
+			<assign is="is.child.menuStateTransitionRequestTime">is.behaviourplanner.time</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
+		</effects>
+	</template>
+	
+	<!-- Requests for disabling the current menu screen on the child tablet. 
+	This transition may either be permanent, or temporary. 
+	If temporary, if will transition back to the previous state after a certain duration, and after the robot is no longer busy -->
 	<template id="requestDisableMenuPermanent" name="requestDisableMenuPermanent">
 		<preconditions mode="and">
 			<condition>is.child.disabledMenu !== ""</condition>
@@ -209,8 +240,8 @@
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
 			<assign is="is.child.disableMenuRequest">""</assign>
-			<assign is="is.child.menuState">"disabled"</assign>
 			<assign is="is.child.waitingForMenuStateTransition">false</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
 		</effects>
 	</template>
 	
@@ -221,15 +252,16 @@
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.menuState">"disabled"</assign>
 			<assign is="is.child.disableMenuRequest">""</assign>
 			<assign is="is.child.waitingForMenuStateTransition">true</assign>
+			<assign is="is.child.nextMenuStateTransition">is.child.menuState</assign>
 			<assign is="is.child.menuStateTransitionRequestTime">is.behaviourplanner.time</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
 		</effects>
 	</template>
       
     <!-- This template is responsible for transitioning back to enabled after a duration, and when the robot behaviour is finished  -->
-	<template id="enableMenuAfterTimer" name="enableMenuAfterTimer">
+	<template id="transitionMenuAfterTimer" name="transitionMenuAfterTimer">
 		<preconditions mode="and">
 			<condition>is.child.showingMenu !== ""</condition>
 			<condition>is.child.waitingForMenuStateTransition === true</condition>
@@ -238,7 +270,8 @@
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.menuState">"enabled"</assign>
+			<assign is="is.child.menuState">is.child.nextMenuStateTransition</assign>
+			<assign is="is.child.nextMenuStateTransition">""</assign>
 			<assign is="is.child.waitingForMenuStateTransition">false</assign>
 		</effects>
 	</template>
