@@ -3,8 +3,8 @@
 	    "showClickablePicture" : {
 	    "id":"img" ,
 	    "text" : " ",
-	    "imageFile":"enabled_expression_$emotionPicture$_$variant$",
-	    "imageFileDisabled":"disabled_expression_$emotionPicture$_$variant$",
+	    "imageFile":"enabled_$emotionPicture$_$variant$",
+	    "imageFileDisabled":"disabled_$emotionPicture$_$variant$",
 	    "clickableAreas" : [
 	    {"id":"a1","value":"152;225;116;515;moveEyebrows$emotionID$"},
 	    {"id":"a2","value":"177;380;95;477;moveEyes$emotionID$"},
