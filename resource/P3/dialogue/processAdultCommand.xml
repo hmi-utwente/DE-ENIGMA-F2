@@ -57,6 +57,17 @@
     	</effects>
     </template>
     
+    <template id="ToggleCondition" name="ToggleCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "toggle_condition"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">toggleBehaviourMode()</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
    	<!-- This one takes care of switching menus based on the adult tablet's button presses -->
     <template id="AdultMenu" name="AdultMenu">
     	<preconditions mode="and">

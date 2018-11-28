@@ -13,7 +13,11 @@
 	<javascript>
 		<![CDATA[
 		
-		
+		function createMainMenu(){
+			behaviour = createShowMenuBehaviour("adult", "Main");
+			behaviour.placeholders = [{"condition":is.behaviourplanner.behaviourMode}];
+			return behaviour;
+		}
 		
 		]]>
     </javascript>
@@ -24,8 +28,20 @@
 			<condition>is.adult.showingMenu === ""</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.adult.menuRequest">"main"</assign>
+			<assign is="is.adult.menuRequest">"Main"</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+    
+	<template id="ShowAdultMainMenu" name="ShowAdultMainMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "Main"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
 		</effects>
 	</template>
       

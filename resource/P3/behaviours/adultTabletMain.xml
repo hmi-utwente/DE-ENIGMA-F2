@@ -13,6 +13,12 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"showmenu_Goodbye","value":"Goodbye"}
+            {"id":"showmenu_Goodbye","value":"Goodbye"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"toggle_condition","value":"Condition: $condition$ (press to toggle)"}
         ]}}
 </mwe:sendJsonMessage>

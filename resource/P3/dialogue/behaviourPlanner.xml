@@ -32,6 +32,14 @@ Format of a request:
 	<javascript>
 		<![CDATA[
 
+		function toggleBehaviourMode(){
+			if(is.behaviourplanner.behaviourMode === "variant"){
+				return "invariant";
+			} else {
+				return "variant";
+			}
+		}
+
         var behaviourRequestCounter = Math.floor(Math.random() * 1000000);
         var behaviourRequests = [];
         
