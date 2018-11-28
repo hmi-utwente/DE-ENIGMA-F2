@@ -76,6 +76,7 @@
 				<arguments></arguments>
 			</method>
 			<assign is="is.tablet.adult.command">parseCommand(is.tablet.adult.rawInput)</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Adult pressed button: ["+is.tablet.adult.command+"]")</assign>
 		</effects>
 		
 	</template>
@@ -95,6 +96,7 @@
 				<arguments></arguments>
 			</method>
 			<assign is="is.tablet.child.command">parseCommand(is.tablet.child.rawInput)</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Child pressed button: ["+is.tablet.child.command+"]")</assign>
 		</effects>
 		
 	</template>

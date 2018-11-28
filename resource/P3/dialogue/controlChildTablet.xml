@@ -8,6 +8,7 @@
 			"disableMenuRequest" : "",
 			"waitingForMenuStateTransition" : "",
 			"menuStateTransitionRequestTime" : "",
+			"expressionVariant" : "",
 			"enabledMenu" : "",
 			"disabledMenu" : "",
 			"refreshMenu" : false,
@@ -21,9 +22,12 @@
 		<![CDATA[
 		
 	
-		function createExploreExpressionsBehaviour(emotion, step){
+		function createExploreExpressionsBehaviour(enabled, emotion, variant, step){
+			if(!enabled){
+				step = step+"Disabled";
+			}
 			behaviour = createShowMenuBehaviour("child", step);
-			behaviour.placeholders = [{"emotionPicture":emotion.toLowerCase()},{"emotionID":emotion.charAt(0).toUpperCase() + emotion.slice(1).toLowerCase()}];
+			behaviour.placeholders = [{"emotionPicture":emotion.toLowerCase()},{"variant":variant.toLowerCase()},{"emotionID":emotion.charAt(0).toUpperCase() + emotion.slice(1).toLowerCase()}];
 			return behaviour;
 		}
 		
@@ -135,8 +139,8 @@
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.enabledMenu">createExploreExpressionsBehaviour(is.childProcessor.exploreExpressions.exploreEmotion, is.child.menuRequest)</assign>
-			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "ExploreExpressionsDisabled")</assign>
+			<assign is="is.child.enabledMenu">createExploreExpressionsBehaviour(true, is.childProcessor.exploreExpressions.exploreEmotion, is.child.expressionVariant, is.child.menuRequest)</assign>
+			<assign is="is.child.disabledMenu">createExploreExpressionsBehaviour(false, is.childProcessor.exploreExpressions.exploreEmotion, is.child.expressionVariant, is.child.menuRequest)</assign>
 			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
 			<assign is="is.child.menuRequest">""</assign>
 		</effects>

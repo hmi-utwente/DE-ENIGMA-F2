@@ -43,6 +43,8 @@
 		]]>
     </javascript>
     
+    
+    
     <!-- Some WOZ buttons to emulate certain sensor information -->
     <template id="WOZStressEvent" name="WOZStressEvent">
     	<preconditions mode="and">
@@ -170,14 +172,55 @@
     	</effects>
     </template>
     
-    <template id="ExploreExpressions_ExploreEmotion" name="ExploreExpressions_ExploreEmotion">
-    	<preconditions mode="or">
+    <template id="ExploreExpressions_ExploreEmotionHappy" name="ExploreExpressions_ExploreEmotionHappy">
+    	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "exploreHappy"</condition>
+    	</preconditions>
+    	<effects>
+			<assign is="is.zeno.variants.happyFace">getHappyFaceVariant()</assign>
+			<assign is="is.child.expressionVariant">is.zeno.variants.happyFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionAngry" name="ExploreExpressions_ExploreEmotionAngry">
+    	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "exploreAngry"</condition>
+    	</preconditions>
+    	<effects>
+			<assign is="is.zeno.variants.angryFace">getAngryFaceVariant()</assign>
+			<assign is="is.child.expressionVariant">is.zeno.variants.angryFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionSad" name="ExploreExpressions_ExploreEmotionSad">
+    	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "exploreSad"</condition>
+    	</preconditions>
+    	<effects>
+			<assign is="is.zeno.variants.sadFace">getSadFaceVariant()</assign>
+			<assign is="is.child.expressionVariant">is.zeno.variants.sadFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.child.enableMenuRequest">"permanent"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionScared" name="ExploreExpressions_ExploreEmotionScared">
+    	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "exploreScared"</condition>
     	</preconditions>
     	<effects>
+			<assign is="is.zeno.variants.scaredFace">getScaredFaceVariant()</assign>
+			<assign is="is.child.expressionVariant">is.zeno.variants.scaredFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.enableMenuRequest">"permanent"</assign>

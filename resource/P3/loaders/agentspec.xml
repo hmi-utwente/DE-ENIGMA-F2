@@ -18,6 +18,11 @@
 	</Loader>
 
 
+  	<!-- Loader id="guiembodiment" loader="asap.realizerembodiments.JFrameEmbodiment">
+        <BmlUI demoscriptresources="P3/behaviours"/>
+        <FeedbackUI/>
+    </Loader-->
+    
     <Loader id="middlewareembodiment" loader="asap.middlewareengine.embodiment.MiddlewareEmbodiment" requiredloaders="">
         <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
             <MiddlewareProperty name="default" value="true"/>

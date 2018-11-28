@@ -3,9 +3,9 @@
 	    "showClickablePicture" : {
 	    "id":"img" ,
 	    "text" : " ",
-	    "imageFile":"disabled_neutral",
-	    "imageFileDisabled":"disabled_neutral",
-	    "clickableAreas" : [{"id":"noting","value":"1;1;1;1;doNothing"}]
+	    "imageFile":"disabled_expression_$emotionPicture$_$variant$",
+	    "imageFileDisabled":"disabled_expression_$emotionPicture$_$variant$",
+	    "clickableAreas" : [{"id":"nothing","value":"1;1;1;1;doNothing"}]
 	    }
     }
 </mwe:sendJsonMessage>

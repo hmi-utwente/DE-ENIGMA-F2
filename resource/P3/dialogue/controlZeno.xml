@@ -14,7 +14,11 @@
 				"goodbye" : "",
 				"praise" : "",
 				"thankYou" : "",
-				"wow" : ""
+				"wow" : "",
+				"happyFace" : "",
+				"sadFace" : "",
+				"angryFace" : "",
+				"scaredFace" : ""
 			},
 			"prevRequest" : ""
 		}
@@ -40,7 +44,9 @@
 				return behaviour;
 			}
 			
-			
+			function createZenoLogLine(behaviourRequest, behaviour){
+				return "Doing Zeno behaviour: ["+behaviourRequest+"] using BML template: ["+behaviour.template+"] with a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
+			}
 			
 			function getHelloVariant(){
 				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.hello);
@@ -72,6 +78,22 @@
 			
 			function getWowVariant(){
 				return getVariant(["V1","V2","V3"], is.zeno.variants.wow);
+			}
+			
+			function getHappyFaceVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.happyFace);
+			}
+			
+			function getSadFaceVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.sadFace);
+			}
+			
+			function getAngryFaceVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.angryFace);
+			}
+			
+			function getScaredFaceVariant(){
+				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.scaredFace);
 			}
 			
 			//generic function for retrieving a random variant from a given set, without repeating the previous variant.
@@ -515,7 +537,7 @@
 			<condition>is.zeno.request === "moveFaceHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_happiness", 4.5, "HappyThisIsMyHappyFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_happiness"+is.zeno.variants.happyFace, 4.5, "HappyThisIsMyHappyFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -524,7 +546,7 @@
 			<condition>is.zeno.request === "moveEyebrowsHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness", 4.5, "HappyMyEyebrowsAreUp", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness"+is.zeno.variants.happyFace, 4.5, "HappyMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -533,7 +555,7 @@
 			<condition>is.zeno.request === "moveEyesHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness", 4.5, "HappyMyEyesDoNotMove", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_happiness"+is.zeno.variants.happyFace, 4.5, "HappyMyEyesDoNotMove", 0)</assign>
 		</effects>
 	</template>
 	
@@ -542,7 +564,7 @@
 			<condition>is.zeno.request === "moveMouthHappy"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_happiness", 6, "HappyMyMouthIsUpIAmSmiling", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_happiness"+is.zeno.variants.happyFace, 6, "HappyMyMouthIsUpIAmSmiling", 0)</assign>
 		</effects>
 	</template>
 	
@@ -552,7 +574,7 @@
 			<condition>is.zeno.request === "moveFaceAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_anger", 4.5, "AngryThisIsMyAngryFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_anger"+is.zeno.variants.angryFace, 4.5, "AngryThisIsMyAngryFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -561,7 +583,7 @@
 			<condition>is.zeno.request === "moveEyebrowsAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_anger", 6, "AngryMyEyebrowsAreDownIAmFrowning", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_anger"+is.zeno.variants.angryFace, 6, "AngryMyEyebrowsAreDownIAmFrowning", 0)</assign>
 		</effects>
 	</template>
 	
@@ -570,7 +592,7 @@
 			<condition>is.zeno.request === "moveEyesAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger", 4.5, "AngryMyEyesAreNarrow", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger"+is.zeno.variants.angryFace, 4.5, "AngryMyEyesAreNarrow", 0)</assign>
 		</effects>
 	</template>
 	
@@ -579,7 +601,7 @@
 			<condition>is.zeno.request === "moveMouthAngry"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger", 4.5, "AngryMyMouthIsDown", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_anger"+is.zeno.variants.angryFace, 4.5, "AngryMyMouthIsDown", 0)</assign>
 		</effects>
 	</template>
 	
@@ -589,7 +611,7 @@
 			<condition>is.zeno.request === "moveFaceSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_sadness", 4.5, "SadThisIsMySadFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_sadness"+is.zeno.variants.sadFace, 4.5, "SadThisIsMySadFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -598,7 +620,7 @@
 			<condition>is.zeno.request === "moveEyebrowsSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness", 4.5, "SadMyEyebrowsAreUp", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness"+is.zeno.variants.sadFace, 4.5, "SadMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -607,7 +629,7 @@
 			<condition>is.zeno.request === "moveEyesSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_sadness", 6, "SadMyEyesAreClosedIAmCrying", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9.5, "Emotion_sadness"+is.zeno.variants.sadFace, 6, "SadMyEyesAreClosedIAmCrying", 0)</assign>
 		</effects>
 	</template>
 	
@@ -616,7 +638,7 @@
 			<condition>is.zeno.request === "moveMouthSad"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness", 4.5, "SadMyMouthIsDown", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Emotion_sadness"+is.zeno.variants.sadFace, 4.5, "SadMyMouthIsDown", 0)</assign>
 		</effects>
 	</template>
 	
@@ -626,7 +648,7 @@
 			<condition>is.zeno.request === "moveFaceScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "ScaredThisIsMyScaredFace", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear"+is.zeno.variants.scaredFace, 4.5, "ScaredThisIsMyScaredFace", 0)</assign>
 		</effects>
 	</template>
 	
@@ -635,7 +657,7 @@
 			<condition>is.zeno.request === "moveEyebrowsScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "ScaredMyEyebrowsAreUp", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear"+is.zeno.variants.scaredFace, 4.5, "ScaredMyEyebrowsAreUp", 0)</assign>
 		</effects>
 	</template>
 	
@@ -644,7 +666,7 @@
 			<condition>is.zeno.request === "moveEyesScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear", 4.5, "ScaredMyEyesAreOpen", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear"+is.zeno.variants.scaredFace, 4.5, "ScaredMyEyesAreOpen", 0)</assign>
 		</effects>
 	</template>
 	
@@ -653,7 +675,7 @@
 			<condition>is.zeno.request === "moveMouthScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10.5, "Emotion_fear", 6, "ScaredMyMouthIsOpenIAmGasping", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(10.5, "Emotion_fear"+is.zeno.variants.scaredFace, 6, "ScaredMyMouthIsOpenIAmGasping", 0)</assign>
 		</effects>
 	</template>
 	
@@ -950,6 +972,7 @@
 			<condition>is.zeno.behaviour.startTime === 0</condition>
 		</preconditions>
 		<effects>
+			<assign is="is.logger.latestLogLine">logInfo(createZenoLogLine(is.zeno.request, is.zeno.behaviour))</assign>
 			<assign is="is.zeno.busy">true</assign>
 			<assign is="is.zeno.behaviour.startTime">is.behaviourplanner.time</assign>
 			<assign is="is.zeno.bmlId">addBehaviourRequest(is.zeno.behaviour)</assign>
