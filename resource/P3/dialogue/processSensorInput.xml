@@ -73,7 +73,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.sensorInputProcessor.reasoningEvent.processed">true</assign>
-    		<assign is="is.adult.menuRequest">"main"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
     		<assign is="is.child.menuRequest">"blank"</assign>
     		<behaviour name="killAllBehaviour">
 				<object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>

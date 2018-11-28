@@ -189,9 +189,11 @@
     	</preconditions>
     	<effects>
 			<assign is="is.zeno.variants.happyFace">getHappyFaceVariant()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring happy variant: ["+is.zeno.variants.happyFace+"]")</assign>
 			<assign is="is.child.expressionVariant">is.zeno.variants.happyFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -203,9 +205,11 @@
     	</preconditions>
     	<effects>
 			<assign is="is.zeno.variants.angryFace">getAngryFaceVariant()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring angry variant: ["+is.zeno.variants.angryFace+"]")</assign>
 			<assign is="is.child.expressionVariant">is.zeno.variants.angryFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -217,9 +221,11 @@
     	</preconditions>
     	<effects>
 			<assign is="is.zeno.variants.sadFace">getSadFaceVariant()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring sad variant: ["+is.zeno.variants.sadFace+"]")</assign>
 			<assign is="is.child.expressionVariant">is.zeno.variants.sadFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -231,9 +237,11 @@
     	</preconditions>
     	<effects>
 			<assign is="is.zeno.variants.scaredFace">getScaredFaceVariant()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring scared variant: ["+is.zeno.variants.scaredFace+"]")</assign>
 			<assign is="is.child.expressionVariant">is.zeno.variants.scaredFace</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>

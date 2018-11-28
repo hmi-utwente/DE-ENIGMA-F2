@@ -19,6 +19,24 @@
 			return behaviour;
 		}
 		
+		function createExploreExpressionsMenu(){
+			behaviour = createShowMenuBehaviour("adult", "ExploreExpressions");
+			behaviour.placeholders = [{"happy_variant":""},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			
+			//quick and dirty hack to show on tablet which emotion variant we are displaying now
+			if(is.childProcessor.exploreExpressions.exploreEmotion === "happy"){
+				behaviour.placeholders = [{"happy_variant":"(Showing "+is.zeno.variants.happyFace+")"},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "sad"){
+				behaviour.placeholders = [{"sad_variant":"(Showing "+is.zeno.variants.sadFace+")"},{"happy_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "angry"){
+				behaviour.placeholders = [{"angry_variant":"(Showing "+is.zeno.variants.angryFace+")"},{"happy_variant":""},{"sad_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "scared"){
+				behaviour.placeholders = [{"scared_variant":"(Showing "+is.zeno.variants.scaredFace+")"},{"happy_variant":""},{"sad_variant":""},{"angry_variant":""}];
+			}
+			
+			return behaviour;
+		}
+		
 		]]>
     </javascript>
       
@@ -41,6 +59,18 @@
 			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
 			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="ShowAdultExploreExpressions" name="ShowAdultExploreExpressions">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "ExploreExpressions"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createExploreExpressionsMenu())</assign>
 			<assign is="is.adult.menuRequest">""</assign>
 		</effects>
 	</template>
