@@ -48,7 +48,8 @@
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>100.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>200.0</Time><Position>1.00</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>1.00</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>1.00</Position></ControlPoint>
+						<ControlPoint><Time>3750.0</Time><Position>0.75</Position></ControlPoint>
 						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>

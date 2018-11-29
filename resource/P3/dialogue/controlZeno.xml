@@ -11,6 +11,7 @@
 				"timeForFaces" : "",
 				"newGame" : "",
 				"gameFinished" : "",
+				"byebye" : "",
 				"goodbye" : "",
 				"praise" : "",
 				"thankYou" : "",
@@ -66,6 +67,10 @@
 			
 			function getGoodbyeVariant(){
 				return getVariant(["V1","V2","V3","V4"], is.zeno.variants.goodbye);
+			}
+			
+			function getByebyeVariant(){
+				return getVariant(["V1","V2","V3"], is.zeno.variants.byebye);
 			}
 			
 			function getPraiseVariant(){
@@ -224,6 +229,16 @@
 		</effects>
 	</template>
     
+    <template id="byebye" name="byebye">
+		<preconditions mode="and">
+			<condition>is.zeno.request === "byebye"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.zeno.variants.byebye">getByebyeVariant()</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(8, "Gesture_welcome", 2, "ByeBye"+is.zeno.variants.byebye, 0)</assign>
+		</effects>
+	</template>
+	
     <template id="goodbye" name="goodbye">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "goodbye"</condition>
@@ -675,7 +690,7 @@
 			<condition>is.zeno.request === "moveMouthScared"</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(10.5, "Emotion_fear"+is.zeno.variants.scaredFace, 6, "ScaredMyMouthIsOpenIAmGasping", 0)</assign>
+			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Emotion_fear"+is.zeno.variants.scaredFace, 4.5, "ScaredMyMouthIsOpen", 0)</assign>
 		</effects>
 	</template>
 	

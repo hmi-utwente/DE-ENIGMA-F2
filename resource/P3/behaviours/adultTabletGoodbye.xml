@@ -6,6 +6,10 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"goodbye","value":"Bye bye"}
+            {"id":"byebye","value":"Bye bye + wave"},
+			
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"goodbye","value":"End session"}
         ]}}
 </mwe:sendJsonMessage>
