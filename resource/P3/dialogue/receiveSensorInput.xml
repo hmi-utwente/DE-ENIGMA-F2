@@ -106,7 +106,7 @@
       	<method name="isConnected">
 				<object persistent="sensor.acoustic" class="flipper.FlipperMiddleware">
 					<constructors>
-						<value class="String" constant="P2/config/SensorAcoustic.properties" />
+						<value class="String" constant="P3/config/SensorAcoustic.properties" />
 					</constructors>
 				</object>
 				<arguments></arguments>
@@ -115,7 +115,7 @@
       	<method name="isConnected">
 				<object persistent="sensor.face" class="flipper.FlipperMiddleware">
 					<constructors>
-						<value class="String" constant="P2/config/SensorFace.properties" />
+						<value class="String" constant="P3/config/SensorFace.properties" />
 					</constructors>
 				</object>
 				<arguments></arguments>
@@ -123,7 +123,7 @@
       	<method name="isConnected">
 				<object persistent="sensor.body" class="flipper.FlipperMiddleware">
 					<constructors>
-						<value class="String" constant="P2/config/SensorBody.properties" />
+						<value class="String" constant="P3/config/SensorBody.properties" />
 					</constructors>
 				</object>
 				<arguments></arguments>
@@ -131,7 +131,7 @@
       	<method name="isConnected">
 				<object persistent="sensor.reasoning" class="flipper.FlipperMiddleware">
 					<constructors>
-						<value class="String" constant="P2/config/SensorReasoning.properties" />
+						<value class="String" constant="P3/config/SensorReasoning.properties" />
 					</constructors>
 				</object>
 				<arguments></arguments>

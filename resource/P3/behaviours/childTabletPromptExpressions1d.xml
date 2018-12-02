@@ -1,4 +1,4 @@
-<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
     { "showImageButtonGrid" : {
         "text":"$correct$" ,
         "imageButtons" : [
@@ -6,7 +6,7 @@
             {"id":"$distractor$","value":"$distractor$", "img":"discr_zeno_$distractor$"}
         ]}}
 </mwe:sendJsonMessage>
-<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
 	{ "setBackgroundColor" : { "id":"bgcolor" ,
 	"color" : "#F3C94B"}}
 </mwe:sendJsonMessage>
