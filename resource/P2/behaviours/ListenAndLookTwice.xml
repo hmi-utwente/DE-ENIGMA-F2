@@ -1,0 +1,2 @@
+<bmlt:audiofile id="speak1" fileName="P2/audio/EN/ListenAndLook.wav" start="0"/>
+<bmlt:audiofile id="speak2" fileName="P2/audio/EN/ListenAndLook.wav" start="speak2:end + 1"/>

@@ -1,0 +1,23 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Explore face expressions" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"newGame","value":"Now new game with Zeno"},
+            {"id":"start_ExploreExpressions","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"exploreHappy","value":"Explore happy $happy_variant$"},
+            {"id":"exploreSad","value":"Explore sad $sad_variant$"},
+            {"id":"exploreAngry","value":"Explore angry $angry_variant$"},
+            {"id":"exploreScared","value":"Explore scared $scared_variant$"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_ExploreExpressions","value":"End activity"}
+        ]}}
+</mwe:sendJsonMessage>

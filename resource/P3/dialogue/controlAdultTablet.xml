@@ -1,0 +1,127 @@
+<behaviourtemplates>
+
+	<is name="adult">
+		{	
+			"menuRequest" : "",
+			"showingMenu" : "",
+			"showingPersistentMenu" : "persistentButtons",
+			"prevZenoBusy" : false,
+			"lastShownTime" : 0
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		function createMainMenu(){
+			behaviour = createShowMenuBehaviour("adult", "Main");
+			behaviour.placeholders = [{"condition":is.behaviourplanner.behaviourMode}];
+			return behaviour;
+		}
+		
+		function createExploreExpressionsMenu(){
+			behaviour = createShowMenuBehaviour("adult", "ExploreExpressions");
+			behaviour.placeholders = [{"happy_variant":""},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			
+			//quick and dirty hack to show on tablet which emotion variant we are displaying now
+			if(is.childProcessor.exploreExpressions.exploreEmotion === "happy"){
+				behaviour.placeholders = [{"happy_variant":"(Showing "+is.zeno.variants.happyFace+")"},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "sad"){
+				behaviour.placeholders = [{"sad_variant":"(Showing "+is.zeno.variants.sadFace+")"},{"happy_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "angry"){
+				behaviour.placeholders = [{"angry_variant":"(Showing "+is.zeno.variants.angryFace+")"},{"happy_variant":""},{"sad_variant":""},{"scared_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "scared"){
+				behaviour.placeholders = [{"scared_variant":"(Showing "+is.zeno.variants.scaredFace+")"},{"happy_variant":""},{"sad_variant":""},{"angry_variant":""}];
+			}
+			
+			return behaviour;
+		}
+		
+		]]>
+    </javascript>
+      
+	<template id="InitAdultMenu" name="InitAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu === ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRequest">"Main"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+    
+	<template id="ShowAdultMainMenu" name="ShowAdultMainMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "Main"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="ShowAdultExploreExpressions" name="ShowAdultExploreExpressions">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "ExploreExpressions"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createExploreExpressionsMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+      
+	<template id="ShowAdultMenu" name="ShowAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.menuRequest))</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="RefreshAdultMenu" name="RefreshAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu !== ""</condition>
+			<condition>is.behaviourplanner.time - is.adult.lastShownTime > 5000</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+	
+	<template id="ZenoBusyAdultStatus" name="ZenoBusyAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoBusy"))</assign>
+		</effects>
+	</template>
+	
+	<template id="ZenoIdleAdultStatus" name="ZenoIdleAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>!is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoIdle"))</assign>
+		</effects>
+	</template>
+	
+	
+	
+
+</behaviourtemplates>

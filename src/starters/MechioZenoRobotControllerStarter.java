@@ -22,8 +22,8 @@ public class MechioZenoRobotControllerStarter {
 
     	String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: mechioprops, middlewareprops";
     	
-        String mechioPropFile = "mechio.properties";
-    	String mwPropFile = "defaultmiddleware.properties";
+        String mechioPropFile = "P3/config/mechio.properties";
+    	String mwPropFile = "P3/config/defaultmiddleware.properties";
     	
         if(args.length % 2 != 0){
         	System.err.println(help);
@@ -44,7 +44,7 @@ public class MechioZenoRobotControllerStarter {
         Properties defaultProp = new Properties();
 		defaultProp.put("mechio_ip", "130.89.15.168");
 		defaultProp.put("robot_id", "");
-		defaultProp.put("animation_location", "resource/zeno/animations/");
+		defaultProp.put("animation_location", "resource/P3/animations/");
 		
 		//now load the user-defined values (if any)
 		Properties prop = new Properties(defaultProp);

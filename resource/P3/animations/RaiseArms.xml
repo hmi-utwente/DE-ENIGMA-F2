@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>Gesture_cheer.xml</Name>
+		<Number>1.0</Number>
+	</Version>
+	<Channels>
+		<Channel id="500" name="RtShoulder_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>111.0</Time><Position>0.24874791318864775</Position></ControlPoint>
+						<ControlPoint><Time>1248.0</Time><Position>0.9132569558101473</Position></ControlPoint>
+						<ControlPoint><Time>1674.0</Time><Position>0.9443535188216039</Position></ControlPoint>
+						<ControlPoint><Time>2286.0</Time><Position>0.9476268412438625</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="501" name="RtShoulder_Roll">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>208.333</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1045.0</Time><Position>0.04909983633387893</Position></ControlPoint>
+						<ControlPoint><Time>1498.0</Time><Position>0.02454991816693941</Position></ControlPoint>
+						<ControlPoint><Time>2286.0</Time><Position>0.019639934533551506</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="510" name="RtElbow">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>416.66700000000003</Time><Position>0.7499999479889762</Position></ControlPoint>
+						<ControlPoint><Time>833.333</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1458.33</Time><Position>0.6668437183926644</Position></ControlPoint>
+						<ControlPoint><Time>2286.00</Time><Position>0.6668437183926644</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="400" name="LtShoulder_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>76.0</Time><Position>0.25041736227045075</Position></ControlPoint>
+						<ControlPoint><Time>1272.0</Time><Position>0.9332220367278798</Position></ControlPoint>
+						<ControlPoint><Time>1693.0</Time><Position>0.9378068739770867</Position></ControlPoint>
+						<ControlPoint><Time>2286.0</Time><Position>0.9509001636661211</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="401" name="LtShoulder_Roll">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>208.333</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1034.0</Time><Position>0.05891980360065463</Position></ControlPoint>
+						<ControlPoint><Time>1458.33</Time><Position>0.017425236018109167</Position></ControlPoint>
+						<ControlPoint><Time>2286.0</Time><Position>0.017425236018109167</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="410" name="LtElbow">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>416.66700000000003</Time><Position>0.7499999479889762</Position></ControlPoint>
+						<ControlPoint><Time>833.333</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1458.33</Time><Position>0.6810368379077135</Position></ControlPoint>
+						<ControlPoint><Time>2286.0</Time><Position>0.6810368379077135</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

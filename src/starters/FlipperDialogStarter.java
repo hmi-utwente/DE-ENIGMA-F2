@@ -34,7 +34,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	public FlipperDialogStarter(Properties ps) {
 		super(ps);
 		this.om = new ObjectMapper();
-		String mwPropFile = "defaultmiddleware.properties";
+		String mwPropFile = "P3/config/defaultmiddleware.properties";
 		GenericMiddlewareLoader.setGlobalPropertiesFile(mwPropFile);
 		
 	}
@@ -64,7 +64,8 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	
 	public static void main(String[] args) {
 		String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: config";
-		String flipperPropFile = "flipper.properties";
+		String flipperPropFile = "P3/config/flipper.properties";
+		
 
 		if(args.length % 2 != 0) {
 			LOGGER.info(help);
@@ -85,6 +86,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 		InputStream flipperPropStream = FlipperDialogStarter.class.getClassLoader().getResourceAsStream(flipperPropFile);
 
 		try {
+			LOGGER.info("Loading flipper config file: {}", flipperPropFile);
 			ps.load(flipperPropStream);
 		} catch (IOException ex) {
 			LOGGER.warn("Could not load flipper settings from "+flipperPropFile);
@@ -93,7 +95,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 
 		// If you want to check templates based on events (i.e. messages on middleware),
 		// you can run  flipperLauncherThread.forceCheck(); from a callback to force an immediate check.
-		LOGGER.info("Starting Thread");
+		LOGGER.info("Starting Flipper thread");
 		launcher = new FlipperDialogStarter(ps);
 		launcher.initMW();
 		launcher.start();

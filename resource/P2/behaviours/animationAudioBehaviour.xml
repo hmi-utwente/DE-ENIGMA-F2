@@ -1,0 +1,2 @@
+<sze:animation id="animate1" animation="$animate1$" start="$animate1_delay$"/>
+<bmlt:audiofile id="speak1" fileName="P2/audio/EN/$speak1$.wav" start="$speak1_delay$"/>
