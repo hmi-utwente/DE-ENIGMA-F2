@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hmi.flipper2.Config;
 import hmi.flipper2.FlipperException;
 import hmi.flipper2.launcher.FlipperLauncher;
 import hmi.flipper2.launcher.FlipperLauncherThread;
@@ -96,6 +97,7 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 		// If you want to check templates based on events (i.e. messages on middleware),
 		// you can run  flipperLauncherThread.forceCheck(); from a callback to force an immediate check.
 		LOGGER.info("Starting Flipper thread");
+		Config.JS_ENCAPSULATE_EXPR = true;
 		launcher = new FlipperDialogStarter(ps);
 		launcher.initMW();
 		launcher.start();
