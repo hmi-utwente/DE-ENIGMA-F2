@@ -97,7 +97,6 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 		// If you want to check templates based on events (i.e. messages on middleware),
 		// you can run  flipperLauncherThread.forceCheck(); from a callback to force an immediate check.
 		LOGGER.info("Starting Flipper thread");
-		Config.JS_ENCAPSULATE_EXPR = true;
 		launcher = new FlipperDialogStarter(ps);
 		launcher.initMW();
 		launcher.start();
