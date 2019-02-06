@@ -179,11 +179,11 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 					});
 					
 					startMechIO();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					startASAP();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					startFlipper();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					showMessage("");
 
 					SwingUtilities.invokeLater(new Runnable() {
@@ -294,7 +294,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (mechIOProcess != null && mechIOProcess.isAlive()) {
 			showMessage("Attempting to stop MechIO gracefully....");
 			mechIOProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (mechIOProcess.isAlive()) {
 				showMessage("Attempting to stop MechIO forcefully....");
 				mechIOProcess.destroyForcibly();
@@ -308,7 +308,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (asapProcess != null && asapProcess.isAlive()) {
 			showMessage("Attempting to stop ASAP gracefully....");
 			asapProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (asapProcess.isAlive()) {
 				showMessage("Attempting to stop ASAP forcefully....");
 				asapProcess.destroyForcibly();
@@ -322,7 +322,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (flipperProcess != null && flipperProcess.isAlive()) {
 			showMessage("Attempting to stop Flipper gracefully....");
 			flipperProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (flipperProcess.isAlive()) {
 				showMessage("Attempting to stop Flipper forcefully....");
 				flipperProcess.destroyForcibly();
