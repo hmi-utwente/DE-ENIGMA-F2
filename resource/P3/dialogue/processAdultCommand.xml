@@ -138,6 +138,7 @@
     		<assign is="is.child.menuRequest">"ExploreFeatures"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.childProcessor.exploreFeatures.trials">0</assign>
     	</effects>
     </template>
     
