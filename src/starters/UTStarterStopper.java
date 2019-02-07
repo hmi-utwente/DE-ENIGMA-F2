@@ -6,9 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.Box;
@@ -21,6 +23,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import flipper.FlipperMiddleware;
+import nl.utwente.hmi.middleware.Middleware;
+import nl.utwente.hmi.middleware.MiddlewareListener;
+import nl.utwente.hmi.middleware.loader.GenericMiddlewareLoader;
 
 /**
  * Simple GUI application to start and stop all UT software modules: 1)
@@ -35,7 +44,7 @@ import javax.swing.border.EmptyBorder;
  *
  */
 @SuppressWarnings("serial")
-public class UTStarterStopper extends JFrame implements ActionListener {
+public class UTStarterStopper extends JFrame implements ActionListener, MiddlewareListener {
 
 	ReentrantLock lock = new ReentrantLock();
 
@@ -47,6 +56,8 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	Process mechIOProcess;
 	Process asapProcess;
 	Process flipperProcess;
+
+	private Middleware middleware;
 
 	private enum Actions {
 		START, STOP
@@ -104,6 +115,18 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 				}
 	        }
 	    });
+
+		//stuff for middleware, listen for a restart signal
+		Properties ps = new Properties();
+		ps.put("iTopic", "/topic/systemRestarter");
+		ps.put("oTopic", "/topic/dummyOut");
+
+		GenericMiddlewareLoader.setGlobalPropertiesFile("P3/config/defaultmiddleware.properties");
+        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader", ps);
+        middleware = gml.load();
+
+        middleware.addListener(this);
+        
 	}
 
 	/**
@@ -362,6 +385,24 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		}
 		
 		frm.setVisible(!isHeadless);
+	}
+
+	@Override
+	public void receiveData(JsonNode jn) {
+		System.out.println("Incoming data: "+ jn.toString());
+		if(jn.has("content") && "restart".equals(jn.get("content").asText())) {
+			System.out.println("Restarting system");
+			showMessage("Restarting system");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			stopAll();
+			startAll();
+		}
+		
 	}
 
 }

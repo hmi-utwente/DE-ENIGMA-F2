@@ -37,11 +37,17 @@
 					filename = "audioBehaviour";
 				}
 				
+				if(is.behaviourplanner.behaviourMode === "variant"){
+					delay = Math.random()*3;
+				} else {
+					delay = 1.5;
+				}
+				
 				behaviour = new Object();
 				behaviour.startTime = 0;
-				behaviour.duration = duration;
+				behaviour.duration = duration+delay;
 				behaviour.template = filename;
-				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay},{"speak1":audio},{"speak1_delay":audioDelay}];
+				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay+delay},{"speak1":audio},{"speak1_delay":audioDelay+delay}];
 				return behaviour;
 			}
 			

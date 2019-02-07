@@ -47,7 +47,7 @@ public class FlipperMiddleware implements MiddlewareListener {
 	
 	
 	// { "content": "$data" }
-	public void Send(String data) {
+	public void send(String data) {
         ObjectNodeBuilder on = object();
         try {
 			on.with("content", URLEncoder.encode(data, "UTF-8"));

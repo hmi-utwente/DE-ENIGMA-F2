@@ -1,0 +1,7 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Restarting the system" ,
+        "buttons" : [
+			{"id":"", "value":"blankSpace"}
+        ]}}
+</mwe:sendJsonMessage>

@@ -83,7 +83,7 @@ public class MechioZenoRobotControllerStarter {
         final ZenoRobotControllerMechioImpl theZRC = new ZenoRobotControllerMechioImpl(prop.getProperty("mechio_ip"),prop.getProperty("robot_id"), prop.getProperty("animation_location"));
 
         try {Thread.sleep(1500);} catch (Exception ex) {}
-        theZRC.speak("init0", "Robot aan");
+        theZRC.speak("init0", "beep");
 
         try {Thread.sleep(1000);} catch (Exception ex) {}
 
@@ -91,7 +91,7 @@ public class MechioZenoRobotControllerStarter {
         //theZRC.playAudioFile("idAudio", "/home/variscite/audio/Gesture_ciaoCiao.wav");
         //theZRC.playAnimationByName("Idle animation - read animation - huh 2");
         //try {Thread.sleep(8000);} catch (Exception ex) {}
-        theZRC.playAnimationByName("Default");
+        //theZRC.playAnimationByName("Default");
         MiddlewareToZRC middlewareToZRC = new MiddlewareToZRC(m, theZRC);
 	}
 }

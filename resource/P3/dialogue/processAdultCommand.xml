@@ -78,6 +78,31 @@
     	</effects>
     </template>
     
+    <!-- START SCREEN -->
+    
+    <template id="SelectLowVariantCondition" name="SelectLowVariantCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "select_low_variant"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">"invariant"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
+    
+    <template id="SelectHighVariantCondition" name="SelectHighVariantCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "select_high_variant"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">"variant"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
     <!-- Below are the various game activities that can be initiated and controlled from the adult tablet interface -->
     
     <!-- GREETINGS -->
@@ -409,7 +434,10 @@
     		<assign is="is.child.menuRequest">"blank"</assign>
     		<assign is="is.zeno.request">"goodbye"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
-    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.adult.menuRequest">"blank"</assign>
+			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+    		<assign is="is.systemRestarter.requestSystemRestart">true</assign>
     	</effects>
     </template>
     
