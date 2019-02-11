@@ -1,0 +1,18 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    {
+    "showClickablePicture" : {
+        "id":"img" ,
+        "text" : " ",
+        "imageFile":"clickable_features_neutral",
+	    "imageFileDisabled":"disabled_neutral",
+        "clickableAreas" : [
+            {"id":"a1","value":"152;225;116;515;moveEyebrows"},
+            {"id":"a2","value":"177;380;95;477;moveEyes"},
+            {"id":"a3","value":"304;547;169;226;moveMouth"}]
+        }
+    }
+</mwe:sendJsonMessage>
+<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#D05A85"}}
+</mwe:sendJsonMessage>

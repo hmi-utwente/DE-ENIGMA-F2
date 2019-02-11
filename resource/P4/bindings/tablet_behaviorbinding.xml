@@ -1,0 +1,18 @@
+<middlewarebinding>
+   
+    <MiddlewareUnitSpec type="sendJsonMessage" namespace="http://hmi.ewi.utwente.nl/middlewareengine">
+        <constraints>
+        </constraints>
+        <parametermap>
+            <parameter src="content" dst="content"/>
+            <parameter src="middlewareloaderproperties" dst="middlewareloaderproperties"/>
+            <parameter src="middlewareloaderclass" dst="middlewareloaderclass"/>
+        </parametermap>
+        <parameterdefaults>
+        	<parameterdefault name="middlewareloaderproperties" value="iTopic:/topic/dummy,oTopic:/topic/adult_tablet.command" />
+        	<parameterdefault name="middlewareloaderclass" value="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" />
+		</parameterdefaults>
+        <MiddlewareUnit type="SendJsonDataMessageMU"/>
+    </MiddlewareUnitSpec>   
+    
+</middlewarebinding>

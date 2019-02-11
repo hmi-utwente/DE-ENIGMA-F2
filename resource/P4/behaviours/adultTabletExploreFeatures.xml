@@ -1,0 +1,16 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Exploring face features" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"newGame","value":"Now new game with Zeno"},
+            {"id":"start_ExploreFeatures","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_ExploreFeatures","value":"End activity"}
+        ]}}
+</mwe:sendJsonMessage>

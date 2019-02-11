@@ -1,0 +1,24 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Final Experiment - Main Menu" ,
+        "buttons" : [
+            {"id":"showmenu_Greetings","value":"Introduction / Greetings"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_ExploreFeatures","value":"Explore face features"},
+            {"id":"showmenu_PromptFeatures","value":"Face feature discrimination"},
+            {"id":"showmenu_ExploreExpressions","value":"Explore face expressions"},
+            {"id":"showmenu_PromptExpressions","value":"Face expression discrimination"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"showmenu_Goodbye","value":"Goodbye"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"toggle_condition","value":"Condition: $condition$ (press to toggle)"}
+        ]}}
+</mwe:sendJsonMessage>

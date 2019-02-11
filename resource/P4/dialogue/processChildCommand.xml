@@ -1,0 +1,201 @@
+<behaviourtemplates>
+
+	<is name="childProcessor">
+		{	
+			"state" : "",
+			"exploreFeatures" : {
+				"trials" : 0,
+				"maxTrials" : 4
+			},
+			"promptFeatures" : {
+				"askedFeature" : "",
+				"askedTimestamp" : 0,
+				"askedRepeats" : 0,
+				"maxRepeats" : 2
+			},
+			"exploreExpressions" : {
+				"exploreEmotion" : "",
+				"repeats" : 0,
+				"maxRepeats" : 2
+			},
+			"promptExpressions" : {
+				"askedExpression" : ""
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+			function askEqualsAnswer(ask, answer) {
+				return ask.startsWith("ask") && answer.startsWith("answer") && ask.slice(3).toLowerCase() === answer.slice(6).toLowerCase();
+			}
+			
+			function answerIncorrectOrTimeout() {
+				return (is.tablet.child.command !== "none" && !askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)) || (is.behaviourplanner.time - is.childProcessor.promptFeatures.askedTimestamp > 20000);
+			}
+			
+		]]>
+    </javascript>
+      
+    <!-- Explore Features -->
+    <template id="ExploreFeaturesBlock" name="ExploreFeaturesBlock">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreFeatures.trials < is.childProcessor.exploreFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.childProcessor.exploreFeatures.trials">is.childProcessor.exploreFeatures.trials + 1</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreFeaturesBlockEnd" name="ExploreFeaturesBlockEnd">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreFeatures.trials >= is.childProcessor.exploreFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    	</effects>
+    </template>
+    
+    <!-- Prompt Features -->
+    <template id="PromptFeatures_Correct" name="PromptFeatures_Correct">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptFeatures_Repeat" name="PromptFeatures_Repeat">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
+    		<condition>answerIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.askedRepeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.promptFeatures.askedRepeats">is.childProcessor.promptFeatures.askedRepeats + 1</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
+    		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptFeatures_TooManyAttempts" name="PromptFeatures_TooManyAttempts">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
+    		<condition>answerIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.askedRepeats >= is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
+    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <!-- Explore Expressions -->
+    <template id="ExploreExpressions" name="ExploreExpressions">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "ExploreExpressions"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <!-- Prompt Expressions -->
+    <template id="PromptExpressions_Happy_Correct" name="PromptExpressions_Happy_Correct">
+    	<preconditions mode="and">
+    		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>
+    		<condition>is.tablet.child.command === "happy"</condition>
+    		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"wellDoneYouFoundMyHappyFace"</assign>
+    		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptExpressions_Sad_Correct" name="PromptExpressions_Sad_Correct">
+    	<preconditions mode="and">
+    		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>
+    		<condition>is.tablet.child.command === "sad"</condition>
+    		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"wellDoneYouFoundMySadFace"</assign>
+    		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptExpressions_Angry_Correct" name="PromptExpressions_Angry_Correct">
+    	<preconditions mode="and">
+    		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>
+    		<condition>is.tablet.child.command === "angry"</condition>
+    		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"wellDoneYouFoundMyAngryFace"</assign>
+    		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptExpressions_Scared_Correct" name="PromptExpressions_Scared_Correct">
+    	<preconditions mode="and">
+    		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>
+    		<condition>is.tablet.child.command === "scared"</condition>
+    		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"wellDoneYouFoundMyScaredFace"</assign>
+    		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
+    	</effects>
+    </template>
+    
+    
+    <template id="PromptExpressions_Incorrect" name="PromptExpressions_Incorrect">
+    	<preconditions mode="and">
+    		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition>is.tablet.child.command !== is.childProcessor.promptExpressions.askedExpression</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.child.menuRequest">"NoImage"</assign>
+    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
+    	</effects>
+    </template>
+    
+    <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
+    <template id="ChildCommandCleanup" name="ChildCommandCleanup">
+    	<preconditions mode="and">
+    		<condition>is.tablet.child.command !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+</behaviourtemplates>

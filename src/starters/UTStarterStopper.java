@@ -121,7 +121,7 @@ public class UTStarterStopper extends JFrame implements ActionListener, Middlewa
 		ps.put("iTopic", "/topic/systemRestarter");
 		ps.put("oTopic", "/topic/dummyOut");
 
-		GenericMiddlewareLoader.setGlobalPropertiesFile("P3/config/defaultmiddleware.properties");
+		GenericMiddlewareLoader.setGlobalPropertiesFile("P4/config/defaultmiddleware.properties");
         GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader", ps);
         middleware = gml.load();
 

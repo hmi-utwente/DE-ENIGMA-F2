@@ -1,0 +1,18 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    {
+	    "showClickablePicture" : {
+	    "id":"img" ,
+	    "text" : " ",
+	    "imageFile":"enabled_$emotionPicture$_$variant$",
+	    "imageFileDisabled":"disabled_$emotionPicture$_$variant$",
+	    "clickableAreas" : [
+	    {"id":"a1","value":"152;225;116;515;moveEyebrows$emotionID$"},
+	    {"id":"a2","value":"177;380;95;477;moveEyes$emotionID$"},
+	    {"id":"a3","value":"304;547;169;226;moveMouth$emotionID$"}]
+	    }
+    }
+</mwe:sendJsonMessage>
+<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#015446"}}
+</mwe:sendJsonMessage>

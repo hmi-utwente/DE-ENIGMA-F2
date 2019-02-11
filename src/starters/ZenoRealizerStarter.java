@@ -63,8 +63,8 @@ public class ZenoRealizerStarter{
     public static void main(String[] args) throws IOException{
     	String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: agentspec, middlewareprops";
     	
-        String spec = "P3/loaders/agentspec.xml";
-    	String propFile = "P3/config/defaultmiddleware.properties";
+        String spec = "P4/loaders/agentspec.xml";
+    	String propFile = "P4/config/defaultmiddleware.properties";
 
         if(args.length % 2 != 0){
         	System.err.println(help);

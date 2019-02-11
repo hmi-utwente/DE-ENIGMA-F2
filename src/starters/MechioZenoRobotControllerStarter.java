@@ -22,8 +22,8 @@ public class MechioZenoRobotControllerStarter {
 
     	String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: mechioprops, middlewareprops";
     	
-        String mechioPropFile = "P3/config/mechio.properties";
-    	String mwPropFile = "P3/config/defaultmiddleware.properties";
+        String mechioPropFile = "P4/config/mechio.properties";
+    	String mwPropFile = "P4/config/defaultmiddleware.properties";
     	
         if(args.length % 2 != 0){
         	System.err.println(help);

@@ -1,0 +1,22 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Feature discrimination" ,
+        "buttons" : [
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"newGame","value":"Now new game with Zeno"},
+            {"id":"start_PromptFeatures","value":"Start activity"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"askEyebrows","value":"Ask Eyebrows"},
+            {"id":"askEyes","value":"Ask Eyes"},
+            {"id":"askMouth","value":"Ask Mouth"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_PromptFeatures","value":"End activity"}
+        ]}}
+</mwe:sendJsonMessage>
