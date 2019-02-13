@@ -112,7 +112,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"hello"</assign>
+    		<assign is="is.zeno.request">"greeting"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>

@@ -28,22 +28,66 @@
 	<javascript>
 		<![CDATA[
 			
+			function createZB(action){
+				if(typeof action === "undefined"){
+					log("!!!doing an undefined action!!!");
+				}
+				
+				//are we dealing with a combined audio/animation sequence, or just one of the two?
+				if(action.hasOwnProperty("audio") && action.hasOwnProperty("audioDuration") && action.hasOwnProperty("animation") && action.hasOwnProperty("animationDuration")){
+					var filename = "animationAudioBehaviour";
+					var audio = action.audio;
+					var audioDuration = action.audioDuration;
+					var animation = action.animation;
+					var animationDuration = action.animationDuration;
+				} else if(!action.hasOwnProperty("audio") && action.hasOwnProperty("animation") && action.hasOwnProperty("animationDuration")){
+					var filename = "animationBehaviour";
+					var audio = "";
+					var audioDuration = 0;
+					var animation = action.animation;
+					var animationDuration = action.animationDuration;
+				} else if(action.hasOwnProperty("audio") && action.hasOwnProperty("audioDuration") && !action.hasOwnProperty("animation")){
+					var filename = "audioBehaviour";
+					var audio = action.audio;
+					var audioDuration = action.audioDuration;
+					var animation = "";
+					var animationDuration = 0;
+				}				
+				
+				//calculate the delay before robot response
+				if(is.behaviourplanner.behaviourMode === "variant"){
+					var delay = Math.random()*3;
+				} else {
+					var delay = 1.5;
+				}
+				
+				//construct the behaviour request object
+				var behaviour = new Object();
+				behaviour.action = is.zeno.request;
+				behaviour.startTime = 0;
+				behaviour.duration = audioDuration+animationDuration+delay;
+				behaviour.template = filename;
+				behaviour.placeholders = [{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
+				return behaviour;
+			}
+			
 			function createZenoBehaviour(duration, anim, animDelay, audio, audioDelay){
 				if(anim !== "" && audio !== ""){
-					filename = "animationAudioBehaviour";
+					var filename = "animationAudioBehaviour";
 				} else if(anim !== "" && audio === ""){
-					filename = "animationBehaviour";
+					var filename = "animationBehaviour";
 				} else if(anim === "" && audio !== ""){
-					filename = "audioBehaviour";
+					var filename = "audioBehaviour";
 				}
 				
 				if(is.behaviourplanner.behaviourMode === "variant"){
-					delay = Math.random()*3;
+					var delay = Math.random()*3;
 				} else {
-					delay = 1.5;
+					var delay = 1.5;
 				}
 				
-				behaviour = new Object();
+				var behaviour = new Object();
+				behaviour.action = is.zeno.request;
 				behaviour.startTime = 0;
 				behaviour.duration = duration+delay;
 				behaviour.template = filename;
@@ -51,8 +95,8 @@
 				return behaviour;
 			}
 			
-			function createZenoLogLine(behaviourRequest, behaviour){
-				return "Doing Zeno behaviour: ["+behaviourRequest+"] using BML template: ["+behaviour.template+"] with a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
+			function createZenoLogLine(behaviour){
+				return "Doing Zeno action: ["+behaviour.action+"] using BML template: ["+behaviour.template+"] with a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
 			}
 			
 			function getHelloVariant(){
@@ -197,15 +241,6 @@
 	</template>
 	
     <!-- GREETINGS -->
-    <template id="hello" name="hello">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "hello"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.variants.hello">getHelloVariant()</assign>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(9, "Gesture_welcome", 4, "HiMyNameIsZeno"+is.zeno.variants.hello, 0)</assign>
-		</effects>
-	</template>
 	
     <template id="timeForFaces" name="timeForFaces">
 		<preconditions mode="and">
@@ -214,15 +249,6 @@
 		<effects>
 			<assign is="is.zeno.variants.timeForFaces">getTimeForFacesVariant()</assign>
 			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "TimeForFacesWithZeno"+is.zeno.variants.timeForFaces, 0)</assign>
-		</effects>
-	</template>
-	
-    <template id="attention" name="attention">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "attention"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(4, "Gesture_attention", 0, "Gesture_attention", 1)</assign>
 		</effects>
 	</template>
 	
@@ -910,72 +936,6 @@
 		</effects>
 	</template>
 	
-	<template id="wellDone" name="wellDone">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "wellDone"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "WellDone", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="ok" name="ok">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "ok"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Ok", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="yes" name="yes">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "yes"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Yes", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="no" name="no">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "no"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "No", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="praise" name="praise">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "praise"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.variants.praise">getPraiseVariant()</assign>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(6.5, "Gesture_cheer", 2, "GoodJob"+is.zeno.variants.praise, 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="thankYou" name="thankYou">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "thankYou"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.variants.thankYou">getThankYouVariant()</assign>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "ThankYou"+is.zeno.variants.thankYou, 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="wow" name="wow">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "wow"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.variants.wow">getWowVariant()</assign>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "Wow"+is.zeno.variants.wow, 0)</assign>
-		</effects>
-	</template>
-	
 	<template id="newGame" name="newGame">
 		<preconditions mode="and">
 			<condition>is.zeno.request === "newGame"</condition>
@@ -986,6 +946,19 @@
 		</effects>
 	</template>
       
+	<!-- Always near the end, if action request has not yet been executed and cleaned up, 
+	we try to do the generic approach and just execute a random version of the requested action -->
+    <template id="genericActionRequest" name="genericActionRequest">
+    	<preconditions mode="and">
+    		<condition>is.zeno.request !== ""</condition>
+    		<condition>doesActionExist(is.zeno.request)</condition>
+    	</preconditions>
+		<effects>
+			<assign is="is.av">getRandomVariant(is.av, is.zeno.request)</assign>
+			<assign is="is.zeno.behaviour">createZB(getActionVariant(is.zeno.request))</assign>
+		</effects>
+    </template>
+    
 	<!-- Following templates are responsible for starting behaviours, and then going back to idle when duration finishes -->
 	<template id="startBehaviour" name="startBehaviour">
 		<preconditions mode="and">
@@ -993,7 +966,7 @@
 			<condition>is.zeno.behaviour.startTime === 0</condition>
 		</preconditions>
 		<effects>
-			<assign is="is.logger.latestLogLine">logInfo(createZenoLogLine(is.zeno.request, is.zeno.behaviour))</assign>
+			<assign is="is.logger.latestLogLine">logInfo(createZenoLogLine(is.zeno.behaviour))</assign>
 			<assign is="is.zeno.busy">true</assign>
 			<assign is="is.zeno.behaviour.startTime">is.behaviourplanner.time</assign>
 			<assign is="is.zeno.bmlId">addBehaviourRequest(is.zeno.behaviour)</assign>
@@ -1009,8 +982,8 @@
 			<assign is="is.zeno.behaviour">""</assign>
 		</effects>
 	</template>
-	
-	<!-- Always near the end, to remove the current request -->
+    
+	<!-- Always at the end, to remove the current request -->
     <template id="cleanupRequest" name="cleanupRequest">
     	<preconditions mode="and">
     		<condition>is.zeno.request !== ""</condition>

@@ -1,0 +1,164 @@
+<behaviourtemplates>
+
+	<!-- av stands for ActionVariants, this stores all the available variants of the various behavioural actions -->
+    <is name="av">
+        {
+            "greeting" : {
+                "V1" : {
+                	"audio" : "greetingV1",
+                	"audioDuration" : 3,
+                	"animation" : "greetingV1",
+                	"animationDuration" : 6.5
+                },
+                "V2" : {
+                	"audio" : "greetingV2",
+                	"audioDuration" : 4,
+                	"animation" : "greetingV2",
+                	"animationDuration" : 6.5
+                }
+            },
+            "attention" : {
+                "V1" : {
+                	"audio" : "attentionV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "attentionV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "ok" : {
+                "V1" : {
+                	"audio" : "okV1",
+                	"audioDuration" : 1
+                }
+            },
+            "yes" : {
+                "V1" : {
+                	"audio" : "yesV1",
+                	"audioDuration" : 1
+                }
+            },
+            "no" : {
+                "V1" : {
+                	"audio" : "noV1",
+                	"audioDuration" : 1
+                }
+            },
+            "praise" : {
+                "V1" : {
+                	"audio" : "praiseV1",
+                	"audioDuration" : 1.5
+                },
+                "V2" : {
+                	"audio" : "praiseV2",
+                	"audioDuration" : 1.5
+                },
+                "V3" : {
+                	"audio" : "praiseV3",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "praiseV4",
+                	"audioDuration" : 2
+                }
+            },
+            "thanks" : {
+                "V1" : {
+                	"audio" : "thanksV1",
+                	"audioDuration" : 1.5
+                },
+                "V2" : {
+                	"audio" : "thanksV2",
+                	"audioDuration" : 1.5
+                }
+            },
+            "exclamation" : {
+                "V1" : {
+                	"audio" : "exclamationV1",
+                	"audioDuration" : 1.5
+                },
+                "V3" : {
+                	"audio" : "exclamationV3",
+                	"audioDuration" : 1.5
+                }
+            }
+        }
+    </is>
+	<javascript>
+		<![CDATA[
+			
+			function doesActionExist(actionID){
+				return is.av.hasOwnProperty(actionID);
+			}
+			
+			//returns a variant of the requested action, the variant that is returned depends on the "selectedVariant" property of the action
+			function getActionVariant(actionID){
+				//check if this action actually exists
+				if(is.av.hasOwnProperty(actionID) && is.av[actionID].hasOwnProperty("selectedVariant") && is.av[actionID].hasOwnProperty(is.av[actionID].selectedVariant)){
+					var actionSet = is.av[actionID];
+					
+					//return the selected action variant
+					return actionSet[actionSet.selectedVariant];
+				} else {
+					log("!!!Action "+actionID+" not found, variant not found, or no current action variant has been selected!!!");
+				}
+			}
+			
+			function getRandomVariant(actions, actionID){
+				if(actions.hasOwnProperty(actionID)){
+					var actionSet = actions[actionID];
+					
+					//get all available variants
+					var available = getAllAvaiableVariants(actionID);
+					var previous = "";
+					
+					//retrieve the previously selected variant (if available)
+					if(actionSet.hasOwnProperty("selectedVariant")){
+						previous = actionSet.selectedVariant;
+					}
+					
+					//in our invariant condition we always return the default (first) variant
+					if(is.behaviourplanner.behaviourMode === "invariant"){
+						actions[actionID].selectedVariant = available[0];
+					} else {
+						//in the variant condition we choose randomly
+						//now remove the previous from the set of available variants to avoid repetition
+						//only do this if there are more than 1 variants to start with
+						if(available.length > 1 && previous !== ""){
+							available.splice(available.indexOf(previous), 1);
+						}
+						actions[actionID].selectedVariant = available[Math.floor(Math.random() * available.length)];
+					}
+					
+					return actions;
+				}
+			}
+			
+			//TODO: add some form of caching, instead of calculating this each time
+			function getAllAvaiableVariants(actionID){
+				if(is.av.hasOwnProperty(actionID)){
+					var variants = [];
+					
+					//loop over the list of keys to search for all "Vx" entries
+					for(var k in is.av[actionID]){
+						if(k.length === 2 && k[0] === "V" && "1234567890".indexOf(k[1]) !== -1){
+							//yay! we found one, let's store it now
+							variants.push(k);
+						}
+					}
+					
+					return variants;
+				}
+			}
+        ]]>
+    </javascript>
+
+
+	<template id="donothing" name="donothing">
+      <preconditions>
+     	<condition>false</condition>
+      </preconditions>
+      <effects>
+      </effects>
+    </template>
+    
+</behaviourtemplates>

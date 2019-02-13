@@ -5,9 +5,9 @@
             {"id":"yes","value":"Yes"},
             {"id":"no","value":"No"},
             {"id":"praise","value":"Praise"},
-            {"id":"thankYou","value":"Thank you"},
-            {"id":"wow","value":"Wow"},
-            {"id":"stressEvent","value":"!!STOP!!"},
+            {"id":"thanks","value":"Thanks"},
+            {"id":"exclamation","value":"Exclamation"},
+            {"id":"stressEvent","value":"!!STOP!!","color":"red"},
             {"id":"reset","value":"Reset"}
         ]}}
 </mwe:sendJsonMessage>

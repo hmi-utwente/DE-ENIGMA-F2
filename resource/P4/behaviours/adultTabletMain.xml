@@ -6,6 +6,7 @@
             
 			{"id":"", "value":"blankSpace"},
 			
+			{"id":"textOnly", "value":"These are the four activities:"},
             {"id":"showmenu_ExploreFeatures","value":"Explore face features"},
             {"id":"showmenu_PromptFeatures","value":"Face feature discrimination"},
             {"id":"showmenu_ExploreExpressions","value":"Explore face expressions"},

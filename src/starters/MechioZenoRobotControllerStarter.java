@@ -44,7 +44,7 @@ public class MechioZenoRobotControllerStarter {
         Properties defaultProp = new Properties();
 		defaultProp.put("mechio_ip", "130.89.15.168");
 		defaultProp.put("robot_id", "");
-		defaultProp.put("animation_location", "resource/P3/animations/");
+		defaultProp.put("animation_location", "resource/P4/animations/");
 		
 		//now load the user-defined values (if any)
 		Properties prop = new Properties(defaultProp);
