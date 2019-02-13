@@ -2,6 +2,8 @@
     { "showButtons" : {
         "text":"Final Experiment - Main Menu" ,
         "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
             {"id":"showmenu_Greetings","value":"Introduction / Greetings"},
             
 			{"id":"", "value":"blankSpace"},

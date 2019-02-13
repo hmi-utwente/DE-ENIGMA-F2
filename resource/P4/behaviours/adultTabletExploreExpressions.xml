@@ -2,6 +2,8 @@
     { "showButtons" : {
         "text":"Activity: Explore face expressions" ,
         "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
 			{"id":"", "value":"blankSpace"},

@@ -14,26 +14,44 @@
 		<![CDATA[
 		
 		function createMainMenu(){
-			behaviour = createShowMenuBehaviour("adult", "Main");
-			behaviour.placeholders = [{"condition":is.behaviourplanner.behaviourMode}];
+			var behaviour = createAdultMenu("Main");
+			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode}]);
+			return behaviour;
+		}
+		
+		function createAdultMenu(menu){
+			var behaviour = createShowMenuBehaviour("adult", menu);
+			
+			//here we want to show information about the currently running zeno behaviour
+			var behaviourInfo = "";
+			
+			if(is.zeno.busy && is.zeno.behaviour !== ""){
+				if(is.zeno.behaviour.hasOwnProperty("action") && is.zeno.behaviour.hasOwnProperty("delay") && is.zeno.behaviour.hasOwnProperty("duration")){
+					behaviourInfo = "Action: ["+is.zeno.behaviour.action+"]   -   Delay: " +is.zeno.behaviour.delay+ "   -   Total duration: "+is.zeno.behaviour.duration;
+				}
+			}
+			
+			behaviour.placeholders = [{"behaviour_info":behaviourInfo}];
+			
 			return behaviour;
 		}
 		
 		function createExploreExpressionsMenu(){
-			behaviour = createShowMenuBehaviour("adult", "ExploreExpressions");
-			behaviour.placeholders = [{"happy_variant":""},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			var behaviour = createAdultMenu("ExploreExpressions");
+			var placeholders = [{"happy_variant":""},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
 			
 			//quick and dirty hack to show on tablet which emotion variant we are displaying now
 			if(is.childProcessor.exploreExpressions.exploreEmotion === "happy"){
-				behaviour.placeholders = [{"happy_variant":"(Showing "+is.zeno.variants.happyFace+")"},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+				placeholders = [{"happy_variant":"(Showing "+is.zeno.variants.happyFace+")"},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
 			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "sad"){
-				behaviour.placeholders = [{"sad_variant":"(Showing "+is.zeno.variants.sadFace+")"},{"happy_variant":""},{"angry_variant":""},{"scared_variant":""}];
+				placeholders = [{"sad_variant":"(Showing "+is.zeno.variants.sadFace+")"},{"happy_variant":""},{"angry_variant":""},{"scared_variant":""}];
 			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "angry"){
-				behaviour.placeholders = [{"angry_variant":"(Showing "+is.zeno.variants.angryFace+")"},{"happy_variant":""},{"sad_variant":""},{"scared_variant":""}];
+				placeholders = [{"angry_variant":"(Showing "+is.zeno.variants.angryFace+")"},{"happy_variant":""},{"sad_variant":""},{"scared_variant":""}];
 			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "scared"){
-				behaviour.placeholders = [{"scared_variant":"(Showing "+is.zeno.variants.scaredFace+")"},{"happy_variant":""},{"sad_variant":""},{"angry_variant":""}];
+				placeholders = [{"scared_variant":"(Showing "+is.zeno.variants.scaredFace+")"},{"happy_variant":""},{"sad_variant":""},{"angry_variant":""}];
 			}
 			
+			behaviour.placeholders = behaviour.placeholders.concat(placeholders);
 			return behaviour;
 		}
 		
@@ -86,8 +104,20 @@
 		<effects>
 			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
 			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
-			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.menuRequest))</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createAdultMenu(is.adult.menuRequest))</assign>
 			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="RequestRefreshAdultMenu" name="RequestRefreshAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRefresh === true</condition>
+			<condition>is.adult.showingMenu !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRefresh">false</assign>
+			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
 		</effects>
 	</template>
 	

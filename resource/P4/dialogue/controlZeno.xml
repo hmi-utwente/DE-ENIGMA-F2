@@ -27,6 +27,23 @@
 	
 	<javascript>
 		<![CDATA[
+			function roundTo(n, digits) {
+			    var negative = false;
+			    if (digits === undefined) {
+			        digits = 0;
+			    }
+			        if( n < 0) {
+			        negative = true;
+			      n = n * -1;
+			    }
+			    var multiplicator = Math.pow(10, digits);
+			    n = parseFloat((n * multiplicator).toFixed(11));
+			    n = (Math.round(n) / multiplicator).toFixed(2);
+			    if( negative ) {    
+			        n = (n * -1).toFixed(2);
+			    }
+			    return +n;
+			}
 			
 			function createZB(action){
 				if(typeof action === "undefined"){
@@ -56,7 +73,7 @@
 				
 				//calculate the delay before robot response
 				if(is.behaviourplanner.behaviourMode === "variant"){
-					var delay = Math.random()*3;
+					var delay = roundTo(Math.random()*3, 2);
 				} else {
 					var delay = 1.5;
 				}
@@ -64,8 +81,9 @@
 				//construct the behaviour request object
 				var behaviour = new Object();
 				behaviour.action = is.zeno.request;
+				behaviour.delay = delay;
 				behaviour.startTime = 0;
-				behaviour.duration = audioDuration+animationDuration+delay;
+				behaviour.duration = roundTo(audioDuration+animationDuration+delay, 2);
 				behaviour.template = filename;
 				behaviour.placeholders = [{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
 				return behaviour;
@@ -81,15 +99,16 @@
 				}
 				
 				if(is.behaviourplanner.behaviourMode === "variant"){
-					var delay = Math.random()*3;
+					var delay = roundTo(Math.random()*3, 2);
 				} else {
 					var delay = 1.5;
 				}
 				
 				var behaviour = new Object();
 				behaviour.action = is.zeno.request;
+				behaviour.delay = delay;
 				behaviour.startTime = 0;
-				behaviour.duration = duration+delay;
+				behaviour.duration = roundTo(duration+delay, 2);
 				behaviour.template = filename;
 				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay+delay},{"speak1":audio},{"speak1_delay":audioDelay+delay}];
 				return behaviour;
@@ -967,9 +986,10 @@
 		</preconditions>
 		<effects>
 			<assign is="is.logger.latestLogLine">logInfo(createZenoLogLine(is.zeno.behaviour))</assign>
-			<assign is="is.zeno.busy">true</assign>
+			<assign is="is.zeno.busy">true</assign>is.adult.menuRefresh
 			<assign is="is.zeno.behaviour.startTime">is.behaviourplanner.time</assign>
 			<assign is="is.zeno.bmlId">addBehaviourRequest(is.zeno.behaviour)</assign>
+			<assign is="is.adult.menuRefresh">true</assign>
 		</effects>
 	</template>
 	<template id="backToIdle" name="backToIdle">
@@ -980,6 +1000,7 @@
 		<effects>
 			<assign is="is.zeno.busy">false</assign>
 			<assign is="is.zeno.behaviour">""</assign>
+			<assign is="is.adult.menuRefresh">true</assign>
 		</effects>
 	</template>
     
