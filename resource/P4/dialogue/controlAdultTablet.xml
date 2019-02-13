@@ -46,6 +46,7 @@
 			<condition>is.adult.showingMenu === ""</condition>
 		</preconditions>
 		<effects>
+			<assign is="is.logger.latestLogLine">logInfo("Session started - Waiting for WOZ to select experiment condition")</assign>
 			<assign is="is.adult.menuRequest">"Start"</assign>
 			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>

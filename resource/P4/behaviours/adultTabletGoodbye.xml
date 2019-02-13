@@ -10,6 +10,21 @@
 			
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"goodbye","value":"End session"}
+            {"id":"goodbye","value":"Goodbye"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_session","value":"End session and restart system","color":"red"}
         ]}}
 </mwe:sendJsonMessage>

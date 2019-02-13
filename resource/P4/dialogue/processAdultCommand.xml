@@ -427,13 +427,13 @@
     </template>
     
     <!-- GOODBYE -->
-     <template id="end_Goodbye" name="end_Goodbye">
+    
+     <template id="end_Restart" name="end_Restart">
     	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "goodbye"</condition>
+    		<condition>is.tablet.adult.command === "end_session"</condition>
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"goodbye"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"blank"</assign>
 			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
@@ -441,6 +441,8 @@
     		<assign is="is.systemRestarter.requestSystemRestart">true</assign>
     	</effects>
     </template>
+    
+    
     
     <!-- if it's not one of the above commands, just pass it on to the zeno controller! -->
     <template id="OtherCommand" name="OtherCommand">

@@ -48,6 +48,7 @@
             </arguments>
           </behaviour>
           <assign is="is.systemRestarter.requestSystemRestart">false</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Session ended - Initiating system restart")</assign>
       </effects>
     </template>
 
