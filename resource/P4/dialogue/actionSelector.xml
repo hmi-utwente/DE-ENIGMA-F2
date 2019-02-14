@@ -3,6 +3,54 @@
 	<!-- av stands for ActionVariants, this stores all the available variants of the various behavioural actions -->
     <is name="av">
         {
+            "promptEyebrows" : {
+                "V1" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                }
+            },
+            "promptEyes" : {
+                "V1" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                }
+            },
+            "promptMouth" : {
+                "V1" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                }
+            },
+            "resolveEyebrows" : {
+                "V1" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "moveEyebrowsV1",
+                	"animationDuration" : 3
+                }
+            },
+            "resolveEyes" : {
+                "V1" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "moveEyesV1",
+                	"animationDuration" : 3
+                }
+            },
+            "resolveMouth" : {
+                "V1" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "moveMouthV1",
+                	"animationDuration" : 5.5
+                }
+            },
+            "transitionGames" : {
+                "V1" : {
+                	"audio" : "transitionGamesV1",
+                	"audioDuration" : 3
+                }
+            },
             "greeting" : {
                 "V1" : {
                 	"audio" : "greetingV1",

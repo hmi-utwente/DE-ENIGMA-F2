@@ -8,17 +8,22 @@
 				"maxTrials" : 4
 			},
 			"promptFeatures" : {
+				"loadNextTrial":false,
+				"trials" : 0,
+				"maxTrials" : 4,
 				"askedFeature" : "",
 				"askedTimestamp" : 0,
-				"askedRepeats" : 0,
-				"maxRepeats" : 2
-			},
-			"exploreExpressions" : {
-				"exploreEmotion" : "",
 				"repeats" : 0,
 				"maxRepeats" : 2
 			},
+			"exploreExpressions" : {
+				"trials" : 0,
+				"maxTrials" : 4,
+				"exploreEmotion" : ""
+			},
 			"promptExpressions" : {
+				"trials" : 0,
+				"maxTrials" : 4,
 				"askedExpression" : ""
 			}
 		}
@@ -27,19 +32,26 @@
 	<javascript>
 		<![CDATA[
 		
-			function askEqualsAnswer(ask, answer) {
-				return ask.startsWith("ask") && answer.startsWith("answer") && ask.slice(3).toLowerCase() === answer.slice(6).toLowerCase();
+			function askEqualsAnswer(prompt, answer) {
+				return prompt.startsWith("prompt") && answer.startsWith("resolve") && prompt.slice(6).toLowerCase() === answer.slice(7).toLowerCase();
 			}
 			
 			function answerIncorrectOrTimeout() {
 				return (is.tablet.child.command !== "none" && !askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)) || (is.behaviourplanner.time - is.childProcessor.promptFeatures.askedTimestamp > 20000);
 			}
 			
+		
+		function getRandomFaceFeaturePrompt(previousPrompt){
+			var faceFeatures = ["promptEyebrows","promptEyes","promptMouth"];
+			faceFeatures.splice(faceFeatures.indexOf(previousPrompt), 1);
+			return faceFeatures[Math.floor(Math.random() * faceFeatures.length)];
+		}
+			
 		]]>
     </javascript>
       
-    <!-- Explore Features -->
-    <template id="ExploreFeaturesBlock" name="ExploreFeaturesBlock">
+    <!-- PINK GAME: Explore Features -->
+    <template id="ExploreFeatures" name="ExploreFeatures">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
@@ -64,19 +76,39 @@
     	</effects>
     </template>
     
-    <!-- Prompt Features -->
+    <!-- BLUE GAME: Prompt Features -->
     <template id="PromptFeatures_Correct" name="PromptFeatures_Correct">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)</condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
-    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
+    		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
+    		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptFeatures_LoadNextTrial" name="PromptFeatures_LoadNextTrial">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.childProcessor.promptFeatures.loadNextTrial</condition>
+    		<condition><![CDATA[is.behaviourplanner.time - is.childProcessor.promptFeatures.trialStartTime > 1000]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedFeature">getRandomFaceFeaturePrompt(is.childProcessor.promptFeatures.askedFeature)</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">false</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
+    		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
     	</effects>
     </template>
     
@@ -85,10 +117,11 @@
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
     		<condition>answerIncorrectOrTimeout()</condition>
-    		<condition><![CDATA[is.childProcessor.promptFeatures.askedRepeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.repeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.childProcessor.promptFeatures.askedRepeats">is.childProcessor.promptFeatures.askedRepeats + 1</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">is.childProcessor.promptFeatures.repeats + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
@@ -101,18 +134,32 @@
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
     		<condition>answerIncorrectOrTimeout()</condition>
-    		<condition><![CDATA[is.childProcessor.promptFeatures.askedRepeats >= is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.repeats >= is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
+    		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
     		<assign is="is.zeno.request">"letsTryAgain"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     
-    <!-- Explore Expressions -->
+    <template id="PromptFeaturesBlockEnd" name="PromptFeaturesBlockEnd">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>is.tablet.child.command === "none"</condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials >= is.childProcessor.promptFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    	</effects>
+    </template>
+    
+    <!-- GREEN GAME: Explore Expressions -->
     <template id="ExploreExpressions" name="ExploreExpressions">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreExpressions"</condition>
@@ -125,7 +172,7 @@
     	</effects>
     </template>
     
-    <!-- Prompt Expressions -->
+    <!-- YELLOW GAME: Prompt Expressions -->
     <template id="PromptExpressions_Happy_Correct" name="PromptExpressions_Happy_Correct">
     	<preconditions mode="and">
     		<condition><![CDATA[is.child.showingMenu === "PromptExpressions1d" || is.child.showingMenu === "PromptExpressions3d"]]></condition>

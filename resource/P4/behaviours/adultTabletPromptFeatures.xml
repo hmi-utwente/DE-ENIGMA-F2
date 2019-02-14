@@ -8,14 +8,7 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"newGame","value":"Now new game with Zeno"},
             {"id":"start_PromptFeatures","value":"Start activity"},
-            
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"askEyebrows","value":"Ask Eyebrows"},
-            {"id":"askEyes","value":"Ask Eyes"},
-            {"id":"askMouth","value":"Ask Mouth"},
             
 			{"id":"", "value":"blankSpace"},
 			

@@ -47,7 +47,7 @@ Format of a request:
         var behaviourRequests = [];
         
         function addBehaviourRequest(request){
-            requestId = "intent_"+behaviourRequestCounter++;
+            var requestId = "intent_"+behaviourRequestCounter++;
             request.requestId = requestId;
             behaviourRequests.push(request);
             return requestId;
@@ -58,7 +58,7 @@ Format of a request:
         }
         
         function getNextBehaviourRequest(){
-            nextRequest = behaviourRequests[0];
+            var nextRequest = behaviourRequests[0];
             behaviourRequests.shift();
             return nextRequest;
         }

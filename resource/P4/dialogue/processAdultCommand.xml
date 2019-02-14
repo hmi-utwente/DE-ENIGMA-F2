@@ -2,7 +2,8 @@
 
 	<is name="adultProcessor">
 		{	
-			"state" : "none"
+			"state" : "none",
+			"zenoBehaviourQueued":0
 		}
 	</is>
 	
@@ -129,7 +130,7 @@
     	</effects>
     </template>
     
-    <!-- EXPLORE FEATURES -->
+    <!-- PINK GAME: EXPLORE FEATURES -->
     <template id="start_ExploreFeatures" name="start_ExploreFeatures">
     	<preconditions mode="or">
     		<condition>is.tablet.adult.command === "start_ExploreFeatures"</condition>
@@ -154,31 +155,21 @@
     	</effects>
     </template>
     
-    <!-- PROMPT FEATURES -->
+    <!-- BLUE GAME: PROMPT FEATURES -->
     <template id="start_PromptFeatures" name="start_PromptFeatures">
     	<preconditions mode="or">
     		<condition>is.tablet.adult.command === "start_PromptFeatures"</condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
     		<assign is="is.child.menuRequest">"PromptFeatures"</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
-    		<assign is="is.tablet.adult.command">"none"</assign>
-    	</effects>
-    </template>
-    
-    <template id="PromptFeatures_AskFeature" name="PromptFeatures_AskFeature">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "askEyebrows"</condition>
-    		<condition>is.tablet.adult.command === "askEyes"</condition>
-    		<condition>is.tablet.adult.command === "askMouth"</condition>
-    	</preconditions>
-    	<effects>
-    		<assign is="is.childProcessor.promptFeatures.askedFeature">is.tablet.adult.command</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
-    		<assign is="is.childProcessor.promptFeatures.askedRepeats">0</assign>
-    		<assign is="is.child.menuRequest">"PromptFeatures"</assign>
-    		<assign is="is.zeno.request">is.tablet.adult.command</assign>
-    		<assign is="is.child.enableMenuRequest">"later"</assign>
+    		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
+    		<assign is="is.childProcessor.promptFeatures.trials">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -196,7 +187,7 @@
     </template>
     
     
-   <!-- EXPLORE EXPRESSIONS -->
+   <!-- GREEN GAME: EXPLORE EXPRESSIONS -->
     <template id="start_ExploreExpressions" name="start_ExploreExpressions">
     	<preconditions mode="or">
     		<condition>is.tablet.adult.command === "start_ExploreExpressions"</condition>
@@ -286,7 +277,7 @@
     </template>
     
 
-	<!-- PROMPT EXPRESSIONS -->
+	<!-- YELLOW GAME: PROMPT EXPRESSIONS -->
     <template id="start_PromptExpressions" name="start_PromptExpressions">
     	<preconditions mode="or">
     		<condition>is.tablet.adult.command === "start_PromptExpressions"</condition>
