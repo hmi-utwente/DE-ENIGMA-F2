@@ -45,6 +45,23 @@
 			    return +n;
 			}
 			
+			var zenoBehaviourRequests = [];
+			
+			function addZenoBehaviourRequest(behaviour){
+				zenoBehaviourRequests.push(behaviour);
+				return zenoBehaviourRequests.length;
+			}
+			
+			function isPendingZenoBehaviour(){
+				return zenoBehaviourRequests.length > 0;
+			}
+			
+			function getNextZenoBehaviourRequest(){
+	            var nextRequest = zenoBehaviourRequests[0];
+	            zenoBehaviourRequests.shift();
+	            return nextRequest;
+	        }
+	        
 			function createZB(action){
 				if(typeof action === "undefined"){
 					log("!!!doing an undefined action!!!");
@@ -187,7 +204,6 @@
 		]]>
     </javascript>
     
-    
     <!-- Start and stop the mirroring actions -->
     <template id="startMirroring" name="startMirroring">
     	<preconditions mode="and">
@@ -225,6 +241,18 @@
 				<object class="mirroring.MirroringExeWrapper" persistent="is.zeno.persistent.mirroringExe"/>
 				<arguments />
 			</method>
+    	</effects>
+    </template>
+      
+    <!-- this checks if there are any queued behaviours for Zeno -->
+    <template id="doNextBehaviourInQueue" name="doNextBehaviourInQueue">
+    	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.zeno.request === ""</condition>
+    		<condition>isPendingZenoBehaviour()</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">getNextZenoBehaviourRequest()</assign>
     	</effects>
     </template>
       
@@ -450,32 +478,6 @@
 	</template>
 	
     <!-- PromptFeatures -->
-	<template id="askEyebrows" name="askEyebrows">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "askEyebrows"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(3, "", 0, "FindEyebrows", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="askEyes" name="askEyes">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "askEyes"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindEyes", 0)</assign>
-		</effects>
-	</template>
-	
-	<template id="askMouth" name="askMouth">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "askMouth"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(2, "", 0, "FindMouth", 0)</assign>
-		</effects>
-	</template>
 	
 	<template id="answerEyebrows" name="answerEyebrows">
 		<preconditions mode="and">
