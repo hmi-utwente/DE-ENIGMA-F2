@@ -45,6 +45,102 @@
                 	"animationDuration" : 5.5
                 }
             },
+            "resolveHappyEyebrows" : {
+                "V1" : {
+                	"audio" : "HappyMyEyebrowsDoNotMove",
+                	"audioDuration" : 4.5,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveHappyEyes" : {
+                "V1" : {
+                	"audio" : "HappyMyEyesDoNotMove",
+                	"audioDuration" : 4,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveHappyMouth" : {
+                "V1" : {
+                	"audio" : "HappyMyMouthIsUpIAmSmiling",
+                	"audioDuration" : 6,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadEyebrows" : {
+                "V1" : {
+                	"audio" : "SadMyEyebrowsAreUp",
+                	"audioDuration" : 4,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadEyes" : {
+                "V1" : {
+                	"audio" : "SadMyEyesAreClosedIAmCrying",
+                	"audioDuration" : 6.5,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadMouth" : {
+                "V1" : {
+                	"audio" : "SadMyMouthIsDown",
+                	"audioDuration" : 4,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerEyebrows" : {
+                "V1" : {
+                	"audio" : "AngryMyEyebrowsAreDownIAmFrowning",
+                	"audioDuration" : 7,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerEyes" : {
+                "V1" : {
+                	"audio" : "AngryMyEyesAreNarrow",
+                	"audioDuration" : 4,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerMouth" : {
+                "V1" : {
+                	"audio" : "AngryMyMouthIsDown",
+                	"audioDuration" : 4,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearEyebrows" : {
+                "V1" : {
+                	"audio" : "ScaredMyEyebrowsAreUp",
+                	"audioDuration" : 4,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearEyes" : {
+                "V1" : {
+                	"audio" : "ScaredMyEyesAreOpen",
+                	"audioDuration" : 4,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearMouth" : {
+                "V1" : {
+                	"audio" : "ScaredMyMouthIsOpenIAmGasping",
+                	"audioDuration" : 6.5,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
             "transitionGames" : {
                 "V1" : {
                 	"audio" : "transitionGamesV1",
@@ -70,6 +166,78 @@
                 	"audio" : "attentionV1",
                 	"audioDuration" : 1.5,
                 	"animation" : "attentionV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "happy" : {
+                "V1" : {
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"animation" : "happyV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"animation" : "happyV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"animation" : "happyV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "sad" : {
+                "V1" : {
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"animation" : "sadV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"animation" : "sadV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"animation" : "sadV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "anger" : {
+                "V1" : {
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"animation" : "angerV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"animation" : "angerV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"animation" : "angerV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "fear" : {
+                "V1" : {
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"animation" : "fearV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"animation" : "fearV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"animation" : "fearV4",
                 	"animationDuration" : 3.5
                 }
             },
@@ -151,6 +319,15 @@
 				}
 			}
 			
+			function setVariant(actions, actionID, variant){
+				if(actions.hasOwnProperty(actionID)){
+					if(actions[actionID].hasOwnProperty(variant)){
+						actions[actionID].selectedVariant = variant;
+					}
+				}
+				return actions;
+			}
+			
 			function getRandomVariant(actions, actionID){
 				if(actions.hasOwnProperty(actionID)){
 					var actionSet = actions[actionID];
@@ -176,9 +353,8 @@
 						}
 						actions[actionID].selectedVariant = available[Math.floor(Math.random() * available.length)];
 					}
-					
-					return actions;
 				}
+				return actions;
 			}
 			
 			//TODO: add some form of caching, instead of calculating this each time

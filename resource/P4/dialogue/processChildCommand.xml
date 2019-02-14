@@ -64,7 +64,7 @@
     	</effects>
     </template>
     
-    <template id="ExploreFeaturesBlockEnd" name="ExploreFeaturesBlockEnd">
+    <template id="ExploreFeatures_EndBlock" name="ExploreFeatures_EndBlock">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
@@ -164,11 +164,24 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreExpressions"</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreExpressions.trials < is.childProcessor.exploreExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.childProcessor.exploreExpressions.trials">is.childProcessor.exploreExpressions.trials + 1</assign>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
-    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_EndBlock" name="ExploreExpressions_EndBlock">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "ExploreExpressions"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreExpressions.trials >= is.childProcessor.exploreExpressions.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
     

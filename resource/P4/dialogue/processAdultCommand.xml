@@ -193,6 +193,7 @@
     		<condition>is.tablet.adult.command === "start_ExploreExpressions"</condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">""</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
@@ -205,9 +206,12 @@
     		<condition>is.tablet.adult.command === "exploreHappy"</condition>
     	</preconditions>
     	<effects>
-			<assign is="is.zeno.variants.happyFace">getHappyFaceVariant()</assign>
-			<assign is="is.logger.latestLogLine">logInfo("Exploring happy variant: ["+is.zeno.variants.happyFace+"]")</assign>
-			<assign is="is.child.expressionVariant">is.zeno.variants.happyFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveHappyEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveHappyEyes", is.av.resolveHappyEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveHappyMouth", is.av.resolveHappyEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveHappyEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring happy variant: ["+is.child.expressionVariant+"]")</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
@@ -218,12 +222,15 @@
     
     <template id="ExploreExpressions_ExploreEmotionAngry" name="ExploreExpressions_ExploreEmotionAngry">
     	<preconditions mode="and">
-    		<condition>is.tablet.adult.command === "exploreAngry"</condition>
+    		<condition>is.tablet.adult.command === "exploreAnger"</condition>
     	</preconditions>
     	<effects>
-			<assign is="is.zeno.variants.angryFace">getAngryFaceVariant()</assign>
-			<assign is="is.logger.latestLogLine">logInfo("Exploring angry variant: ["+is.zeno.variants.angryFace+"]")</assign>
-			<assign is="is.child.expressionVariant">is.zeno.variants.angryFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveAngerEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveAngerEyes", is.av.resolveAngerEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveAngerMouth", is.av.resolveAngerEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveAngerEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring anger variant: ["+is.child.expressionVariant+"]")</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
@@ -237,9 +244,12 @@
     		<condition>is.tablet.adult.command === "exploreSad"</condition>
     	</preconditions>
     	<effects>
-			<assign is="is.zeno.variants.sadFace">getSadFaceVariant()</assign>
-			<assign is="is.logger.latestLogLine">logInfo("Exploring sad variant: ["+is.zeno.variants.sadFace+"]")</assign>
-			<assign is="is.child.expressionVariant">is.zeno.variants.sadFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveSadEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveSadEyes", is.av.resolveSadEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveSadMouth", is.av.resolveSadEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveSadEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring sad variant: ["+is.child.expressionVariant+"]")</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
@@ -250,12 +260,15 @@
     
     <template id="ExploreExpressions_ExploreEmotionScared" name="ExploreExpressions_ExploreEmotionScared">
     	<preconditions mode="and">
-    		<condition>is.tablet.adult.command === "exploreScared"</condition>
+    		<condition>is.tablet.adult.command === "exploreFear"</condition>
     	</preconditions>
     	<effects>
-			<assign is="is.zeno.variants.scaredFace">getScaredFaceVariant()</assign>
-			<assign is="is.logger.latestLogLine">logInfo("Exploring scared variant: ["+is.zeno.variants.scaredFace+"]")</assign>
-			<assign is="is.child.expressionVariant">is.zeno.variants.scaredFace</assign>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveFearEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveFearEyes", is.av.resolveFearEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveFearMouth", is.av.resolveFearEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveFearEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring fear variant: ["+is.child.expressionVariant+"]")</assign>
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>

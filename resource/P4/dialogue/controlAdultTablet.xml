@@ -38,17 +38,17 @@
 		
 		function createExploreExpressionsMenu(){
 			var behaviour = createAdultMenu("ExploreExpressions");
-			var placeholders = [{"happy_variant":""},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+			var placeholders = [{"happy_variant":""},{"sad_variant":""},{"anger_variant":""},{"fear_variant":""}];
 			
 			//quick and dirty hack to show on tablet which emotion variant we are displaying now
 			if(is.childProcessor.exploreExpressions.exploreEmotion === "happy"){
-				placeholders = [{"happy_variant":"(Showing "+is.zeno.variants.happyFace+")"},{"sad_variant":""},{"angry_variant":""},{"scared_variant":""}];
+				placeholders = [{"happy_variant":"(Showing "+is.av.resolveHappyEyebrows.selectedVariant+")"},{"sad_variant":""},{"anger_variant":""},{"fear_variant":""}];
 			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "sad"){
-				placeholders = [{"sad_variant":"(Showing "+is.zeno.variants.sadFace+")"},{"happy_variant":""},{"angry_variant":""},{"scared_variant":""}];
-			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "angry"){
-				placeholders = [{"angry_variant":"(Showing "+is.zeno.variants.angryFace+")"},{"happy_variant":""},{"sad_variant":""},{"scared_variant":""}];
-			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "scared"){
-				placeholders = [{"scared_variant":"(Showing "+is.zeno.variants.scaredFace+")"},{"happy_variant":""},{"sad_variant":""},{"angry_variant":""}];
+				placeholders = [{"sad_variant":"(Showing "+is.av.resolveSadEyebrows.selectedVariant+")"},{"happy_variant":""},{"anger_variant":""},{"fear_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "anger"){
+				placeholders = [{"anger_variant":"(Showing "+is.av.resolveAngerEyebrows.selectedVariant+")"},{"happy_variant":""},{"sad_variant":""},{"fear_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "fear"){
+				placeholders = [{"fear_variant":"(Showing "+is.av.resolveFearEyebrows.selectedVariant+")"},{"happy_variant":""},{"sad_variant":""},{"anger_variant":""}];
 			}
 			
 			behaviour.placeholders = behaviour.placeholders.concat(placeholders);
