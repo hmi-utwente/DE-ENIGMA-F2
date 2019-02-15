@@ -5,6 +5,7 @@
 			"busy" : false,
 			"mirroring" : false,
 			"request" : "",
+			"requestNewRandomVariant" : true,
 			"behaviour" : "",
 			"variants" : {
 				"hello" : "",
@@ -969,13 +970,25 @@
       
 	<!-- Always near the end, if action request has not yet been executed and cleaned up, 
 	we try to do the generic approach and just execute a random version of the requested action -->
-    <template id="genericActionRequest" name="genericActionRequest">
+    <template id="genericActionRequestRandomVariant" name="genericActionRequestRandomVariant">
     	<preconditions mode="and">
     		<condition>is.zeno.request !== ""</condition>
+    		<condition>is.zeno.requestNewRandomVariant</condition>
     		<condition>doesActionExist(is.zeno.request)</condition>
     	</preconditions>
 		<effects>
 			<assign is="is.av">getRandomVariant(is.av, is.zeno.request)</assign>
+			<assign is="is.zeno.behaviour">createZB(getActionVariant(is.zeno.request))</assign>
+		</effects>
+    </template>
+    
+    <template id="genericActionRequest" name="genericActionRequest">
+    	<preconditions mode="and">
+    		<condition>is.zeno.request !== ""</condition>
+    		<condition>!is.zeno.requestNewRandomVariant</condition>
+    		<condition>doesActionExist(is.zeno.request)</condition>
+    	</preconditions>
+		<effects>
 			<assign is="is.zeno.behaviour">createZB(getActionVariant(is.zeno.request))</assign>
 		</effects>
     </template>
@@ -1013,6 +1026,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.zeno.request">""</assign>
+    		<assign is="is.zeno.requestNewRandomVariant">true</assign>
     	</effects>
     </template>
 </behaviourtemplates>
