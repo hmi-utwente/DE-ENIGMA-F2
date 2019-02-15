@@ -1,12 +1,7 @@
 <mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
     { "showImageButtonGrid" : {
         "text":"$correct$" ,
-        "imageButtons" : [
-            {"id":"sad","value":"sad", "img":"discr_zeno_sad"},
-            {"id":"scared","value":"scared", "img":"discr_zeno_scared"},
-            {"id":"happy","value":"happy", "img":"discr_zeno_happy"},
-            {"id":"angry","value":"angry", "img":"discr_zeno_angry"}
-        ]}}
+        "imageButtons" : $image_buttons$}}
 </mwe:sendJsonMessage>
 <mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
 	{ "setBackgroundColor" : { "id":"bgcolor" ,

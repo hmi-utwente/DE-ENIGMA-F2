@@ -20,7 +20,16 @@
 	
 	<javascript>
 		<![CDATA[
-		
+		function shuffleArray(a) {
+		    var j, x, i;
+		    for (i = a.length - 1; i > 0; i--) {
+		        j = Math.floor(Math.random() * (i + 1));
+		        x = a[i];
+		        a[i] = a[j];
+		        a[j] = x;
+		    }
+		    return a;
+		}
 	
 		function createExploreExpressionsBehaviour(enabled, emotion, variant, step){
 			if(!enabled){
@@ -31,17 +40,31 @@
 			return behaviour;
 		}
 		
-		function createPromptExpressionsBehaviour(correctExpression, nrOfDistractors){
+		var expressionGrid3d = [{"id":"sad","value":"sad", "img":"discr_zeno_sad"},
+            {"id":"scared","value":"scared", "img":"discr_zeno_scared"},
+            {"id":"happy","value":"happy", "img":"discr_zeno_happy"},
+            {"id":"angry","value":"angry", "img":"discr_zeno_angry"}];
+            
+		var expressionGrid1d = [{"id":"$correct$","value":"$correct$", "img":"discr_zeno_$correct$"},
+            {"id":"$distractor$","value":"$distractor$", "img":"discr_zeno_$distractor$"}];
+		
+		function createPromptExpressionsBehaviour(correctExpression, nrOfDistractors, doShuffle){
 			if(nrOfDistractors === 1){
+				if(doShuffle){
+					expressionGrid1d = shuffleArray(expressionGrid1d);
+				}
 				expressions = ["happy", "sad", "angry", "scared"];
 				expressions.splice(expressions.indexOf(correctExpression), 1);
 				
 				behaviour = createShowMenuBehaviour("child", "PromptExpressions1d");
-				behaviour.placeholders = [{"correct":correctExpression},{"distractor":expressions[Math.floor(Math.random() * expressions.length)]}];
+				behaviour.placeholders = [{"correct":correctExpression},{"distractor":expressions[Math.floor(Math.random() * expressions.length)]},{"image_buttons":JSON.stringify(expressionGrid1d)}];
 				return behaviour;
 			} else {
+				if(doShuffle){
+					expressionGrid3d = shuffleArray(expressionGrid3d);
+				}
 				behaviour = createShowMenuBehaviour("child", "PromptExpressions3d");
-				behaviour.placeholders = [{"correct":correctExpression}];
+				behaviour.placeholders = [{"correct":correctExpression},{"image_buttons":JSON.stringify(expressionGrid3d)}];
 				return behaviour;
 			}
 		}
@@ -152,7 +175,7 @@
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 1)</assign>
+			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 1, true)</assign>
 			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
 			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
 			<assign is="is.child.menuRequest">""</assign>
@@ -165,7 +188,7 @@
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 3)</assign>
+			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 3, true)</assign>
 			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
 			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
 			<assign is="is.child.menuRequest">""</assign>
