@@ -7,18 +7,30 @@
                 "V1" : {
                 	"audio" : "promptEyebrowsV1",
                 	"audioDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "promptEyebrowsV4",
+                	"audioDuration" : 3.5
                 }
             },
             "promptEyes" : {
                 "V1" : {
                 	"audio" : "promptEyesV1",
                 	"audioDuration" : 2.5
+                },
+                "V4" : {
+                	"audio" : "promptEyesV4",
+                	"audioDuration" : 3
                 }
             },
             "promptMouth" : {
                 "V1" : {
                 	"audio" : "promptMouthV1",
                 	"audioDuration" : 2.5
+                },
+                "V4" : {
+                	"audio" : "promptMouthV4",
+                	"audioDuration" : 3
                 }
             },
             "resolveEyebrows" : {
@@ -137,6 +149,78 @@
                 "V1" : {
                 	"audio" : "ScaredMyMouthIsOpenIAmGasping",
                 	"audioDuration" : 6.5,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "promptHappy" : {
+                "V1" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptHappyV4",
+                	"audioDuration" : 2.5
+                }
+            },
+            "promptSad" : {
+                "V1" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptSadV4",
+                	"audioDuration" : 2.5
+                }
+            },
+            "promptAnger" : {
+                "V1" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptAngerV4",
+                	"audioDuration" : 3
+                }
+            },
+            "promptFear" : {
+                "V1" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptFearV4",
+                	"audioDuration" : 3
+                }
+            },
+            "resolveHappy" : {
+                "V1" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSad" : {
+                "V1" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAnger" : {
+                "V1" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFear" : {
+                "V1" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
                 	"animation" : "fearV1",
                 	"animationDuration" : 3.5
                 }

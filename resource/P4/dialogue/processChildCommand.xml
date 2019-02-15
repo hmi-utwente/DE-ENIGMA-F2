@@ -84,6 +84,7 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
@@ -193,7 +194,7 @@
     		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">"wellDoneYouFoundMyHappyFace"</assign>
+    		<assign is="is.zeno.request">"resolveHappy"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
     	</effects>
     </template>
@@ -205,7 +206,7 @@
     		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">"wellDoneYouFoundMySadFace"</assign>
+    		<assign is="is.zeno.request">"resolveSad"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
     	</effects>
     </template>
@@ -217,7 +218,7 @@
     		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">"wellDoneYouFoundMyAngryFace"</assign>
+    		<assign is="is.zeno.request">"resolveAnger"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
     	</effects>
     </template>
@@ -229,7 +230,7 @@
     		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">"wellDoneYouFoundMyScaredFace"</assign>
+    		<assign is="is.zeno.request">"resolveFear"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
     	</effects>
     </template>

@@ -309,7 +309,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"happy"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyHappyFace"</assign>
+    		<assign is="is.zeno.request">"promptHappy"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -322,7 +322,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"happy"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyHappyFace"</assign>
+    		<assign is="is.zeno.request">"promptHappy"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -335,7 +335,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"sad"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMySadFace"</assign>
+    		<assign is="is.zeno.request">"promptSad"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -348,7 +348,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"sad"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMySadFace"</assign>
+    		<assign is="is.zeno.request">"promptSad"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -361,7 +361,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"angry"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyAngryFace"</assign>
+    		<assign is="is.zeno.request">"promptAnger"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -374,7 +374,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"angry"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyAngryFace"</assign>
+    		<assign is="is.zeno.request">"promptAnger"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -387,7 +387,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"scared"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions1d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyScaredFace"</assign>
+    		<assign is="is.zeno.request">"promptFear"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
@@ -400,21 +400,8 @@
     		<assign is="is.childProcessor.promptExpressions.askedExpression">"scared"</assign>
     		<assign is="is.child.menuRequest">"PromptExpressions3d"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
-    		<assign is="is.zeno.request">"findMyScaredFace"</assign>
+    		<assign is="is.zeno.request">"promptFear"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
-    	</effects>
-    </template>
-    
-    <template id="PromptExpressions_WOZ" name="PromptExpressions_WOZ">
-    	<preconditions mode="or">
-    		<condition>is.tablet.adult.command === "findTheHappyFace"</condition>
-    		<condition>is.tablet.adult.command === "findAllHappyFaces"</condition>
-    		<condition>is.tablet.adult.command === "findMySadFace"</condition>
-    		<condition>is.tablet.adult.command === "findTheSadFace"</condition>
-    		<condition>is.tablet.adult.command === "findAllSadFaces"</condition>
-    	</preconditions>
-    	<effects>
-    		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
     
