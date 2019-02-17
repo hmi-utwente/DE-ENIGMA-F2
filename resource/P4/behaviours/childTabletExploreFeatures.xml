@@ -6,9 +6,9 @@
         "imageFile":"clickable_features_neutral",
 	    "imageFileDisabled":"disabled_neutral",
         "clickableAreas" : [
-            {"id":"a1","value":"152;225;116;515;moveEyebrows"},
-            {"id":"a2","value":"177;380;95;477;moveEyes"},
-            {"id":"a3","value":"304;547;169;226;moveMouth"}]
+            {"id":"a1","value":"152;225;116;515;eyebrows"},
+            {"id":"a2","value":"177;380;95;477;eyes"},
+            {"id":"a3","value":"304;547;169;226;mouth"}]
         }
     }
 </mwe:sendJsonMessage>

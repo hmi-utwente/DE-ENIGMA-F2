@@ -3,8 +3,41 @@
 	<!-- av stands for ActionVariants, this stores all the available variants of the various behavioural actions -->
     <is name="av">
         {
+        
+            "eyebrows" : {
+                "V1" : {
+                	"audio" : "eyebrowsV1",
+                	"audioDuration" : 2.5,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                }
+            },
+            "eyes" : {
+                "V1" : {
+                	"audio" : "eyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 5.5
+                }
+            },
+            "mouth" : {
+                "V1" : {
+                	"audio" : "mouthV1",
+                	"audioDuration" : 2,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 4.5
+                }
+            },
             "promptEyebrows" : {
                 "V1" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                },
+                "V3" : {
                 	"audio" : "promptEyebrowsV1",
                 	"audioDuration" : 3
                 },
@@ -18,6 +51,14 @@
                 	"audio" : "promptEyesV1",
                 	"audioDuration" : 2.5
                 },
+                "V2" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                },
+                "V3" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                },
                 "V4" : {
                 	"audio" : "promptEyesV4",
                 	"audioDuration" : 3
@@ -25,6 +66,14 @@
             },
             "promptMouth" : {
                 "V1" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                },
+                "V2" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                },
+                "V3" : {
                 	"audio" : "promptMouthV1",
                 	"audioDuration" : 2.5
                 },
@@ -37,7 +86,25 @@
                 "V1" : {
                 	"audio" : "resolveEyebrowsV1",
                 	"audioDuration" : 2,
-                	"animation" : "moveEyebrowsV1",
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V3" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
                 	"animationDuration" : 3
                 }
             },
@@ -45,7 +112,25 @@
                 "V1" : {
                 	"audio" : "resolveEyesV1",
                 	"audioDuration" : 2,
-                	"animation" : "moveEyesV1",
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V3" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
                 	"animationDuration" : 3
                 }
             },
@@ -53,7 +138,25 @@
                 "V1" : {
                 	"audio" : "resolveMouthV1",
                 	"audioDuration" : 1.5,
-                	"animation" : "moveMouthV1",
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V2" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V3" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V4" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
                 	"animationDuration" : 5.5
                 }
             },

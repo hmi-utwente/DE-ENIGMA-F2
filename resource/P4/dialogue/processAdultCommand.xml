@@ -150,6 +150,7 @@
     		<condition>is.tablet.adult.command === "start_ExploreFeatures"</condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
     		<assign is="is.child.menuRequest">"ExploreFeatures"</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>

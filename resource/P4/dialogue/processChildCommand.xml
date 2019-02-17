@@ -93,7 +93,6 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
@@ -134,7 +133,7 @@
     		<assign is="is.childProcessor.promptFeatures.repeats">is.childProcessor.promptFeatures.repeats + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
