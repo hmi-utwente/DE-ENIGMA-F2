@@ -1,6 +1,6 @@
 <mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
     { "showImageButtonGrid" : {
-        "text":"$correct$" ,
+        "text":"$correct_text$" ,
         "imageButtons" : $image_buttons$}}
 </mwe:sendJsonMessage>
 <mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">

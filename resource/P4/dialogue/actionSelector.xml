@@ -158,6 +158,14 @@
                 	"audio" : "promptHappyV1",
                 	"audioDuration" : 2
                 },
+                "V2" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
                 "V4" : {
                 	"audio" : "promptHappyV4",
                 	"audioDuration" : 2.5
@@ -165,6 +173,14 @@
             },
             "promptSad" : {
                 "V1" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
                 	"audio" : "promptSadV1",
                 	"audioDuration" : 2
                 },
@@ -178,6 +194,14 @@
                 	"audio" : "promptAngerV1",
                 	"audioDuration" : 2
                 },
+                "V2" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
                 "V4" : {
                 	"audio" : "promptAngerV4",
                 	"audioDuration" : 3
@@ -185,6 +209,14 @@
             },
             "promptFear" : {
                 "V1" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
                 	"audio" : "promptFearV1",
                 	"audioDuration" : 2
                 },
@@ -199,6 +231,24 @@
                 	"audioDuration" : 3,
                 	"animation" : "happyV1",
                 	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV4",
+                	"animationDuration" : 3.5
                 }
             },
             "resolveSad" : {
@@ -206,6 +256,24 @@
                 	"audio" : "resolveSadV1",
                 	"audioDuration" : 3,
                 	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV4",
                 	"animationDuration" : 3.5
                 }
             },
@@ -215,6 +283,24 @@
                 	"audioDuration" : 3,
                 	"animation" : "angerV1",
                 	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV4",
+                	"animationDuration" : 3.5
                 }
             },
             "resolveFear" : {
@@ -222,6 +308,24 @@
                 	"audio" : "resolveFearV1",
                 	"audioDuration" : 3,
                 	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV4",
                 	"animationDuration" : 3.5
                 }
             },
@@ -255,72 +359,120 @@
             },
             "happy" : {
                 "V1" : {
+                	"tabletImage" : "happy_v1",
+                	"tabletImageEnabled" : "enabled_happy_v1",
+                	"tabletImageDisabled" : "disabled_happy_v1",
                 	"animation" : "happyV1",
                 	"animationDuration" : 3.5
                 },
                 "V2" : {
+                	"tabletImage" : "happy_v2",
+                	"tabletImageEnabled" : "enabled_happy_v2",
+                	"tabletImageDisabled" : "disabled_happy_v2",
                 	"animation" : "happyV2",
                 	"animationDuration" : 3.5
                 },
                 "V3" : {
+                	"tabletImage" : "happy_v3",
+                	"tabletImageEnabled" : "enabled_happy_v3",
+                	"tabletImageDisabled" : "disabled_happy_v3",
                 	"animation" : "happyV3",
                 	"animationDuration" : 3.5
                 },
                 "V4" : {
+                	"tabletImage" : "happy_v4",
+                	"tabletImageEnabled" : "enabled_happy_v4",
+                	"tabletImageDisabled" : "disabled_happy_v4",
                 	"animation" : "happyV4",
                 	"animationDuration" : 3.5
                 }
             },
             "sad" : {
                 "V1" : {
+                	"tabletImage" : "sad_v1",
+                	"tabletImageEnabled" : "enabled_sad_v1",
+                	"tabletImageDisabled" : "disabled_sad_v1",
                 	"animation" : "sadV1",
                 	"animationDuration" : 3.5
                 },
                 "V2" : {
+                	"tabletImage" : "sad_v2",
+                	"tabletImageEnabled" : "enabled_sad_v2",
+                	"tabletImageDisabled" : "disabled_sad_v2",
                 	"animation" : "sadV2",
                 	"animationDuration" : 3.5
                 },
                 "V3" : {
+                	"tabletImage" : "sad_v3",
+                	"tabletImageEnabled" : "enabled_sad_v3",
+                	"tabletImageDisabled" : "disabled_sad_v3",
                 	"animation" : "sadV3",
                 	"animationDuration" : 3.5
                 },
                 "V4" : {
+                	"tabletImage" : "sad_v4",
+                	"tabletImageEnabled" : "enabled_sad_v4",
+                	"tabletImageDisabled" : "disabled_sad_v4",
                 	"animation" : "sadV4",
                 	"animationDuration" : 3.5
                 }
             },
             "anger" : {
                 "V1" : {
+                	"tabletImage" : "anger_v1",
+                	"tabletImageEnabled" : "enabled_anger_v1",
+                	"tabletImageDisabled" : "disabled_anger_v1",
                 	"animation" : "angerV1",
                 	"animationDuration" : 3.5
                 },
                 "V2" : {
+                	"tabletImage" : "anger_v2",
+                	"tabletImageEnabled" : "enabled_anger_v2",
+                	"tabletImageDisabled" : "disabled_anger_v2",
                 	"animation" : "angerV2",
                 	"animationDuration" : 3.5
                 },
                 "V3" : {
+                	"tabletImage" : "anger_v3",
+                	"tabletImageEnabled" : "enabled_anger_v3",
+                	"tabletImageDisabled" : "disabled_anger_v3",
                 	"animation" : "angerV3",
                 	"animationDuration" : 3.5
                 },
                 "V4" : {
+                	"tabletImage" : "anger_v4",
+                	"tabletImageEnabled" : "enabled_anger_v4",
+                	"tabletImageDisabled" : "disabled_anger_v4",
                 	"animation" : "angerV4",
                 	"animationDuration" : 3.5
                 }
             },
             "fear" : {
                 "V1" : {
+                	"tabletImage" : "fear_v1",
+                	"tabletImageEnabled" : "enabled_fear_v1",
+                	"tabletImageDisabled" : "disabled_fear_v1",
                 	"animation" : "fearV1",
                 	"animationDuration" : 3.5
                 },
                 "V2" : {
+                	"tabletImage" : "fear_v2",
+                	"tabletImageEnabled" : "enabled_fear_v2",
+                	"tabletImageDisabled" : "disabled_fear_v2",
                 	"animation" : "fearV2",
                 	"animationDuration" : 3.5
                 },
                 "V3" : {
+                	"tabletImage" : "fear_v3",
+                	"tabletImageEnabled" : "enabled_fear_v3",
+                	"tabletImageDisabled" : "disabled_fear_v3",
                 	"animation" : "fearV3",
                 	"animationDuration" : 3.5
                 },
                 "V4" : {
+                	"tabletImage" : "fear_v4",
+                	"tabletImageEnabled" : "enabled_fear_v4",
+                	"tabletImageDisabled" : "disabled_fear_v4",
                 	"animation" : "fearV4",
                 	"animationDuration" : 3.5
                 }

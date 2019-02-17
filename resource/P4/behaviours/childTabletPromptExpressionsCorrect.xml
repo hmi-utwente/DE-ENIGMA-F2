@@ -2,7 +2,7 @@
     { "showAssignment" : {
         "id":"correct_$correct$" ,
         "text" : "$correct$",
-        "imageFile" : "discr_zeno_$correct$",
+        "imageFile" : "$correct_image$",
         "buttonText" : "",
         "showHelp" : "false"
         }}

@@ -13,23 +13,23 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"findMyHappyFace1d","value":"Find my happy face (1 distractor)"},
-            {"id":"findMyHappyFace3d","value":"Find my happy face (3 distractors)"},
+            {"id":"prompt_happy_1d","value":"Find happy (1 distractor)"},
+            {"id":"prompt_happy_3d","value":"Find happy (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"findMySadFace1d","value":"Find my sad face (1 distractor)"},
-            {"id":"findMySadFace3d","value":"Find my sad face (3 distractors)"},
+            {"id":"prompt_sad_1d","value":"Find sad (1 distractor)"},
+            {"id":"prompt_sad_3d","value":"Find sad (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"findMyAngryFace1d","value":"Find my angry face (1 distractor)"},
-            {"id":"findMyAngryFace3d","value":"Find my angry face (3 distractors)"},
+            {"id":"prompt_anger_1d","value":"Find angry (1 distractor)"},
+            {"id":"prompt_anger_3d","value":"Find angry (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"findMyScaredFace1d","value":"Find my scared face (1 distractor)"},
-            {"id":"findMyScaredFace3d","value":"Find my scared face (3 distractors)"},
+            {"id":"prompt_fear_1d","value":"Find scared (1 distractor)"},
+            {"id":"prompt_fear_3d","value":"Find scared (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
 			

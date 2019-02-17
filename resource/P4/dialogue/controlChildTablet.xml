@@ -40,38 +40,54 @@
 			return behaviour;
 		}
 		
-		var expressionGrid3d = [{"id":"sad","value":"sad", "img":"discr_zeno_sad"},
-            {"id":"scared","value":"scared", "img":"discr_zeno_scared"},
-            {"id":"happy","value":"happy", "img":"discr_zeno_happy"},
-            {"id":"angry","value":"angry", "img":"discr_zeno_angry"}];
+		var expressionGrid3d = [{"id":"sad","value":"sad", "img":"$sad_image$"},
+            {"id":"fear","value":"fear", "img":"$fear_image$"},
+            {"id":"happy","value":"happy", "img":"$happy_image$"},
+            {"id":"anger","value":"anger", "img":"$anger_image$"}];
             
-		var expressionGrid1d = [{"id":"$correct$","value":"$correct$", "img":"discr_zeno_$correct$"},
-            {"id":"$distractor$","value":"$distractor$", "img":"discr_zeno_$distractor$"}];
+		var expressionGrid1d = [{"id":"$correct$","value":"$correct$", "img":"$correct_image$"},
+            {"id":"$distractor$","value":"$distractor$", "img":"$distractor_image$"}];
 		
 		function createPromptExpressionsBehaviour(correctExpression, nrOfDistractors, doShuffle){
-			if(nrOfDistractors === 1){
+			var correctText = correctExpression;
+			if(correctText === "fear"){
+				correctText = "scared";
+			} else if(correctText === "anger"){
+				correctText = "angry";
+			}
+
+			if(parseInt(nrOfDistractors) === 1){
 				if(doShuffle){
 					expressionGrid1d = shuffleArray(expressionGrid1d);
 				}
-				expressions = ["happy", "sad", "angry", "scared"];
+				expressions = ["happy", "sad", "anger", "fear"];
 				expressions.splice(expressions.indexOf(correctExpression), 1);
 				
-				behaviour = createShowMenuBehaviour("child", "PromptExpressions1d");
-				behaviour.placeholders = [{"correct":correctExpression},{"distractor":expressions[Math.floor(Math.random() * expressions.length)]},{"image_buttons":JSON.stringify(expressionGrid1d)}];
+				var distractorExpression = expressions[Math.floor(Math.random() * expressions.length)];
+				
+				behaviour = createShowMenuBehaviour("child", "PromptExpressions");
+				behaviour.placeholders = [{"correct":correctExpression},{"distractor":distractorExpression},{"correct_image":getActionVariant(correctExpression).tabletImage},{"distractor_image":getActionVariant(distractorExpression).tabletImage},{"correct_text":correctText},{"image_buttons":JSON.stringify(expressionGrid1d)}];
 				return behaviour;
 			} else {
 				if(doShuffle){
 					expressionGrid3d = shuffleArray(expressionGrid3d);
 				}
-				behaviour = createShowMenuBehaviour("child", "PromptExpressions3d");
-				behaviour.placeholders = [{"correct":correctExpression},{"image_buttons":JSON.stringify(expressionGrid3d)}];
+				behaviour = createShowMenuBehaviour("child", "PromptExpressions");
+				behaviour.placeholders = [{"correct":correctExpression},{"correct_text":correctText},{"happy_image":getActionVariant("happy").tabletImage},{"sad_image":getActionVariant("sad").tabletImage},{"anger_image":getActionVariant("anger").tabletImage},{"fear_image":getActionVariant("fear").tabletImage},{"image_buttons":JSON.stringify(expressionGrid3d)}];
 				return behaviour;
 			}
 		}
 		
 		function createPromptExpressionsCorrectBehaviour(correctExpression){
+			var correctText = correctExpression;
+			if(correctText === "fear"){
+				correctText = "scared";
+			} else if(correctText === "anger"){
+				correctText = "angry";
+			}
+			
 			behaviour = createShowMenuBehaviour("child", "PromptExpressionsCorrect");
-			behaviour.placeholders = [{"correct":correctExpression}];
+			behaviour.placeholders = [{"correct":correctText},{"correct_image":getActionVariant(correctExpression).tabletImage}];
 			return behaviour;
 		}
 		
@@ -169,26 +185,13 @@
 		</effects>
 	</template>
       
-    <template id="requestMenu_PromptExpressions1d" name="requestMenu_PromptExpressions1d">
+    <template id="requestMenu_PromptExpressions" name="requestMenu_PromptExpressions">
 		<preconditions mode="and">
-			<condition>is.child.menuRequest === "PromptExpressions1d"</condition>
+			<condition>is.child.menuRequest === "PromptExpressions"</condition>
 		</preconditions>
 		<effects>
 			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 1, true)</assign>
-			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
-			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
-			<assign is="is.child.menuRequest">""</assign>
-		</effects>
-	</template>
-	
-    <template id="requestMenu_PromptExpressions3d" name="requestMenu_PromptExpressions3d">
-		<preconditions mode="and">
-			<condition>is.child.menuRequest === "PromptExpressions3d"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.child.refreshMenu">true</assign>
-			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, 3, true)</assign>
+			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, is.childProcessor.promptExpressions.nrOfDistractors, true)</assign>
 			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
 			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
 			<assign is="is.child.menuRequest">""</assign>
