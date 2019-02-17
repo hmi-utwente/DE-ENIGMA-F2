@@ -10,8 +10,8 @@
 			
             {"id":"start_ExploreExpressions","value":"Start activity"},
             
-			{"id":"", "value":"blankSpace"},
-			
+			{"id":"textOnly", "value":"$trial_info$"},
+            
             {"id":"exploreHappy","value":"Explore happy $happy_variant$"},
             {"id":"exploreSad","value":"Explore sad $sad_variant$"},
             {"id":"exploreAnger","value":"Explore anger $anger_variant$"},

@@ -10,7 +10,7 @@
 			
             {"id":"start_PromptExpressions","value":"Start activity"},
             
-			{"id":"", "value":"blankSpace"},
+			{"id":"textOnly", "value":"$trial_info$"},
 			
             {"id":"prompt_happy_1d","value":"Find happy (1 distractor)"},
             {"id":"prompt_happy_3d","value":"Find happy (3 distractors)"},

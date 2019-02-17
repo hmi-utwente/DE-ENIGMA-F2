@@ -230,6 +230,7 @@
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -249,6 +250,7 @@
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -268,6 +270,7 @@
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
@@ -287,6 +290,7 @@
     		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
     		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
     		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
     		<assign is="is.child.enableMenuRequest">"now"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>

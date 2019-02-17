@@ -31,7 +31,19 @@
 				}
 			}
 			
-			behaviour.placeholders = [{"behaviour_info":behaviourInfo}];
+			//and info about the progress through trials
+			var trialInfo = "";
+			if(is.adult.showingMenu === "ExploreFeatures" && is.child.showingMenu === is.adult.showingMenu){
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.exploreFeatures.trials) + 1)+" of "+parseInt(is.childProcessor.exploreFeatures.maxTrials);
+			} else if(is.adult.showingMenu === "PromptFeatures" && is.child.showingMenu === is.adult.showingMenu){				
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.promptFeatures.trials) + 1)+" of "+parseInt(is.childProcessor.promptFeatures.maxTrials) + " - Repeats: "+is.childProcessor.promptFeatures.repeats+" of "+is.childProcessor.promptFeatures.maxRepeats;
+			} else if(is.adult.showingMenu === "ExploreExpressions" && is.child.showingMenu === is.adult.showingMenu){
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.exploreExpressions.trials) + 1)+" of "+parseInt(is.childProcessor.exploreExpressions.maxTrials);
+			} else if(is.adult.showingMenu === "PromptExpressions" && (is.child.showingMenu === is.adult.showingMenu || is.child.showingMenu === "PromptExpressionsCorrect")){				
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.promptExpressions.trials) + 1)+" of "+parseInt(is.childProcessor.promptExpressions.maxTrials) + " - Repeats: "+is.childProcessor.promptExpressions.repeats+" of "+is.childProcessor.promptExpressions.maxRepeats;
+			}
+			
+			behaviour.placeholders = [{"behaviour_info":behaviourInfo},{"trial_info":trialInfo}];
 			
 			return behaviour;
 		}

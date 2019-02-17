@@ -10,8 +10,8 @@
 			
             {"id":"start_ExploreFeatures","value":"Start activity"},
             
-			{"id":"", "value":"blankSpace"},
-			
+			{"id":"textOnly", "value":"$trial_info$"},
+            
             {"id":"end_ExploreFeatures","value":"End activity"}
         ]}}
 </mwe:sendJsonMessage>

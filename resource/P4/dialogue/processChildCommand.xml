@@ -95,6 +95,7 @@
     	<effects>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
     		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
@@ -125,6 +126,7 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
+    		<condition>!is.childProcessor.promptFeatures.loadNextTrial</condition>
     		<condition>promptFeaturesIncorrectOrTimeout()</condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.repeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
@@ -204,6 +206,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.zeno.requestNewRandomVariant">false</assign>
+    		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
     		<assign is="is.zeno.request">"resolve"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
@@ -246,6 +249,7 @@
     <template id="PromptExpressions_Repeat" name="PromptExpressions_Repeat">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptExpressions"</condition>
+    		<condition>!is.childProcessor.promptExpressions.loadNextTrial</condition>
     		<condition>is.childProcessor.promptExpressions.askedExpression !== ""</condition>
     		<condition>promptExpressionsIncorrectOrTimeout()</condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.repeats < is.childProcessor.promptExpressions.maxRepeats]]></condition>

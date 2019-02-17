@@ -10,7 +10,7 @@
 			
             {"id":"start_PromptFeatures","value":"Start activity"},
             
-			{"id":"", "value":"blankSpace"},
+			{"id":"textOnly", "value":"$trial_info$"},
 			
             {"id":"end_PromptFeatures","value":"End activity"}
         ]}}
