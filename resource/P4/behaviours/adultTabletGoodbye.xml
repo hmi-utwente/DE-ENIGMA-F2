@@ -1,0 +1,32 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Goodbye" ,
+        "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"byebye","value":"Bye bye + wave"},
+			
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"goodbye","value":"Goodbye"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"end_session","value":"End session and restart system","color":"red"}
+        ]}}
+</mwe:sendJsonMessage>

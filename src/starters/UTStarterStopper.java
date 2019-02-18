@@ -6,9 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.Box;
@@ -21,6 +23,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+import flipper.FlipperMiddleware;
+import nl.utwente.hmi.middleware.Middleware;
+import nl.utwente.hmi.middleware.MiddlewareListener;
+import nl.utwente.hmi.middleware.loader.GenericMiddlewareLoader;
 
 /**
  * Simple GUI application to start and stop all UT software modules: 1)
@@ -35,7 +44,7 @@ import javax.swing.border.EmptyBorder;
  *
  */
 @SuppressWarnings("serial")
-public class UTStarterStopper extends JFrame implements ActionListener {
+public class UTStarterStopper extends JFrame implements ActionListener, MiddlewareListener {
 
 	ReentrantLock lock = new ReentrantLock();
 
@@ -47,6 +56,8 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 	Process mechIOProcess;
 	Process asapProcess;
 	Process flipperProcess;
+
+	private Middleware middleware;
 
 	private enum Actions {
 		START, STOP
@@ -104,6 +115,18 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 				}
 	        }
 	    });
+
+		//stuff for middleware, listen for a restart signal
+		Properties ps = new Properties();
+		ps.put("subscriber", "/system_restarter");
+		ps.put("publisher", "/dummy_out");
+
+		GenericMiddlewareLoader.setGlobalPropertiesFile("P4/config/defaultmiddleware.properties");
+        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader", ps);
+        middleware = gml.load();
+
+        middleware.addListener(this);
+        
 	}
 
 	/**
@@ -179,11 +202,11 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 					});
 					
 					startMechIO();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					startASAP();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					startFlipper();
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					showMessage("");
 
 					SwingUtilities.invokeLater(new Runnable() {
@@ -294,7 +317,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (mechIOProcess != null && mechIOProcess.isAlive()) {
 			showMessage("Attempting to stop MechIO gracefully....");
 			mechIOProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (mechIOProcess.isAlive()) {
 				showMessage("Attempting to stop MechIO forcefully....");
 				mechIOProcess.destroyForcibly();
@@ -308,7 +331,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (asapProcess != null && asapProcess.isAlive()) {
 			showMessage("Attempting to stop ASAP gracefully....");
 			asapProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (asapProcess.isAlive()) {
 				showMessage("Attempting to stop ASAP forcefully....");
 				asapProcess.destroyForcibly();
@@ -322,7 +345,7 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		if (flipperProcess != null && flipperProcess.isAlive()) {
 			showMessage("Attempting to stop Flipper gracefully....");
 			flipperProcess.destroy();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			if (flipperProcess.isAlive()) {
 				showMessage("Attempting to stop Flipper forcefully....");
 				flipperProcess.destroyForcibly();
@@ -363,6 +386,24 @@ public class UTStarterStopper extends JFrame implements ActionListener {
 		}
 		
 		frm.setVisible(!isHeadless);
+	}
+
+	@Override
+	public void receiveData(JsonNode jn) {
+		System.out.println("Incoming data: "+ jn.toString());
+		if(jn.has("content") && "restart".equals(jn.get("content").asText())) {
+			System.out.println("Restarting system");
+			showMessage("Restarting system");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			stopAll();
+			startAll();
+		}
+		
 	}
 
 }

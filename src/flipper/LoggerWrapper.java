@@ -25,11 +25,12 @@ import org.slf4j.LoggerFactory;
  * @author daniel
  */
 
-public class LoggerWrapper {
+public class LoggerWrapper extends FlipperMiddleware {
 
 	private static Logger logger = LoggerFactory.getLogger("EventLog");
 	
-	public LoggerWrapper() {
+	public LoggerWrapper(String middlewareProps) {
+		super(middlewareProps);
 	}
 
 	public boolean init() {
@@ -46,6 +47,9 @@ public class LoggerWrapper {
 
 	public void info(String line) {
 		logger.info(line);
+        ObjectNodeBuilder on = object();
+        on.with("message", line.substring(1, line.length()-1));
+        middleware.sendData(on.end());
 	}
 	
 	public void debug(String line) {

@@ -52,7 +52,7 @@ public class FlipperISVisualiser extends AbstractWorker implements ActionListene
 	public static void main(String[] args){
 		String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: middlewareprops refreshtime";
 
-    	String mwPropFile = "P3/config/defaultmiddleware.properties";
+    	String mwPropFile = "P4/config/defaultmiddleware.properties";
     	int refreshTime = 100;
     	
         if(args.length % 2 != 0){

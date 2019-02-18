@@ -1,0 +1,17 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Activity: Feature discrimination" ,
+        "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"start_PromptFeatures","value":"Start activity"},
+            
+			{"id":"textOnly", "value":"$trial_info$"},
+			
+            {"id":"end_PromptFeatures","value":"End activity"}
+        ]}}
+</mwe:sendJsonMessage>

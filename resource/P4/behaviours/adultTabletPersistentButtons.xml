@@ -1,0 +1,13 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showPersistentButtons" : {
+        "buttons" : [
+            {"id":"ok","value":"OK"},
+            {"id":"yes","value":"Yes"},
+            {"id":"no","value":"No"},
+            {"id":"praise","value":"Praise"},
+            {"id":"thanks","value":"Thanks"},
+            {"id":"exclamation","value":"Exclamation"},
+            {"id":"stressEvent","value":"!!STOP!!","color":"red"},
+            {"id":"reset","value":"Reset"}
+        ]}}
+</mwe:sendJsonMessage>

@@ -4,8 +4,8 @@
 		{	
 			"state" : "",
 			"exploreFeatures" : {
-				"repeats" : 0,
-				"maxRepeats" : 2
+				"trials" : 0,
+				"maxTrials" : 4
 			},
 			"promptFeatures" : {
 				"askedFeature" : "",
@@ -39,13 +39,27 @@
     </javascript>
       
     <!-- Explore Features -->
-    <template id="ExploreFeatures" name="ExploreFeatures">
+    <template id="ExploreFeaturesBlock" name="ExploreFeaturesBlock">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreFeatures.trials < is.childProcessor.exploreFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.zeno.request">is.tablet.child.command</assign>
+    		<assign is="is.childProcessor.exploreFeatures.trials">is.childProcessor.exploreFeatures.trials + 1</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreFeaturesBlockEnd" name="ExploreFeaturesBlockEnd">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition><![CDATA[is.childProcessor.exploreFeatures.trials >= is.childProcessor.exploreFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     	</effects>
     </template>

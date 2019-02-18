@@ -1,0 +1,10 @@
+<mwe:sendJsonMessage id="childTabletBlank"start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+	{ "showAssignment" : { "id":"imgblank" ,
+	"text" : " ",
+	"imageFile":"",
+	"buttonText":""}}
+</mwe:sendJsonMessage>
+<mwe:sendJsonMessage id="childTabletBG"start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#015446"}}
+</mwe:sendJsonMessage>

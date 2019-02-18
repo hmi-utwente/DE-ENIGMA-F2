@@ -1,0 +1,18 @@
+<middlewarebinding>
+   
+    <MiddlewareUnitSpec type="sendJsonMessage" namespace="http://hmi.ewi.utwente.nl/middlewareengine">
+        <constraints>
+        </constraints>
+        <parametermap>
+            <parameter src="content" dst="content"/>
+            <parameter src="middlewareloaderproperties" dst="middlewareloaderproperties"/>
+            <parameter src="middlewareloaderclass" dst="middlewareloaderclass"/>
+        </parametermap>
+        <parameterdefaults>
+        	<parameterdefault name="middlewareloaderproperties" value="subscriber:/dummy_in,publisher:/adult_tablet_command" />
+        	<parameterdefault name="middlewareloaderclass" value="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" />
+		</parameterdefaults>
+        <MiddlewareUnit type="SendJsonDataMessageMU"/>
+    </MiddlewareUnitSpec>   
+    
+</middlewarebinding>

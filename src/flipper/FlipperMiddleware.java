@@ -38,7 +38,7 @@ public class FlipperMiddleware implements MiddlewareListener {
             ex.printStackTrace();
         }
 		
-		GenericMiddlewareLoader.setGlobalPropertiesFile("P3/config/defaultmiddleware.properties");
+		GenericMiddlewareLoader.setGlobalPropertiesFile("P4/config/defaultmiddleware.properties");
 		
         GenericMiddlewareLoader gml = new GenericMiddlewareLoader(ps.getProperty("middleware"), ps);
         middleware = gml.load();
@@ -47,7 +47,7 @@ public class FlipperMiddleware implements MiddlewareListener {
 	
 	
 	// { "content": "$data" }
-	public void Send(String data) {
+	public void send(String data) {
         ObjectNodeBuilder on = object();
         try {
 			on.with("content", URLEncoder.encode(data, "UTF-8"));

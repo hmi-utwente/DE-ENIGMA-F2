@@ -1,0 +1,393 @@
+<behaviourtemplates>
+
+	<is name="adultProcessor">
+		{	
+			"state" : "none",
+			"zenoBehaviourQueued":0
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		//are we dealing with a menu request? i.e. it starts with "showmenu_"
+		function isMenuRequest(command){
+			return command.startsWith("showmenu_");
+		}
+		
+		//strips the first part of the command "showmenu_" and returns the actual menu being requested
+		function stripMenuRequest(command){
+			return command.slice(9);
+		}
+		
+		function stripExploreEmotion(exploreEmotion){
+			return exploreEmotion.slice(7).toLowerCase();
+		}
+		
+		function isStartCommand(command){
+			return command.startsWith("start_");
+		}
+		
+		function stripStartCommand(command){
+			return command.slice(6);
+		}
+		
+		function isEndCommand(command){
+			return command.startsWith("end_");
+		}
+		
+		function stripEndCommand(command){
+			return command.slice(4);
+		}
+		
+		
+		function isPromptExpressionCommand(command){
+			if(command.startsWith("prompt_") && (command.endsWith("_1d") || command.endsWith("_3d"))){
+				var cmd = stripPromptExpressionCommand(command);
+				return (cmd === "happy" || cmd === "sad" || cmd === "anger" || cmd === "fear");
+			} else {
+				return false;
+			}
+		}
+		
+		function stripPromptExpressionCommand(command){
+			return command.slice(7).slice(0, -3);
+		}
+		
+		
+		]]>
+    </javascript>
+    
+    
+    
+    <!-- Some WOZ buttons to emulate certain sensor information -->
+    <template id="WOZStressEvent" name="WOZStressEvent">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "stressEvent"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.sensorInputProcessor.reasoningEvent.processed">false</assign>
+    		<assign is="is.sensorInputProcessor.reasoningEvent.event">"stressEvent"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ToggleCondition" name="ToggleCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "toggle_condition"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">toggleBehaviourMode()</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
+   	<!-- This one takes care of switching menus based on the adult tablet's button presses -->
+    <template id="AdultMenu" name="AdultMenu">
+    	<preconditions mode="and">
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.command)</assign>
+    	</effects>
+    </template>
+    
+    <!-- START SCREEN -->
+    
+    <template id="SelectLowVariantCondition" name="SelectLowVariantCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "select_low_variant"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">"invariant"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
+    
+    <template id="SelectHighVariantCondition" name="SelectHighVariantCondition">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "select_high_variant"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.behaviourplanner.behaviourMode">"variant"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
+    <!-- Below are the various game activities that can be initiated and controlled from the adult tablet interface -->
+    
+    <!-- GREETINGS -->
+     <template id="start_Greetings" name="start_Greetings">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "start_Greetings"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"greeting"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+     <template id="end_Greetings" name="end_Greetings">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_Greetings"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"timeForFaces"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    	</effects>
+    </template>
+    
+    <!-- PINK GAME: EXPLORE FEATURES -->
+    <template id="start_ExploreFeatures" name="start_ExploreFeatures">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "start_ExploreFeatures"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
+    		<assign is="is.child.menuRequest">"ExploreFeatures"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.childProcessor.exploreFeatures.trials">0</assign>
+    	</effects>
+    </template>
+    
+     <template id="end_ExploreFeatures" name="end_ExploreFeatures">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_ExploreFeatures"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    	</effects>
+    </template>
+    
+    <!-- BLUE GAME: PROMPT FEATURES -->
+    <template id="start_PromptFeatures" name="start_PromptFeatures">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "start_PromptFeatures"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
+    		<assign is="is.child.menuRequest">"PromptFeatures"</assign>
+    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
+    		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
+    		<assign is="is.childProcessor.promptFeatures.trials">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedFeature">""</assign>
+    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+     <template id="end_PromptFeatures" name="end_PromptFeatures">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_PromptFeatures"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    	</effects>
+    </template>
+    
+    
+   <!-- GREEN GAME: EXPLORE EXPRESSIONS -->
+    <template id="start_ExploreExpressions" name="start_ExploreExpressions">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "start_ExploreExpressions"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">""</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.child.disableMenuRequest">"permanent"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionHappy" name="ExploreExpressions_ExploreEmotionHappy">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "exploreHappy"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveHappyEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveHappyEyes", is.av.resolveHappyEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveHappyMouth", is.av.resolveHappyEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveHappyEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring happy variant: ["+is.child.expressionVariant+"]")</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionAnger" name="ExploreExpressions_ExploreEmotionAnger">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "exploreAnger"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveAngerEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveAngerEyes", is.av.resolveAngerEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveAngerMouth", is.av.resolveAngerEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveAngerEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring anger variant: ["+is.child.expressionVariant+"]")</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionSad" name="ExploreExpressions_ExploreEmotionSad">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "exploreSad"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveSadEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveSadEyes", is.av.resolveSadEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveSadMouth", is.av.resolveSadEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveSadEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring sad variant: ["+is.child.expressionVariant+"]")</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="ExploreExpressions_ExploreEmotionFear" name="ExploreExpressions_ExploreEmotionFear">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "exploreFear"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.exploreExpressions.trials">0</assign>
+			<assign is="is.av">getRandomVariant(is.av, "resolveFearEyebrows")</assign>
+			<assign is="is.av">setVariant(is.av, "resolveFearEyes", is.av.resolveFearEyebrows.selectedVariant)</assign>
+			<assign is="is.av">setVariant(is.av, "resolveFearMouth", is.av.resolveFearEyebrows.selectedVariant)</assign>
+			<assign is="is.child.expressionVariant">is.av.resolveFearEyebrows.selectedVariant</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Exploring fear variant: ["+is.child.expressionVariant+"]")</assign>
+    		<assign is="is.childProcessor.exploreExpressions.exploreEmotion">stripExploreEmotion(is.tablet.adult.command)</assign>
+    		<assign is="is.child.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRequest">"ExploreExpressions"</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.enableMenuRequest">"now"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="end_ExploreExpressions" name="end_ExploreExpressions">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_ExploreExpressions"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    	</effects>
+    </template>
+    
+
+	<!-- YELLOW GAME: PROMPT EXPRESSIONS -->
+    <template id="start_PromptExpressions" name="start_PromptExpressions">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "start_PromptExpressions"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">"transitionGames"</assign>
+    		<assign is="is.child.menuRequest">"Prompt"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptExpressions_LoadBlock" name="PromptExpressions_LoadBlock">
+    	<preconditions mode="and">
+    		<condition>isPromptExpressionCommand(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
+    		<assign is="is.childProcessor.promptExpressions.trials">0</assign>
+    		<assign is="is.childProcessor.promptExpressions.askedTimestamp">0</assign>
+    		<assign is="is.childProcessor.promptExpressions.nrOfDistractors">is.tablet.adult.command.slice(-2, -1)</assign>
+    		<assign is="is.childProcessor.promptExpressions.askedExpression">stripPromptExpressionCommand(is.tablet.adult.command)</assign>
+    		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
+    		<assign is="is.child.menuRequest">"Prompt"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="end_PromptExpressions" name="end_PromptExpressions">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_PromptExpressions"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    	</effects>
+    </template>
+    
+    <!-- GOODBYE -->
+    
+     <template id="end_Restart" name="end_Restart">
+    	<preconditions mode="or">
+    		<condition>is.tablet.adult.command === "end_session"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.adult.menuRequest">"blank"</assign>
+			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+    		<assign is="is.systemRestarter.requestSystemRestart">true</assign>
+    	</effects>
+    </template>
+    
+    
+    
+    <!-- if it's not one of the above commands, just pass it on to the zeno controller! -->
+    <template id="OtherCommand" name="OtherCommand">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.request">is.tablet.adult.command</assign>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    	</effects>
+    </template>
+    
+    <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
+    <template id="AdultCommandCleanup" name="AdultCommandCleanup">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+</behaviourtemplates>

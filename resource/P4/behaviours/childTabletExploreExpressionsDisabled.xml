@@ -1,0 +1,15 @@
+<mwe:sendJsonMessage id="childTablet" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+    {
+	    "showClickablePicture" : {
+	    "id":"img" ,
+	    "text" : " ",
+	    "imageFile":"disabled_$emotionPicture$_$variant$",
+	    "imageFileDisabled":"disabled_$emotionPicture$_$variant$",
+	    "clickableAreas" : [{"id":"nothing","value":"1;1;1;1;doNothing"}]
+	    }
+    }
+</mwe:sendJsonMessage>
+<mwe:sendJsonMessage id="childTabletBG" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#015446"}}
+</mwe:sendJsonMessage>

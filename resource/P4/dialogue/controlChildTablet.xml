@@ -1,0 +1,332 @@
+<behaviourtemplates>
+
+	<is name="child">
+		{	
+			"menuRequest" : "",
+			"showingMenu" : "",
+			"enableMenuRequest" : "",
+			"disableMenuRequest" : "",
+			"waitingForMenuStateTransition" : "",
+			"menuStateTransitionRequestTime" : "",
+			"expressionVariant" : "",
+			"enabledMenu" : "",
+			"disabledMenu" : "",
+			"refreshMenu" : false,
+			"menuState" : "",
+			"isInit" : false,
+			"menuFileName" : ""
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		function shuffleArray(a) {
+		    var j, x, i;
+		    for (i = a.length - 1; i > 0; i--) {
+		        j = Math.floor(Math.random() * (i + 1));
+		        x = a[i];
+		        a[i] = a[j];
+		        a[j] = x;
+		    }
+		    return a;
+		}
+	
+		function createExploreExpressionsBehaviour(enabled, emotion, variant, step){
+			if(!enabled){
+				step = step+"Disabled";
+			}
+			behaviour = createShowMenuBehaviour("child", step);
+			behaviour.placeholders = [{"emotionPicture":emotion.toLowerCase()},{"variant":variant.toLowerCase()},{"emotionID":emotion.charAt(0).toUpperCase() + emotion.slice(1).toLowerCase()}];
+			return behaviour;
+		}
+		
+		var expressionGrid3d = [{"id":"sad","value":"sad", "img":"$sad_image$"},
+            {"id":"fear","value":"fear", "img":"$fear_image$"},
+            {"id":"happy","value":"happy", "img":"$happy_image$"},
+            {"id":"anger","value":"anger", "img":"$anger_image$"}];
+            
+		var expressionGrid1d = [{"id":"$correct$","value":"$correct$", "img":"$correct_image$"},
+            {"id":"$distractor$","value":"$distractor$", "img":"$distractor_image$"}];
+		
+		function createPromptExpressionsBehaviour(correctExpression, nrOfDistractors, doShuffle){
+			var correctText = correctExpression;
+			if(correctText === "fear"){
+				correctText = "scared";
+			} else if(correctText === "anger"){
+				correctText = "angry";
+			}
+
+			if(parseInt(nrOfDistractors) === 1){
+				if(doShuffle){
+					expressionGrid1d = shuffleArray(expressionGrid1d);
+				}
+				expressions = ["happy", "sad", "anger", "fear"];
+				expressions.splice(expressions.indexOf(correctExpression), 1);
+				
+				var distractorExpression = expressions[Math.floor(Math.random() * expressions.length)];
+				
+				behaviour = createShowMenuBehaviour("child", "PromptExpressions");
+				behaviour.placeholders = [{"correct":correctExpression},{"distractor":distractorExpression},{"correct_image":getActionVariant(correctExpression).tabletImage},{"distractor_image":getActionVariant(distractorExpression).tabletImage},{"correct_text":correctText},{"image_buttons":JSON.stringify(expressionGrid1d)}];
+				return behaviour;
+			} else {
+				if(doShuffle){
+					expressionGrid3d = shuffleArray(expressionGrid3d);
+				}
+				behaviour = createShowMenuBehaviour("child", "PromptExpressions");
+				behaviour.placeholders = [{"correct":correctExpression},{"correct_text":correctText},{"happy_image":getActionVariant("happy").tabletImage},{"sad_image":getActionVariant("sad").tabletImage},{"anger_image":getActionVariant("anger").tabletImage},{"fear_image":getActionVariant("fear").tabletImage},{"image_buttons":JSON.stringify(expressionGrid3d)}];
+				return behaviour;
+			}
+		}
+		
+		function createPromptExpressionsCorrectBehaviour(correctExpression){
+			var correctText = correctExpression;
+			if(correctText === "fear"){
+				correctText = "scared";
+			} else if(correctText === "anger"){
+				correctText = "angry";
+			}
+			
+			behaviour = createShowMenuBehaviour("child", "PromptExpressionsCorrect");
+			behaviour.placeholders = [{"correct":correctText},{"correct_image":getActionVariant(correctExpression).tabletImage}];
+			return behaviour;
+		}
+		
+		]]>
+    </javascript>
+      
+      
+    <!-- These following templates specify the enabled and disabled variants for the various menu screens -->
+	<template id="InitChildMenu" name="InitChildMenu">
+		<preconditions mode="and">
+			<condition>is.child.isInit === false</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.menuRequest">"blank"</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
+			<assign is="is.child.isInit">true</assign>
+		</effects>
+	</template>
+	
+	<template id="requestMenu_Blank" name="requestMenu_Blank">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "blank"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "blank")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "blank")</assign>
+			<assign is="is.child.showingMenu">"blank"</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="requestMenu_Explore" name="requestMenu_Explore">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "Explore"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "Explore")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "Explore")</assign>
+			<assign is="is.child.showingMenu">"Explore"</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="requestMenu_Prompt" name="requestMenu_Prompt">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "Prompt"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "Prompt")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "Prompt")</assign>
+			<assign is="is.child.showingMenu">"Prompt"</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+      
+    <template id="requestMenu_ExploreFeatures" name="requestMenu_ExploreFeatures">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "ExploreFeatures"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "ExploreFeatures")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "ExploreFeaturesDisabled")</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+    <template id="requestMenu_PromptFeatures" name="requestMenu_PromptFeatures">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "PromptFeatures"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "PromptFeatures")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "PromptFeaturesDisabled")</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+      
+    <template id="requestMenu_ExploreExpressions" name="requestMenu_ExploreExpressions">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "ExploreExpressions"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createExploreExpressionsBehaviour(true, is.childProcessor.exploreExpressions.exploreEmotion, is.child.expressionVariant, is.child.menuRequest)</assign>
+			<assign is="is.child.disabledMenu">createExploreExpressionsBehaviour(false, is.childProcessor.exploreExpressions.exploreEmotion, is.child.expressionVariant, is.child.menuRequest)</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+      
+    <template id="requestMenu_PromptExpressions" name="requestMenu_PromptExpressions">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "PromptExpressions"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createPromptExpressionsBehaviour(is.childProcessor.promptExpressions.askedExpression, is.childProcessor.promptExpressions.nrOfDistractors, true)</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+    <template id="requestMenu_PromptExpressionsCorrect" name="requestMenu_PromptExpressionsCorrect">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "PromptExpressionsCorrect"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createPromptExpressionsCorrectBehaviour(is.childProcessor.promptExpressions.askedExpression)</assign>
+			<assign is="is.child.disabledMenu">createPromptExpressionsCorrectBehaviour(is.childProcessor.promptExpressions.askedExpression)</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+    <template id="requestMenu_NoImage" name="requestMenu_NoImage">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "NoImage"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "NoImage")</assign>
+			<assign is="is.child.showingMenu">is.child.menuRequest</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<!-- Requests for enabling the current menu screen on the child tablet. 
+	This transition may either take place NOW, or LATER. 
+	If later, it will enable after a certain duration, and after the robot is no longer busy -->
+	<template id="requestEnableMenuNow" name="requestEnableMenuNow">
+		<preconditions mode="and">
+			<condition>is.child.enabledMenu !== ""</condition>
+			<condition>is.child.enableMenuRequest === "now"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enableMenuRequest">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">false</assign>
+			<assign is="is.child.menuState">"enabled"</assign>
+		</effects>
+	</template>
+	
+	<template id="requestEnableMenuLater" name="requestEnableMenuLater">
+		<preconditions mode="and">
+			<condition>is.child.enabledMenu !== ""</condition>
+			<condition>is.child.enableMenuRequest === "later"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enableMenuRequest">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">true</assign>
+			<assign is="is.child.nextMenuStateTransition">"enabled"</assign>
+			<assign is="is.child.menuStateTransitionRequestTime">is.behaviourplanner.time</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
+		</effects>
+	</template>
+	
+	<!-- Requests for disabling the current menu screen on the child tablet. 
+	This transition may either be permanent, or temporary. 
+	If temporary, if will transition back to the previous state after a certain duration, and after the robot is no longer busy -->
+	<template id="requestDisableMenuPermanent" name="requestDisableMenuPermanent">
+		<preconditions mode="and">
+			<condition>is.child.disabledMenu !== ""</condition>
+			<condition>is.child.disableMenuRequest === "permanent"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.disableMenuRequest">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">false</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
+		</effects>
+	</template>
+	
+	<template id="requestDisableMenuTemporary" name="requestDisableMenuTemporary">
+		<preconditions mode="and">
+			<condition>is.child.disabledMenu !== ""</condition>
+			<condition>is.child.disableMenuRequest === "temporary"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.disableMenuRequest">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">true</assign>
+			<assign is="is.child.nextMenuStateTransition">is.child.menuState</assign>
+			<assign is="is.child.menuStateTransitionRequestTime">is.behaviourplanner.time</assign>
+			<assign is="is.child.menuState">"disabled"</assign>
+		</effects>
+	</template>
+      
+    <!-- This template is responsible for transitioning back to enabled after a duration, and when the robot behaviour is finished  -->
+	<template id="transitionMenuAfterTimer" name="transitionMenuAfterTimer">
+		<preconditions mode="and">
+			<condition>is.child.showingMenu !== ""</condition>
+			<condition>is.child.waitingForMenuStateTransition === true</condition>
+			<condition>is.behaviourplanner.time - is.child.menuStateTransitionRequestTime > 2000</condition>
+			<condition>is.zeno.busy === false</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.menuState">is.child.nextMenuStateTransition</assign>
+			<assign is="is.child.nextMenuStateTransition">""</assign>
+			<assign is="is.child.waitingForMenuStateTransition">false</assign>
+		</effects>
+	</template>
+      
+    <!-- Display the actual enabled or disabled menu screen. Should always be towards the end of the file -->
+	<template id="ShowChildMenuEnabled" name="ShowChildMenuEnabled">
+		<preconditions mode="and">
+			<condition>is.child.refreshMenu === true</condition>
+			<condition>is.child.enabledMenu !== ""</condition>
+			<condition>is.child.menuState === "enabled"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.bmlid">addBehaviourRequest(is.child.enabledMenu)</assign>
+			<assign is="is.child.refreshMenu">false</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="ShowChildMenuDisabled" name="ShowChildMenuDisabled">
+		<preconditions mode="and">
+			<condition>is.child.refreshMenu === true</condition>
+			<condition>is.child.disabledMenu !== ""</condition>
+			<condition>is.child.menuState === "disabled"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.bmlid">addBehaviourRequest(is.child.disabledMenu)</assign>
+			<assign is="is.child.refreshMenu">false</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+</behaviourtemplates>

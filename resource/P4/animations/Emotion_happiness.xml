@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>Emotion_happy.xml</Name>
+		<Number>1.1</Number>
+	</Version>
+	<Channels>
+		<Channel id="300" name="Forehead">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5454545454545459</Position></ControlPoint>
+						<ControlPoint><Time>592.0</Time><Position>0.9447513812154696</Position></ControlPoint>
+						<ControlPoint><Time>1469.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>2033.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>2483.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.5454545454545459</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="320" name="LtSmile01">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>41.6667</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>443.0</Time><Position>0.9465776293823038</Position></ControlPoint>
+						<ControlPoint><Time>2564.0</Time><Position>0.9248747913188647</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="322" name="Mouth">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>55.0</Time><Position>0.1585976627712855</Position></ControlPoint>
+						<ControlPoint><Time>523.0</Time><Position>0.41569282136894825</Position></ControlPoint>
+						<ControlPoint><Time>2546.0</Time><Position>0.39232053422370616</Position></ControlPoint>
+						<ControlPoint><Time>3074.0</Time><Position>0.1552587646076795</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

@@ -1,0 +1,173 @@
+<behaviourtemplates>
+
+	<is name="adult">
+		{	
+			"menuRequest" : "",
+			"showingMenu" : "",
+			"showingPersistentMenu" : "persistentButtons",
+			"prevZenoBusy" : false,
+			"lastShownTime" : 0
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+		
+		function createMainMenu(){
+			var behaviour = createAdultMenu("Main");
+			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode}]);
+			return behaviour;
+		}
+		
+		function createAdultMenu(menu){
+			var behaviour = createShowMenuBehaviour("adult", menu);
+			
+			//here we want to show information about the currently running zeno behaviour
+			var behaviourInfo = "";
+			
+			if(is.zeno.busy && is.zeno.behaviour !== ""){
+				if(is.zeno.behaviour.hasOwnProperty("action") && is.zeno.behaviour.hasOwnProperty("delay") && is.zeno.behaviour.hasOwnProperty("duration")){
+					behaviourInfo = "Action: ["+is.zeno.behaviour.action+"]   -   Delay: " +is.zeno.behaviour.delay+ "   -   Total duration: "+is.zeno.behaviour.duration;
+				}
+			}
+			
+			//and info about the progress through trials
+			var trialInfo = "";
+			if(is.adult.showingMenu === "ExploreFeatures" && is.child.showingMenu === is.adult.showingMenu){
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.exploreFeatures.trials) + 1)+" of "+parseInt(is.childProcessor.exploreFeatures.maxTrials);
+			} else if(is.adult.showingMenu === "PromptFeatures" && is.child.showingMenu === is.adult.showingMenu){				
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.promptFeatures.trials) + 1)+" of "+parseInt(is.childProcessor.promptFeatures.maxTrials) + " - Repeats: "+is.childProcessor.promptFeatures.repeats+" of "+is.childProcessor.promptFeatures.maxRepeats;
+			} else if(is.adult.showingMenu === "ExploreExpressions" && is.child.showingMenu === is.adult.showingMenu){
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.exploreExpressions.trials) + 1)+" of "+parseInt(is.childProcessor.exploreExpressions.maxTrials);
+			} else if(is.adult.showingMenu === "PromptExpressions" && (is.child.showingMenu === is.adult.showingMenu || is.child.showingMenu === "PromptExpressionsCorrect")){				
+				trialInfo = "Trial: "+(parseInt(is.childProcessor.promptExpressions.trials) + 1)+" of "+parseInt(is.childProcessor.promptExpressions.maxTrials) + " - Repeats: "+is.childProcessor.promptExpressions.repeats+" of "+is.childProcessor.promptExpressions.maxRepeats;
+			}
+			
+			behaviour.placeholders = [{"behaviour_info":behaviourInfo},{"trial_info":trialInfo}];
+			
+			return behaviour;
+		}
+		
+		function createExploreExpressionsMenu(){
+			var behaviour = createAdultMenu("ExploreExpressions");
+			var placeholders = [{"happy_variant":""},{"sad_variant":""},{"anger_variant":""},{"fear_variant":""}];
+			
+			//quick and dirty hack to show on tablet which emotion variant we are displaying now
+			if(is.childProcessor.exploreExpressions.exploreEmotion === "happy"){
+				placeholders = [{"happy_variant":"(Showing "+is.av.resolveHappyEyebrows.selectedVariant+")"},{"sad_variant":""},{"anger_variant":""},{"fear_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "sad"){
+				placeholders = [{"sad_variant":"(Showing "+is.av.resolveSadEyebrows.selectedVariant+")"},{"happy_variant":""},{"anger_variant":""},{"fear_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "anger"){
+				placeholders = [{"anger_variant":"(Showing "+is.av.resolveAngerEyebrows.selectedVariant+")"},{"happy_variant":""},{"sad_variant":""},{"fear_variant":""}];
+			} else if(is.childProcessor.exploreExpressions.exploreEmotion === "fear"){
+				placeholders = [{"fear_variant":"(Showing "+is.av.resolveFearEyebrows.selectedVariant+")"},{"happy_variant":""},{"sad_variant":""},{"anger_variant":""}];
+			}
+			
+			behaviour.placeholders = behaviour.placeholders.concat(placeholders);
+			return behaviour;
+		}
+		
+		]]>
+    </javascript>
+      
+	<template id="InitAdultMenu" name="InitAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu === ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.logger.latestLogLine">logInfo("Session started - Waiting for WOZ to select experiment condition")</assign>
+			<assign is="is.adult.menuRequest">"Start"</assign>
+			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+    
+	<template id="ShowAdultMainMenu" name="ShowAdultMainMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "Main"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.showingPersistentMenu">"persistentButtons"</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="ShowAdultExploreExpressions" name="ShowAdultExploreExpressions">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "ExploreExpressions"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createExploreExpressionsMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+      
+	<template id="ShowAdultMenu" name="ShowAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createAdultMenu(is.adult.menuRequest))</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="RequestRefreshAdultMenu" name="RequestRefreshAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRefresh === true</condition>
+			<condition>is.adult.showingMenu !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRefresh">false</assign>
+			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+	
+	<template id="RefreshAdultMenu" name="RefreshAdultMenu">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === ""</condition>
+			<condition>is.adult.showingMenu !== ""</condition>
+			<condition>is.behaviourplanner.time - is.adult.lastShownTime > 5000</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+		</effects>
+	</template>
+	
+	<template id="ZenoBusyAdultStatus" name="ZenoBusyAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoBusy"))</assign>
+		</effects>
+	</template>
+	
+	<template id="ZenoIdleAdultStatus" name="ZenoIdleAdultStatus">
+		<preconditions mode="and">
+			<condition>is.adult.prevZenoBusy !== is.zeno.busy</condition>
+			<condition>!is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.prevZenoBusy">is.zeno.busy</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoIdle"))</assign>
+		</effects>
+	</template>
+	
+	
+	
+
+</behaviourtemplates>

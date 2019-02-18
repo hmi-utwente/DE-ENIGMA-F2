@@ -1,0 +1,4 @@
+<mwe:sendJsonMessage id="adultTablet" start="0">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#E1FFD9"}}
+</mwe:sendJsonMessage>

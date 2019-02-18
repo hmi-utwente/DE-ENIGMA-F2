@@ -1,0 +1,6 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showPersistentButtons" : {
+        "buttons" : [
+            {"id":"nothing","value":" "}
+        ]}}
+</mwe:sendJsonMessage>

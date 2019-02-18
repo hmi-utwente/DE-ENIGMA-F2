@@ -1,0 +1,727 @@
+<behaviourtemplates>
+
+	<!-- av stands for ActionVariants, this stores all the available variants of the various behavioural actions -->
+    <is name="av">
+        {
+        
+            "eyebrows" : {
+                "V1" : {
+                	"audio" : "eyebrowsV1",
+                	"audioDuration" : 2.5,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                }
+            },
+            "eyes" : {
+                "V1" : {
+                	"audio" : "eyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 5.5
+                }
+            },
+            "mouth" : {
+                "V1" : {
+                	"audio" : "mouthV1",
+                	"audioDuration" : 2,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 4.5
+                }
+            },
+            "promptEyebrows" : {
+                "V1" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                },
+                "V3" : {
+                	"audio" : "promptEyebrowsV1",
+                	"audioDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "promptEyebrowsV4",
+                	"audioDuration" : 3.5
+                }
+            },
+            "promptEyes" : {
+                "V1" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                },
+                "V2" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                },
+                "V3" : {
+                	"audio" : "promptEyesV1",
+                	"audioDuration" : 2.5
+                },
+                "V4" : {
+                	"audio" : "promptEyesV4",
+                	"audioDuration" : 3
+                }
+            },
+            "promptMouth" : {
+                "V1" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                },
+                "V2" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                },
+                "V3" : {
+                	"audio" : "promptMouthV1",
+                	"audioDuration" : 2.5
+                },
+                "V4" : {
+                	"audio" : "promptMouthV4",
+                	"audioDuration" : 3
+                }
+            },
+            "resolveEyebrows" : {
+                "V1" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V3" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "resolveEyebrowsV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyebrowsV1",
+                	"animationDuration" : 3
+                }
+            },
+            "resolveEyes" : {
+                "V1" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V2" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V3" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                },
+                "V4" : {
+                	"audio" : "resolveEyesV1",
+                	"audioDuration" : 2,
+                	"animation" : "eyesV1",
+                	"animationDuration" : 3
+                }
+            },
+            "resolveMouth" : {
+                "V1" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V2" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V3" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                },
+                "V4" : {
+                	"audio" : "resolveMouthV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "mouthV1",
+                	"animationDuration" : 5.5
+                }
+            },
+            "resolveHappyEyebrows" : {
+                "V1" : {
+                	"audio" : "HappyMyEyebrowsDoNotMove",
+                	"audioDuration" : 4.5,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveHappyEyes" : {
+                "V1" : {
+                	"audio" : "HappyMyEyesDoNotMove",
+                	"audioDuration" : 4,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveHappyMouth" : {
+                "V1" : {
+                	"audio" : "HappyMyMouthIsUpIAmSmiling",
+                	"audioDuration" : 6,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadEyebrows" : {
+                "V1" : {
+                	"audio" : "SadMyEyebrowsAreUp",
+                	"audioDuration" : 4,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadEyes" : {
+                "V1" : {
+                	"audio" : "SadMyEyesAreClosedIAmCrying",
+                	"audioDuration" : 6.5,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSadMouth" : {
+                "V1" : {
+                	"audio" : "SadMyMouthIsDown",
+                	"audioDuration" : 4,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerEyebrows" : {
+                "V1" : {
+                	"audio" : "AngryMyEyebrowsAreDownIAmFrowning",
+                	"audioDuration" : 7,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerEyes" : {
+                "V1" : {
+                	"audio" : "AngryMyEyesAreNarrow",
+                	"audioDuration" : 4,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAngerMouth" : {
+                "V1" : {
+                	"audio" : "AngryMyMouthIsDown",
+                	"audioDuration" : 4,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearEyebrows" : {
+                "V1" : {
+                	"audio" : "ScaredMyEyebrowsAreUp",
+                	"audioDuration" : 4,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearEyes" : {
+                "V1" : {
+                	"audio" : "ScaredMyEyesAreOpen",
+                	"audioDuration" : 4,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFearMouth" : {
+                "V1" : {
+                	"audio" : "ScaredMyMouthIsOpenIAmGasping",
+                	"audioDuration" : 6.5,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "promptHappy" : {
+                "V1" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptHappyV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptHappyV4",
+                	"audioDuration" : 2.5
+                }
+            },
+            "promptSad" : {
+                "V1" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptSadV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptSadV4",
+                	"audioDuration" : 2.5
+                }
+            },
+            "promptAnger" : {
+                "V1" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptAngerV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptAngerV4",
+                	"audioDuration" : 3
+                }
+            },
+            "promptFear" : {
+                "V1" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V2" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V3" : {
+                	"audio" : "promptFearV1",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "promptFearV4",
+                	"audioDuration" : 3
+                }
+            },
+            "resolveHappy" : {
+                "V1" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveHappyV1",
+                	"audioDuration" : 3,
+                	"animation" : "happyV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveSad" : {
+                "V1" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveSadV1",
+                	"audioDuration" : 3,
+                	"animation" : "sadV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveAnger" : {
+                "V1" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveAngerV1",
+                	"audioDuration" : 3,
+                	"animation" : "angerV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "resolveFear" : {
+                "V1" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"audio" : "resolveFearV1",
+                	"audioDuration" : 3,
+                	"animation" : "fearV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "transitionGames" : {
+                "V1" : {
+                	"audio" : "transitionGamesV1",
+                	"audioDuration" : 3
+                }
+            },
+            "greeting" : {
+                "V1" : {
+                	"audio" : "greetingV1",
+                	"audioDuration" : 3,
+                	"animation" : "greetingV1",
+                	"animationDuration" : 6.5
+                },
+                "V2" : {
+                	"audio" : "greetingV2",
+                	"audioDuration" : 4,
+                	"animation" : "greetingV2",
+                	"animationDuration" : 6.5
+                }
+            },
+            "attention" : {
+                "V1" : {
+                	"audio" : "attentionV1",
+                	"audioDuration" : 1.5,
+                	"animation" : "attentionV1",
+                	"animationDuration" : 3.5
+                }
+            },
+            "happy" : {
+                "V1" : {
+                	"tabletImage" : "happy_v1",
+                	"tabletImageEnabled" : "enabled_happy_v1",
+                	"tabletImageDisabled" : "disabled_happy_v1",
+                	"animation" : "happyV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"tabletImage" : "happy_v2",
+                	"tabletImageEnabled" : "enabled_happy_v2",
+                	"tabletImageDisabled" : "disabled_happy_v2",
+                	"animation" : "happyV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"tabletImage" : "happy_v3",
+                	"tabletImageEnabled" : "enabled_happy_v3",
+                	"tabletImageDisabled" : "disabled_happy_v3",
+                	"animation" : "happyV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"tabletImage" : "happy_v4",
+                	"tabletImageEnabled" : "enabled_happy_v4",
+                	"tabletImageDisabled" : "disabled_happy_v4",
+                	"animation" : "happyV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "sad" : {
+                "V1" : {
+                	"tabletImage" : "sad_v1",
+                	"tabletImageEnabled" : "enabled_sad_v1",
+                	"tabletImageDisabled" : "disabled_sad_v1",
+                	"animation" : "sadV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"tabletImage" : "sad_v2",
+                	"tabletImageEnabled" : "enabled_sad_v2",
+                	"tabletImageDisabled" : "disabled_sad_v2",
+                	"animation" : "sadV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"tabletImage" : "sad_v3",
+                	"tabletImageEnabled" : "enabled_sad_v3",
+                	"tabletImageDisabled" : "disabled_sad_v3",
+                	"animation" : "sadV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"tabletImage" : "sad_v4",
+                	"tabletImageEnabled" : "enabled_sad_v4",
+                	"tabletImageDisabled" : "disabled_sad_v4",
+                	"animation" : "sadV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "anger" : {
+                "V1" : {
+                	"tabletImage" : "anger_v1",
+                	"tabletImageEnabled" : "enabled_anger_v1",
+                	"tabletImageDisabled" : "disabled_anger_v1",
+                	"animation" : "angerV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"tabletImage" : "anger_v2",
+                	"tabletImageEnabled" : "enabled_anger_v2",
+                	"tabletImageDisabled" : "disabled_anger_v2",
+                	"animation" : "angerV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"tabletImage" : "anger_v3",
+                	"tabletImageEnabled" : "enabled_anger_v3",
+                	"tabletImageDisabled" : "disabled_anger_v3",
+                	"animation" : "angerV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"tabletImage" : "anger_v4",
+                	"tabletImageEnabled" : "enabled_anger_v4",
+                	"tabletImageDisabled" : "disabled_anger_v4",
+                	"animation" : "angerV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "fear" : {
+                "V1" : {
+                	"tabletImage" : "fear_v1",
+                	"tabletImageEnabled" : "enabled_fear_v1",
+                	"tabletImageDisabled" : "disabled_fear_v1",
+                	"animation" : "fearV1",
+                	"animationDuration" : 3.5
+                },
+                "V2" : {
+                	"tabletImage" : "fear_v2",
+                	"tabletImageEnabled" : "enabled_fear_v2",
+                	"tabletImageDisabled" : "disabled_fear_v2",
+                	"animation" : "fearV2",
+                	"animationDuration" : 3.5
+                },
+                "V3" : {
+                	"tabletImage" : "fear_v3",
+                	"tabletImageEnabled" : "enabled_fear_v3",
+                	"tabletImageDisabled" : "disabled_fear_v3",
+                	"animation" : "fearV3",
+                	"animationDuration" : 3.5
+                },
+                "V4" : {
+                	"tabletImage" : "fear_v4",
+                	"tabletImageEnabled" : "enabled_fear_v4",
+                	"tabletImageDisabled" : "disabled_fear_v4",
+                	"animation" : "fearV4",
+                	"animationDuration" : 3.5
+                }
+            },
+            "ok" : {
+                "V1" : {
+                	"audio" : "okV1",
+                	"audioDuration" : 1
+                }
+            },
+            "yes" : {
+                "V1" : {
+                	"audio" : "yesV1",
+                	"audioDuration" : 1
+                }
+            },
+            "no" : {
+                "V1" : {
+                	"audio" : "noV1",
+                	"audioDuration" : 1
+                }
+            },
+            "praise" : {
+                "V1" : {
+                	"audio" : "praiseV1",
+                	"audioDuration" : 1.5
+                },
+                "V2" : {
+                	"audio" : "praiseV2",
+                	"audioDuration" : 1.5
+                },
+                "V3" : {
+                	"audio" : "praiseV3",
+                	"audioDuration" : 2
+                },
+                "V4" : {
+                	"audio" : "praiseV4",
+                	"audioDuration" : 2
+                }
+            },
+            "thanks" : {
+                "V1" : {
+                	"audio" : "thanksV1",
+                	"audioDuration" : 1.5
+                },
+                "V2" : {
+                	"audio" : "thanksV2",
+                	"audioDuration" : 1.5
+                }
+            },
+            "exclamation" : {
+                "V1" : {
+                	"audio" : "exclamationV1",
+                	"audioDuration" : 1.5
+                },
+                "V3" : {
+                	"audio" : "exclamationV3",
+                	"audioDuration" : 1.5
+                }
+            }
+        }
+    </is>
+	<javascript>
+		<![CDATA[
+			
+			function doesActionExist(actionID){
+				return is.av.hasOwnProperty(actionID);
+			}
+			
+			//returns a variant of the requested action, the variant that is returned depends on the "selectedVariant" property of the action
+			function getActionVariant(actionID){
+				//check if this action actually exists
+				if(is.av.hasOwnProperty(actionID) && is.av[actionID].hasOwnProperty("selectedVariant") && is.av[actionID].hasOwnProperty(is.av[actionID].selectedVariant)){
+					var actionSet = is.av[actionID];
+					
+					//return the selected action variant
+					return actionSet[actionSet.selectedVariant];
+				} else {
+					log("!!!Action "+actionID+" not found, variant not found, or no current action variant has been selected!!!");
+				}
+			}
+			
+			function setVariant(actions, actionID, variant){
+				if(actions.hasOwnProperty(actionID)){
+					if(actions[actionID].hasOwnProperty(variant)){
+						actions[actionID].selectedVariant = variant;
+					}
+				}
+				return actions;
+			}
+			
+			function getRandomVariant(actions, actionID){
+				if(actions.hasOwnProperty(actionID)){
+					var actionSet = actions[actionID];
+					
+					//get all available variants
+					var available = getAllAvaiableVariants(actionID);
+					var previous = "";
+					
+					//retrieve the previously selected variant (if available)
+					if(actionSet.hasOwnProperty("selectedVariant")){
+						previous = actionSet.selectedVariant;
+					}
+					
+					//in our invariant condition we always return the default (first) variant
+					if(is.behaviourplanner.behaviourMode === "invariant"){
+						actions[actionID].selectedVariant = available[0];
+					} else {
+						//in the variant condition we choose randomly
+						//now remove the previous from the set of available variants to avoid repetition
+						//only do this if there are more than 1 variants to start with
+						if(available.length > 1 && previous !== ""){
+							available.splice(available.indexOf(previous), 1);
+						}
+						actions[actionID].selectedVariant = available[Math.floor(Math.random() * available.length)];
+					}
+				}
+				return actions;
+			}
+			
+			//TODO: add some form of caching, instead of calculating this each time
+			function getAllAvaiableVariants(actionID){
+				if(is.av.hasOwnProperty(actionID)){
+					var variants = [];
+					
+					//loop over the list of keys to search for all "Vx" entries
+					for(var k in is.av[actionID]){
+						if(k.length === 2 && k[0] === "V" && "1234567890".indexOf(k[1]) !== -1){
+							//yay! we found one, let's store it now
+							variants.push(k);
+						}
+					}
+					
+					return variants;
+				}
+			}
+        ]]>
+    </javascript>
+
+
+	<template id="donothing" name="donothing">
+      <preconditions>
+     	<condition>false</condition>
+      </preconditions>
+      <effects>
+      </effects>
+    </template>
+    
+</behaviourtemplates>

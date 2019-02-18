@@ -23,6 +23,9 @@ Format of a request:
             "initialised":false,
 			"time" : "0",
 			"behaviourMode" : "variant",
+			"fps" : 0,
+			"cts" : 0,
+			"prevTime" : 0,
             "settings": {
                 "bmlPipePropertiesFilename":"P3/config/AsapBMLPipe.properties",
                 "behaviourDir":"P3/behaviours"
@@ -131,6 +134,19 @@ Format of a request:
       </preconditions>
       <effects>
           <assign is="is.behaviourplanner.time">Date.now()</assign>
+          <assign is="is.behaviourplanner.cts">is.behaviourplanner.cts+1</assign>
+      </effects>
+    </template>
+    
+    
+	<template id="fps" name="fps">
+      <preconditions>
+     	<condition>is.behaviourplanner.time - is.behaviourplanner.prevTime > 10000</condition>
+      </preconditions>
+      <effects>
+          <assign is="is.behaviourplanner.prevTime">is.behaviourplanner.time</assign>
+          <assign is="is.behaviourplanner.fps">is.behaviourplanner.cts/10</assign>
+          <assign is="is.behaviourplanner.cts">0</assign>
       </effects>
     </template>
     

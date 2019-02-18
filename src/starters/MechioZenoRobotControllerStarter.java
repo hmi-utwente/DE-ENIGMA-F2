@@ -22,8 +22,8 @@ public class MechioZenoRobotControllerStarter {
 
     	String help = "Expecting commandline arguments in the form of \"-<argname> <arg>\".\nAccepting the following argnames: mechioprops, middlewareprops";
     	
-        String mechioPropFile = "P3/config/mechio.properties";
-    	String mwPropFile = "P3/config/defaultmiddleware.properties";
+        String mechioPropFile = "P4/config/mechio.properties";
+    	String mwPropFile = "P4/config/defaultmiddleware.properties";
     	
         if(args.length % 2 != 0){
         	System.err.println(help);
@@ -44,7 +44,7 @@ public class MechioZenoRobotControllerStarter {
         Properties defaultProp = new Properties();
 		defaultProp.put("mechio_ip", "130.89.15.168");
 		defaultProp.put("robot_id", "");
-		defaultProp.put("animation_location", "resource/P3/animations/");
+		defaultProp.put("animation_location", "resource/P4/animations/");
 		
 		//now load the user-defined values (if any)
 		Properties prop = new Properties(defaultProp);
@@ -83,7 +83,7 @@ public class MechioZenoRobotControllerStarter {
         final ZenoRobotControllerMechioImpl theZRC = new ZenoRobotControllerMechioImpl(prop.getProperty("mechio_ip"),prop.getProperty("robot_id"), prop.getProperty("animation_location"));
 
         try {Thread.sleep(1500);} catch (Exception ex) {}
-        theZRC.speak("init0", "Robot aan");
+        theZRC.speak("init0", "beep");
 
         try {Thread.sleep(1000);} catch (Exception ex) {}
 
@@ -91,7 +91,7 @@ public class MechioZenoRobotControllerStarter {
         //theZRC.playAudioFile("idAudio", "/home/variscite/audio/Gesture_ciaoCiao.wav");
         //theZRC.playAnimationByName("Idle animation - read animation - huh 2");
         //try {Thread.sleep(8000);} catch (Exception ex) {}
-        theZRC.playAnimationByName("Default");
+        //theZRC.playAnimationByName("Default");
         MiddlewareToZRC middlewareToZRC = new MiddlewareToZRC(m, theZRC);
 	}
 }
