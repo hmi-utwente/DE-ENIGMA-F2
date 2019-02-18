@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -48,6 +49,7 @@ public class LoggerWrapper extends FlipperMiddleware {
 	public void info(String line) {
 		logger.info(line);
         ObjectNodeBuilder on = object();
+        on.with("timestamp", Instant.now().toEpochMilli());
         on.with("message", line.substring(1, line.length()-1));
         middleware.sendData(on.end());
 	}
