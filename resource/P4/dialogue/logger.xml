@@ -8,6 +8,7 @@
             "error" : "",
             "warn" : "",
             "info" : "",
+            "settings" : {"loggerToMWPropertiesFilename":"P4/config/loggerToMW.properties"},
             "debug" : ""
         }
     </is>
@@ -42,6 +43,7 @@
 			<method name="init" is="is.logger.initialised">
 			  <object persistent="is.logger.persistent.theLoggerWrapper" class="flipper.LoggerWrapper">  
 			    <constructors>
+			           <value class="String" is="is.logger.settings.loggerToMWPropertiesFilename"/>
 			    </constructors>       
 			  </object>  
 			  <arguments></arguments>
