@@ -133,7 +133,7 @@
 			}
 			
 			function createZenoLogLine(behaviour){
-				return "Doing Zeno action: ["+behaviour.action+"] using BML template: ["+behaviour.template+"] with a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
+				return "Doing Zeno action: ["+behaviour.action+"] using BML template: ["+behaviour.template+"] with a delay of ["+behaviour.delay+"] and a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
 			}
 			
 			function getHelloVariant(){

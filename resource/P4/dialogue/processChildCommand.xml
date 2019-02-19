@@ -42,12 +42,37 @@
 			}
 			
 			function promptFeaturesIncorrectOrTimeout() {
-				return (is.tablet.child.command !== "none" && !askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)) || (is.behaviourplanner.time - is.childProcessor.promptFeatures.askedTimestamp > 20000);
+				var inCorrect = is.tablet.child.command !== "none" && is.childProcessor.promptFeatures.askedFeature !== is.tablet.child.command;
+				var timeout = is.behaviourplanner.time - is.childProcessor.promptFeatures.askedTimestamp > 20000;
+				return inCorrect || timeout;
 			}
 			
 			function promptExpressionsIncorrectOrTimeout() {
-				return (is.tablet.child.command !== "none" && is.childProcessor.promptExpressions.askedExpression !== is.tablet.child.command) || (is.behaviourplanner.time - is.childProcessor.promptExpressions.askedTimestamp > 20000);
+				var inCorrect = is.tablet.child.command !== "none" && is.childProcessor.promptExpressions.askedExpression !== is.tablet.child.command;
+				var timeout = is.behaviourplanner.time - is.childProcessor.promptExpressions.askedTimestamp > 20000;
+				return inCorrect || timeout;
 			}
+			
+			function logFeaturesIncorrectOrTimeout(){
+				var inCorrect = is.tablet.child.command !== "none" && is.childProcessor.promptFeatures.askedFeature !== is.tablet.child.command;
+				var timeout = is.behaviourplanner.time - is.childProcessor.promptFeatures.askedTimestamp > 20000;
+				if(inCorrect){
+					return logInfo("Child gave incorrect answer. Robot prompt: ["+is.childProcessor.promptFeatures.askedFeature+"]. Child response: ["+is.tablet.child.command+"]");
+				} else if(timeout){
+					return logInfo("Timeout: Got no response from child");
+				}
+			}
+			
+			function logExpressionsIncorrectOrTimeout(){
+				var inCorrect = is.tablet.child.command !== "none" && is.childProcessor.promptExpressions.askedExpression !== is.tablet.child.command;
+				var timeout = is.behaviourplanner.time - is.childProcessor.promptExpressions.askedTimestamp > 20000;
+				if(inCorrect){
+					return logInfo("Child gave incorrect answer. Robot prompt: ["+is.childProcessor.promptExpressions.askedExpression+"]. Child response: ["+is.tablet.child.command+"]");
+				} else if(timeout){
+					return logInfo("Timeout: Got no response from child");
+				}
+			}
+			
 			
 		
 		function getRandomFaceFeaturePrompt(previousPrompt){
@@ -93,6 +118,7 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.logger.latestLogLine">logInfo("Child gave correct answer. Robot prompt: ["+is.childProcessor.promptFeatures.askedFeature+"]. Child response: ["+is.tablet.child.command+"]")</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
@@ -119,6 +145,7 @@
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">false</assign>
     		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Loading next trial. Robot prompt: ["+is.childProcessor.promptFeatures.askedFeature+"]")</assign>
     	</effects>
     </template>
     
@@ -132,6 +159,8 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logFeaturesIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Repeating current prompt: ["+is.childProcessor.promptFeatures.askedFeature+"]")</assign>
     		<assign is="is.childProcessor.promptFeatures.repeats">is.childProcessor.promptFeatures.repeats + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.zeno.request">is.childProcessor.promptFeatures.askedFeature</assign>
@@ -144,11 +173,14 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
+    		<condition>!is.childProcessor.promptFeatures.loadNextTrial</condition>
     		<condition>promptFeaturesIncorrectOrTimeout()</condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.repeats >= is.childProcessor.promptFeatures.maxRepeats]]></condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logFeaturesIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
     		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
@@ -166,6 +198,7 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials >= is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logInfo("Trial limit reached: [PromptFeatures]")</assign>
     		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
@@ -205,8 +238,9 @@
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.requestNewRandomVariant">false</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Child gave correct answer. Robot prompt: ["+is.childProcessor.promptExpressions.askedExpression+"]. Child response: ["+is.tablet.child.command+"]")</assign>
     		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
+    		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">"resolve"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
@@ -243,6 +277,7 @@
     		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">"prompt"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Loading next trial. Robot prompt: ["+is.childProcessor.promptExpressions.askedExpression+"]")</assign>
     	</effects>
     </template>
     
@@ -256,8 +291,11 @@
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logExpressionsIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Repeating current prompt: ["+is.childProcessor.promptExpressions.askedExpression+"]")</assign>
     		<assign is="is.childProcessor.promptExpressions.repeats">is.childProcessor.promptExpressions.repeats + 1</assign>
     		<assign is="is.childProcessor.promptExpressions.askedTimestamp">is.behaviourplanner.time</assign>
+    		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">"prompt"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
@@ -267,12 +305,15 @@
     <template id="PromptExpressions_TooManyAttempts" name="PromptExpressions_TooManyAttempts">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptExpressions"</condition>
+    		<condition>!is.childProcessor.promptExpressions.loadNextTrial</condition>
     		<condition>is.childProcessor.promptExpressions.askedExpression !== ""</condition>
     		<condition>promptExpressionsIncorrectOrTimeout()</condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.repeats >= is.childProcessor.promptExpressions.maxRepeats]]></condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logExpressionsIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
     		<assign is="is.childProcessor.promptExpressions.trials">is.childProcessor.promptExpressions.trials + 1</assign>
     		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
@@ -293,6 +334,7 @@
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials >= is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logInfo("Trial limit reached: [PromptExpressions]")</assign>
     		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
