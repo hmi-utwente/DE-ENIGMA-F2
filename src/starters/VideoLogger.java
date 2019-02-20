@@ -56,17 +56,21 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 
 	private Middleware middleware;
 
+	private enum Camera {GENIUS,LOGITECH};
+	
 	//possible alternative: https://github.com/bytedeco/javacv/blob/master/samples/WebcamAndMicrophoneCapture.java
 	
 	private static final String VIDEO_DIR = "C:\\videos\\";
-	
-	private Process videoProcess;
+
+	private Process logitechVideoProcess;
+	private Process geniusVideoProcess;
 
 	private JSONHelper jh;
 
 	private ObjectMapper om;
 
-	private PrintWriter osWriter;
+	private PrintWriter logitechOSWriter;
+	private PrintWriter geniusOSWriter;
 	
 	public VideoLogger(){
 		super();
@@ -106,12 +110,9 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
         
         /*
 		//for testing a simple recording
-        ObjectNode starter1 = om.createObjectNode();
-		ObjectNode action1 = om.createObjectNode();
-		action1.put("id", "testid1");
-		action1.put("action", "START");
-		
-		starter1.set("command", action1);
+		ObjectNode starter1 = om.createObjectNode();
+		starter1.put("status", "session_start");
+		starter1.put("ts", 123L);
 		
 		this.receiveData(starter1);
 		
@@ -124,10 +125,8 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		
 		//stop it again
         ObjectNode stopper1 = om.createObjectNode();
-		ObjectNode action2 = om.createObjectNode();
-		action2.put("action", "STOP");
-		
-		stopper1.set("command", action2);
+		stopper1.put("status", "end_session");
+		stopper1.put("ts", 345L);
 		
 		this.receiveData(stopper1);
 		*/
@@ -174,10 +173,16 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 	 * close any previous running video recording
 	 */
 	private void closeFFMPEG(){
-		if(videoProcess != null && videoProcess.isAlive()){
-			logger.info("Stopping current video recording");
-			osWriter.println("q");
-			osWriter.flush();
+		stopLogitech();
+		stopGenius();
+	}
+	
+	private void stopLogitech() {
+
+		if(logitechVideoProcess != null && logitechVideoProcess.isAlive()){
+			logger.info("Stopping current logitech video recording");
+			logitechOSWriter.println("q");
+			logitechOSWriter.flush();
 			
 			//give it a moment to gracefully shut down
 			try {
@@ -187,13 +192,43 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 				e1.printStackTrace();
 			}
 			
-			if(videoProcess != null && videoProcess.isAlive()){
+			if(logitechVideoProcess != null && logitechVideoProcess.isAlive()){
 				//finally destroy
-				videoProcess.destroy();
+				logitechVideoProcess.destroy();
 				
 				//and wait for it to actually close
 				try {
-					videoProcess.waitFor();
+					logitechVideoProcess.waitFor();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	private void stopGenius() {
+
+		if(geniusVideoProcess != null && geniusVideoProcess.isAlive()){
+			logger.info("Stopping current genius video recording");
+			geniusOSWriter.println("q");
+			geniusOSWriter.flush();
+			
+			//give it a moment to gracefully shut down
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			if(geniusVideoProcess != null && geniusVideoProcess.isAlive()){
+				//finally destroy
+				geniusVideoProcess.destroy();
+				
+				//and wait for it to actually close
+				try {
+					geniusVideoProcess.waitFor();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -209,33 +244,48 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 
 			
 			//should we start recording now?
-			boolean start = "session_start".equals(jn.get("status").asText());
 			long timeStamp = jn.get("ts").asLong();
 			
-			//command action is either start or stop.. either way, we need to stop the current (potential) running video recording
-			closeFFMPEG();
 			
 			//start a new process
-			if(start){
+			if("session_start".equals(jn.get("status").asText())){
+				closeFFMPEG();
 				try {
-					String[] params = makeFFMPEGParams("overview_cam_"+timeStamp);
-					logger.info("Starting video recording for timestamp {}: {}", timeStamp, params);
-					ProcessBuilder pb = new ProcessBuilder(params);
-					pb.redirectError(new File("error.txt"));
-					//pb.redirectInput(new File("input.txt"));
-					pb.redirectOutput(new File("output.txt"));
-					
-					videoProcess = pb.start();
-					osWriter = new PrintWriter(videoProcess.getOutputStream());
-					
+					startLogitech(timeStamp);
+					startGenius(timeStamp);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			} else {
-				logger.info("Not starting video.. start: {}", start);
+			} else if("end_session".equals(jn.get("status").asText())){
+				closeFFMPEG();
 			}
 		}
+	}
+	
+	private void startLogitech(long timeStamp) throws IOException {
+		String[] logitechParams = makeFFMPEGParams(Camera.LOGITECH, "logitech_cam_"+timeStamp);
+		logger.info("Starting logitech video recording for timestamp {}: {}", timeStamp, logitechParams);
+		ProcessBuilder logitechPB = new ProcessBuilder(logitechParams);
+		logitechPB.redirectError(new File("logitecherror.txt"));
+		//pb.redirectInput(new File("input.txt"));
+		logitechPB.redirectOutput(new File("logitechoutput.txt"));
+		
+		logitechVideoProcess = logitechPB.start();
+		logitechOSWriter = new PrintWriter(logitechVideoProcess.getOutputStream());
+	}
+	
+	private void startGenius(long timeStamp) throws IOException {
+		String[] geniusParams = makeFFMPEGParams(Camera.GENIUS, "genius_cam_"+timeStamp);
+		logger.info("Starting genius video recording for timestamp {}: {}", timeStamp, geniusParams);
+		ProcessBuilder geniusPB = new ProcessBuilder(geniusParams);
+		geniusPB.redirectError(new File("geniuserror.txt"));
+		//pb.redirectInput(new File("input.txt"));
+		geniusPB.redirectOutput(new File("geniusoutput.txt"));
+		
+		geniusVideoProcess = geniusPB.start();
+		geniusOSWriter = new PrintWriter(geniusVideoProcess.getOutputStream());
+		
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -279,7 +329,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 	 * @param id a prefix id for the filename
 	 * @return a string array containing all params
 	 */
-	private String[] makeFFMPEGParams(String id){
+	private String[] makeFFMPEGParams(Camera cam, String id){
 		// ffmpeg -f dshow -video_size 1280x720 -rtbufsize 10240k -framerate 30 -vcodec mjpeg -i video="USB_Camera":audio="Microphone (USB2.0 MIC)" -vcodec libx264 -filter:v fps=30 -crf 26 -preset veryfast D:\videos\out720.mp4
 		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS");
 		long curTime = System.currentTimeMillis();
@@ -291,23 +341,41 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 				"ffmpeg -f dshow -video_size 1280x720 -rtbufsize 10240k -framerate 30 -vcodec mjpeg -i video=\"USB_Camera\":audio=\"Microphone (USB2.0 MIC)\" -vcodec libx264 -filter:v fps=30 -crf 26 -preset veryfast " + VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mp4", 
 				};*/
 
-	    
-	    return new String[] {
-				"ffmpeg", "-f", 			
-				"dshow", 					//use directshow to select webcam and mic
-				"-video_size", "1920x1080", 	//select a supported resolution from webcam
-				//"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
-				"-framerate", "30",			//select a supported framerate from the webcam
-				"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
-				"-i", "video=USB_Camera:audio=Microphone (USB2.0 MIC)", //which sources should we use for video and audio
-				"-vcodec", "libx264", 		//select the output encoding
-				"-pix_fmt","yuvj422p",
-				"-f", "matroska",			//select mkv container
-				"-filter:v", "fps=30", 		//set the output framerate
-				"-crf", "26", 				//set the quality fo the output video stream (26 seems ok, and not too large filesize)
-				"-preset", "veryfast", 		//set the tradeoff between CPU power and filesize (veryfast seems to take around 10% CPU, filesize seems around 1GB/hour)
-				VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mkv" 
-				};
+	    if(cam == Camera.GENIUS) {
+		    return new String[] {
+					"ffmpeg", "-f", 			
+					"dshow", 					//use directshow to select webcam and mic
+					"-video_size", "1920x1080", 	//select a supported resolution from webcam
+					//"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
+					"-framerate", "30",			//select a supported framerate from the webcam
+					"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
+					"-i", "video=USB_Camera:audio=Microphone (USB2.0 MIC)", //Genius F100 wide angle (lower quality)
+					"-vcodec", "libx264", 		//select the output encoding
+					"-pix_fmt","yuvj422p",
+					"-f", "matroska",			//select mkv container
+					"-filter:v", "fps=30", 		//set the output framerate
+					"-crf", "26", 				//set the quality fo the output video stream (26 seems ok, and not too large filesize)
+					"-preset", "veryfast", 		//set the tradeoff between CPU power and filesize (veryfast seems to take around 10% CPU, filesize seems around 1GB/hour)
+					VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mkv" 
+					};
+	    } else {
+		    return new String[] {
+					"ffmpeg", "-f", 			
+					"dshow", 					//use directshow to select webcam and mic
+					"-video_size", "1920x1080", 	//select a supported resolution from webcam
+					//"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
+					"-framerate", "30",			//select a supported framerate from the webcam
+					"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
+					"-i", "video=HD Pro Webcam C920:audio=Microphone (HD Pro Webcam C920)", //logitech C920 narrow angle (better quality)
+					"-vcodec", "libx264", 		//select the output encoding
+					"-pix_fmt","yuvj422p",
+					"-f", "matroska",			//select mkv container
+					"-filter:v", "fps=30", 		//set the output framerate
+					"-crf", "26", 				//set the quality fo the output video stream (26 seems ok, and not too large filesize)
+					"-preset", "veryfast", 		//set the tradeoff between CPU power and filesize (veryfast seems to take around 10% CPU, filesize seems around 1GB/hour)
+					VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mkv" 
+					};
+	    }
 /*
 	    return new String[] {
 				"ffmpeg","-list_devices","true","-f","dshow","-i","dummy", 	
