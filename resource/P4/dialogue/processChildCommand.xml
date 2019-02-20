@@ -155,6 +155,7 @@
     		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
     		<condition>!is.childProcessor.promptFeatures.loadNextTrial</condition>
     		<condition>promptFeaturesIncorrectOrTimeout()</condition>
+    		<condition>!is.zeno.busy</condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.repeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
@@ -287,6 +288,7 @@
     		<condition>!is.childProcessor.promptExpressions.loadNextTrial</condition>
     		<condition>is.childProcessor.promptExpressions.askedExpression !== ""</condition>
     		<condition>promptExpressionsIncorrectOrTimeout()</condition>
+    		<condition>!is.zeno.busy</condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.repeats < is.childProcessor.promptExpressions.maxRepeats]]></condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
@@ -297,7 +299,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">"prompt"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
