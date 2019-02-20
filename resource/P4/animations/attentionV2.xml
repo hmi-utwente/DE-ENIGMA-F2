@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Animation>
 	<Version type="Animation">
-		<Name>Gesture_attention.xml</Name>
+		<Name>Gesture_attentionV2.xml</Name>
 		<Number>1.0</Number>
 	</Version>
 	<Channels>
@@ -14,10 +14,10 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>300.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>1300.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>1700.0</Time><Position>0.25</Position></ControlPoint>
-						<ControlPoint><Time>2700.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>300.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>1300.0</Time><Position>0.25</Position></ControlPoint>
+						<ControlPoint><Time>1700.0</Time><Position>0.75</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.75</Position></ControlPoint>
 						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>

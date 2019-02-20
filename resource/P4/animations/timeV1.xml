@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>Gesture_TurnRight.xml</Name>
+		<Number>1.7</Number>
+	</Version>
+	<Channels>
+		<Channel id="100" name="Waist_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.46</Position></ControlPoint>
+						<ControlPoint><Time>800.0</Time><Position>0.43</Position></ControlPoint>
+						<ControlPoint><Time>3200.0</Time><Position>0.43</Position></ControlPoint>
+						<ControlPoint><Time>3500.0</Time><Position>0.46</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="202" name="Head_Pitch">
+		<MotionPaths>
+			<MotionPath name="path">
+				<Version type="Interpolation">
+					<Name>Linear Interpolation</Name>
+					<Number>1.0</Number>
+				</Version>
+				<ControlPoints>
+					<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+					<ControlPoint><Time>500.0</Time><Position>0.55</Position></ControlPoint>
+					<ControlPoint><Time>800.0</Time><Position>0.65</Position></ControlPoint>
+					<ControlPoint><Time>3300.0</Time><Position>0.65</Position></ControlPoint>
+					<ControlPoint><Time>3500.0</Time><Position>0.55</Position></ControlPoint>
+					<ControlPoint><Time>4000.0</Time><Position>0.5</Position></ControlPoint>
+				</ControlPoints>
+			</MotionPath>
+		</MotionPaths>
+	</Channel>
+		<Channel id="200" name="Head_Yaw">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.75</Position></ControlPoint>
+						<ControlPoint><Time>1000.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>3200.0</Time><Position>0.85</Position></ControlPoint>
+						<ControlPoint><Time>3400.0</Time><Position>0.75</Position></ControlPoint>
+						<ControlPoint><Time>3600.0</Time><Position>0.60</Position></ControlPoint>
+						<ControlPoint><Time>3900.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

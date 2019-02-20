@@ -15,8 +15,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.80</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -31,8 +31,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.80</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.87</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -47,8 +47,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.30</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.30</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.30</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -63,8 +63,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.06</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.06</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.16</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.06</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.16</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

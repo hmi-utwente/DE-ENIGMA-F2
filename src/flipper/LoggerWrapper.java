@@ -49,7 +49,8 @@ public class LoggerWrapper extends FlipperMiddleware {
 	public void info(String line) {
 		logger.info(line);
         ObjectNodeBuilder on = object();
-        on.with("timestamp", Instant.now().toEpochMilli());
+        String currTime = Long.toString(Instant.now().toEpochMilli());
+        on.with("timestamp", currTime);
         on.with("message", line.substring(1, line.length()-1));
         middleware.sendData(on.end());
 	}
