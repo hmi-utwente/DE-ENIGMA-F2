@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Animation>
 	<Version type="Animation">
-		<Name>Gesture_TurnWaist_left.xml</Name>
+		<Name>Gesture_TurnWaistV3.xml</Name>
 		<Number>1.1</Number>
 	</Version>
 	<Channels>
@@ -9,15 +9,14 @@
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
-						<Name>C-Spline Interpolation</Name>
+						<Name>Linear Interpolation</Name>
 						<Number>1.0</Number>
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>1000.0</Time><Position>0.6</Position></ControlPoint>
-						<ControlPoint><Time>2000.0</Time><Position>0.4</Position></ControlPoint>
-						<ControlPoint><Time>3000.0</Time><Position>0.45</Position></ControlPoint>>
-						<ControlPoint><Time>3500.0</Time><Position>0.52</Position></ControlPoint>
+						<ControlPoint><Time>1000.0</Time><Position>0.70</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.30</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

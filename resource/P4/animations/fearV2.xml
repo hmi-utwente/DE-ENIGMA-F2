@@ -14,17 +14,15 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>200.0</Time><Position>0.37</Position></ControlPoint>
 						<ControlPoint><Time>275.0</Time><Position>0.63</Position></ControlPoint>
 						<ControlPoint><Time>650.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>3400.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>3900.0</Time><Position>0.37</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.75</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
 		</Channel>
-			<Channel id="311" name="Eye_Yaw">
+		<Channel id="311" name="Eye_Yaw">
 			<MotionPaths>
 				<MotionPath name="path">
 					<Version type="Interpolation">
@@ -42,8 +40,7 @@
 						<ControlPoint><Time>2200.0</Time><Position>0.28</Position></ControlPoint>
 						<ControlPoint><Time>2300.0</Time><Position>0.78</Position></ControlPoint>
 						<ControlPoint><Time>2400.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>3400.0</Time><Position>0.80</Position></ControlPoint>
-						<ControlPoint><Time>3900.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2900.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -59,10 +56,9 @@
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>200.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>275.0</Time><Position>0.00</Position></ControlPoint>
-						<ControlPoint><Time>3500.0</Time><Position>0.00</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>3900.0</Time><Position>0.50</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.00</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -77,8 +73,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
 						<ControlPoint><Time>275.0</Time><Position>0.93</Position></ControlPoint>
-						<ControlPoint><Time>3600.0</Time><Position>0.93</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.16</Position></ControlPoint>
+						<ControlPoint><Time>2600.0</Time><Position>0.93</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.16</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -92,13 +88,9 @@
 					</Version>
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
-						<ControlPoint><Time>125.0</Time><Position>0.57</Position></ControlPoint>
 						<ControlPoint><Time>400.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>1400.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>1800.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>1.0</Position></ControlPoint>
-						<ControlPoint><Time>3900.0</Time><Position>0.57</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.87</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

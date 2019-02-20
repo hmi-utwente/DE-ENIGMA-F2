@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Animation>
 	<Version type="Animation">
-		<Name>DenverEmotion_happy.xml</Name>
+		<Name>DenverEmotion_happyV3.xml</Name>
 		<Number>1.1</Number>
 	</Version>
 	<Channels>
@@ -15,8 +15,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
 						<ControlPoint><Time>300.0</Time><Position>0.42</Position></ControlPoint>
-						<ControlPoint><Time>3600.0</Time><Position>0.42</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>2600.0</Time><Position>0.42</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.5</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -31,8 +31,8 @@
 					<ControlPoints>
 						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
 						<ControlPoint><Time>250.0</Time><Position>0.95</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.95</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.95</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.87</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>
@@ -48,8 +48,8 @@
 						<ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>100.0</Time><Position>0.50</Position></ControlPoint>
 						<ControlPoint><Time>200.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>3700.0</Time><Position>0.75</Position></ControlPoint>
-						<ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+						<ControlPoint><Time>2700.0</Time><Position>0.75</Position></ControlPoint>
+						<ControlPoint><Time>3000.0</Time><Position>0.50</Position></ControlPoint>
 					</ControlPoints>
 				</MotionPath>
 			</MotionPaths>

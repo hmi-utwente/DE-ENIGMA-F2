@@ -33,7 +33,6 @@
 						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
 						<ControlPoint><Time>150.0</Time><Position>0.5</Position></ControlPoint>
 						<ControlPoint><Time>500.0</Time><Position>0.0</Position></ControlPoint>
-						<ControlPoint><Time>1500.0</Time><Position>0.0</Position></ControlPoint>
 						<ControlPoint><Time>2300.0</Time><Position>0.0</Position></ControlPoint>
 						<ControlPoint><Time>2500.0</Time><Position>0.36</Position></ControlPoint>
 						<ControlPoint><Time>3000.0</Time><Position>0.87</Position></ControlPoint>
