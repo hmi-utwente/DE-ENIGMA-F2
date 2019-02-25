@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<Animation>
+    <Version type="Animation">
+        <Name>Gesture_danceGetUpShort.xml</Name>
+        <Number>1.0</Number>
+    </Version>
+    <Channels>
+        <Channel id="100" name="Waist_Yaw">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>1000.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>2000.0</Time><Position>0.30</Position></ControlPoint>
+                        <ControlPoint><Time>3000.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>4000.0</Time><Position>0.30</Position></ControlPoint>
+                        <ControlPoint><Time>5000.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="202" name="Head_Pitch">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>1000.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>1250.0</Time><Position>0.97</Position></ControlPoint>
+                        <ControlPoint><Time>1600.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>2250.0</Time><Position>0.97</Position></ControlPoint>
+                        <ControlPoint><Time>3000.0</Time><Position>0.97</Position></ControlPoint>
+                        <ControlPoint><Time>3500.0</Time><Position>0.97</Position></ControlPoint>
+                        <ControlPoint><Time>4000.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="300" name="Forehead">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.67</Position></ControlPoint>
+                        <ControlPoint><Time>1000.0</Time><Position>0.67</Position></ControlPoint>
+                        <ControlPoint><Time>1500.0</Time><Position>0.67</Position></ControlPoint>
+                        <ControlPoint><Time>4250.0</Time><Position>0.67</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="301" name="Eyelids">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>100.0</Time><Position>0.87</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>1050.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>4250.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.87</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="320" name="LtSmile01">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.90</Position></ControlPoint>
+                        <ControlPoint><Time>1000.0</Time><Position>0.90</Position></ControlPoint>
+                        <ControlPoint><Time>4250.0</Time><Position>0.90</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="322" name="Mouth">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.16</Position></ControlPoint>
+                        <ControlPoint><Time>900.0</Time><Position>0.60</Position></ControlPoint>
+                        <ControlPoint><Time>4250.0</Time><Position>0.60</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.16</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="500" name="RtShoulder_Yaw">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.18</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.18</Position></ControlPoint>
+                        <ControlPoint><Time>2500.0</Time><Position>0.95</Position></ControlPoint>
+                        <ControlPoint><Time>4500.0</Time><Position>0.95</Position></ControlPoint>
+                        <ControlPoint><Time>5000.0</Time><Position>0.40</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.18</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="501" name="RtShoulder_Roll">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>200.0</Time><Position>0.45</Position></ControlPoint>
+                        <ControlPoint><Time>1000.0</Time><Position>0.05</Position></ControlPoint>
+                        <ControlPoint><Time>1500.0</Time><Position>0.05</Position></ControlPoint>
+                        <ControlPoint><Time>4000.0</Time><Position>0.05</Position></ControlPoint>
+                        <ControlPoint><Time>4500.0</Time><Position>0.20</Position></ControlPoint>
+                        <ControlPoint><Time>4800.0</Time><Position>0.45</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="510" name="RtElbow">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.75</Position></ControlPoint>
+                        <ControlPoint><Time>800.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>1500.0</Time><Position>0.66</Position></ControlPoint>
+                        <ControlPoint><Time>3300.0</Time><Position>0.66</Position></ControlPoint>
+                        <ControlPoint><Time>4200.0</Time><Position>0.66</Position></ControlPoint>
+                        <ControlPoint><Time>4800.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="400" name="LtShoulder_Yaw">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.18</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.18</Position></ControlPoint>
+                        <ControlPoint><Time>1650.0</Time><Position>0.0</Position></ControlPoint>
+                        <ControlPoint><Time>2500.0</Time><Position>0.0</Position></ControlPoint>
+                        <ControlPoint><Time>3500.0</Time><Position>0.0</Position></ControlPoint>
+                        <ControlPoint><Time>4500.0</Time><Position>0.0</Position></ControlPoint>
+                        <ControlPoint><Time>5000.0</Time><Position>0.12</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.18</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="401" name="LtShoulder_Roll">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>250.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>4800.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+        <Channel id="410" name="LtElbow">
+            <MotionPaths>
+                <MotionPath name="path">
+                    <Version type="Interpolation">
+                        <Name>Linear Interpolation</Name>
+                        <Number>1.0</Number>
+                    </Version>
+                    <ControlPoints>
+                        <ControlPoint><Time>0.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>400.0</Time><Position>0.75</Position></ControlPoint>
+                        <ControlPoint><Time>1500.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>3300.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>4000.0</Time><Position>0.70</Position></ControlPoint>
+                        <ControlPoint><Time>4800.0</Time><Position>0.50</Position></ControlPoint>
+                        <ControlPoint><Time>5400.0</Time><Position>0.50</Position></ControlPoint>
+                    </ControlPoints>
+                </MotionPath>
+            </MotionPaths>
+        </Channel>
+    </Channels>
+    <AddOns />
+    <ChannelsParameters />
+    <SyncPointGroups />
+</Animation>

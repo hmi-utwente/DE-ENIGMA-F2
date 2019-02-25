@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>EyebrowsV2</Name>
+		<Number>1.1</Number>
+	</Version>
+	<Channels>
+		<Channel id="300" name="Brows_Up">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>250.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>750.0</Time><Position>1.0</Position></ControlPoint>
+						<ControlPoint><Time>1000.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1500.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters />
+	<SyncPointGroups />
+</Animation>

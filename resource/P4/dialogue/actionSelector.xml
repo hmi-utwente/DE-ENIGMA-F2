@@ -2,641 +2,1250 @@
 
 	<!-- av stands for ActionVariants, this stores all the available variants of the various behavioural actions -->
     <is name="av">
-        {
-        
-            "eyebrows" : {
-                "V1" : {
-                	"audio" : "eyebrowsV1",
-                	"audioDuration" : 2.5,
-                	"animation" : "eyebrowsV1",
-                	"animationDuration" : 3
-                }
-            },
-            "eyes" : {
-                "V1" : {
-                	"audio" : "eyesV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyesV1",
-                	"animationDuration" : 5.5
-                }
-            },
-            "mouth" : {
-                "V1" : {
-                	"audio" : "mouthV1",
-                	"audioDuration" : 2,
-                	"animation" : "mouthV1",
-                	"animationDuration" : 4.5
-                }
-            },
-            "promptEyebrows" : {
-                "V1" : {
-                	"audio" : "promptEyebrowsV1",
-                	"audioDuration" : 3
-                },
-                "V2" : {
-                	"audio" : "promptEyebrowsV1",
-                	"audioDuration" : 3
-                },
-                "V3" : {
-                	"audio" : "promptEyebrowsV1",
-                	"audioDuration" : 3
-                },
-                "V4" : {
-                	"audio" : "promptEyebrowsV4",
-                	"audioDuration" : 3.5
-                }
-            },
-            "promptEyes" : {
-                "V1" : {
-                	"audio" : "promptEyesV1",
-                	"audioDuration" : 2.5
-                },
-                "V2" : {
-                	"audio" : "promptEyesV1",
-                	"audioDuration" : 2.5
-                },
-                "V3" : {
-                	"audio" : "promptEyesV1",
-                	"audioDuration" : 2.5
-                },
-                "V4" : {
-                	"audio" : "promptEyesV4",
-                	"audioDuration" : 3
-                }
-            },
-            "promptMouth" : {
-                "V1" : {
-                	"audio" : "promptMouthV1",
-                	"audioDuration" : 2.5
-                },
-                "V2" : {
-                	"audio" : "promptMouthV1",
-                	"audioDuration" : 2.5
-                },
-                "V3" : {
-                	"audio" : "promptMouthV1",
-                	"audioDuration" : 2.5
-                },
-                "V4" : {
-                	"audio" : "promptMouthV4",
-                	"audioDuration" : 3
-                }
-            },
-            "resolveEyebrows" : {
-                "V1" : {
-                	"audio" : "resolveEyebrowsV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyebrowsV1",
-                	"animationDuration" : 3
-                },
-                "V2" : {
-                	"audio" : "resolveEyebrowsV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyebrowsV1",
-                	"animationDuration" : 3
-                },
-                "V3" : {
-                	"audio" : "resolveEyebrowsV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyebrowsV1",
-                	"animationDuration" : 3
-                },
-                "V4" : {
-                	"audio" : "resolveEyebrowsV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyebrowsV1",
-                	"animationDuration" : 3
-                }
-            },
-            "resolveEyes" : {
-                "V1" : {
-                	"audio" : "resolveEyesV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyesV1",
-                	"animationDuration" : 3
-                },
-                "V2" : {
-                	"audio" : "resolveEyesV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyesV1",
-                	"animationDuration" : 3
-                },
-                "V3" : {
-                	"audio" : "resolveEyesV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyesV1",
-                	"animationDuration" : 3
-                },
-                "V4" : {
-                	"audio" : "resolveEyesV1",
-                	"audioDuration" : 2,
-                	"animation" : "eyesV1",
-                	"animationDuration" : 3
-                }
-            },
-            "resolveMouth" : {
-                "V1" : {
-                	"audio" : "resolveMouthV1",
-                	"audioDuration" : 1.5,
-                	"animation" : "mouthV1",
-                	"animationDuration" : 5.5
-                },
-                "V2" : {
-                	"audio" : "resolveMouthV1",
-                	"audioDuration" : 1.5,
-                	"animation" : "mouthV1",
-                	"animationDuration" : 5.5
-                },
-                "V3" : {
-                	"audio" : "resolveMouthV1",
-                	"audioDuration" : 1.5,
-                	"animation" : "mouthV1",
-                	"animationDuration" : 5.5
-                },
-                "V4" : {
-                	"audio" : "resolveMouthV1",
-                	"audioDuration" : 1.5,
-                	"animation" : "mouthV1",
-                	"animationDuration" : 5.5
-                }
-            },
-            "resolveHappyEyebrows" : {
-                "V1" : {
-                	"audio" : "HappyMyEyebrowsDoNotMove",
-                	"audioDuration" : 4.5,
-                	"animation" : "happyV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveHappyEyes" : {
-                "V1" : {
-                	"audio" : "HappyMyEyesDoNotMove",
-                	"audioDuration" : 4,
-                	"animation" : "happyV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveHappyMouth" : {
-                "V1" : {
-                	"audio" : "HappyMyMouthIsUpIAmSmiling",
-                	"audioDuration" : 6,
-                	"animation" : "happyV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveSadEyebrows" : {
-                "V1" : {
-                	"audio" : "SadMyEyebrowsAreUp",
-                	"audioDuration" : 4,
-                	"animation" : "sadV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveSadEyes" : {
-                "V1" : {
-                	"audio" : "SadMyEyesAreClosedIAmCrying",
-                	"audioDuration" : 6.5,
-                	"animation" : "sadV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveSadMouth" : {
-                "V1" : {
-                	"audio" : "SadMyMouthIsDown",
-                	"audioDuration" : 4,
-                	"animation" : "sadV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveAngerEyebrows" : {
-                "V1" : {
-                	"audio" : "AngryMyEyebrowsAreDownIAmFrowning",
-                	"audioDuration" : 7,
-                	"animation" : "angerV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveAngerEyes" : {
-                "V1" : {
-                	"audio" : "AngryMyEyesAreNarrow",
-                	"audioDuration" : 4,
-                	"animation" : "angerV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveAngerMouth" : {
-                "V1" : {
-                	"audio" : "AngryMyMouthIsDown",
-                	"audioDuration" : 4,
-                	"animation" : "angerV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveFearEyebrows" : {
-                "V1" : {
-                	"audio" : "ScaredMyEyebrowsAreUp",
-                	"audioDuration" : 4,
-                	"animation" : "fearV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveFearEyes" : {
-                "V1" : {
-                	"audio" : "ScaredMyEyesAreOpen",
-                	"audioDuration" : 4,
-                	"animation" : "fearV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveFearMouth" : {
-                "V1" : {
-                	"audio" : "ScaredMyMouthIsOpenIAmGasping",
-                	"audioDuration" : 6.5,
-                	"animation" : "fearV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "promptHappy" : {
-                "V1" : {
-                	"audio" : "promptHappyV1",
-                	"audioDuration" : 2
-                },
-                "V2" : {
-                	"audio" : "promptHappyV1",
-                	"audioDuration" : 2
-                },
-                "V3" : {
-                	"audio" : "promptHappyV1",
-                	"audioDuration" : 2
-                },
-                "V4" : {
-                	"audio" : "promptHappyV4",
-                	"audioDuration" : 2.5
-                }
-            },
-            "promptSad" : {
-                "V1" : {
-                	"audio" : "promptSadV1",
-                	"audioDuration" : 2
-                },
-                "V2" : {
-                	"audio" : "promptSadV1",
-                	"audioDuration" : 2
-                },
-                "V3" : {
-                	"audio" : "promptSadV1",
-                	"audioDuration" : 2
-                },
-                "V4" : {
-                	"audio" : "promptSadV4",
-                	"audioDuration" : 2.5
-                }
-            },
-            "promptAnger" : {
-                "V1" : {
-                	"audio" : "promptAngerV1",
-                	"audioDuration" : 2
-                },
-                "V2" : {
-                	"audio" : "promptAngerV1",
-                	"audioDuration" : 2
-                },
-                "V3" : {
-                	"audio" : "promptAngerV1",
-                	"audioDuration" : 2
-                },
-                "V4" : {
-                	"audio" : "promptAngerV4",
-                	"audioDuration" : 3
-                }
-            },
-            "promptFear" : {
-                "V1" : {
-                	"audio" : "promptFearV1",
-                	"audioDuration" : 2
-                },
-                "V2" : {
-                	"audio" : "promptFearV1",
-                	"audioDuration" : 2
-                },
-                "V3" : {
-                	"audio" : "promptFearV1",
-                	"audioDuration" : 2
-                },
-                "V4" : {
-                	"audio" : "promptFearV4",
-                	"audioDuration" : 3
-                }
-            },
-            "resolveHappy" : {
-                "V1" : {
-                	"audio" : "resolveHappyV1",
-                	"audioDuration" : 3,
-                	"animation" : "happyV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"audio" : "resolveHappyV1",
-                	"audioDuration" : 3,
-                	"animation" : "happyV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"audio" : "resolveHappyV1",
-                	"audioDuration" : 3,
-                	"animation" : "happyV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"audio" : "resolveHappyV1",
-                	"audioDuration" : 3,
-                	"animation" : "happyV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveSad" : {
-                "V1" : {
-                	"audio" : "resolveSadV1",
-                	"audioDuration" : 3,
-                	"animation" : "sadV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"audio" : "resolveSadV1",
-                	"audioDuration" : 3,
-                	"animation" : "sadV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"audio" : "resolveSadV1",
-                	"audioDuration" : 3,
-                	"animation" : "sadV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"audio" : "resolveSadV1",
-                	"audioDuration" : 3,
-                	"animation" : "sadV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveAnger" : {
-                "V1" : {
-                	"audio" : "resolveAngerV1",
-                	"audioDuration" : 3,
-                	"animation" : "angerV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"audio" : "resolveAngerV1",
-                	"audioDuration" : 3,
-                	"animation" : "angerV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"audio" : "resolveAngerV1",
-                	"audioDuration" : 3,
-                	"animation" : "angerV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"audio" : "resolveAngerV1",
-                	"audioDuration" : 3,
-                	"animation" : "angerV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "resolveFear" : {
-                "V1" : {
-                	"audio" : "resolveFearV1",
-                	"audioDuration" : 3,
-                	"animation" : "fearV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"audio" : "resolveFearV1",
-                	"audioDuration" : 3,
-                	"animation" : "fearV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"audio" : "resolveFearV1",
-                	"audioDuration" : 3,
-                	"animation" : "fearV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"audio" : "resolveFearV1",
-                	"audioDuration" : 3,
-                	"animation" : "fearV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "transitionGames" : {
-                "V1" : {
-                	"audio" : "transitionGamesV1",
-                	"audioDuration" : 3
-                }
-            },
-            "greeting" : {
-                "V1" : {
-                	"audio" : "greetingV1",
-                	"audioDuration" : 3,
-                	"animation" : "greetingV1",
-                	"animationDuration" : 6.5
-                },
-                "V2" : {
-                	"audio" : "greetingV2",
-                	"audioDuration" : 4,
-                	"animation" : "greetingV2",
-                	"animationDuration" : 6.5
-                }
-            },
-            "attention" : {
-                "V1" : {
-                	"audio" : "attentionV1",
-                	"audioDuration" : 1.5,
-                	"animation" : "attentionV1",
-                	"animationDuration" : 3.5
-                }
-            },
-            "happy" : {
-                "V1" : {
-                	"tabletImage" : "happy_v1",
-                	"tabletImageEnabled" : "enabled_happy_v1",
-                	"tabletImageDisabled" : "disabled_happy_v1",
-                	"animation" : "happyV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"tabletImage" : "happy_v2",
-                	"tabletImageEnabled" : "enabled_happy_v2",
-                	"tabletImageDisabled" : "disabled_happy_v2",
-                	"animation" : "happyV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"tabletImage" : "happy_v3",
-                	"tabletImageEnabled" : "enabled_happy_v3",
-                	"tabletImageDisabled" : "disabled_happy_v3",
-                	"animation" : "happyV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"tabletImage" : "happy_v4",
-                	"tabletImageEnabled" : "enabled_happy_v4",
-                	"tabletImageDisabled" : "disabled_happy_v4",
-                	"animation" : "happyV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "sad" : {
-                "V1" : {
-                	"tabletImage" : "sad_v1",
-                	"tabletImageEnabled" : "enabled_sad_v1",
-                	"tabletImageDisabled" : "disabled_sad_v1",
-                	"animation" : "sadV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"tabletImage" : "sad_v2",
-                	"tabletImageEnabled" : "enabled_sad_v2",
-                	"tabletImageDisabled" : "disabled_sad_v2",
-                	"animation" : "sadV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"tabletImage" : "sad_v3",
-                	"tabletImageEnabled" : "enabled_sad_v3",
-                	"tabletImageDisabled" : "disabled_sad_v3",
-                	"animation" : "sadV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"tabletImage" : "sad_v4",
-                	"tabletImageEnabled" : "enabled_sad_v4",
-                	"tabletImageDisabled" : "disabled_sad_v4",
-                	"animation" : "sadV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "anger" : {
-                "V1" : {
-                	"tabletImage" : "anger_v1",
-                	"tabletImageEnabled" : "enabled_anger_v1",
-                	"tabletImageDisabled" : "disabled_anger_v1",
-                	"animation" : "angerV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"tabletImage" : "anger_v2",
-                	"tabletImageEnabled" : "enabled_anger_v2",
-                	"tabletImageDisabled" : "disabled_anger_v2",
-                	"animation" : "angerV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"tabletImage" : "anger_v3",
-                	"tabletImageEnabled" : "enabled_anger_v3",
-                	"tabletImageDisabled" : "disabled_anger_v3",
-                	"animation" : "angerV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"tabletImage" : "anger_v4",
-                	"tabletImageEnabled" : "enabled_anger_v4",
-                	"tabletImageDisabled" : "disabled_anger_v4",
-                	"animation" : "angerV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "fear" : {
-                "V1" : {
-                	"tabletImage" : "fear_v1",
-                	"tabletImageEnabled" : "enabled_fear_v1",
-                	"tabletImageDisabled" : "disabled_fear_v1",
-                	"animation" : "fearV1",
-                	"animationDuration" : 3.5
-                },
-                "V2" : {
-                	"tabletImage" : "fear_v2",
-                	"tabletImageEnabled" : "enabled_fear_v2",
-                	"tabletImageDisabled" : "disabled_fear_v2",
-                	"animation" : "fearV2",
-                	"animationDuration" : 3.5
-                },
-                "V3" : {
-                	"tabletImage" : "fear_v3",
-                	"tabletImageEnabled" : "enabled_fear_v3",
-                	"tabletImageDisabled" : "disabled_fear_v3",
-                	"animation" : "fearV3",
-                	"animationDuration" : 3.5
-                },
-                "V4" : {
-                	"tabletImage" : "fear_v4",
-                	"tabletImageEnabled" : "enabled_fear_v4",
-                	"tabletImageDisabled" : "disabled_fear_v4",
-                	"animation" : "fearV4",
-                	"animationDuration" : 3.5
-                }
-            },
-            "ok" : {
-                "V1" : {
-                	"audio" : "okV1",
-                	"audioDuration" : 1
-                }
-            },
-            "yes" : {
-                "V1" : {
-                	"audio" : "yesV1",
-                	"audioDuration" : 1
-                }
-            },
-            "no" : {
-                "V1" : {
-                	"audio" : "noV1",
-                	"audioDuration" : 1
-                }
-            },
-            "praise" : {
-                "V1" : {
-                	"audio" : "praiseV1",
-                	"audioDuration" : 1.5
-                },
-                "V2" : {
-                	"audio" : "praiseV2",
-                	"audioDuration" : 1.5
-                },
-                "V3" : {
-                	"audio" : "praiseV3",
-                	"audioDuration" : 2
-                },
-                "V4" : {
-                	"audio" : "praiseV4",
-                	"audioDuration" : 2
-                }
-            },
-            "thanks" : {
-                "V1" : {
-                	"audio" : "thanksV1",
-                	"audioDuration" : 1.5
-                },
-                "V2" : {
-                	"audio" : "thanksV2",
-                	"audioDuration" : 1.5
-                }
-            },
-            "exclamation" : {
-                "V1" : {
-                	"audio" : "exclamationV1",
-                	"audioDuration" : 1.5
-                },
-                "V3" : {
-                	"audio" : "exclamationV3",
-                	"audioDuration" : 1.5
-                }
-            }
+{
+    "anger": {
+        "V1": {
+            "animation": "angerV1",
+            "animationDuration": 3.5,
+            "tabletImage": "anger_v1",
+            "tabletImageDisabled": "disabled_anger_v1",
+            "tabletImageEnabled": "enabled_anger_v1"
+        },
+        "V2": {
+            "animation": "angerV2",
+            "animationDuration": 3.5,
+            "tabletImage": "anger_v2",
+            "tabletImageDisabled": "disabled_anger_v2",
+            "tabletImageEnabled": "enabled_anger_v2"
+        },
+        "V3": {
+            "animation": "angerV3",
+            "animationDuration": 3.5,
+            "tabletImage": "anger_v3",
+            "tabletImageDisabled": "disabled_anger_v3",
+            "tabletImageEnabled": "enabled_anger_v3"
+        },
+        "V4": {
+            "animation": "angerV4",
+            "animationDuration": 3.5,
+            "tabletImage": "anger_v4",
+            "tabletImageDisabled": "disabled_anger_v4",
+            "tabletImageEnabled": "enabled_anger_v4"
         }
+    },
+    "attention": {
+        "V1": {
+            "animation": "attentionV1",
+            "animationDuration": 3.5,
+            "audio": "attentionV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "animation": "attentionV2",
+            "animationDuration": 3.5,
+            "audio": "attentionV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "attentionV3",
+            "animationDuration": 3.5,
+            "audio": "attentionV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "attentionV4",
+            "animationDuration": 3.5,
+            "audio": "attentionV4",
+            "audioDuration": 1.5
+        }
+    },
+    "bye": {
+        "V1": {
+            "animation": "byeV1",
+            "animationDuration": 3.5,
+            "audio": "byeV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "animation": "byeV2",
+            "animationDuration": 3.5,
+            "audio": "byeV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "byeV3",
+            "animationDuration": 3.5,
+            "audio": "byeV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "animation": "byeV4",
+            "animationDuration": 3.5,
+            "audio": "byeV4",
+            "audioDuration": 2
+        }
+    },
+    "correctiveFeedback": {
+        "V1": {
+            "audio": "correctiveFeedbackV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "audio": "correctiveFeedbackV2",
+            "audioDuration": 3
+        },
+        "V3": {
+            "audio": "correctiveFeedbackV3",
+            "audioDuration": 3
+        },
+        "V4": {
+            "audio": "correctiveFeedbackV4",
+            "audioDuration": 3
+        }
+    },
+    "dance": {
+        "V1": {
+            "animation": "danceV1",
+            "animationDuration": 6
+        },
+        "V2": {
+            "animation": "danceV2",
+            "animationDuration": 6
+        },
+        "V3": {
+            "animation": "danceV3",
+            "animationDuration": 6
+        },
+        "V4": {
+            "animation": "danceV4",
+            "animationDuration": 6
+        }
+    },
+    "endGame": {
+        "V1": {
+            "audio": "endGameV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "audio": "endGameV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "endGameV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "audio": "endGameV4",
+            "audioDuration": 2.5
+        }
+    },
+    "exclamation": {
+        "V1": {
+            "audio": "exclamationV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "audio": "exclamationV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "exclamationV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "audio": "exclamationV4",
+            "audioDuration": 1.5
+        }
+    },
+    "eyebrows": {
+        "V1": {
+            "animation": "eyebrowsV1",
+            "animationDuration": 3,
+            "audio": "eyebrowsV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "animation": "eyebrowsV2",
+            "animationDuration": 3,
+            "audio": "eyebrowsV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "eyebrowsV3",
+            "animationDuration": 3,
+            "audio": "eyebrowsV3",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "animation": "eyebrowsV4",
+            "animationDuration": 3,
+            "audio": "eyebrowsV4",
+            "audioDuration": 2.5
+        }
+    },
+    "eyes": {
+        "V1": {
+            "animation": "eyesV1",
+            "animationDuration": 5.5,
+            "audio": "eyesV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "animation": "eyesV2",
+            "animationDuration": 5.5,
+            "audio": "eyesV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "eyesV3",
+            "animationDuration": 5.5,
+            "audio": "eyesV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "animation": "eyesV4",
+            "animationDuration": 5.5,
+            "audio": "eyesV4",
+            "audioDuration": 2
+        }
+    },
+    "fear": {
+        "V1": {
+            "animation": "fearV1",
+            "animationDuration": 3.5,
+            "tabletImage": "fear_v1",
+            "tabletImageDisabled": "disabled_fear_v1",
+            "tabletImageEnabled": "enabled_fear_v1"
+        },
+        "V2": {
+            "animation": "fearV2",
+            "animationDuration": 3.5,
+            "tabletImage": "fear_v2",
+            "tabletImageDisabled": "disabled_fear_v2",
+            "tabletImageEnabled": "enabled_fear_v2"
+        },
+        "V3": {
+            "animation": "fearV3",
+            "animationDuration": 3.5,
+            "tabletImage": "fear_v3",
+            "tabletImageDisabled": "disabled_fear_v3",
+            "tabletImageEnabled": "enabled_fear_v3"
+        },
+        "V4": {
+            "animation": "fearV4",
+            "animationDuration": 3.5,
+            "tabletImage": "fear_v4",
+            "tabletImageDisabled": "disabled_fear_v4",
+            "tabletImageEnabled": "enabled_fear_v4"
+        }
+    },
+    "greeting": {
+        "V1": {
+            "animation": "greetingV1",
+            "animationDuration": 6.5,
+            "audio": "greetingV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "animation": "greetingV2",
+            "animationDuration": 6.5,
+            "audio": "greetingV2",
+            "audioDuration": 4
+        },
+        "V3": {
+            "animation": "greetingV1",
+            "animationDuration": 6.5,
+            "audio": "greetingV3",
+            "audioDuration": 3.5
+        },
+        "V4": {
+            "animation": "greetingV2",
+            "animationDuration": 6.5,
+            "audio": "greetingV4",
+            "audioDuration": 3.5
+        }
+    },
+    "happy": {
+        "V1": {
+            "animation": "happyV1",
+            "animationDuration": 3.5,
+            "tabletImage": "happy_v1",
+            "tabletImageDisabled": "disabled_happy_v1",
+            "tabletImageEnabled": "enabled_happy_v1"
+        },
+        "V2": {
+            "animation": "happyV2",
+            "animationDuration": 3.5,
+            "tabletImage": "happy_v2",
+            "tabletImageDisabled": "disabled_happy_v2",
+            "tabletImageEnabled": "enabled_happy_v2"
+        },
+        "V3": {
+            "animation": "happyV3",
+            "animationDuration": 3.5,
+            "tabletImage": "happy_v3",
+            "tabletImageDisabled": "disabled_happy_v3",
+            "tabletImageEnabled": "enabled_happy_v3"
+        },
+        "V4": {
+            "animation": "happyV4",
+            "animationDuration": 3.5,
+            "tabletImage": "happy_v4",
+            "tabletImageDisabled": "disabled_happy_v4",
+            "tabletImageEnabled": "enabled_happy_v4"
+        }
+    },
+    "mouth": {
+        "V1": {
+            "animation": "mouthV1",
+            "animationDuration": 5.5,
+            "audio": "mouthV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "animation": "mouthV2",
+            "animationDuration": 5.5,
+            "audio": "mouthV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "mouthV3",
+            "animationDuration": 5.5,
+            "audio": "mouthV3",
+            "audioDuration": 3
+        },
+        "V4": {
+            "animation": "mouthV4",
+            "animationDuration": 5.5,
+            "audio": "mouthV4",
+            "audioDuration": 2.5
+        }
+    },
+    "nextAction": {
+        "V1": {
+            "animation": "nextActionV1",
+            "animationDuration": 4.5,
+            "audio": "nextActionV1",
+            "audioDuration": 2.5
+        }
+    },
+    "no": {
+        "V1": {
+            "audio": "noV1",
+            "audioDuration": 1
+        },
+        "V2": {
+            "audio": "noV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "noV3",
+            "audioDuration": 1
+        },
+        "V4": {
+            "audio": "noV4",
+            "audioDuration": 1.5
+        }
+    },
+    "praise": {
+        "V1": {
+            "audio": "praiseV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "audio": "praiseV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "audio": "praiseV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "audio": "praiseV4",
+            "audioDuration": 1.5
+        }
+    },
+    "promptAnger": {
+        "V1": {
+            "audio": "promptAngerV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "audio": "promptAngerV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "promptAngerV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "audio": "promptAngerV4",
+            "audioDuration": 2.5
+        }
+    },
+    "promptEyebrows": {
+        "V1": {
+            "audio": "promptEyebrowsV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "audio": "promptEyebrowsV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "promptEyebrowsV3",
+            "audioDuration": 3
+        },
+        "V4": {
+            "audio": "promptEyebrowsV4",
+            "audioDuration": 3
+        }
+    },
+    "promptEyes": {
+        "V1": {
+            "audio": "promptEyesV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "audio": "promptEyesV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "promptEyesV3",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "audio": "promptEyesV4",
+            "audioDuration": 2.5
+        }
+    },
+    "promptFear": {
+        "V1": {
+            "audio": "promptFearV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "audio": "promptFearV1",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "audio": "promptFearV1",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "audio": "promptFearV4",
+            "audioDuration": 3
+        }
+    },
+    "promptHappy": {
+        "V1": {
+            "audio": "promptHappyV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "audio": "promptHappyV1",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "audio": "promptHappyV1",
+            "audioDuration": 2
+        },
+        "V4": {
+            "audio": "promptHappyV4",
+            "audioDuration": 2.5
+        }
+    },
+    "promptMouth": {
+        "V1": {
+            "audio": "promptMouthV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "audio": "promptMouthV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "promptMouthV3",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "audio": "promptMouthV4",
+            "audioDuration": 2.5
+        }
+    },
+    "promptSad": {
+        "V1": {
+            "audio": "promptSadV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "audio": "promptSadV1",
+            "audioDuration": 2
+        },
+        "V3": {
+            "audio": "promptSadV1",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "audio": "promptSadV4",
+            "audioDuration": 2.5
+        }
+    },
+    "resolveAnger": {
+        "V1": {
+            "animation": "angerV1",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "animation": "angerV2",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerV1",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "angerV3",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerV1",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "angerV4",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerV1",
+            "audioDuration": 3.5
+        }
+    },
+    "resolveAngerEyebrows": {
+        "V1": {
+            "animation": "angerV1",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyebrowsV1",
+            "audioDuration": 4
+        },
+        "V2": {
+            "animation": "angerV2",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyebrowsV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "angerV3",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyebrowsV3",
+            "audioDuration": 5
+        },
+        "V4": {
+            "animation": "angerV4",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyebrowsV4",
+            "audioDuration": 5
+        }
+    },
+    "resolveAngerEyes": {
+        "V1": {
+            "animation": "angerV1",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyesV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "angerV2",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyesV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "angerV3",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyesV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "angerV4",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerEyesV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveAngerMouth": {
+        "V1": {
+            "animation": "angerV1",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerMouthV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "animation": "angerV2",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerMouthV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "angerV3",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerMouthV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "angerV4",
+            "animationDuration": 3.5,
+            "audio": "resolveAngerMouthV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveEyebrows": {
+        "V1": {
+            "animation": "eyebrowsV1",
+            "animationDuration": 3.5,
+            "audio": "resolveEyebrowsV1",
+            "audioDuration": 2
+        },
+        "V2": {
+            "animation": "eyebrowsV2",
+            "animationDuration": 3.5,
+            "audio": "resolveEyebrowsV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "eyebrowsV3",
+            "animationDuration": 3.5,
+            "audio": "resolveEyebrowsV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "eyebrowsV4",
+            "animationDuration": 3.5,
+            "audio": "resolveEyebrowsV4",
+            "audioDuration": 3.5
+        }
+    },
+    "resolveEyes": {
+        "V1": {
+            "animation": "eyesV1",
+            "animationDuration": 3.5,
+            "audio": "resolveEyesV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "animation": "eyesV2",
+            "animationDuration": 3.5,
+            "audio": "resolveEyesV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "eyesV3",
+            "animationDuration": 3.5,
+            "audio": "resolveEyesV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "eyesV4",
+            "animationDuration": 3.5,
+            "audio": "resolveEyesV4",
+            "audioDuration": 3
+        }
+    },
+    "resolveFear": {
+        "V1": {
+            "animation": "fearV1",
+            "animationDuration": 3.5,
+            "audio": "resolveFearV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "animation": "fearV2",
+            "animationDuration": 3.5,
+            "audio": "resolveFearV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "fearV3",
+            "animationDuration": 3.5,
+            "audio": "resolveFearV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "fearV4",
+            "animationDuration": 3.5,
+            "audio": "resolveFearV4",
+            "audioDuration": 3.5
+        }
+    },
+    "resolveFearEyebrows": {
+        "V1": {
+            "animation": "fearV1",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyebrowsV1",
+            "audioDuration": 4
+        },
+        "V2": {
+            "animation": "fearV2",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyebrowsV2",
+            "audioDuration": 3
+        },
+        "V3": {
+            "animation": "fearV3",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyebrowsV3",
+            "audioDuration": 5
+        },
+        "V4": {
+            "animation": "fearV4",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyebrowsV4",
+            "audioDuration": 5
+        }
+    },
+    "resolveFearEyes": {
+        "V1": {
+            "animation": "fearV1",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyesV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "fearV2",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyesV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "fearV3",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyesV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "fearV4",
+            "animationDuration": 3.5,
+            "audio": "resolveFearEyesV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveFearMouth": {
+        "V1": {
+            "animation": "fearV1",
+            "animationDuration": 3.5,
+            "audio": "resolveFearMouthV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "animation": "fearV2",
+            "animationDuration": 3.5,
+            "audio": "resolveFearMouthV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "fearV3",
+            "animationDuration": 3.5,
+            "audio": "resolveFearMouthV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "fearV4",
+            "animationDuration": 3.5,
+            "audio": "resolveFearMouthV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveHappy": {
+        "V1": {
+            "animation": "happyV1",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyV1",
+            "audioDuration": 2.5
+        },
+        "V2": {
+            "animation": "happyV2",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyV1",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "happyV3",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyV1",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "happyV4",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyV1",
+            "audioDuration": 3.5
+        }
+    },
+    "resolveHappyEyebrows": {
+        "V1": {
+            "animation": "happyV1",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyebrowsV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "happyV2",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyebrowsV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "happyV3",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyebrowsV3",
+            "audioDuration": 5
+        },
+        "V4": {
+            "animation": "happyV4",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyebrowsV4",
+            "audioDuration": 5
+        }
+    },
+    "resolveHappyEyes": {
+        "V1": {
+            "animation": "happyV1",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyesV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "happyV2",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyesV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "happyV3",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyesV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "happyV4",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyEyesV4",
+            "audioDuration": 4
+        }
+    },
+    "resolveHappyMouth": {
+        "V1": {
+            "animation": "happyV1",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyMouthV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "happyV2",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyMouthV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "happyV3",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyMouthV3",
+            "audioDuration": 4
+        },
+        "V4": {
+            "animation": "happyV4",
+            "animationDuration": 3.5,
+            "audio": "resolveHappyMouthV4",
+            "audioDuration": 4
+        }
+    },
+    "resolveMouth": {
+        "V1": {
+            "animation": "mouthV1",
+            "animationDuration": 6,
+            "audio": "resolveMouthV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "animation": "mouthV2",
+            "animationDuration": 6,
+            "audio": "resolveMouthV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "mouthV3",
+            "animationDuration": 6,
+            "audio": "resolveMouthV3",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "mouthV4",
+            "animationDuration": 6,
+            "audio": "resolveMouthV4",
+            "audioDuration": 3
+        }
+    },
+    "resolveSad": {
+        "V1": {
+            "animation": "sadV1",
+            "animationDuration": 3.5,
+            "audio": "resolveSadV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "animation": "sadV2",
+            "animationDuration": 3.5,
+            "audio": "resolveSadV1",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "animation": "sadV3",
+            "animationDuration": 3.5,
+            "audio": "resolveSadV1",
+            "audioDuration": 1.5
+        },
+        "V4": {
+            "animation": "sadV4",
+            "animationDuration": 3.5,
+            "audio": "resolveSadV1",
+            "audioDuration": 3.5
+        }
+    },
+    "resolveSadEyebrows": {
+        "V1": {
+            "animation": "sadV1",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyebrowsV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "sadV2",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyebrowsV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "sadV3",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyebrowsV3",
+            "audioDuration": 4.5
+        },
+        "V4": {
+            "animation": "sadV4",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyebrowsV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveSadEyes": {
+        "V1": {
+            "animation": "sadV1",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyesV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "sadV2",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyesV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "animation": "sadV3",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyesV3",
+            "audioDuration": 5
+        },
+        "V4": {
+            "animation": "sadV4",
+            "animationDuration": 3.5,
+            "audio": "resolveSadEyesV4",
+            "audioDuration": 4.5
+        }
+    },
+    "resolveSadMouth": {
+        "V1": {
+            "animation": "sadV1",
+            "animationDuration": 3.5,
+            "audio": "resolveSadMouthV1",
+            "audioDuration": 3.5
+        },
+        "V2": {
+            "animation": "sadV2",
+            "animationDuration": 3.5,
+            "audio": "resolveSadMouthV2",
+            "audioDuration": 2
+        },
+        "V3": {
+            "animation": "sadV3",
+            "animationDuration": 3.5,
+            "audio": "resolveSadMouthV3",
+            "audioDuration": 4
+        },
+        "V4": {
+            "animation": "sadV4",
+            "animationDuration": 3.5,
+            "audio": "resolveSadMouthV4",
+            "audioDuration": 4
+        }
+    },
+    "sad": {
+        "V1": {
+            "animation": "sadV1",
+            "animationDuration": 3.5,
+            "tabletImage": "sad_v1",
+            "tabletImageDisabled": "disabled_sad_v1",
+            "tabletImageEnabled": "enabled_sad_v1"
+        },
+        "V2": {
+            "animation": "sadV2",
+            "animationDuration": 3.5,
+            "tabletImage": "sad_v2",
+            "tabletImageDisabled": "disabled_sad_v2",
+            "tabletImageEnabled": "enabled_sad_v2"
+        },
+        "V3": {
+            "animation": "sadV3",
+            "animationDuration": 3.5,
+            "tabletImage": "sad_v3",
+            "tabletImageDisabled": "disabled_sad_v3",
+            "tabletImageEnabled": "enabled_sad_v3"
+        },
+        "V4": {
+            "animation": "sadV4",
+            "animationDuration": 3.5,
+            "tabletImage": "sad_v4",
+            "tabletImageDisabled": "disabled_sad_v4",
+            "tabletImageEnabled": "enabled_sad_v4"
+        }
+    },
+    "respondToChildPresence": {
+        "V1": {
+            "animation": "respondToChildPresenceV1",
+            "animationDuration": 3.5,
+            "audio": "respondToChildPresenceV1",
+            "audioDuration": 1.5
+        }
+    },
+    "respondToError": {
+        "V1": {
+            "audio": "respondToErrorV1",
+            "audioDuration": 3.5
+        }
+    },
+    "respondToHappyPerception": {
+        "V1": {
+            "audio": "respondToHappyPerceptionV1",
+            "audioDuration": 4
+        }
+    },
+    "respondToHearing": {
+        "V1": {
+            "animation": "respondToHearingV1",
+            "animationDuration": 3.5,
+            "audio": "respondToHearingV1",
+            "audioDuration": 2
+        }
+    },
+    "respondToLaughing": {
+        "V1": {
+            "audio": "respondToLaughingV1",
+            "audioDuration": 3
+        }
+    },
+    "respondToNegativeAffect": {
+        "V1": {
+            "audio": "respondToNegativeAffectV1",
+            "audioDuration": 2.5
+        }
+    },
+    "respondToNoise": {
+        "V1": {
+            "animation": "respondToNoiseV1",
+            "animationDuration": 3.5,
+            "audio": "respondToNoiseV1",
+            "audioDuration": 2
+        }
+    },
+    "respondToPositiveAffect": {
+        "V1": {
+            "audio": "respondToPositiveAffectV1",
+            "audioDuration": 2
+        }
+    },
+    "respondToQuestion": {
+        "V1": {
+            "animation": "respondToQuestionV1",
+            "animationDuration": 2,
+            "audio": "respondToQuestionV1",
+            "audioDuration": 1.5
+        }
+    },
+    "respondToShoulderStuck": {
+        "V1": {
+            "animation": "respondToShoulderStuckV1",
+            "animationDuration": 4.5,
+            "audio": "respondToShoulderStuckV1",
+            "audioDuration": 2
+        }
+    },
+    "respondToSittingDown": {
+        "V1": {
+            "animation": "respondToSittingDownV1",
+            "animationDuration": 4.5,
+            "audio": "respondToSittingDownV1",
+            "audioDuration": 2.5
+        }
+    },
+    "respondToSoftwareUpdate": {
+        "V1": {
+            "audio": "respondToSoftwareUpdateV1",
+            "audioDuration": 2.5
+        }
+    },
+    "respondToWifiLost": {
+        "V1": {
+            "audio": "respondToWifiLostV1",
+            "audioDuration": 5.5
+        }
+    },
+    "respondToWindowsError": {
+        "V1": {
+            "audio": "respondToWindowsErrorV1",
+            "audioDuration": 2.5
+        }
+    },
+    "song": {
+        "V1": {
+            "audio": "songV1",
+            "audioDuration": 16
+        },
+        "V2": {
+            "audio": "songV2",
+            "audioDuration": 15.5
+        },
+        "V3": {
+            "audio": "songV3",
+            "audioDuration": 16
+        },
+        "V4": {
+            "audio": "songV4",
+            "audioDuration": 15.5
+        }
+    },
+    "startGames": {
+        "V1": {
+            "audio": "startGamesV1",
+            "audioDuration": 3
+        },
+        "V2": {
+            "audio": "startGamesV2",
+            "audioDuration": 3.5
+        },
+        "V3": {
+            "audio": "startGamesV3",
+            "audioDuration": 2.5
+        },
+        "V4": {
+            "audio": "startGamesV4",
+            "audioDuration": 2
+        }
+    },
+    "thanks": {
+        "V1": {
+            "audio": "thanksV1",
+            "audioDuration": 1
+        },
+        "V2": {
+            "audio": "thanksV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "audio": "thanksV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "audio": "thanksV4",
+            "audioDuration": 2
+        }
+    },
+    "time": {
+        "V1": {
+            "animation": "timeV1",
+            "animationDuration": 4.5,
+            "audio": "timeV1",
+            "audioDuration": 2
+        }
+    },
+    "torsoMovement": {
+        "V1": {
+            "animation": "torsoMovementV1",
+            "animationDuration": 3.5
+        },
+        "V2": {
+            "animation": "torsoMovementV2",
+            "animationDuration": 3.5
+        },
+        "V3": {
+            "animation": "torsoMovementV3",
+            "animationDuration": 3.5
+        },
+        "V4": {
+            "animation": "torsoMovementV4",
+            "animationDuration": 3.5
+        }
+    },
+    "transitionGames": {
+        "V1": {
+            "audio": "transitionGamesV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "audio": "transitionGamesV2",
+            "audioDuration": 1.5
+        },
+        "V3": {
+            "audio": "transitionGamesV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "audio": "transitionGamesV4",
+            "audioDuration": 2
+        }
+    },
+    "uncertain": {
+        "V1": {
+            "audio": "uncertainV1",
+            "audioDuration": 1.5
+        },
+        "V2": {
+            "audio": "uncertainV2",
+            "audioDuration": 2.5
+        },
+        "V3": {
+            "audio": "uncertainV3",
+            "audioDuration": 2
+        },
+        "V4": {
+            "audio": "uncertainV4",
+            "audioDuration": 1.5
+        }
+    },
+    "yes": {
+        "V1": {
+            "audio": "yesV1",
+            "audioDuration": 1
+        },
+        "V2": {
+            "audio": "yesV2",
+            "audioDuration": 1
+        },
+        "V3": {
+            "audio": "yesV3",
+            "audioDuration": 1
+        },
+        "V4": {
+            "audio": "yesV4",
+            "audioDuration": 1.5
+        }
+    }
+}
     </is>
 	<javascript>
 		<![CDATA[

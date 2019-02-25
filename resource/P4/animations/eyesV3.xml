@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Animation>
+	<Version type="Animation">
+		<Name>EyesV3</Name>
+		<Number>1.0</Number>
+	</Version>
+	<Channels>
+		<Channel id="301" name="Eyelids">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>C-Spline Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.87</Position></ControlPoint>
+						<ControlPoint><Time>3200.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>3400.0</Time><Position>0.0</Position></ControlPoint>
+						<ControlPoint><Time>4000.0</Time><Position>0.9</Position></ControlPoint>
+						<ControlPoint><Time>4200.0</Time><Position>0.9</Position></ControlPoint>
+						<ControlPoint><Time>5000.0</Time><Position>0.87</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+		<Channel id="311" name="Eye Turn">
+			<MotionPaths>
+				<MotionPath name="path">
+					<Version type="Interpolation">
+						<Name>Linear Interpolation</Name>
+						<Number>1.0</Number>
+					</Version>
+					<ControlPoints>
+						<ControlPoint><Time>0.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>500.0</Time><Position>0.2</Position></ControlPoint>
+						<ControlPoint><Time>700.0</Time><Position>0.2</Position></ControlPoint>
+						<ControlPoint><Time>1250.0</Time><Position>0.5</Position></ControlPoint>
+						<ControlPoint><Time>1500.0</Time><Position>0.8</Position></ControlPoint>
+						<ControlPoint><Time>1700.0</Time><Position>0.8</Position></ControlPoint>
+						<ControlPoint><Time>2000.0</Time><Position>0.6</Position></ControlPoint>
+						<ControlPoint><Time>2500.0</Time><Position>0.5</Position></ControlPoint>
+					</ControlPoints>
+				</MotionPath>
+			</MotionPaths>
+		</Channel>
+	</Channels>
+	<AddOns />
+	<ChannelsParameters>
+	</ChannelsParameters>
+	<SyncPointGroups>
+	</SyncPointGroups>
+</Animation>
