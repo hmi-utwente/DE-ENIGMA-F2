@@ -8,21 +8,21 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"start_Greetings","value":"Greeting"},
+            {"id":"start_Greetings","value":"Start activity"},
             
 			{"id":"", "value":"blankSpace"},
 			
             {"id":"attention","value":"Attention"},
-            {"id":"turnWaist","value":"Torso movement"},
-            {"id":"dance","value":"Monkey dance"},
-            {"id":"music","value":"Twinkle twinkle"},
-            {"id":"wp1Happy","value":"WP1 Happy"},
-            {"id":"wp1Sad","value":"WP1 Sad"},
-            {"id":"wp1Angry","value":"WP1 Angry"},
-            {"id":"wp1Scared","value":"WP1 Scared"},
+            {"id":"torsoMovement","value":"Torso movement"},
+            {"id":"dance","value":"Dance"},
+            {"id":"song","value":"Song"},
+            {"id":"happy","value":"Happy face"},
+            {"id":"sad","value":"Sad face"},
+            {"id":"anger","value":"Angry face"},
+            {"id":"fear","value":"Scared face"},
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"end_Greetings","value":"Time for faces with Zeno"}
+            {"id":"end_Greetings","value":"End activity"}
         ]}}
 </mwe:sendJsonMessage>

@@ -12,23 +12,17 @@
             
 			{"id":"textOnly", "value":"$trial_info$"},
 			
-            {"id":"prompt_happy_1d","value":"Find happy (1 distractor)"},
-            {"id":"prompt_happy_3d","value":"Find happy (3 distractors)"},
+            {"id":"prompt_happy_1d","value":"Happy (1 distractor)"},
+            {"id":"prompt_happy_3d","value":"Happy (3 distractors)"},
             
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"prompt_sad_1d","value":"Find sad (1 distractor)"},
-            {"id":"prompt_sad_3d","value":"Find sad (3 distractors)"},
+            {"id":"prompt_sad_1d","value":"Sad (1 distractor)"},
+            {"id":"prompt_sad_3d","value":"Sad (3 distractors)"},
             
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"prompt_anger_1d","value":"Find angry (1 distractor)"},
-            {"id":"prompt_anger_3d","value":"Find angry (3 distractors)"},
+            {"id":"prompt_anger_1d","value":"Angry (1 distractor)"},
+            {"id":"prompt_anger_3d","value":"Angry (3 distractors)"},
             
-			{"id":"", "value":"blankSpace"},
-			
-            {"id":"prompt_fear_1d","value":"Find scared (1 distractor)"},
-            {"id":"prompt_fear_3d","value":"Find scared (3 distractors)"},
+            {"id":"prompt_fear_1d","value":"Scared (1 distractor)"},
+            {"id":"prompt_fear_3d","value":"Scared (3 distractors)"},
             
 			{"id":"", "value":"blankSpace"},
 			

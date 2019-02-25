@@ -187,7 +187,7 @@
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
     		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
-    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.zeno.request">"correctiveFeedback"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
@@ -322,7 +322,7 @@
     		<assign is="is.childProcessor.promptExpressions.askedTimestamp">0</assign>
     		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
-    		<assign is="is.zeno.request">"letsTryAgain"</assign>
+    		<assign is="is.zeno.request">"correctiveFeedback"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>

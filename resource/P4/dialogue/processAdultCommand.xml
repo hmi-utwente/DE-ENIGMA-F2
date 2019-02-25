@@ -138,7 +138,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"timeForFaces"</assign>
+    		<assign is="is.zeno.request">"startGames"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
     	</effects>
@@ -164,7 +164,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.zeno.request">"endGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
     	</effects>
@@ -195,7 +195,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.zeno.request">"endGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
     	</effects>
@@ -302,7 +302,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.zeno.request">"endGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
     	</effects>
@@ -344,7 +344,7 @@
     	</preconditions>
     	<effects>
     		<assign is="is.child.menuRequest">"blank"</assign>
-    		<assign is="is.zeno.request">"gameFinished"</assign>
+    		<assign is="is.zeno.request">"endGame"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
     	</effects>
@@ -371,6 +371,7 @@
     <!-- if it's not one of the above commands, just pass it on to the zeno controller! -->
     <template id="OtherCommand" name="OtherCommand">
     	<preconditions mode="and">
+    		<condition>!is.zeno.busy</condition>
     		<condition>is.tablet.adult.command !== "none"</condition>
     		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
     	</preconditions>
