@@ -23,7 +23,7 @@ Format of a request:
             "initialised":false,
 			"time" : "0",
 			"killLingeringBehaviourTimer" : 0,
-			"behaviourMode" : "variant",
+			"behaviourMode" : "none",
 			"fps" : 0,
 			"cts" : 0,
 			"prevTime" : 0,

@@ -88,32 +88,11 @@
 				behaviour.startTime = 0;
 				behaviour.duration = roundTo(audioDuration+animationDuration+delay, 2);
 				behaviour.template = filename;
-				behaviour.placeholders = [{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
-				return behaviour;
-			}
-			
-			function createZenoBehaviour(duration, anim, animDelay, audio, audioDelay){
-				if(anim !== "" && audio !== ""){
-					var filename = "animationAudioBehaviour";
-				} else if(anim !== "" && audio === ""){
-					var filename = "animationBehaviour";
-				} else if(anim === "" && audio !== ""){
-					var filename = "audioBehaviour";
-				}
-				
-				if(is.behaviourplanner.behaviourMode === "variant"){
-					var delay = roundTo(Math.random()*3, 2);
+				if(action.hasOwnProperty("reverseOrder") && action.reverseOrder){					
+					behaviour.placeholders = [{"animate1":animation},{"animate1_delay":delay},{"speak1":audio},{"speak1_delay":animationDuration+delay}];
 				} else {
-					var delay = 1.5;
+					behaviour.placeholders = [{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
 				}
-				
-				var behaviour = new Object();
-				behaviour.action = is.zeno.request;
-				behaviour.delay = delay;
-				behaviour.startTime = 0;
-				behaviour.duration = roundTo(duration+delay, 2);
-				behaviour.template = filename;
-				behaviour.placeholders = [{"animate1":anim},{"animate1_delay":animDelay+delay},{"speak1":audio},{"speak1_delay":audioDelay+delay}];
 				return behaviour;
 			}
 			
@@ -208,15 +187,6 @@
 		</effects>
 	</template>
 	
-    <!-- GENERIC -->
-	<template id="reset" name="reset">
-		<preconditions mode="and">
-			<condition>is.zeno.request === "reset"</condition>
-		</preconditions>
-		<effects>
-			<assign is="is.zeno.behaviour">createZenoBehaviour(1, "Emotion_neutral", 0, "", 0)</assign>
-		</effects>
-	</template>
 	
 	<!-- Always near the end, if action request has not yet been executed and cleaned up, 
 	we try to do the generic approach and just execute a random version of the requested action -->

@@ -491,6 +491,12 @@
             "audioDuration": 2.5
         }
     },
+    "reset": {
+        "V1": {
+            "animation": "Emotion_neutral",
+            "animationDuration": 1
+        }
+    },
     "resolveAnger": {
         "V1": {
             "animation": "angerV1",
@@ -1079,6 +1085,7 @@
     },
     "respondToShoulderStuck": {
         "V1": {
+        	"reverseOrder":true,
             "animation": "respondToShoulderStuckV1",
             "animationDuration": 4.5,
             "audio": "respondToShoulderStuckV1",

@@ -1,0 +1,13 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showPersistentButtons" : {
+        "buttons" : [
+            {"id":"cancelResponsiveEvent","value":"Cancel"},
+            {"id":"respondToNoise","value":"Whats that noise","color":"$responsive_button_color$"},
+            {"id":"respondToNegativeAffect","value":"Want to hear a song?","color":"$responsive_button_color$"},
+            {"id":"respondToSittingDown","value":"Lets do good sitting","color":"$responsive_button_color$"},
+            {"id":"respondToChildPresence","value":"Where are you?","color":"$responsive_button_color$"},
+            {"id":"respondToHappyPerception","value":"I see you are happy","color":"$responsive_button_color$"},
+            {"id":"reset","value":"Reset"},
+            {"id":"stressEvent","value":"!!STOP!!","color":"red"}
+        ]}}
+</mwe:sendJsonMessage>
