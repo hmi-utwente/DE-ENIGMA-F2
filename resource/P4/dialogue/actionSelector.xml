@@ -73,13 +73,13 @@
             "audioDuration": 2
         },
         "V3": {
-            "animation": "byeV3",
+            "animation": "byeV1",
             "animationDuration": 3.5,
             "audio": "byeV3",
             "audioDuration": 2
         },
         "V4": {
-            "animation": "byeV4",
+            "animation": "byeV2",
             "animationDuration": 3.5,
             "audio": "byeV4",
             "audioDuration": 2
