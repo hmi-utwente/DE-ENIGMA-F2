@@ -22,6 +22,7 @@ Format of a request:
         {
             "initialised":false,
 			"time" : "0",
+			"killLingeringBehaviourTimer" : 0,
 			"behaviourMode" : "variant",
 			"fps" : 0,
 			"cts" : 0,
@@ -125,6 +126,40 @@ Format of a request:
             </arguments>
           </behaviour>
           <assign is="is.behaviourplanner.nextrequest">""</assign>
+      </effects>
+    </template>
+    
+    <template id="KillLingeringBehaviours1" name="KillLingeringBehaviours1">
+      <preconditions>
+     	<condition>is.behaviourplanner.initialised</condition>
+     	<condition>!is.zeno.busy</condition>
+     	<condition>is.adult.showingMenu === "Main"</condition>
+     	<condition>is.child.showingMenu === "blank"</condition>
+        <condition><![CDATA[is.behaviourplanner.time - is.behaviourplanner.killLingeringBehaviourTimer > 60000]]></condition>
+      </preconditions>
+      <effects>
+          <behaviour name="killLingeringBehaviours">
+            <object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>
+            <arguments>
+            </arguments>
+          </behaviour>
+          <assign is="is.behaviourplanner.killLingeringBehaviourTimer">is.behaviourplanner.time</assign>
+      </effects>
+    </template>
+    
+    <template id="KillLingeringBehaviours2" name="KillLingeringBehaviours2">
+      <preconditions>
+     	<condition>is.behaviourplanner.initialised</condition>
+     	<condition>!is.zeno.busy</condition>
+        <condition><![CDATA[is.behaviourplanner.time - is.behaviourplanner.killLingeringBehaviourTimer > 300000]]></condition>
+      </preconditions>
+      <effects>
+          <behaviour name="killLingeringBehaviours">
+            <object class="flipper.BehaviourPlanner" persistent="is.behaviourplanner.persistent.theBehaviourPlanner"/>
+            <arguments>
+            </arguments>
+          </behaviour>
+          <assign is="is.behaviourplanner.killLingeringBehaviourTimer">is.behaviourplanner.time</assign>
       </effects>
     </template>
 
