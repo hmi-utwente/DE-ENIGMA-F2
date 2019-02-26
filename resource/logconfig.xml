@@ -30,16 +30,16 @@
   </logger>
   
 
-  <logger name="hmi.flipper2" level="ERROR">
+  <logger name="hmi.flipper2" level="ERROR" additivity="false">
          <appender-ref ref="STDOUT" />
   </logger>
-  <logger name="nl.utwente" level="ERROR">
+  <logger name="nl.utwente" level="ERROR" additivity="false">
          <appender-ref ref="STDOUT" />
   </logger>
-  <logger name="asap.realizer" level="ERROR">
+  <logger name="asap.realizer" level="ERROR" additivity="false">
          <appender-ref ref="STDOUT" />
   </logger>
-  <logger name="flipper" level="ERROR">
+  <logger name="flipper" level="ERROR" additivity="false">
          <appender-ref ref="STDOUT" />
   </logger>
 </configuration>
