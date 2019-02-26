@@ -396,12 +396,12 @@ public class UTStarterStopper extends JFrame implements ActionListener, Middlewa
 			showMessage("Restarting system");
 			try {
 				Thread.sleep(500);
+				stopAll().join();
+				startAll().join();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			stopAll();
-			startAll();
 		}
 		
 	}
