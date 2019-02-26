@@ -425,11 +425,11 @@
             "audioDuration": 2
         },
         "V2": {
-            "audio": "promptFearV1",
+            "audio": "promptFearV2",
             "audioDuration": 2.5
         },
         "V3": {
-            "audio": "promptFearV1",
+            "audio": "promptFearV3",
             "audioDuration": 2.5
         },
         "V4": {
@@ -443,11 +443,11 @@
             "audioDuration": 2.5
         },
         "V2": {
-            "audio": "promptHappyV1",
+            "audio": "promptHappyV2",
             "audioDuration": 2.5
         },
         "V3": {
-            "audio": "promptHappyV1",
+            "audio": "promptHappyV3",
             "audioDuration": 2
         },
         "V4": {
@@ -479,16 +479,22 @@
             "audioDuration": 2
         },
         "V2": {
-            "audio": "promptSadV1",
+            "audio": "promptSadV2",
             "audioDuration": 2
         },
         "V3": {
-            "audio": "promptSadV1",
+            "audio": "promptSadV3",
             "audioDuration": 2.5
         },
         "V4": {
             "audio": "promptSadV4",
             "audioDuration": 2.5
+        }
+    },
+    "reset": {
+        "V1": {
+            "animation": "Emotion_neutral",
+            "animationDuration": 1
         }
     },
     "resolveAnger": {
@@ -501,19 +507,19 @@
         "V2": {
             "animation": "angerV2",
             "animationDuration": 3.5,
-            "audio": "resolveAngerV1",
+            "audio": "resolveAngerV2",
             "audioDuration": 1.5
         },
         "V3": {
             "animation": "angerV3",
             "animationDuration": 3.5,
-            "audio": "resolveAngerV1",
+            "audio": "resolveAngerV3",
             "audioDuration": 1.5
         },
         "V4": {
             "animation": "angerV4",
             "animationDuration": 3.5,
-            "audio": "resolveAngerV1",
+            "audio": "resolveAngerV4",
             "audioDuration": 3.5
         }
     },
@@ -761,19 +767,19 @@
         "V2": {
             "animation": "happyV2",
             "animationDuration": 3.5,
-            "audio": "resolveHappyV1",
+            "audio": "resolveHappyV2",
             "audioDuration": 1.5
         },
         "V3": {
             "animation": "happyV3",
             "animationDuration": 3.5,
-            "audio": "resolveHappyV1",
+            "audio": "resolveHappyV3",
             "audioDuration": 1.5
         },
         "V4": {
             "animation": "happyV4",
             "animationDuration": 3.5,
-            "audio": "resolveHappyV1",
+            "audio": "resolveHappyV4",
             "audioDuration": 3.5
         }
     },
@@ -891,19 +897,19 @@
         "V2": {
             "animation": "sadV2",
             "animationDuration": 3.5,
-            "audio": "resolveSadV1",
+            "audio": "resolveSadV2",
             "audioDuration": 1.5
         },
         "V3": {
             "animation": "sadV3",
             "animationDuration": 3.5,
-            "audio": "resolveSadV1",
+            "audio": "resolveSadV3",
             "audioDuration": 1.5
         },
         "V4": {
             "animation": "sadV4",
             "animationDuration": 3.5,
-            "audio": "resolveSadV1",
+            "audio": "resolveSadV4",
             "audioDuration": 3.5
         }
     },
@@ -1079,6 +1085,7 @@
     },
     "respondToShoulderStuck": {
         "V1": {
+        	"reverseOrder":true,
             "animation": "respondToShoulderStuckV1",
             "animationDuration": 4.5,
             "audio": "respondToShoulderStuckV1",

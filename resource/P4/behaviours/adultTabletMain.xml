@@ -10,10 +10,10 @@
 			
 			{"id":"textOnly", "value":"These are the four activities:"},
 			
-            {"id":"showmenu_ExploreFeatures","value":"Explore face features"},
-            {"id":"showmenu_PromptFeatures","value":"Face feature discrimination"},
-            {"id":"showmenu_ExploreExpressions","value":"Explore face expressions"},
-            {"id":"showmenu_PromptExpressions","value":"Face expression discrimination"},
+            {"id":"showmenu_ExploreFeatures","value":"Explore face features","color":"#D05A85"},
+            {"id":"showmenu_PromptFeatures","value":"Face feature discrimination","color":"#569CDA"},
+            {"id":"showmenu_ExploreExpressions","value":"Explore face expressions","color":"#01826c"},
+            {"id":"showmenu_PromptExpressions","value":"Face expression discrimination","color":"#F3C94B"},
             
 			{"id":"", "value":"blankSpace"},
 			

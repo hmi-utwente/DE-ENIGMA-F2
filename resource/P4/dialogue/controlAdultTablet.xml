@@ -5,6 +5,7 @@
 			"menuRequest" : "",
 			"showingMenu" : "",
 			"showingPersistentMenu" : "persistentButtons",
+			"responsiveButtonState" : "none",
 			"prevZenoBusy" : false,
 			"lastShownTime" : 0
 		}
@@ -16,6 +17,22 @@
 		function createMainMenu(){
 			var behaviour = createAdultMenu("Main");
 			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode}]);
+			return behaviour;
+		}
+		
+		function createPersistentMenu(){
+			var behaviour = createShowMenuBehaviour("adult", is.adult.showingPersistentMenu);
+			
+			//which color should the responsive button be?
+			var btnColor = "#999999";
+			if(is.adult.responsiveButtonState === "pending"){
+				btnColor = "#72d5f9"; //a shade of blue
+			} else if (is.adult.responsiveButtonState === "critical"){
+				btnColor = "#19d627"; //a shade of green
+			}
+			
+			behaviour.placeholders = [{"responsive_button_color":btnColor}];
+			
 			return behaviour;
 		}
 		
@@ -79,7 +96,7 @@
 			<assign is="is.logger.latestLogLine">logInfo("Session started - Waiting for WOZ to select experiment condition")</assign>
 			<assign is="is.adult.menuRequest">"Start"</assign>
 			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
-			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
 		</effects>
 	</template>
     
@@ -90,9 +107,8 @@
 		<effects>
 			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
 			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
-			<assign is="is.adult.showingPersistentMenu">"persistentButtons"</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
-			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
 			<assign is="is.adult.menuRequest">""</assign>
 		</effects>
 	</template>
@@ -129,7 +145,7 @@
 		<effects>
 			<assign is="is.adult.menuRefresh">false</assign>
 			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
-			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
 		</effects>
 	</template>
 	
@@ -141,7 +157,7 @@
 		</preconditions>
 		<effects>
 			<assign is="is.adult.menuRequest">is.adult.showingMenu</assign>
-			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", is.adult.showingPersistentMenu))</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
 		</effects>
 	</template>
 	

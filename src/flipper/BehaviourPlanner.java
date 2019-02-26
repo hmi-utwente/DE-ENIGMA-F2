@@ -43,12 +43,11 @@ public class BehaviourPlanner extends FlipperMiddleware {
 
 	public BehaviourPlanner(String middlewareProps) {
 		this(middlewareProps, "behaviours");
-		
-		//send a behaviour to reset the robot and to clear all pending behaviours in ASAP
-		sendBML("<bml id=\"reset\" xmlns=\"http://www.bml-initiative.org/bml/bml-1.0\" composition=\"REPLACE\"></bml>");
 	}
 
 	public boolean init() {
+		//send a behaviour to reset the robot and to clear all pending behaviours in ASAP
+		killLingeringBehaviours();
 		return true;
 	}
 	
@@ -71,6 +70,11 @@ public class BehaviourPlanner extends FlipperMiddleware {
 			logger.error("Unable to load BML template file for the following request: {}", requestJson);
 			e.printStackTrace();
 		}
+	}
+	
+	public void killLingeringBehaviours() {
+		String bml = "<bml id=\"killAllBehaviour\" xmlns=\"http://www.bml-initiative.org/bml/bml-1.0\" xmlns:sze=\"http://hmi.ewi.utwente.nl/zenoengine\" xmlns:bmlt=\"http://hmi.ewi.utwente.nl/bmlt\" xmlns:mwe=\"http://hmi.ewi.utwente.nl/middlewareengine\" composition=\"REPLACE\">"+ "</bml>";
+		sendBML(bml);
 	}
 	
 	/**

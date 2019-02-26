@@ -9,7 +9,7 @@
             {"id":"exclamation","value":"Exclamation"},
             {"id":"time","value":"Time"},
             {"id":"nextAction","value":"Next action?"},
-            {"id":"responsiveEvent","value":"Responsive event"},
+            {"id":"responsiveEvent","value":"Responsive event","color":"$responsive_button_color$"},
             {"id":"reset","value":"Reset"},
             {"id":"stressEvent","value":"!!STOP!!","color":"red"}
         ]}}
