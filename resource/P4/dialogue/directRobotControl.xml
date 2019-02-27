@@ -66,7 +66,7 @@
           <assign is="is.mechio.nextCommand">getNextMechioCommand()</assign>
           <!-- send the request to the behaviour planner -->
           <behaviour name="sendJSONString">
-            <object class="flipper.BehaviourPlanner" persistent="is.mechio.persistent.mechioConnection"/>
+            <object class="flipper.FlipperMiddleware" persistent="is.mechio.persistent.mechioConnection"/>
             <arguments>
               <value class="String" is="is.mechio.nextCommand" is_type="JSONString"/>
             </arguments>
