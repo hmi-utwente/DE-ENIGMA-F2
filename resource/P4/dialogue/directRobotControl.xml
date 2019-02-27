@@ -1,0 +1,78 @@
+<behaviourtemplates>
+
+    <is name="mechio">
+        {
+        	"nextCommand":"",
+            "initialised":false,
+            "settings": {
+                "directMechioConnectionPropertiesFilename":"P4/config/directMechioConnection.properties"
+            }
+        }
+    </is>
+	<javascript>
+		<![CDATA[
+
+
+        var mechioCommands = [];
+        
+        function addMechioCommand(action,params){
+        	var rq = {};
+        	rq.request = {};
+        	rq.request.action = action;
+        	rq.request.params = params;
+            mechioCommands.push(rq);
+            return action;
+        }
+        
+        function existsNextMechioCommand(){
+            return mechioCommands.length>0;
+        }
+        
+        function getNextMechioCommand(){
+            var nextCommand = mechioCommands[0];
+            mechioCommands.shift();
+            return nextCommand;
+        }
+        
+        
+        ]]>
+    </javascript>
+
+	<template id="initializeMechioBehaviourPlanner" name="initializeMechioBehaviourPlanner"> 
+	    <preconditions>
+	    	<condition>!is.mechio.initialised</condition>
+            
+	    </preconditions>
+	    <initeffects>
+			<method name="init" is="is.mechio.initialised">
+			  <object persistent="is.mechio.persistent.mechioConnection" class="flipper.FlipperMiddleware">  
+			    <constructors>
+			           <value class="String" is="is.mechio.settings.directMechioConnectionPropertiesFilename"/>
+			    </constructors>       
+			  </object>  
+			  <arguments></arguments>
+			</method>
+      	</initeffects>
+	    <effects>
+	    </effects>
+  	</template>
+  	
+    <template id="PlanMechioBehaviour" name="PlanMechioBehaviour">
+      <preconditions>
+     	<condition><![CDATA[is.mechio.initialised]]></condition>
+        <condition><![CDATA[ existsNextMechioCommand() ]]></condition>
+      </preconditions>
+      <effects>
+          <assign is="is.mechio.nextCommand">getNextMechioCommand()</assign>
+          <!-- send the request to the behaviour planner -->
+          <behaviour name="sendJSONString">
+            <object class="flipper.BehaviourPlanner" persistent="is.mechio.persistent.mechioConnection"/>
+            <arguments>
+              <value class="String" is="is.mechio.nextCommand" is_type="JSONString"/>
+            </arguments>
+          </behaviour>
+          <assign is="is.mechio.nextCommand">""</assign>
+      </effects>
+    </template>
+    
+</behaviourtemplates>

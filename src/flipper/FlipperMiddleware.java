@@ -13,7 +13,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import nl.utwente.hmi.middleware.Middleware;
 import nl.utwente.hmi.middleware.MiddlewareListener;
 import nl.utwente.hmi.middleware.helpers.JsonNodeBuilders.ObjectNodeBuilder;
@@ -24,12 +27,14 @@ public class FlipperMiddleware implements MiddlewareListener {
 
 	protected BlockingQueue<JsonNode> queue = null;
 	private static Logger logger = LoggerFactory.getLogger(FlipperMiddleware.class.getName());
-	Middleware middleware;
+	protected Middleware middleware;
+	protected ObjectMapper mapper;
 
 	public FlipperMiddleware(String middlewareProps) {
 		this.queue = new LinkedBlockingQueue<JsonNode>();
 		Properties ps = new Properties();
         InputStream mwProps = FlipperMiddleware.class.getClassLoader().getResourceAsStream(middlewareProps);
+		mapper = new ObjectMapper();
         
 		try {
 			ps.load(mwProps);
@@ -45,6 +50,9 @@ public class FlipperMiddleware implements MiddlewareListener {
         middleware.addListener(this);
 	}
 	
+	public boolean init() {
+		return true;
+	}
 	
 	// { "content": "$data" }
 	public void send(String data) {
@@ -56,6 +64,22 @@ public class FlipperMiddleware implements MiddlewareListener {
 			return;
 		}
         middleware.sendData(on.end());
+	}
+	
+	public void sendJSONString(String json) {
+		//parse json string and create JsonObject
+		try {
+			JsonNode jn = mapper.readTree(json);
+			logger.debug("Transformed to json object: {}", jn.toString());
+			middleware.sendData(jn);
+		} catch (JsonProcessingException e) {
+			logger.warn("Error while parsing JSON string \"{}\": {}", json, e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean hasMessage() {

@@ -178,6 +178,16 @@
     	</effects>
     </template>
     
+    <template id="testMechio" name="testMechio">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "testMechio"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adultProcessor.mechioCommand">addMechioCommand("lookAt", {"x":Math.random(),"y":Math.random(),"duration":2})</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
     <template id="ToggleCondition" name="ToggleCondition">
     	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "toggle_condition"</condition>
