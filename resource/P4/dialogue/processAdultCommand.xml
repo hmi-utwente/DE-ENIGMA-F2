@@ -5,6 +5,7 @@
 			"state" : "none",
 			"previousResponsiveBehaviour" : "",
 			"responsiveButtonTimer" : 0,
+			"responsiveButtonTimerStarted" : false,
 			"responsiveButtonPendingThreshold" : 120000,
 			"responsiveButtonCriticalThreshold" : 180000,
 			"zenoBehaviourQueued":0
@@ -69,8 +70,23 @@
     
     <!-- These templates deal with the responsive events, which should be triggered periodically -->
     
+    <template id="alertResponsiveButton_StartTimer" name="alertResponsiveButton_StartTimer">
+    	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimer === 0</condition>
+    		<condition>!is.adultProcessor.responsiveButtonTimerStarted</condition>
+    		<condition>is.zeno.busy</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.responsiveButtonState">"none"</assign>
+    		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
+    		<assign is="is.adultProcessor.responsiveButtonTimerStarted">true</assign>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    	</effects>
+    </template>
+    
     <template id="alertResponsiveButton_Disable" name="alertResponsiveButton_Disable">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>is.adult.responsiveButtonState !== "none"</condition>
     		<condition>is.behaviourplanner.behaviourMode !== "none"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer < is.adultProcessor.responsiveButtonPendingThreshold]]></condition>
@@ -84,6 +100,7 @@
     
     <template id="alertResponsiveButton_Pending" name="alertResponsiveButton_Pending">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>is.adult.responsiveButtonState !== "pending"</condition>
     		<condition>is.behaviourplanner.behaviourMode !== "none"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer > is.adultProcessor.responsiveButtonPendingThreshold]]></condition>
@@ -98,6 +115,7 @@
     
     <template id="alertResponsiveButton_Critical" name="alertResponsiveButton_Critical">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>is.adult.responsiveButtonState !== "critical"</condition>
     		<condition>is.behaviourplanner.behaviourMode !== "none"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer > is.adultProcessor.responsiveButtonCriticalThreshold]]></condition>
@@ -111,6 +129,7 @@
     
     <template id="responsiveButtonPress_showResponsiveSubmenu" name="responsiveButtonPress_showResponsiveSubmenu">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>is.tablet.adult.command === "responsiveEvent"</condition>
     		<condition>is.behaviourplanner.behaviourMode === "invariant"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer > is.adultProcessor.responsiveButtonPendingThreshold]]></condition>
@@ -135,7 +154,9 @@
     
     <template id="responsiveButtonPress_invariant" name="responsiveButtonPress_invariant">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>!is.zeno.busy</condition>
+    		<condition>is.adult.responsiveButtonState !== "none"</condition>
     		<condition>is.tablet.adult.command === "respondToNoise" || is.tablet.adult.command === "respondToNegativeAffect" || is.tablet.adult.command === "respondToSittingDown" || is.tablet.adult.command === "respondToChildPresence" || is.tablet.adult.command === "respondToHappyPerception"</condition>
     		<condition>is.behaviourplanner.behaviourMode === "invariant"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer > is.adultProcessor.responsiveButtonPendingThreshold]]></condition>
@@ -146,12 +167,15 @@
     		<assign is="is.adult.menuRefresh">true</assign>
     		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
     	</effects>
     </template>
     
     <template id="responsiveButtonPress_variant" name="responsiveButtonPress_variant">
     	<preconditions mode="and">
+    		<condition>is.adultProcessor.responsiveButtonTimerStarted</condition>
     		<condition>!is.zeno.busy</condition>
+    		<condition>is.adult.responsiveButtonState !== "none"</condition>
     		<condition>is.tablet.adult.command === "responsiveEvent"</condition>
     		<condition>is.behaviourplanner.behaviourMode === "variant"</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.adultProcessor.responsiveButtonTimer > is.adultProcessor.responsiveButtonPendingThreshold]]></condition>
@@ -162,6 +186,7 @@
     		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
     	</effects>
     </template>
     
@@ -206,7 +231,6 @@
     		<condition>is.tablet.adult.command === "select_low_variant"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
     		<assign is="is.behaviourplanner.behaviourMode">"invariant"</assign>
 			<assign is="is.adult.showingPersistentMenu">"persistentButtons"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>
@@ -220,7 +244,6 @@
     		<condition>is.tablet.adult.command === "select_high_variant"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
     		<assign is="is.behaviourplanner.behaviourMode">"variant"</assign>
 			<assign is="is.adult.showingPersistentMenu">"persistentButtons"</assign>
     		<assign is="is.adult.menuRequest">"Main"</assign>

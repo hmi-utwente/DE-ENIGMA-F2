@@ -106,19 +106,27 @@
     "dance": {
         "V1": {
             "animation": "danceV1",
-            "animationDuration": 6
+            "animationDuration": 6,
+            "audio": "dance",
+            "audioDuration": 2
         },
         "V2": {
             "animation": "danceV2",
-            "animationDuration": 6
+            "animationDuration": 6,
+            "audio": "dance",
+            "audioDuration": 2
         },
         "V3": {
             "animation": "danceV3",
-            "animationDuration": 6
+            "animationDuration": 6,
+            "audio": "dance",
+            "audioDuration": 2
         },
         "V4": {
             "animation": "danceV4",
-            "animationDuration": 6
+            "animationDuration": 6,
+            "audio": "dance",
+            "audioDuration": 2
         }
     },
     "endGame": {
@@ -349,18 +357,26 @@
     },
     "praise": {
         "V1": {
+            "animation": "praise",
+            "animationDuration": 6,
             "audio": "praiseV1",
             "audioDuration": 1.5
         },
         "V2": {
+            "animation": "praise",
+            "animationDuration": 6,
             "audio": "praiseV2",
             "audioDuration": 1.5
         },
         "V3": {
+            "animation": "praise",
+            "animationDuration": 6,
             "audio": "praiseV3",
             "audioDuration": 1.5
         },
         "V4": {
+            "animation": "praise",
+            "animationDuration": 6,
             "audio": "praiseV4",
             "audioDuration": 1.5
         }

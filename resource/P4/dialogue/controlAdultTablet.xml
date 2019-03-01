@@ -26,9 +26,9 @@
 			//which color should the responsive button be?
 			var btnColor = "#999999";
 			if(is.adult.responsiveButtonState === "pending"){
-				btnColor = "#72d5f9"; //a shade of blue
+				btnColor = "#19ff00"; //a shade of green
 			} else if (is.adult.responsiveButtonState === "critical"){
-				btnColor = "#19d627"; //a shade of green
+				btnColor = "#ffbb00"; //a shade of orange
 			}
 			
 			behaviour.placeholders = [{"responsive_button_color":btnColor}];
