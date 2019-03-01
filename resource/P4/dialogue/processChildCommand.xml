@@ -14,7 +14,7 @@
 				"askedFeature" : "",
 				"askedTimestamp" : 0,
 				"repeats" : 0,
-				"maxRepeats" : 2
+				"maxRepeats" : 1
 			},
 			"exploreExpressions" : {
 				"trials" : 0,
@@ -29,7 +29,7 @@
 				"askedExpression" : "",
 				"askedTimestamp" : 0,
 				"repeats" : 0,
-				"maxRepeats" : 2
+				"maxRepeats" : 1
 			}
 		}
 	</is>
