@@ -115,14 +115,13 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>askEqualsAnswer(is.childProcessor.promptFeatures.askedFeature, is.tablet.child.command)</condition>
-    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials <= is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
     		<assign is="is.logger.latestLogLine">logInfo("Child gave correct answer. Robot prompt: ["+is.childProcessor.promptFeatures.askedFeature+"]. Child response: ["+is.tablet.child.command+"]")</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
     	</effects>
@@ -137,8 +136,8 @@
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.askedFeature">getRandomFaceFeaturePrompt(is.childProcessor.promptFeatures.askedFeature)</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
@@ -149,6 +148,7 @@
     	</effects>
     </template>
     
+    
     <template id="PromptFeatures_Repeat" name="PromptFeatures_Repeat">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
@@ -157,7 +157,7 @@
     		<condition>promptFeaturesIncorrectOrTimeout()</condition>
     		<condition>!is.zeno.busy</condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.repeats < is.childProcessor.promptFeatures.maxRepeats]]></condition>
-    		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials <= is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
 			<assign is="is.logger.latestLogLine">logFeaturesIncorrectOrTimeout()</assign>
@@ -182,25 +182,46 @@
     	<effects>
 			<assign is="is.logger.latestLogLine">logFeaturesIncorrectOrTimeout()</assign>
 			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
-    		<assign is="is.childProcessor.promptFeatures.trials">is.childProcessor.promptFeatures.trials + 1</assign>
     		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
-    		<assign is="is.childProcessor.promptFeatures.repeats">0</assign>
     		<assign is="is.zeno.request">"correctiveFeedback"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     
-    <template id="PromptFeaturesBlockEnd" name="PromptFeaturesBlockEnd">
+    <template id="PromptFeatures_TooManyAttempts_LastTrial" name="PromptFeatures_TooManyAttempts_LastTrial">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
-    		<condition>is.tablet.child.command === "none"</condition>
+    		<condition>is.childProcessor.promptFeatures.askedFeature !== ""</condition>
+    		<condition>!is.childProcessor.promptFeatures.loadNextTrial</condition>
+    		<condition>promptFeaturesIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.repeats >= is.childProcessor.promptFeatures.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptFeatures.trials === is.childProcessor.promptFeatures.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+			<assign is="is.logger.latestLogLine">logFeaturesIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
+    		<assign is="is.childProcessor.promptFeatures.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">true</assign>
+    		<assign is="is.childProcessor.promptFeatures.askedTimestamp">0</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptFeatures_TrialLimit" name="PromptFeatures_TrialLimit">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptFeatures"</condition>
+    		<condition>!is.zeno.busy</condition>
+    		<condition>is.childProcessor.promptFeatures.loadNextTrial</condition>
+    		<condition><![CDATA[is.behaviourplanner.time - is.childProcessor.promptFeatures.trialStartTime > 1000]]></condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials >= is.childProcessor.promptFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-			<assign is="is.logger.latestLogLine">logInfo("Trial limit reached: [PromptFeatures]")</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.childProcessor.promptFeatures.loadNextTrial">false</assign>
     		<assign is="is.child.menuRequest">"blank"</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Trial limit reached: [PromptFeatures]")</assign>
     	</effects>
     </template>
     
@@ -238,7 +259,7 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptExpressions"</condition>
     		<condition>is.tablet.child.command === is.childProcessor.promptExpressions.askedExpression</condition>
-    		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptExpressions.trials <= is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
 			<assign is="is.logger.latestLogLine">logInfo("Child gave correct answer. Robot prompt: ["+is.childProcessor.promptExpressions.askedExpression+"]. Child response: ["+is.tablet.child.command+"]")</assign>
@@ -247,7 +268,6 @@
     		<assign is="is.zeno.request">"resolve"+is.childProcessor.promptExpressions.askedExpression.charAt(0).toUpperCase() + is.childProcessor.promptExpressions.askedExpression.slice(1)</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
-    		<assign is="is.childProcessor.promptExpressions.trials">is.childProcessor.promptExpressions.trials + 1</assign>
     		<assign is="is.child.menuRequest">"PromptExpressionsCorrect"</assign>
     	</effects>
     </template>
@@ -261,6 +281,7 @@
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.childProcessor.promptExpressions.trials">is.childProcessor.promptExpressions.trials + 1</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">false</assign>
     		<assign is="is.childProcessor.promptExpressions.askedTimestamp">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
@@ -292,7 +313,7 @@
     		<condition>promptExpressionsIncorrectOrTimeout()</condition>
     		<condition>!is.zeno.busy</condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.repeats < is.childProcessor.promptExpressions.maxRepeats]]></condition>
-    		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptExpressions.trials <= is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
 			<assign is="is.logger.latestLogLine">logExpressionsIncorrectOrTimeout()</assign>
@@ -318,30 +339,50 @@
     	<effects>
 			<assign is="is.logger.latestLogLine">logExpressionsIncorrectOrTimeout()</assign>
 			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
-    		<assign is="is.childProcessor.promptExpressions.trials">is.childProcessor.promptExpressions.trials + 1</assign>
     		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
     		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
     		<assign is="is.childProcessor.promptExpressions.askedTimestamp">0</assign>
-    		<assign is="is.childProcessor.promptExpressions.repeats">0</assign>
     		<assign is="is.child.disableMenuRequest">"permanent"</assign>
     		<assign is="is.zeno.request">"correctiveFeedback"</assign>
     		<assign is="is.tablet.child.command">"none"</assign>
     	</effects>
     </template>
     
-    <template id="PromptExpressions_BlockEnd" name="PromptExpressions_BlockEnd">
+    <template id="PromptExpressions_TooManyAttempts_LastTrial" name="PromptExpressions_TooManyAttempts_LastTrial">
     	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "PromptExpressions"</condition>
+    		<condition>!is.childProcessor.promptExpressions.loadNextTrial</condition>
+    		<condition>is.childProcessor.promptExpressions.askedExpression !== ""</condition>
+    		<condition>promptExpressionsIncorrectOrTimeout()</condition>
+    		<condition><![CDATA[is.childProcessor.promptExpressions.repeats >= is.childProcessor.promptExpressions.maxRepeats]]></condition>
+    		<condition><![CDATA[is.childProcessor.promptExpressions.trials === is.childProcessor.promptExpressions.maxTrials]]></condition>
+    	</preconditions>
+    	<effects>
+			<assign is="is.logger.latestLogLine">logExpressionsIncorrectOrTimeout()</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Too many attempts, loading next trial")</assign>
+    		<assign is="is.childProcessor.promptExpressions.trialStartTime">is.behaviourplanner.time</assign>
+    		<assign is="is.childProcessor.promptExpressions.loadNextTrial">true</assign>
+    		<assign is="is.childProcessor.promptExpressions.askedTimestamp">0</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="PromptExpressions_TrialLimit" name="PromptExpressions_TrialLimit">
+    	<preconditions mode="and">
+    		<condition>is.child.showingMenu === "Prompt" || is.child.showingMenu === "PromptExpressions" || is.child.showingMenu === "PromptExpressionsCorrect"</condition>
     		<condition>!is.zeno.busy</condition>
+    		<condition>is.childProcessor.promptExpressions.loadNextTrial</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.childProcessor.promptExpressions.trialStartTime > 1000]]></condition>
-    		<condition>is.child.showingMenu === "PromptExpressions" || is.child.showingMenu === "PromptExpressionsCorrect"</condition>
-    		<condition>is.tablet.child.command === "none"</condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials >= is.childProcessor.promptExpressions.maxTrials]]></condition>
     	</preconditions>
     	<effects>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    		<assign is="is.childProcessor.promptExpressions.loadNextTrial">false</assign>
 			<assign is="is.logger.latestLogLine">logInfo("Trial limit reached: [PromptExpressions]")</assign>
     		<assign is="is.child.menuRequest">"blank"</assign>
     	</effects>
     </template>
+    
     
     <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
     <template id="ChildCommandCleanup" name="ChildCommandCleanup">
