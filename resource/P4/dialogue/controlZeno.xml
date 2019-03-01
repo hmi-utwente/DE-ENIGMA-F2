@@ -85,6 +85,8 @@
 				var behaviour = new Object();
 				behaviour.action = is.zeno.request;
 				behaviour.delay = delay;
+				behaviour.audioDuration = audioDuration;
+				behaviour.animationDuration = animationDuration;
 				behaviour.startTime = 0;
 				behaviour.duration = roundTo(audioDuration+animationDuration+delay, 2);
 				behaviour.template = filename;
@@ -97,7 +99,7 @@
 			}
 			
 			function createZenoLogLine(behaviour){
-				return "Doing Zeno action: ["+behaviour.action+"] using BML template: ["+behaviour.template+"] with a delay of ["+behaviour.delay+"] and a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"]. Animation:["+behaviour.placeholders[0].animate1+"]";
+				return "Doing Zeno action: ["+behaviour.action+"] using BML template: ["+behaviour.template+"] with a delay of ["+behaviour.delay+"] and a total duration of: ["+behaviour.duration+"] seconds. Audio: ["+behaviour.placeholders[2].speak1+"] duration: ["+behaviour.audioDuration+"]. Animation:["+behaviour.placeholders[0].animate1+"] duration: ["+behaviour.animationDuration+"]";
 			}
 			
 			
@@ -163,6 +165,7 @@
     		<condition>is.zeno.request !== ""</condition>
     	</preconditions>
     	<effects>
+			<assign is="is.logger.latestLogLine">logInfo("Zeno is currently busy with action: ["+is.zeno.behaviour.action+"] dropping action request ["+is.zeno.request+"]")</assign>
     		<assign is="is.zeno.request">""</assign>
     	</effects>
     </template>
