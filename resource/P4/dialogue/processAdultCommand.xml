@@ -80,6 +80,7 @@
     		<assign is="is.adult.responsiveButtonState">"none"</assign>
     		<assign is="is.adultProcessor.responsiveButtonTimer">is.behaviourplanner.time</assign>
     		<assign is="is.adultProcessor.responsiveButtonTimerStarted">true</assign>
+			<assign is="is.logger.latestLogLine">logInfo("Zeno doing his first action now - starting timer for responsive button")</assign>
     		<assign is="is.adult.menuRefresh">true</assign>
     	</effects>
     </template>
@@ -502,7 +503,7 @@
     
     
     <!-- if it's not one of the above commands, just pass it on to the zeno controller! -->
-    <template id="OtherCommand" name="OtherCommand">
+    <template id="OtherCommandForZeno" name="OtherCommandForZeno">
     	<preconditions mode="and">
     		<condition>!is.zeno.busy</condition>
     		<condition>is.tablet.adult.command !== "none"</condition>
@@ -511,6 +512,19 @@
     	<effects>
     		<assign is="is.zeno.request">is.tablet.adult.command</assign>
     		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="DropCommand" name="DropCommand">
+    	<preconditions mode="and">
+    		<condition>is.zeno.busy</condition>
+    		<condition>is.tablet.adult.command !== "none"</condition>
+    		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.logger.latestLogLine">logInfo("Zeno cannot accept new commands right now, dropping action request ["+is.tablet.adult.command+"]")</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
     
