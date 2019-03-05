@@ -108,7 +108,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
             }
         });
         
-        /*
+        
 		//for testing a simple recording
 		ObjectNode starter1 = om.createObjectNode();
 		starter1.put("status", "session_start");
@@ -129,7 +129,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		stopper1.put("ts", 345L);
 		
 		this.receiveData(stopper1);
-		*/
+		
 		
 		
 		/*
@@ -264,11 +264,10 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 	}
 	
 	private void startLogitech(long timeStamp) throws IOException {
-		String[] logitechParams = makeFFMPEGParams(Camera.LOGITECH, "logitech_cam_"+timeStamp);
+		String[] logitechParams = makeFFMPEGParams(Camera.LOGITECH, "UT_logitech_cam_"+timeStamp);
 		logger.info("Starting logitech video recording for timestamp {}: {}", timeStamp, logitechParams);
 		ProcessBuilder logitechPB = new ProcessBuilder(logitechParams);
-		logitechPB.redirectError(new File("logitecherror.txt"));
-		//pb.redirectInput(new File("input.txt"));
+		logitechPB.inheritIO();
 		logitechPB.redirectOutput(new File("logitechoutput.txt"));
 		
 		logitechVideoProcess = logitechPB.start();
@@ -276,11 +275,10 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 	}
 	
 	private void startGenius(long timeStamp) throws IOException {
-		String[] geniusParams = makeFFMPEGParams(Camera.GENIUS, "genius_cam_"+timeStamp);
+		String[] geniusParams = makeFFMPEGParams(Camera.GENIUS, "UT_genius_cam_"+timeStamp);
 		logger.info("Starting genius video recording for timestamp {}: {}", timeStamp, geniusParams);
 		ProcessBuilder geniusPB = new ProcessBuilder(geniusParams);
-		geniusPB.redirectError(new File("geniuserror.txt"));
-		//pb.redirectInput(new File("input.txt"));
+		geniusPB.inheritIO();
 		geniusPB.redirectOutput(new File("geniusoutput.txt"));
 		
 		geniusVideoProcess = geniusPB.start();
