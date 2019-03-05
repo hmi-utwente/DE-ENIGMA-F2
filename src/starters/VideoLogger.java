@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.ProcessBuilder.Redirect;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -112,7 +113,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		//for testing a simple recording
 		ObjectNode starter1 = om.createObjectNode();
 		starter1.put("status", "session_start");
-		starter1.put("ts", 123L);
+		starter1.put("ts", "TEST");
 		
 		this.receiveData(starter1);
 		
@@ -126,7 +127,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		//stop it again
         ObjectNode stopper1 = om.createObjectNode();
 		stopper1.put("status", "end_session");
-		stopper1.put("ts", 345L);
+		stopper1.put("ts", "TEST");
 		
 		this.receiveData(stopper1);
 		
@@ -244,7 +245,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 
 			
 			//should we start recording now?
-			long timeStamp = jn.get("ts").asLong();
+			String timeStamp = jn.get("ts").asText();
 			
 			
 			//start a new process
@@ -263,23 +264,21 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		}
 	}
 	
-	private void startLogitech(long timeStamp) throws IOException {
+	private void startLogitech(String timeStamp) throws IOException {
 		String[] logitechParams = makeFFMPEGParams(Camera.LOGITECH, "UT_logitech_cam_"+timeStamp);
 		logger.info("Starting logitech video recording for timestamp {}: {}", timeStamp, logitechParams);
 		ProcessBuilder logitechPB = new ProcessBuilder(logitechParams);
 		logitechPB.inheritIO();
-		logitechPB.redirectOutput(new File("logitechoutput.txt"));
 		
 		logitechVideoProcess = logitechPB.start();
 		logitechOSWriter = new PrintWriter(logitechVideoProcess.getOutputStream());
 	}
 	
-	private void startGenius(long timeStamp) throws IOException {
+	private void startGenius(String timeStamp) throws IOException {
 		String[] geniusParams = makeFFMPEGParams(Camera.GENIUS, "UT_genius_cam_"+timeStamp);
 		logger.info("Starting genius video recording for timestamp {}: {}", timeStamp, geniusParams);
 		ProcessBuilder geniusPB = new ProcessBuilder(geniusParams);
 		geniusPB.inheritIO();
-		geniusPB.redirectOutput(new File("geniusoutput.txt"));
 		
 		geniusVideoProcess = geniusPB.start();
 		geniusOSWriter = new PrintWriter(geniusVideoProcess.getOutputStream());
@@ -341,10 +340,10 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 
 	    if(cam == Camera.GENIUS) {
 		    return new String[] {
-					"ffmpeg", "-f", 			
+					"ffmpeg", "-f", 	
 					"dshow", 					//use directshow to select webcam and mic
 					"-video_size", "1920x1080", 	//select a supported resolution from webcam
-					//"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
+					"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
 					"-framerate", "30",			//select a supported framerate from the webcam
 					"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
 					"-i", "video=USB_Camera:audio=Microphone (USB2.0 MIC)", //Genius F100 wide angle (lower quality)
@@ -354,14 +353,17 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 					"-filter:v", "fps=30", 		//set the output framerate
 					"-crf", "26", 				//set the quality fo the output video stream (26 seems ok, and not too large filesize)
 					"-preset", "veryfast", 		//set the tradeoff between CPU power and filesize (veryfast seems to take around 10% CPU, filesize seems around 1GB/hour)
+					"-loglevel", "error",
+					"-nostats",
+					"-hide_banner",
 					VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mkv" 
 					};
 	    } else {
 		    return new String[] {
-					"ffmpeg", "-f", 			
+					"ffmpeg", "-f", 	
 					"dshow", 					//use directshow to select webcam and mic
 					"-video_size", "1920x1080", 	//select a supported resolution from webcam
-					//"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
+					"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
 					"-framerate", "30",			//select a supported framerate from the webcam
 					"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
 					"-i", "video=HD Pro Webcam C920:audio=Microphone (HD Pro Webcam C920)", //logitech C920 narrow angle (better quality)
@@ -371,6 +373,9 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 					"-filter:v", "fps=30", 		//set the output framerate
 					"-crf", "26", 				//set the quality fo the output video stream (26 seems ok, and not too large filesize)
 					"-preset", "veryfast", 		//set the tradeoff between CPU power and filesize (veryfast seems to take around 10% CPU, filesize seems around 1GB/hour)
+					"-loglevel", "error",
+					"-nostats",
+					"-hide_banner",
 					VIDEO_DIR + id + "_" + strDate + "_" + curTime + ".mkv" 
 					};
 	    }
