@@ -97,6 +97,7 @@
 			<assign is="is.adult.menuRequest">"Start"</assign>
 			<assign is="is.adult.showingPersistentMenu">"hiddenPersistentButtons"</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createShowMenuBehaviour("adult", "ZenoIdle"))</assign>
 		</effects>
 	</template>
     
