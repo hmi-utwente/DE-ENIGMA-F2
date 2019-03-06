@@ -126,7 +126,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		
 		//stop it again
         ObjectNode stopper1 = om.createObjectNode();
-		stopper1.put("status", "end_session");
+		stopper1.put("status", "session_end");
 		stopper1.put("ts", "TEST");
 		
 		this.receiveData(stopper1);
@@ -250,6 +250,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 			
 			//start a new process
 			if("session_start".equals(jn.get("status").asText())){
+				logger.debug("Got start command!");
 				closeFFMPEG();
 				try {
 					startLogitech(timeStamp);
@@ -258,7 +259,8 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			} else if("end_session".equals(jn.get("status").asText())){
+			} else if("session_end".equals(jn.get("status").asText())){
+				logger.debug("Got end command!");
 				closeFFMPEG();
 			}
 		}
