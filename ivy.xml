@@ -7,7 +7,7 @@
    
      <!-- dependency org="HMI"   name="HmiMiddlewareAbstractionLayer"     rev="latest.${resolve.status}"   /-->  
      <!-- dependency org="Asap"   name="AsapMiddlewareEngine"     rev="latest.${resolve.status}"   /-->     
-     <dependency org="Asap"   name="AsapMiddlewareRealizerAdapters"     rev="latest.${resolve.status}"   />    
+     <dependency org="Asap"   name="AsapMiddlewareRealizerAdapters"     rev="latest.${resolve.status}"   transitive="false" />    
      
       <dependency org="HMI"   name="HmiJComponentEnvironment"     rev="latest.${resolve.status}"   />    
       <dependency org="HMI"   name="HmiEnvironmentBase"     rev="latest.${resolve.status}"   />    
