@@ -344,7 +344,7 @@ public class VideoLogger extends AbstractWorker implements MiddlewareListener {
 		    return new String[] {
 					"ffmpeg", "-f", 	
 					"dshow", 					//use directshow to select webcam and mic
-					"-video_size", "1920x1080", 	//select a supported resolution from webcam
+					"-video_size", "1280x720", 	//select a supported resolution from webcam
 					"-rtbufsize", "10240k", 	//select a buffer size (this should be enough for about 5 seconds)
 					"-framerate", "30",			//select a supported framerate from the webcam
 					"-vcodec", "mjpeg", 		//select the video encoding we want to receive from the webcam
