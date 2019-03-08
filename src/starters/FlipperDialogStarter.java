@@ -42,6 +42,8 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	
 	@Override
 	public void LogIS(int stepMarker) {
+		//don't want to log the IS when running full system during experiment
+		
 		try {
 			if(middleware != null) {
 				middleware.sendData(om.readTree(tc.getIs("is")));
@@ -51,15 +53,16 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 			e.printStackTrace();
 		}
 		super.LogIS(stepMarker);
+		
 	}
 
 
 	private void initMW() {
 		Properties ps = new Properties();
-		ps.put("iTopic", "/topic/dummyIn");
-		ps.put("oTopic", "/topic/isDump");
+		ps.put("subscriber", "/dummy_in");
+		ps.put("publisher", "/is_dump");
 		
-        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader", ps);
+        GenericMiddlewareLoader gml = new GenericMiddlewareLoader("nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader", ps);
         middleware = gml.load();
 	}
 	

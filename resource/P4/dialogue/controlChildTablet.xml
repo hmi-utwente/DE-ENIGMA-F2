@@ -120,6 +120,19 @@
 		</effects>
 	</template>
 	
+	<template id="requestMenu_CheckConnections" name="requestMenu_CheckConnections">
+		<preconditions mode="and">
+			<condition>is.child.menuRequest === "CheckConnections"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.child.refreshMenu">true</assign>
+			<assign is="is.child.enabledMenu">createShowMenuBehaviour("child", "CheckConnections")</assign>
+			<assign is="is.child.disabledMenu">createShowMenuBehaviour("child", "CheckConnections")</assign>
+			<assign is="is.child.showingMenu">"CheckConnections"</assign>
+			<assign is="is.child.menuRequest">""</assign>
+		</effects>
+	</template>
+	
 	<template id="requestMenu_Explore" name="requestMenu_Explore">
 		<preconditions mode="and">
 			<condition>is.child.menuRequest === "Explore"</condition>

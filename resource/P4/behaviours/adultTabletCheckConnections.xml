@@ -1,0 +1,24 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"WARNING: This will disrupt the current activity on the child tablet!\n\n\n\nConnection with the WOZ tablet is: $adult_tablet_status$\n\nConnection with child tablet is: $child_tablet_status$" ,
+        "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"check_adult_connection","value":"Check WOZ tablet connection"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"check_child_connection","value":"Check child tablet connection"}
+			
+        ]}}
+</mwe:sendJsonMessage>

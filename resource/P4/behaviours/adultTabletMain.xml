@@ -23,6 +23,12 @@
 			{"id":"", "value":"blankSpace"},
 			{"id":"", "value":"blankSpace"},
 			
+            {"id":"showmenu_CheckConnections","value":"Check tablet connections"},
+            
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
             {"id":"toggle_condition","value":"Condition: $condition$ (press to toggle)"}
         ]}}
 </mwe:sendJsonMessage>

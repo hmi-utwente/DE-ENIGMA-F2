@@ -1,3 +1,10 @@
+<mwe:sendJsonMessage id="d" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
+    { "showButtons" : {
+        "text":"" ,
+        "buttons" : [
+			{"id":"", "value":"blankSpace"}
+        ]}}
+</mwe:sendJsonMessage>
 <mwe:sendJsonMessage id="childTabletBlank" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader" middlewareloaderproperties="iTopic:/topic/dummy,oTopic:/topic/child_tablet.command">
 	{ "showAssignment" : { "id":"imgblank" ,
 	"text" : " ",

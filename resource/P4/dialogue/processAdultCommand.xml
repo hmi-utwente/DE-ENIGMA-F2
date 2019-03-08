@@ -8,6 +8,10 @@
 			"responsiveButtonTimerStarted" : false,
 			"responsiveButtonPendingThreshold" : 120000,
 			"responsiveButtonCriticalThreshold" : 180000,
+			"checkConnections" : {
+				"childStatus":"",
+				"adultStatus":""
+			},
 			"zenoBehaviourQueued":0
 		}
 	</is>
@@ -222,6 +226,43 @@
     	</preconditions>
     	<effects>
     		<assign is="is.adult.menuRequest">stripMenuRequest(is.tablet.adult.command)</assign>
+    	</effects>
+    </template>
+    
+    
+    <!-- CHECK CONNECTIONS SCREEN -->
+    <template id="CheckConnectionsMenu" name="CheckConnectionsMenu">
+    	<preconditions mode="and">
+    		<condition>isMenuRequest(is.tablet.adult.command)</condition>
+    		<condition>stripMenuRequest(is.tablet.adult.command) === "CheckConnections"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adultProcessor.checkConnections.adultStatus">""</assign>
+    		<assign is="is.adultProcessor.checkConnections.childStatus">""</assign>
+    	</effects>
+    </template>
+    
+    <template id="CheckWOZConnection" name="CheckWOZConnection">
+    	<preconditions mode="and">
+    		<condition>is.adult.showingMenu === "CheckConnections"</condition>
+    		<condition>is.tablet.adult.command === "check_adult_connection"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.adultProcessor.checkConnections.adultStatus">"OK!"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
+    <template id="CheckChildConnection" name="CheckChildConnection">
+    	<preconditions mode="and">
+    		<condition>is.adult.showingMenu === "CheckConnections"</condition>
+    		<condition>is.tablet.adult.command === "check_child_connection"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.child.menuRequest">"CheckConnections"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>
     
@@ -523,7 +564,7 @@
     		<condition>!isMenuRequest(is.tablet.adult.command)</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.logger.latestLogLine">logInfo("Zeno cannot accept new commands right now, dropping action request ["+is.tablet.adult.command+"]")</assign>
+    		<assign is="is.logger.latestLogLine">logInfo("Zeno cannot accept new commands right now, dropping adult command ["+is.tablet.adult.command+"]")</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>

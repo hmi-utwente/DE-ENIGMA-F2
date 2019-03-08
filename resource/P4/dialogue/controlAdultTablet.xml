@@ -3,6 +3,7 @@
 	<is name="adult">
 		{	
 			"menuRequest" : "",
+			"menuRefresh" : false,
 			"showingMenu" : "",
 			"showingPersistentMenu" : "persistentButtons",
 			"responsiveButtonState" : "none",
@@ -65,6 +66,14 @@
 			return behaviour;
 		}
 		
+		function createCheckConnectionsMenu(){
+			var behaviour = createAdultMenu("CheckConnections");
+			var placeholders = [{"adult_tablet_status":is.adultProcessor.checkConnections.adultStatus},{"child_tablet_status":is.adultProcessor.checkConnections.childStatus}];
+			
+			behaviour.placeholders = behaviour.placeholders.concat(placeholders);
+			return behaviour;
+		}
+		
 		function createExploreExpressionsMenu(){
 			var behaviour = createAdultMenu("ExploreExpressions");
 			var placeholders = [{"happy_variant":""},{"sad_variant":""},{"anger_variant":""},{"fear_variant":""}];
@@ -110,6 +119,18 @@
 			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createMainMenu())</assign>
 			<assign is="is.adult.bmlid">addBehaviourRequest(createPersistentMenu())</assign>
+			<assign is="is.adult.menuRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="ShowAdultCheckConnections" name="ShowAdultCheckConnections">
+		<preconditions mode="and">
+			<condition>is.adult.menuRequest === "CheckConnections"</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.showingMenu">is.adult.menuRequest</assign>
+			<assign is="is.adult.lastShownTime">is.behaviourplanner.time</assign>
+			<assign is="is.adult.bmlid">addBehaviourRequest(createCheckConnectionsMenu())</assign>
 			<assign is="is.adult.menuRequest">""</assign>
 		</effects>
 	</template>
