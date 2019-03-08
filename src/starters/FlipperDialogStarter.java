@@ -43,6 +43,17 @@ public class FlipperDialogStarter extends FlipperLauncherThread {
 	@Override
 	public void LogIS(int stepMarker) {
 		//don't want to log the IS when running full system during experiment
+		/*
+		try {
+			if(middleware != null) {
+				middleware.sendData(om.readTree(tc.getIs("is")));
+			}
+		} catch (IOException | FlipperException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.LogIS(stepMarker);
+		*/
 	}
 
 

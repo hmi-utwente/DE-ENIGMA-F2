@@ -1,0 +1,18 @@
+<mwe:sendJsonMessage id="d" start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+    { "showButtons" : {
+        "text":"Please press the button to confirm that the child tablet is connected correctly" ,
+        "buttons" : [
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			{"id":"", "value":"blankSpace"},
+			
+            {"id":"child_connection_ok","value":"Press here","color":"green"}
+			
+        ]}}
+</mwe:sendJsonMessage>
+
+<mwe:sendJsonMessage id="childTabletBG"start="0" middlewareloaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader" middlewareloaderproperties="subscriber:/dummy_in,publisher:/child_tablet_command">
+	{ "setBackgroundColor" : { "id":"bgcolor" ,
+	"color" : "#888888"}}
+</mwe:sendJsonMessage>

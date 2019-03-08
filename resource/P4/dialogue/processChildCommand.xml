@@ -84,15 +84,29 @@
 		]]>
     </javascript>
       
+    <!-- CHECKING THE CONNECTIONS OF THE CHILD TABLET -->
+    <template id="ConfirmChildConnection" name="ConfirmChildConnection">
+    	<preconditions mode="and">
+    		<condition>is.tablet.child.command === "child_connection_ok"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.adult.menuRefresh">true</assign>
+    		<assign is="is.adultProcessor.checkConnections.childStatus">"OK!"</assign>
+    		<assign is="is.child.menuRequest">"blank"</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>  
+    
     <!-- PINK GAME: Explore Features -->
     <template id="ExploreFeatures" name="ExploreFeatures">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreFeatures"</condition>
+    		<condition>!is.zeno.busy</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
     		<condition><![CDATA[is.childProcessor.exploreFeatures.trials < is.childProcessor.exploreFeatures.maxTrials]]></condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.childProcessor.exploreFeatures.trials">is.childProcessor.exploreFeatures.trials + 1</assign>
     	</effects>
@@ -229,6 +243,7 @@
     <template id="ExploreExpressions" name="ExploreExpressions">
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "ExploreExpressions"</condition>
+    		<condition>!is.zeno.busy</condition>
     		<condition>is.tablet.child.command !== "none"</condition>
     		<condition><![CDATA[is.childProcessor.exploreExpressions.trials < is.childProcessor.exploreExpressions.maxTrials]]></condition>
     	</preconditions>
@@ -236,7 +251,7 @@
     		<assign is="is.zeno.requestNewRandomVariant">false</assign>
     		<assign is="is.zeno.request">is.tablet.child.command</assign>
     		<assign is="is.childProcessor.exploreExpressions.trials">is.childProcessor.exploreExpressions.trials + 1</assign>
-    		<assign is="is.child.disableMenuRequest">"temporary"</assign>
+    		<assign is="is.child.enableMenuRequest">"later"</assign>
     	</effects>
     </template>
     
@@ -385,6 +400,17 @@
     
     
     <!-- This template should always be last!! This gives multiple templates above the chance to simultanously process the input -->
+    <template id="ChildDropCommand_ZenoBusy" name="ChildDropCommand_ZenoBusy">
+    	<preconditions mode="and">
+    		<condition>is.tablet.child.command !== "none"</condition>
+    		<condition>is.zeno.busy</condition>
+    	</preconditions>
+    	<effects>    		
+    		<assign is="is.logger.latestLogLine">logInfo("Zeno cannot accept new commands right now, dropping child command ["+is.tablet.child.command+"]")</assign>
+    		<assign is="is.tablet.child.command">"none"</assign>
+    	</effects>
+    </template>
+    
     <template id="ChildCommandCleanup" name="ChildCommandCleanup">
     	<preconditions mode="and">
     		<condition>is.tablet.child.command !== "none"</condition>
