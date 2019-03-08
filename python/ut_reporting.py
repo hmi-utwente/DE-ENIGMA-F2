@@ -44,6 +44,8 @@ def ut_report_activities(ts):
         if searchStartActivity:
             if activity != 'none':
                 print("That's strange, a new activity has started before the previous ended...")
+                duration = int(jmsg['timestamp']) - actStartTime
+                utDict[activity]['total_duration'] = utDict[activity].get('total_duration', 0) + duration
             activity = searchStartActivity.group(1)
             actStartTime = int(jmsg['timestamp'])
             utDict[activity]['count'] = utDict[activity].get('count', 0) + 1
