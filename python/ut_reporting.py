@@ -42,7 +42,7 @@ def ut_report_activities(ts):
         #get the actual logmessage and timestamp, or otherwise drop the line in case it is something different (like a keepalive message)
         try:
             logMessage = jmsg['message']
-            logTimestamp = jmsg['timestamp']
+            logTimestamp = int(jmsg['timestamp'])
         except KeyError:
             continue
             
@@ -51,10 +51,10 @@ def ut_report_activities(ts):
         if searchStartActivity:
             if activity != 'none':
                 print("That's strange, a new activity has started before the previous ended...")
-                duration = int(logTimestamp) - actStartTime
+                duration = logTimestamp - actStartTime
                 utDict[activity]['total_duration'] = utDict[activity].get('total_duration', 0) + duration
             activity = searchStartActivity.group(1)
-            actStartTime = int(logTimestamp)
+            actStartTime = logTimestamp
             utDict[activity]['count'] = utDict[activity].get('count', 0) + 1
             # print "Start of activity - {} at {}".format(activity, actStartTime)
         
@@ -69,7 +69,7 @@ def ut_report_activities(ts):
         #search for ending an activity, we then calculate the duration that was spent in this activity
         searchEndActivity = reEndActivity.search(logMessage)
         if searchEndActivity and activity == searchEndActivity.group(1):
-            duration = int(logTimestamp) - actStartTime
+            duration = logTimestamp - actStartTime
             utDict[activity]['total_duration'] = utDict[activity].get('total_duration', 0) + duration
             # print "End of activity - {} from {} to {}".format(activity, actStartTime, logTimestamp)
             activity = 'none'
