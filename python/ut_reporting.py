@@ -39,32 +39,39 @@ def ut_report_activities(ts):
         except ValueError:
             print("Oops, the message is not in JSON string format... "+str(msg))
         
+        #get the actual logmessage and timestamp, or otherwise drop the line in case it is something different (like a keepalive message)
+        try:
+            logMessage = jmsg['message']
+            logTimestamp = jmsg['timestamp']
+        except KeyError:
+            continue
+            
         #search for starting an activity, when found we increase the counter and save the start timestamp
-        searchStartActivity = reStartActivity.search(jmsg['message'])
+        searchStartActivity = reStartActivity.search(logMessage)
         if searchStartActivity:
             if activity != 'none':
                 print("That's strange, a new activity has started before the previous ended...")
-                duration = int(jmsg['timestamp']) - actStartTime
+                duration = int(logTimestamp) - actStartTime
                 utDict[activity]['total_duration'] = utDict[activity].get('total_duration', 0) + duration
             activity = searchStartActivity.group(1)
-            actStartTime = int(jmsg['timestamp'])
+            actStartTime = int(logTimestamp)
             utDict[activity]['count'] = utDict[activity].get('count', 0) + 1
             # print "Start of activity - {} at {}".format(activity, actStartTime)
         
-        searchCorrect = reCorrect.search(jmsg['message'])
+        searchCorrect = reCorrect.search(logMessage)
         if searchCorrect and activity != 'none':
             utDict[activity]['correct'] = utDict[activity].get('correct', 0) + 1
             
-        searchIncorrect = reIncorrect.search(jmsg['message'])
+        searchIncorrect = reIncorrect.search(logMessage)
         if searchIncorrect and activity != 'none':
             utDict[activity]['incorrect'] = utDict[activity].get('incorrect', 0) + 1
         
         #search for ending an activity, we then calculate the duration that was spent in this activity
-        searchEndActivity = reEndActivity.search(jmsg['message'])
+        searchEndActivity = reEndActivity.search(logMessage)
         if searchEndActivity and activity == searchEndActivity.group(1):
-            duration = int(jmsg['timestamp']) - actStartTime
+            duration = int(logTimestamp) - actStartTime
             utDict[activity]['total_duration'] = utDict[activity].get('total_duration', 0) + duration
-            # print "End of activity - {} from {} to {}".format(activity, actStartTime, jmsg['timestamp'])
+            # print "End of activity - {} from {} to {}".format(activity, actStartTime, logTimestamp)
             activity = 'none'
             
     return utDict
