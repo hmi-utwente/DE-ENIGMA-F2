@@ -133,6 +133,8 @@ Format of a request:
       <preconditions>
      	<condition>is.behaviourplanner.initialised</condition>
      	<condition>!is.zeno.busy</condition>
+     	<condition>is.zeno.request === ""</condition>
+     	<condition>is.zeno.behaviour === ""</condition>
      	<condition>is.adult.showingMenu === "Main"</condition>
      	<condition>is.child.showingMenu === "blank"</condition>
         <condition><![CDATA[is.behaviourplanner.time - is.behaviourplanner.killLingeringBehaviourTimer > 60000]]></condition>
@@ -151,6 +153,8 @@ Format of a request:
       <preconditions>
      	<condition>is.behaviourplanner.initialised</condition>
      	<condition>!is.zeno.busy</condition>
+     	<condition>is.zeno.request === ""</condition>
+     	<condition>is.zeno.behaviour === ""</condition>
         <condition><![CDATA[is.behaviourplanner.time - is.behaviourplanner.killLingeringBehaviourTimer > 300000]]></condition>
       </preconditions>
       <effects>
