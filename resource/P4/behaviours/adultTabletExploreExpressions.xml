@@ -14,8 +14,8 @@
             
             {"id":"exploreHappy","value":"Explore happy $happy_variant$"},
             {"id":"exploreSad","value":"Explore sad $sad_variant$"},
-            {"id":"exploreAnger","value":"Explore anger $anger_variant$"},
-            {"id":"exploreFear","value":"Explore fear $fear_variant$"},
+            {"id":"exploreAnger","value":"Explore angry $anger_variant$"},
+            {"id":"exploreFear","value":"Explore scared $fear_variant$"},
             
 			{"id":"", "value":"blankSpace"},
 			
