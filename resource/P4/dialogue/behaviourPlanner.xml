@@ -146,6 +146,7 @@ Format of a request:
             </arguments>
           </behaviour>
           <assign is="is.behaviourplanner.killLingeringBehaviourTimer">is.behaviourplanner.time</assign>
+          <assign is="is.logger.latestLogLine">logInfo("Sending composition REPLACE signal to ASAP - 1")</assign>
       </effects>
     </template>
     
@@ -164,6 +165,7 @@ Format of a request:
             </arguments>
           </behaviour>
           <assign is="is.behaviourplanner.killLingeringBehaviourTimer">is.behaviourplanner.time</assign>
+          <assign is="is.logger.latestLogLine">logInfo("Sending composition REPLACE signal to ASAP - 2")</assign>
       </effects>
     </template>
 
