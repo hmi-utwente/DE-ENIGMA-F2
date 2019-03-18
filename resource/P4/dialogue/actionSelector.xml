@@ -132,19 +132,19 @@
     "endGame": {
         "V1": {
             "audio": "endGameV1",
-            "audioDuration": 1.5
+            "audioDuration": 4
         },
         "V2": {
             "audio": "endGameV2",
-            "audioDuration": 2
+            "audioDuration": 4.5
         },
         "V3": {
             "audio": "endGameV3",
-            "audioDuration": 1.5
+            "audioDuration": 4
         },
         "V4": {
             "audio": "endGameV4",
-            "audioDuration": 2.5
+            "audioDuration": 5
         }
     },
     "exclamation": {
