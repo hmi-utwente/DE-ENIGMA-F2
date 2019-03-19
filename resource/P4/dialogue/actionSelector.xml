@@ -1155,19 +1155,19 @@
     "startGames": {
         "V1": {
             "audio": "startGamesV1",
-            "audioDuration": 3
+            "audioDuration": 5
         },
         "V2": {
             "audio": "startGamesV2",
-            "audioDuration": 3.5
+            "audioDuration": 5.5
         },
         "V3": {
             "audio": "startGamesV3",
-            "audioDuration": 2.5
+            "audioDuration": 4.5
         },
         "V4": {
             "audio": "startGamesV4",
-            "audioDuration": 2
+            "audioDuration": 4
         }
     },
     "thanks": {
