@@ -24,14 +24,14 @@
     </Loader-->
     
     <Loader id="middlewareembodiment" loader="asap.middlewareengine.embodiment.MiddlewareEmbodiment" requiredloaders="">
-        <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader">
+        <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
             <MiddlewareProperty name="default" value="true"/>
-            <MiddlewareProperty name="subscriber" value="/dummy_in"/>
-            <MiddlewareProperty name="publisher" value="/adult_tablet_command"/>
+            <MiddlewareProperty name="iTopic" value="/topic/dummy"/>
+            <MiddlewareProperty name="oTopic" value="/topic/adult_tablet.command"/>
         </MiddlewareOptions>
-        <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader">
-            <MiddlewareProperty name="subscriber" value="/dummy_in"/>
-            <MiddlewareProperty name="publisher" value="/child_tablet_command"/>
+        <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
+            <MiddlewareProperty name="iTopic" value="/topic/dummy"/>
+            <MiddlewareProperty name="oTopic" value="/topic/child_tablet.command"/>
         </MiddlewareOptions>
     </Loader>
 

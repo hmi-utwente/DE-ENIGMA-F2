@@ -188,6 +188,7 @@ Format of a request:
           <assign is="is.behaviourplanner.prevTime">is.behaviourplanner.time</assign>
           <assign is="is.behaviourplanner.fps">is.behaviourplanner.cts/10</assign>
           <assign is="is.behaviourplanner.cts">0</assign>
+          <assign is="is.behaviourplanner.logline">log("fps: "+is.behaviourplanner.fps)</assign>
       </effects>
     </template>
     
