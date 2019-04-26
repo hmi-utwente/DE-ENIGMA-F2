@@ -10,9 +10,9 @@
 	    <SchedulingHandler class="asap.realizer.scheduler.BMLASchedulingHandler" schedulingStrategy="asap.realizer.scheduler.SortedSmartBodySchedulingStrategy"/>
 	  </BMLScheduler>
 	  <PipeLoader id="pipe" loader="asap.middlewareadapters.loader.MiddlewareToBMLRealizerAdapterLoader">
-		  <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader">
-            <MiddlewareProperty name="subscriber" value="/asap_bml_request"/>
-            <MiddlewareProperty name="publisher" value="/asap_bml_feedback"/>
+		  <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
+            <MiddlewareProperty name="iTopic" value="/topic/ASAPBmlRequest"/>
+            <MiddlewareProperty name="oTopic" value="/topic/ASAPBmlFeedback"/>
           </MiddlewareOptions>
 	  </PipeLoader>
 	</Loader>
@@ -41,9 +41,9 @@
     </Loader>
 
     <Loader id="zenoembodiment" loader="asap.zeno.embodiment.ZenoEmbodiment" requiredloaders="">
-		  <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.ros.ROSMiddlewareLoader">
-            <MiddlewareProperty name="subscriber" value="/asap_zeno_engine_feedback"/>
-            <MiddlewareProperty name="publisher" value="/asap_zeno_engine_action"/>
+		  <MiddlewareOptions loaderclass="nl.utwente.hmi.middleware.stomp.STOMPMiddlewareLoader">
+            <MiddlewareProperty name="iTopic" value="/topic/ASAPZenoEngineFeedback"/>
+            <MiddlewareProperty name="oTopic" value="/topic/ASAPZenoEngineAction"/>
           </MiddlewareOptions>
     </Loader>
   
