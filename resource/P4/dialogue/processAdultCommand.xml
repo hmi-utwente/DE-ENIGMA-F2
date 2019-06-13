@@ -208,6 +208,16 @@
     	</effects>
     </template>
     
+    <template id="wozBlink" name="wozBlink">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "blinkstuff"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.reasoning.reasoningEvent.suggestion">"praise"</assign>
+    		<assign is="is.tablet.adult.command">"none"</assign>
+    	</effects>
+    </template>
+    
     <template id="ToggleCondition" name="ToggleCondition">
     	<preconditions mode="and">
     		<condition>is.tablet.adult.command === "toggle_condition"</condition>

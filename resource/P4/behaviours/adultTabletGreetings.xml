@@ -12,14 +12,14 @@
             
 			{"id":"", "value":"blankSpace"},
 			
-            {"id":"attention","value":"Attention"},
-            {"id":"torsoMovement","value":"Torso movement"},
-            {"id":"dance","value":"Dance"},
-            {"id":"song","value":"Song"},
-            {"id":"happy","value":"Happy face"},
-            {"id":"sad","value":"Sad face"},
-            {"id":"anger","value":"Angry face"},
-            {"id":"fear","value":"Scared face"},
+            {"id":"attention","value":"Attention"$blink_attention$},
+            {"id":"torsoMovement","value":"Torso movement"$blink_torsoMovement$},
+            {"id":"dance","value":"Dance"$blink_dance$},
+            {"id":"song","value":"Song"$blink_song$},
+            {"id":"happy","value":"Happy face"$blink_happy$},
+            {"id":"sad","value":"Sad face"$blink_sad$},
+            {"id":"anger","value":"Angry face"$blink_anger$},
+            {"id":"fear","value":"Scared face"$blink_fear$},
             
 			{"id":"", "value":"blankSpace"},
 			

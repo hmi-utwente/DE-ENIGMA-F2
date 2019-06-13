@@ -8,7 +8,64 @@
 			"showingPersistentMenu" : "persistentButtons",
 			"responsiveButtonState" : "none",
 			"prevZenoBusy" : false,
-			"lastShownTime" : 0
+			"lastShownTime" : 0,
+			"blinkRequest" : "",
+			"blinks":{
+				"praise":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":8000,
+					"remainingDuration":0
+				},
+				"attention":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"torsoMovement":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"dance":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"song":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"happy":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"sad":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"anger":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"fear":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				}
+			}
 		}
 	</is>
 	
@@ -19,6 +76,45 @@
 			var behaviour = createAdultMenu("Main");
 			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode}]);
 			return behaviour;
+		}
+		
+		function blinkRequest(blinks, blinkRequest){
+			if(blinks.hasOwnProperty(blinkRequest)){
+				blinks[blinkRequest].isBlinking = true;
+				blinks[blinkRequest].startTime = is.behaviourplanner.time;
+				blinks[blinkRequest].remainingDuration = blinks[blinkRequest].totalDuration;
+			}
+			return blinks;
+		}
+		
+		function updateBlinkingStatus(blinks){
+			for(var b in blinks){
+				if(blinks[b].isBlinking){
+					if(blinks[b].startTime + blinks[b].totalDuration < is.behaviourplanner.time){
+						blinks[b].isBlinking = false;
+						blinks[b].remainingDuration = 0;
+					} else {
+						blinks[b].remainingDuration = blinks[b].totalDuration - (is.behaviourplanner.time - blinks[b].startTime);
+					} 
+				}
+			}
+			return blinks;
+		}
+		
+		function makeBlinkingPlaceholders(){
+			var placeholders = [];
+			for(b in is.adult.blinks){
+				if(is.adult.blinks[b].isBlinking){
+					var ph = {};
+					ph["blink_"+b] = ",\"blink\":{\"blinkDuration\":250,\"totalDuration\":"+is.adult.blinks[b].remainingDuration+",\"colors\":[\"#ffe175\",\"#ff757e\"]}";
+					placeholders = placeholders.concat([ph]);
+				} else {
+					var ph = {};
+					ph["blink_"+b] = "";
+					placeholders = placeholders.concat([ph]);
+				}
+			}
+			return placeholders;
 		}
 		
 		function createPersistentMenu(){
@@ -32,7 +128,8 @@
 				btnColor = "#ffbb00"; //a shade of orange
 			}
 			
-			behaviour.placeholders = [{"responsive_button_color":btnColor}];
+			behaviour.placeholders = makeBlinkingPlaceholders();
+			behaviour.placeholders = behaviour.placeholders.concat([{"responsive_button_color":btnColor}]);
 			
 			return behaviour;
 		}
@@ -61,7 +158,8 @@
 				trialInfo = "Trial: "+(parseInt(is.childProcessor.promptExpressions.trials))+" of "+parseInt(is.childProcessor.promptExpressions.maxTrials) + " - Repeats: "+is.childProcessor.promptExpressions.repeats+" of "+is.childProcessor.promptExpressions.maxRepeats;
 			}
 			
-			behaviour.placeholders = [{"behaviour_info":behaviourInfo},{"trial_info":trialInfo}];
+			behaviour.placeholders = makeBlinkingPlaceholders();
+			behaviour.placeholders = behaviour.placeholders.concat([{"behaviour_info":behaviourInfo},{"trial_info":trialInfo}]);
 			
 			return behaviour;
 		}
@@ -110,6 +208,26 @@
 		</effects>
 	</template>
     
+	<template id="blinkRequest" name="blinkRequest">
+		<preconditions mode="and">
+			<condition>is.adult.blinkRequest !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.blinks">blinkRequest(is.adult.blinks, is.adult.blinkRequest)</assign>
+			<assign is="is.adult.menuRefresh">true</assign>
+			<assign is="is.adult.blinkRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="updateBlinkStatus" name="updateBlinkStatus">
+		<preconditions mode="and">
+			<condition>true</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.blinks">updateBlinkingStatus(is.adult.blinks)</assign>
+		</effects>
+	</template>
+	
 	<template id="ShowAdultMainMenu" name="ShowAdultMainMenu">
 		<preconditions mode="and">
 			<condition>is.adult.menuRequest === "Main"</condition>
