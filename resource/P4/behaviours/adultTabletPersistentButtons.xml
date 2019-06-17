@@ -4,13 +4,14 @@
             {"id":"yes","value":"Yes"},
             {"id":"no","value":"No"},
             {"id":"uncertain","value":"Uncertain"},
-            {"id":"praise","value":"Praise"},
+            {"id":"praise","value":"Praise"$blink_praise$},
             {"id":"thanks","value":"Thanks"},
             {"id":"exclamation","value":"Exclamation"},
             {"id":"time","value":"Time"},
             {"id":"nextAction","value":"Next action?"},
             {"id":"responsiveEvent","value":"Responsive event","color":"$responsive_button_color$"},
             {"id":"reset","value":"Reset"},
+            {"id":"blinkstuff","value":"Blink!!"},
             {"id":"stressEvent","value":"!!STOP!!","color":"red"}
         ]}}
 </mwe:sendJsonMessage>

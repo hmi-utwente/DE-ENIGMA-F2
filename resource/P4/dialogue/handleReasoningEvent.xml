@@ -1,0 +1,70 @@
+<behaviourtemplates>
+
+	<is name="reasoning">
+		{	
+			"initialised" : false,
+			"rawReasoningEvent" : {
+				"suggestion" : ""
+			},
+			"reasoningEvent" : {
+				"suggestion":""
+			}
+		}
+	</is>
+	
+	<javascript>
+		<![CDATA[
+			function parseReasoningEvent(event){
+				if(event.hasOwnProperty("suggestion")){
+					return event;
+				}
+			}
+		]]>
+    </javascript>
+    
+    <template id="InitReasoningListeners" name="InitReasoningListeners">
+      	<preconditions>
+      		<condition>is.reasoning.initialised === false</condition>
+      	</preconditions>
+      	<effects>
+      		<method name="isConnected">
+				<object persistent="reasoning" class="flipper.FlipperMiddleware">
+					<constructors>
+						<value class="String" constant="P4/config/ReasoningNode.properties" />
+					</constructors>
+				</object>
+				<arguments></arguments>
+			</method>
+
+      		<assign is="is.reasoning.initialised">true</assign>
+      	</effects>
+      </template>
+      
+      <template id="ReceiveReasoningEvent" name="ReceiveReasoningEvent">
+		<preconditions mode="and">
+      		<condition>is.reasoning.initialised === true</condition>
+			<method name="hasMessage">
+				<object persistent="reasoning" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+		</preconditions>
+		<effects>
+			<method is="is.reasoning.rawReasoningEvent" is_type="JSONString" name="getMessage">
+				<object persistent="reasoning" class="flipper.FlipperMiddleware"></object>
+				<arguments></arguments>
+			</method>
+			<assign is="is.reasoning.reasoningEvent">parseReasoningEvent(is.reasoning.rawReasoningEvent)</assign>
+		</effects>
+	</template>
+	
+	
+      <template id="ProcessSuggestion" name="ProcessSuggestion">
+		<preconditions mode="and">
+      		<condition>is.reasoning.reasoningEvent.suggestion !== ""</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.blinkRequest">is.reasoning.reasoningEvent.suggestion</assign>
+			<assign is="is.reasoning.reasoningEvent.suggestion">""</assign>
+		</effects>
+	</template>
+</behaviourtemplates>
