@@ -145,6 +145,7 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "PromptFeatures"</condition>
     		<condition>!is.zeno.busy</condition>
+    		<condition>!is.adult.blinks.praise.isBlinking</condition>
     		<condition>is.childProcessor.promptFeatures.loadNextTrial</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.childProcessor.promptFeatures.trialStartTime > 1000]]></condition>
     		<condition><![CDATA[is.childProcessor.promptFeatures.trials < is.childProcessor.promptFeatures.maxTrials]]></condition>
@@ -291,6 +292,7 @@
     	<preconditions mode="and">
     		<condition>is.child.showingMenu === "Prompt" || is.child.showingMenu === "PromptExpressions" || is.child.showingMenu === "PromptExpressionsCorrect"</condition>
     		<condition>!is.zeno.busy</condition>
+    		<condition>!is.adult.blinks.praise.isBlinking</condition>
     		<condition>is.childProcessor.promptExpressions.loadNextTrial</condition>
     		<condition><![CDATA[is.behaviourplanner.time - is.childProcessor.promptExpressions.trialStartTime > 1000]]></condition>
     		<condition><![CDATA[is.childProcessor.promptExpressions.trials < is.childProcessor.promptExpressions.maxTrials]]></condition>

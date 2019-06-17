@@ -14,7 +14,7 @@
 				"praise":{
 					"isBlinking":false,
 					"startTime":0,
-					"totalDuration":8000,
+					"totalDuration":4000,
 					"remainingDuration":0
 				},
 				"attention":{
@@ -106,7 +106,7 @@
 			for(b in is.adult.blinks){
 				if(is.adult.blinks[b].isBlinking){
 					var ph = {};
-					ph["blink_"+b] = ",\"blink\":{\"blinkDuration\":250,\"totalDuration\":"+is.adult.blinks[b].remainingDuration+",\"colors\":[\"#ffe175\",\"#ff757e\"]}";
+					ph["blink_"+b] = ",\"blink\":{\"blinkDuration\":250,\"totalDuration\":"+is.adult.blinks[b].remainingDuration+",\"colors\":[\"#00a810\",\"#00d614\",\"#00ff17\",\"#00d614\"]}";
 					placeholders = placeholders.concat([ph]);
 				} else {
 					var ph = {};
@@ -208,9 +208,23 @@
 		</effects>
 	</template>
     
-	<template id="blinkRequest" name="blinkRequest">
+	<template id="blinkRequestIdle" name="blinkRequestIdle">
 		<preconditions mode="and">
 			<condition>is.adult.blinkRequest !== ""</condition>
+			<condition>!is.zeno.busy</condition>
+		</preconditions>
+		<effects>
+			<assign is="is.adult.blinks">blinkRequest(is.adult.blinks, is.adult.blinkRequest)</assign>
+			<assign is="is.adult.menuRefresh">true</assign>
+			<assign is="is.adult.blinkRequest">""</assign>
+		</effects>
+	</template>
+	
+	<template id="blinkRequestBusy" name="blinkRequestBusy">
+		<preconditions mode="and">
+			<condition>is.adult.blinkRequest !== ""</condition>
+			<condition>is.zeno.busy</condition>
+			<condition><![CDATA[is.behaviourplanner.time > is.zeno.behaviour.startTime + is.zeno.behaviour.duration*1000 - 1000]]></condition>
 		</preconditions>
 		<effects>
 			<assign is="is.adult.blinks">blinkRequest(is.adult.blinks, is.adult.blinkRequest)</assign>
