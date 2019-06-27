@@ -1,0 +1,20 @@
+<mwe:sendJsonMessage id="d" start="0">
+    { "showButtons" : {
+        "text":"Reasoning node training menu" ,
+        "buttons" : [
+			{"id":"textOnly", "value":"$behaviour_info$"},
+			
+            {"id":"showmenu_Main","value":"BACK to main menu"},
+            
+			{"id":"", "value":"blankSpace"},
+            {"id":"praise","value":"Praise"$blink_praise$},
+            {"id":"attention","value":"Attention"$blink_attention$},
+            {"id":"torsoMovement","value":"Torso movement"$blink_torsoMovement$},
+            {"id":"dance","value":"Dance"$blink_dance$},
+            {"id":"song","value":"Song"$blink_song$},
+            {"id":"respondToChildPresence","value":"Where are you"$blink_respondToChildPresence$},
+            {"id":"respondToLaughing","value":"Sounds like laughing"$blink_respondToLaughing$},
+            {"id":"respondToSittingDown","value":"Good sitting"$blink_respondToSittingDown$}
+            
+        ]}}
+</mwe:sendJsonMessage>

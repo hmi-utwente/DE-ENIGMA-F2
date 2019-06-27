@@ -10,8 +10,10 @@
             {"id":"time","value":"Time"},
             {"id":"nextAction","value":"Next action?"},
             {"id":"responsiveEvent","value":"Responsive event","color":"$responsive_button_color$"},
+            {"id":"attention","value":"Attention"$blink_attention$},
+            {"id":"dance","value":"Dance"$blink_dance$},
+            {"id":"song","value":"Song"$blink_song$},
             {"id":"reset","value":"Reset"},
-            {"id":"blinkstuff","value":"Blink!!"},
             {"id":"stressEvent","value":"!!STOP!!","color":"red"}
         ]}}
 </mwe:sendJsonMessage>

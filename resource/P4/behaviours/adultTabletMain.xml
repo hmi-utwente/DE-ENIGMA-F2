@@ -20,15 +20,15 @@
             {"id":"showmenu_Goodbye","value":"Goodbye"},
             
 			{"id":"", "value":"blankSpace"},
-			{"id":"", "value":"blankSpace"},
+            
+            {"id":"showmenu_ReasoningTraining","value":"Reasoning node training"},
+            
 			{"id":"", "value":"blankSpace"},
 			
             {"id":"showmenu_CheckConnections","value":"Check tablet connections"},
             
 			{"id":"", "value":"blankSpace"},
-			{"id":"", "value":"blankSpace"},
-			{"id":"", "value":"blankSpace"},
 			
-            {"id":"toggle_condition","value":"Condition: $condition$ (press to toggle)"}
+            {"id":"toggle_condition","value":"Press to toggle condition: $condition$"}
         ]}}
 </mwe:sendJsonMessage>
