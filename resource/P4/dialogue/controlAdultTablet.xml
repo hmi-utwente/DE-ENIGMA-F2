@@ -64,6 +64,24 @@
 					"startTime":0,
 					"totalDuration":4000,
 					"remainingDuration":0
+				},
+				"respondToChildPresence":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"respondToLaughing":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
+				},
+				"respondToSittingDown":{
+					"isBlinking":false,
+					"startTime":0,
+					"totalDuration":4000,
+					"remainingDuration":0
 				}
 			}
 		}
@@ -99,6 +117,15 @@
 				}
 			}
 			return blinks;
+		}
+		
+		function isAnythingBlinking(){
+			for(var b in is.adult.blinks){
+				if(is.adult.blinks[b].isBlinking){
+					return true;
+				}
+			}
+			return false;
 		}
 		
 		function makeBlinkingPlaceholders(){

@@ -213,7 +213,7 @@
     		<condition>is.tablet.adult.command === "blinkstuff"</condition>
     	</preconditions>
     	<effects>
-    		<assign is="is.reasoning.reasoningEvent.suggestion">"praise"</assign>
+    		<assign is="is.reasoning.reasoningEvent.suggestion">"attention"</assign>
     		<assign is="is.tablet.adult.command">"none"</assign>
     	</effects>
     </template>

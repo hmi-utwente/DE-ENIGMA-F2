@@ -6,7 +6,6 @@
 			
             {"id":"showmenu_Main","value":"BACK to main menu"},
             
-			{"id":"", "value":"blankSpace"},
 			
             {"id":"start_PromptExpressions","value":"Start activity"},
             
@@ -24,7 +23,6 @@
             {"id":"prompt_fear_1d","value":"Scared (1 distractor)"},
             {"id":"prompt_fear_3d","value":"Scared (3 distractors)"},
             
-			{"id":"", "value":"blankSpace"},
 			
             {"id":"end_PromptExpressions","value":"End activity"}
         ]}}
