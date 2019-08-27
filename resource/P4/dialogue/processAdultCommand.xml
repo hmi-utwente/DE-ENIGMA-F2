@@ -229,6 +229,17 @@
     	</effects>
     </template>
     
+    <template id="ToggleLanguage" name="ToggleLanguage">
+    	<preconditions mode="and">
+    		<condition>is.tablet.adult.command === "toggle_language"</condition>
+    	</preconditions>
+    	<effects>
+    		<assign is="is.zeno.language">toggleLanguage()</assign>
+    		<assign is="is.adult.menuRequest">"Main"</assign>
+    		<assign is="is.tablet.adult.command">""</assign>
+    	</effects>
+    </template>
+    
    	<!-- This one takes care of switching menus based on the adult tablet's button presses -->
     <template id="AdultMenu" name="AdultMenu">
     	<preconditions mode="and">
