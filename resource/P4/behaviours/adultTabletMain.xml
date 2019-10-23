@@ -20,10 +20,6 @@
             {"id":"showmenu_Goodbye","value":"Goodbye"},
             
 			{"id":"", "value":"blankSpace"},
-            
-            {"id":"showmenu_ReasoningTraining","value":"Reasoning node training"},
-            
-			{"id":"", "value":"blankSpace"},
 			
             {"id":"showmenu_CheckConnections","value":"Check tablet connections"},
             
