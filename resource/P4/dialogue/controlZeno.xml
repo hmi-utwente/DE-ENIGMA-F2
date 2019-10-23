@@ -6,6 +6,7 @@
 			"mirroring" : false,
 			"request" : "",
 			"requestNewRandomVariant" : true,
+			"language" : "EN",
 			"behaviour" : "",
 			"prevRequest" : ""
 		}
@@ -29,6 +30,14 @@
 			        n = (n * -1).toFixed(2);
 			    }
 			    return +n;
+			}
+			
+			function toggleLanguage(){
+				if(is.zeno.language === "EN"){
+					return "SR";
+				} else {
+					return "EN";
+				}
 			}
 			
 			var zenoBehaviourRequests = [];
@@ -91,9 +100,9 @@
 				behaviour.duration = roundTo(audioDuration+animationDuration+delay, 2);
 				behaviour.template = filename;
 				if(action.hasOwnProperty("reverseOrder") && action.reverseOrder){					
-					behaviour.placeholders = [{"animate1":animation},{"animate1_delay":delay},{"speak1":audio},{"speak1_delay":animationDuration+delay}];
+					behaviour.placeholders = [{"language":is.zeno.language},{"animate1":animation},{"animate1_delay":delay},{"speak1":audio},{"speak1_delay":animationDuration+delay}];
 				} else {
-					behaviour.placeholders = [{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
+					behaviour.placeholders = [{"language":is.zeno.language},{"animate1":animation},{"animate1_delay":audioDuration+delay},{"speak1":audio},{"speak1_delay":delay}];
 				}
 				return behaviour;
 			}

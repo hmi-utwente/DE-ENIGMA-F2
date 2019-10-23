@@ -92,7 +92,7 @@
 		
 		function createMainMenu(){
 			var behaviour = createAdultMenu("Main");
-			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode}]);
+			behaviour.placeholders = behaviour.placeholders.concat([{"condition":is.behaviourplanner.behaviourMode},{"language":is.zeno.language}]);
 			return behaviour;
 		}
 		
